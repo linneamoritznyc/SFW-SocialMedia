@@ -1,0 +1,37 @@
+/* ==========================================================================
+   Motion, shared. 1080 x 1920. Screen-record at 30fps.
+
+   RULES HELD HERE, from the brief:
+   - No gradients. No glows. No soft shadows. The brand has ONE shadow value
+     and these pieces mostly do not use it. Scrims are flat blocks at a fixed
+     opacity, with a hard edge, because a gradient is the template tell.
+   - Nothing is centred unless centring is the point. Numbers sit low and
+     left. Photographs bleed past the frame edge.
+   - One typeface carries each piece. Montserrat for a headline piece,
+     Source Sans for a body piece, EB Garamond ONLY where there is a quote.
+   - Timings are staggered and at least one element lands late, off the
+     grid of the others.
+   - Everything loops inside 8 seconds.
+   ========================================================================== */
+@import url("../variants/_tokens.css");
+
+.stage{width:1080px;height:1920px;position:relative;overflow:hidden;
+  background:var(--moss);font-family:var(--sans)}
+html,body{background:#111;margin:0;padding:0}
+body{display:block}
+
+/* The app interface zones. Screen-record with these visible only to check
+   the layout, then delete the element before the take. */
+.zone{position:absolute;left:0;right:0;height:250px;border-bottom:1px dashed rgba(255,255,255,.18);z-index:90}
+.zone.b{top:auto;bottom:0;height:280px;border-bottom:0;border-top:1px dashed rgba(255,255,255,.18)}
+.zone em{position:absolute;right:22px;bottom:8px;font-style:normal;font-size:18px;color:rgba(255,255,255,.25)}
+.zone.b em{bottom:auto;top:8px}
+
+/* A counter that actually counts. Chromium only, which is where you record. */
+@property --n { syntax:'<integer>'; initial-value:0; inherits:false; }
+
+/* Reusable entrances. Deliberately not all the same easing. */
+@keyframes rise{from{opacity:0;transform:translateY(38px)}to{opacity:1;transform:none}}
+@keyframes riseLate{from{opacity:0;transform:translateY(54px)}to{opacity:1;transform:none}}
+@keyframes wipeR{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes hold{from{opacity:1}to{opacity:1}}

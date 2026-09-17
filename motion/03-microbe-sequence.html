@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Motion 03, favourite microbe sequence</title><link rel="stylesheet" href="_motion.css">
+<!-- PRIORITY 3. 1080x1920. 7.5 second loop, five cards at 1.5s each.
+     Uses ONLY our own microscopy cut-outs. Five of the ten people have an
+     image we actually hold; the other five are listed in the draft as images
+     to collect. This sequence runs the five we can show.
+     Source Sans carries it. Specimens are off-centre and rotated, none the
+     same size, because they were photographed at different times by
+     different people and the sequence should look like that. -->
+<style>
+ .stage{background:var(--panel-green)}
+ .card{position:absolute;inset:0;opacity:0}
+ /* Bound by class, not nth-child: the eyebrow and the two zone divs are
+    siblings too, so nth-child counted them and nothing ever matched. */
+ .c1{animation:card 7.5s 0s infinite}
+ .c2{animation:card 7.5s 1.5s infinite}
+ .c3{animation:card 7.5s 3s infinite}
+ .c4{animation:card 7.5s 4.5s infinite}
+ .c5{animation:card 7.5s 6s infinite}
+ @keyframes card{0%{opacity:0}2%{opacity:1}19%{opacity:1}20%{opacity:0}100%{opacity:0}}
+
+ .spec{position:absolute}
+ .c1 .spec{top:400px;left:-90px;width:760px;transform:rotate(-7deg)}
+ .c2 .spec{top:470px;left:230px;width:700px;transform:rotate(11deg)}
+ .c3 .spec{top:380px;left:60px;width:880px;transform:rotate(-3deg)}
+ .c4 .spec{top:520px;left:180px;width:640px;transform:rotate(15deg)}
+ .c5 .spec{top:430px;left:-40px;width:820px;transform:rotate(5deg)}
+ .spec img{width:100%;display:block}
+
+ .block{position:absolute;left:0;bottom:300px;background:var(--moss);padding:30px 48px 34px 78px}
+ .c2 .block,.c4 .block{background:var(--green)}
+ .nm{font-family:var(--display);font-weight:700;font-size:70px;line-height:1;color:#fff;letter-spacing:-.025em}
+ .mb{font-family:var(--display);font-weight:700;font-size:32px;letter-spacing:.14em;
+   text-transform:uppercase;color:var(--glow);margin-top:12px}
+ .ln{font-family:var(--sans);font-size:36px;line-height:1.3;color:rgba(255,255,255,.9);
+   margin-top:16px;max-width:24ch}
+ .k{position:absolute;top:290px;left:78px;font-family:var(--display);font-weight:700;font-size:30px;
+   letter-spacing:.2em;text-transform:uppercase;color:var(--green);z-index:9}
+</style></head><body><div class="stage">
+ <p class="k">Favourite microbe</p>
+ <div class="zone"><em>interface</em></div><div class="zone b"><em>interface</em></div>
+
+ <div class="card c1"><div class="spec"><img src="../assets/microscopy/cutout-1.png" alt=""></div>
+  <div class="block"><p class="nm">Wes Sander</p><p class="mb">Testate amoeba</p>
+   <p class="ln">Big, easy to spot, and you can see what it has eaten inside it.</p></div></div>
+
+ <div class="card c2"><div class="spec"><img src="../assets/microscopy/cutout-2.png" alt=""></div>
+  <div class="block"><p class="nm">Carla Portugal</p><p class="mb">Amoebae</p>
+   <p class="ln">For the diversity in the round. Had to find a new one after someone claimed hers.</p></div></div>
+
+ <div class="card c3"><div class="spec"><img src="../assets/microscopy/cutout-3.png" alt=""></div>
+  <div class="block"><p class="nm">Ayşen Ustunay</p><p class="mb">Flagellates</p>
+   <p class="ln">Loves seeing them as babies, running around. The first organisms to start the web.</p></div></div>
+
+ <div class="card c4"><div class="spec"><img src="../assets/microscopy/cutout-6.png" alt=""></div>
+  <div class="block"><p class="nm">Brian Daubenspeck</p><p class="mb">The underdogs</p>
+   <p class="ln">The small ones. Partly because a lot of them also live in humans.</p></div></div>
+
+ <div class="card c5"><div class="spec"><img src="../assets/microscopy/cutout-5.png" alt=""></div>
+  <div class="block"><p class="nm">Casey Williams</p><p class="mb">Rotifers</p>
+   <p class="ln">Remembered late, and posted it in the chat after his turn.</p></div></div>
+</div></body></html>

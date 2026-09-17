@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Motion 04, India countdown</title><link rel="stylesheet" href="_motion.css">
+<!-- PRIORITY 4. 1080x1920. 7.2 second loop. Montserrat carries it.
+
+     THE IMAGE SLOT IS EMPTY, ON PURPOSE.
+     It held a Mexican agroforestry photograph from our library. By the rule in
+     the brief, an image that could belong to any organisation gets cut, and a
+     Mexican field standing in for Tamil Nadu is worse than that: it is wrong.
+     We hold no photograph taken anywhere in Asia.
+
+     WHAT TO SHOOT, and Evan, Kavi, Loide and Gerald are all there for the month:
+       - A wide of the Save Soil Farm ground, morning, before anyone arrives
+       - The same frame again on the last day
+       - One vertical of the row crop, shot at 9:16 rather than cropped to it
+     Any of the three fills this slot. The first two also start the
+     before-and-after pair the library has none of. -->
+<style>
+ .stage{background:var(--moss)}
+ .shot{position:absolute;top:0;left:0;right:-120px;height:940px;overflow:hidden}
+ .shot{background:var(--scope);border-bottom:4px dashed var(--living)}
+ .empty{position:absolute;inset:270px 150px 100px 78px;border:4px dashed var(--living);
+   display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:18px}
+ .empty b{font-family:var(--display);font-weight:700;font-size:44px;color:#fff;letter-spacing:.06em}
+ .empty span{font-family:var(--sans);font-size:32px;line-height:1.4;color:var(--living)}
+ .cut{position:absolute;top:880px;left:0;right:0;height:120px;background:var(--moss);
+   clip-path:polygon(0 42%,100% 0,100% 100%,0 100%)}
+
+ .k{position:absolute;top:1000px;left:70px;font-family:var(--display);font-weight:700;font-size:30px;
+   letter-spacing:.2em;text-transform:uppercase;color:var(--glow);z-index:5;
+   opacity:0;animation:rise .45s ease-out .2s forwards}
+
+ /* Number low and left, running past the frame edge. */
+ .n{position:absolute;left:70px;top:1050px;font-family:var(--display);font-weight:700;
+   font-size:296px;line-height:.8;color:var(--glow);letter-spacing:-.05em;z-index:5;
+   counter-reset:n var(--n);opacity:0;
+   animation:rise .5s cubic-bezier(.2,.8,.3,1) .8s forwards, cd 2.4s steps(9) 1s forwards}
+ .n::after{content:counter(n)}
+ @keyframes cd{from{--n:9}to{--n:1}}
+ .days{position:absolute;left:560px;top:1170px;font-family:var(--display);font-weight:700;
+   font-size:60px;line-height:1.02;color:#fff;z-index:5;max-width:9ch;
+   opacity:0;animation:riseLate .6s cubic-bezier(.16,.95,.3,1) 3.6s forwards}
+ .where{position:absolute;left:78px;top:1400px;right:180px;z-index:5;opacity:0;
+   animation:rise .5s ease-out 4.6s forwards}
+ .where p{font-family:var(--sans);font-size:38px;line-height:1.3;color:rgba(255,255,255,.92)}
+ .where b{display:block;font-family:var(--display);font-weight:700;font-size:44px;color:var(--glow);
+   margin-bottom:12px}
+ .ask{position:absolute;left:78px;bottom:300px;font-family:var(--display);font-weight:700;
+   font-size:36px;color:#fff;z-index:5;opacity:0;animation:rise .45s ease-out 5.9s forwards}
+ .stage{animation:loop 7.2s infinite}
+ @keyframes loop{0%,93%{opacity:1}98%,100%{opacity:0}}
+</style></head><body><div class="stage">
+ <div class="shot"><div class="empty"><b>[ PHOTOGRAPH ]</b>
+   <span>Save Soil Farm, shot on location.<br>Nothing from our library goes here.</span></div></div>
+ <div class="cut"></div>
+ <div class="zone"><em>interface</em></div><div class="zone b"><em>interface</em></div>
+ <p class="k">Coimbatore, 19 October</p>
+ <p class="n"></p>
+ <p class="days">days until<br>the workshop</p>
+ <div class="where"><b>Save Soil Farm, Tamil Nadu</b>
+   <p>Two weeks, hands on. Indian residents pay half.</p></div>
+ <p class="ask">Who else is coming?</p>
+</div></body></html>
