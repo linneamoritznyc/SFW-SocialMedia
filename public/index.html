@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Soil Food Web Foundation — social review</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+<style>
+:root{
+  --green:#156826; --moss:#22371F; --glow:#DBE6A7; --living:#A2AE77;
+  --panel:#F4F1EA; --panel-green:#E6EADC; --ink:#333130; --soil:#4F3433;
+  --olive:#5F6A3C; --sage:#A7B097; --gold:#C9A227;
+  --line:#E2DCD1; --faint:#807972;
+  --shadow:0 2px 12px rgba(79,52,51,.10);
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#fff;color:var(--ink);font:16px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--green)}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+
+/* ---------- gate ---------- */
+#gate{position:fixed;inset:0;z-index:100;background:var(--moss);
+  display:flex;align-items:center;justify-content:center;padding:24px}
+#gate .box{width:100%;max-width:380px;text-align:left}
+#gate h1{font-size:25px;line-height:1.2;color:var(--glow);font-weight:700;margin-bottom:8px}
+#gate p{color:rgba(255,255,255,.72);font-size:15px;margin-bottom:26px}
+#gate input{width:100%;padding:14px 16px;border:1px solid rgba(255,255,255,.28);
+  background:rgba(255,255,255,.07);color:#fff;font-size:16px;border-radius:2px}
+#gate input::placeholder{color:rgba(255,255,255,.4)}
+#gate button{width:100%;margin-top:10px;padding:14px;background:var(--glow);
+  color:var(--moss);font-weight:700;border-radius:2px}
+#gate .err{color:#F0B8AE;font-size:14px;margin-top:12px;min-height:20px}
+
+/* ---------- shell ---------- */
+header.top{background:var(--panel);border-bottom:1px solid var(--line);
+  padding:26px 32px 0;position:sticky;top:0;z-index:20}
+header.top h1{font-size:20px;color:var(--moss);letter-spacing:-.01em}
+header.top .sub{font-size:14px;color:var(--faint);margin-top:3px}
+nav{display:flex;gap:26px;margin-top:20px}
+nav button{padding:10px 0 13px;font-size:15px;color:var(--faint);
+  border-bottom:2px solid transparent;margin-bottom:-1px}
+nav button[aria-selected=true]{color:var(--moss);font-weight:600;border-bottom-color:var(--green)}
+main{padding:0 32px 90px;max-width:1500px}
+
+/* ---------- posts ---------- */
+.postnav{display:flex;flex-wrap:wrap;gap:8px;padding:26px 0 4px}
+.chip{border:1px solid var(--line);padding:7px 13px;border-radius:2px;font-size:14px;color:var(--soil)}
+.chip[aria-current=true]{background:var(--moss);border-color:var(--moss);color:#fff}
+.post{display:grid;grid-template-columns:minmax(300px,440px) minmax(320px,1fr);
+  gap:44px;padding:32px 0 60px;align-items:start}
+
+.phone{border:1px solid var(--line);border-radius:3px;background:#fff;
+  box-shadow:var(--shadow);overflow:hidden;position:sticky;top:150px}
+.bar{display:flex;align-items:center;gap:10px;padding:11px 13px;border-bottom:1px solid var(--line)}
+.av{width:32px;height:32px;border-radius:50%;background:var(--moss);color:var(--glow);
+  display:grid;place-items:center;font-size:13px;font-weight:700;flex:none}
+.handle{font-size:14px;font-weight:600;color:var(--ink)}
+.handle span{display:block;font-weight:400;font-size:12px;color:var(--faint)}
+.slides{position:relative;background:var(--panel)}
+.slides img{display:block;width:100%;height:auto}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);width:32px;height:32px;
+  border-radius:50%;background:rgba(255,255,255,.92);color:var(--moss);
+  display:grid;place-items:center;font-size:16px;box-shadow:var(--shadow)}
+.arrow.l{left:10px} .arrow.r{right:10px}
+.arrow[disabled]{opacity:0;pointer-events:none}
+.dots{display:flex;gap:5px;justify-content:center;padding:11px 0 4px}
+.dot{width:6px;height:6px;border-radius:50%;background:#D2CCC2}
+.dot[aria-current=true]{background:var(--green)}
+.slidelabel{text-align:center;font-size:13px;color:var(--faint);padding-bottom:11px}
+.thumbs{display:flex;gap:7px;flex-wrap:wrap;padding:12px 13px 14px;border-top:1px solid var(--line)}
+.thumbs button{border:1px solid var(--line);padding:5px 9px;font-size:12.5px;color:var(--soil);border-radius:2px}
+.thumbs button[aria-current=true]{background:var(--panel-green);border-color:var(--living);color:var(--moss);font-weight:600}
+
+.detail h2{font-size:26px;color:var(--moss);line-height:1.2;letter-spacing:-.01em}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 16px;align-items:center}
+.tag{font-size:12.5px;padding:4px 9px;border-radius:2px;background:var(--panel);
+  color:var(--soil);border:1px solid var(--line)}
+.status{font-size:12.5px;padding:4px 10px;border-radius:2px;color:#fff;font-weight:600}
+.lede{color:var(--soil);margin-bottom:8px}
+.statusnote{background:#FBF6E8;border-left:3px solid var(--gold);padding:11px 14px;
+  font-size:14.5px;color:var(--soil);margin:14px 0 24px}
+.statusnote.blocked{background:#FAF0ED;border-left-color:#8A4B3F}
+
+.captabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+.captabs button{border:1px solid var(--line);padding:7px 12px;font-size:13.5px;
+  color:var(--soil);border-radius:2px}
+.captabs button[aria-selected=true]{background:var(--moss);border-color:var(--moss);color:#fff}
+.rec{font-size:11px;color:var(--green);font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;margin-left:6px}
+.captabs button[aria-selected=true] .rec{color:var(--glow)}
+
+.caption{border:1px solid var(--line);border-radius:2px}
+.caption .body{padding:20px 22px}
+.caption .body p{margin-bottom:13px;font-size:15.5px;line-height:1.62}
+.caption .body p:last-child{margin-bottom:0}
+.caption .hash{padding:14px 22px;border-top:1px solid var(--line);background:var(--panel);
+  display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.hash a{font-size:13.5px;color:var(--green);text-decoration:none}
+.hash .n{font-size:12.5px;color:var(--faint);margin-left:auto}
+.caption .note{padding:12px 22px;border-top:1px solid var(--line);font-size:13.5px;color:var(--faint)}
+.copy{margin-top:10px;border:1px solid var(--line);padding:8px 14px;font-size:13.5px;
+  color:var(--green);border-radius:2px}
+.copy:hover{background:var(--panel)}
+
+h3.sec{font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--olive);
+  margin:32px 0 11px;font-weight:700}
+ul.checks{list-style:none}
+ul.checks li{padding-left:20px;position:relative;font-size:14.5px;color:var(--soil);margin-bottom:8px}
+ul.checks li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;
+  border-radius:50%;background:var(--living)}
+details.email{margin-top:14px;border:1px solid var(--line);border-radius:2px}
+details.email summary{padding:13px 18px;cursor:pointer;font-size:14.5px;color:var(--green);font-weight:600}
+details.email .inner{padding:0 18px 18px}
+details.email p{font-size:14.5px;margin-bottom:11px;color:var(--soil)}
+details.email .why{border-top:1px solid var(--line);padding-top:12px;font-size:13.5px;color:var(--faint)}
+.moregrid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));margin-top:12px}
+.moregrid a{display:block;border:1px solid var(--line)}
+.moregrid img{display:block;width:100%;height:auto}
+
+/* ---------- schedule ---------- */
+.sched{padding:30px 0 60px;max-width:1000px}
+.sched .principle{border:1px solid var(--line);padding:20px 24px;margin-bottom:8px}
+.sched .principle h4{font-size:15.5px;color:var(--moss);margin-bottom:5px}
+.sched .principle p{font-size:14.5px;color:var(--soil)}
+.month{margin-top:38px}
+.month h3{font-size:21px;color:var(--green);margin-bottom:5px}
+.month .mnote{font-size:14px;color:var(--faint);margin-bottom:16px;max-width:76ch}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--faint);padding:0 12px 9px;font-weight:700;border-bottom:1px solid var(--line)}
+td{padding:13px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--soil)}
+td.wk{font-weight:700;color:var(--moss);white-space:nowrap}
+td.nt{font-size:13px;color:var(--faint)}
+td.none{color:#B6AFA6}
+td a{font-weight:600;text-decoration:none;border-bottom:2px solid var(--glow)}
+.unsched{margin-top:40px}
+.unsched td:first-child{font-weight:600;color:var(--moss);white-space:nowrap}
+footer{padding:30px 32px;background:var(--panel);border-top:1px solid var(--line);
+  font-size:14px;color:var(--faint);max-width:none}
+footer b{color:var(--soil)}
+@media(max-width:900px){
+  .post{grid-template-columns:1fr;gap:26px}
+  .phone{position:static;max-width:440px}
+  header.top,main,footer{padding-left:18px;padding-right:18px}
+}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="box">
+    <h1>Soil Food Web Foundation</h1>
+    <p>Draft social posts for review. Enter the password you were sent.</p>
+    <form id="gateform">
+      <input id="pw" type="password" placeholder="Password" autocomplete="current-password" autofocus>
+      <button type="submit">Open</button>
+    </form>
+    <div class="err" id="gateerr"></div>
+  </div>
+</div>
+
+<div id="app" hidden>
+  <header class="top">
+    <h1>Social posts for review</h1>
+    <div class="sub">Seven posts, the artwork, the caption as written, and where each one sits in the quarter.</div>
+    <nav>
+      <button id="tab-posts" aria-selected="true">Posts</button>
+      <button id="tab-sched" aria-selected="false">Schedule</button>
+    </nav>
+  </header>
+  <main>
+    <div id="view-posts">
+      <div class="postnav" id="postnav"></div>
+      <div id="postbody"></div>
+    </div>
+    <div id="view-sched" hidden><div class="sched" id="schedbody"></div></div>
+  </main>
+  <footer>
+    <p><b>Before anything is scheduled:</b> every dashed box on a graphic is a placeholder for an
+    asset or a fact we do not hold yet, every name or face needs written consent first, and none of
+    the copy below is approved. Numbers in the captions trace back to the source named in the post.</p>
+  </footer>
+</div>
+
+<script src="posts.js"></script>
+<script>
+/* ---------- the gate ----------
+   This is a soft gate. It keeps the page from being read by anyone who wanders
+   onto the URL, but the password sits in this file and anyone who opens the
+   source can read it. For a real lock, turn on Password Protection under
+   Vercel project settings, Deployment Protection. */
+const PASSWORD = "Wormhole123";
+const gate = document.getElementById("gate"), app = document.getElementById("app");
+document.getElementById("gateform").onsubmit = e => {
+  e.preventDefault();
+  if (document.getElementById("pw").value === PASSWORD) {
+    try { sessionStorage.setItem("sfw-ok", "1"); } catch (_) {}
+    open_();
+  } else {
+    document.getElementById("gateerr").textContent = "Not that one. Try again.";
+  }
+};
+function open_(){ gate.remove(); app.hidden = false; render(); }
+
+/* ---------- state ---------- */
+let cur = 0, slide = 0, cap = 0;
+
+function render(){
+  document.getElementById("postnav").innerHTML = POSTS.map((p,i) =>
+    `<button class="chip" aria-current="${i===cur}" onclick="go(${i})">${esc(p.title)}</button>`
+  ).join("");
+  document.getElementById("postbody").innerHTML = postHTML(POSTS[cur]);
+  renderSchedule();
+}
+function go(i){ cur = i; slide = 0; cap = 0; render(); window.scrollTo({top:0,behavior:"smooth"}); }
+function setSlide(i){ slide = i; document.getElementById("postbody").innerHTML = postHTML(POSTS[cur]); }
+function setCap(i){ cap = i; document.getElementById("postbody").innerHTML = postHTML(POSTS[cur]); }
+
+function esc(s){ return String(s).replace(/[&<>"]/g, c =>
+  ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+
+function postHTML(p){
+  const [label, colour] = STATUS[p.status];
+  const c = p.captions[Math.min(cap, p.captions.length - 1)];
+  const img = p.images[Math.min(slide, p.images.length - 1)];
+  const many = p.images.length > 1;
+  return `
+  <div class="post">
+    <div class="phone">
+      <div class="bar">
+        <div class="av">SFW</div>
+        <div class="handle">soilfoodwebfoundation<span>${esc(p.platform)} &middot; ${esc(p.format)}</span></div>
+      </div>
+      <div class="slides">
+        <img src="${img.src}" alt="${esc(img.label)}">
+        ${many ? `<button class="arrow l" ${slide===0?"disabled":""} onclick="setSlide(${slide-1})">&#8249;</button>
+                  <button class="arrow r" ${slide===p.images.length-1?"disabled":""} onclick="setSlide(${slide+1})">&#8250;</button>` : ""}
+      </div>
+      ${many ? `<div class="dots">${p.images.map((_,i)=>`<span class="dot" aria-current="${i===slide}"></span>`).join("")}</div>` : ""}
+      <div class="slidelabel">${esc(img.label)}</div>
+      ${many ? `<div class="thumbs">${p.images.map((im,i)=>
+        `<button aria-current="${i===slide}" onclick="setSlide(${i})">${esc(im.label)}</button>`).join("")}</div>` : ""}
+    </div>
+
+    <div class="detail">
+      <h2>${esc(p.title)}</h2>
+      <div class="tags">
+        <span class="status" style="background:${colour}">${esc(label)}</span>
+        <span class="tag">${esc(p.pillar)}</span>
+        <span class="tag">${esc(p.slot)}</span>
+      </div>
+      <p class="lede">${esc(p.intro)}</p>
+      ${p.statusNote ? `<div class="statusnote ${p.status==="blocked"?"blocked":""}">${esc(p.statusNote)}</div>` : ""}
+
+      ${p.imageChoice ? `<h3 class="sec">Pick one image</h3>
+        <p class="lede" style="font-size:14.5px">Six directions for the same story. The buttons under the frame switch between them.</p>` : ""}
+
+      <h3 class="sec">${p.captions.length > 1 ? "Caption options" : "Caption"}</h3>
+      <div class="captabs">${p.captions.map((x,i)=>
+        `<button aria-selected="${i===cap}" onclick="setCap(${i})">${esc(x.name)}${x.recommended?'<span class="rec">rec</span>':""}</button>`).join("")}</div>
+
+      <div class="caption">
+        <div class="body" id="captext">${c.body.map(l=>`<p>${esc(l)}</p>`).join("")}</div>
+        ${c.tags.length ? `<div class="hash">${c.tags.map(t=>`<a href="#">#${esc(t)}</a>`).join("")}
+          <span class="n">${c.tags.length} tags</span></div>` : ""}
+        ${c.note ? `<div class="note">${esc(c.note)}</div>` : ""}
+        ${c.pairs ? `<div class="note">${esc(c.pairs)}</div>` : ""}
+      </div>
+      <button class="copy" onclick="copyCap(${cap})">Copy caption and hashtags</button>
+
+      ${p.checks && p.checks.length ? `<h3 class="sec">Before this runs</h3>
+        <ul class="checks">${p.checks.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+
+      ${p.email ? emailHTML() : ""}
+      ${p.more ? moreHTML(p.more) : ""}
+    </div>
+  </div>`;
+}
+
+function emailHTML(){
+  return `<details class="email"><summary>The consent email, to send before anything is designed</summary>
+    <div class="inner">
+      <p><b>Subject:</b> ${esc(CONSENT_EMAIL.subject)}</p>
+      ${CONSENT_EMAIL.body.map(l=>`<p>${esc(l)}</p>`).join("")}
+      <p class="why"><b>Why it is written this way.</b> ${esc(CONSENT_EMAIL.why)}</p>
+    </div></details>`;
+}
+
+const MORE = ["02-portrait-led","03-data-card","08-before-after","09-statement","10-hook-slide",
+ "11-expected-vs-happened","12-run-your-own","14-season-timeline","15-microscopy-hero",
+ "16-graduate-badge","17-portrait-4x5","18-story-9x16","19-one-number","20-myth","21-big-word",
+ "22-mechanism","23-stat-grid","24-question","25-end-card","26-photo-strip","27-one-thing"];
+
+function moreHTML(m){
+  return `<h3 class="sec">${esc(m.label)}</h3>
+    <div class="moregrid">${MORE.map(n=>
+      `<a href="${m.dir}${n}.png" target="_blank" download><img loading="lazy" src="${m.dir}${n}.png" alt="${esc(n)}"></a>`
+    ).join("")}</div>`;
+}
+
+function copyCap(i){
+  const c = POSTS[cur].captions[i];
+  const text = c.body.join("\n\n") + (c.tags.length ? "\n\n" + c.tags.map(t=>"#"+t).join(" ") : "");
+  navigator.clipboard.writeText(text).then(() => {
+    const b = event.target; const old = b.textContent;
+    b.textContent = "Copied"; setTimeout(()=>b.textContent = old, 1400);
+  });
+}
+
+/* ---------- schedule ---------- */
+function renderSchedule(){
+  const byId = {}; POSTS.forEach((p,i)=>byId[p.id]=i);
+  const cell = v => {
+    if (Array.isArray(v)) {
+      const i = byId[v[1]];
+      return i === undefined ? esc(v[0])
+        : `<a href="#" onclick="go(${i});showTab('posts');return false">${esc(v[0])}</a>`;
+    }
+    return /^(no post|—)$/.test(v) ? `<span class="none">${esc(v)}</span>` : esc(v);
+  };
+  document.getElementById("schedbody").innerHTML =
+    SCHEDULE.principle.map(([h,b])=>
+      `<div class="principle"><h4>${esc(h)}</h4><p>${esc(b)}</p></div>`).join("") +
+    SCHEDULE.months.map(m=>`
+      <div class="month"><h3>${esc(m.name)}</h3><p class="mnote">${esc(m.note)}</p>
+      <table><thead><tr><th>Week</th><th>Monday</th><th>Wednesday</th><th>Thursday</th><th>Note</th></tr></thead>
+      <tbody>${m.weeks.map(w=>{
+        const mon = w.monId ? `<a href="#" onclick="go(${byId[w.monId]});showTab('posts');return false">${esc(Array.isArray(w.mon)?w.mon[0]:w.mon)}</a>` : cell(w.mon);
+        return `<tr><td class="wk">${esc(w.w)}</td><td>${mon}</td><td>${cell(w.wed)}</td>
+                <td>${cell(w.thu)}</td><td class="nt">${esc(w.note||"")}</td></tr>`;
+      }).join("")}</tbody></table></div>`).join("") +
+    `<div class="month unsched"><h3>Not scheduled, and why</h3>
+      <table><tbody>${SCHEDULE.unscheduled.map(([a,b])=>
+        `<tr><td>${esc(a)}</td><td class="nt">${esc(b)}</td></tr>`).join("")}</tbody></table></div>`;
+}
+
+/* ---------- tabs ---------- */
+function showTab(which){
+  const posts = which === "posts";
+  document.getElementById("view-posts").hidden = !posts;
+  document.getElementById("view-sched").hidden = posts;
+  document.getElementById("tab-posts").setAttribute("aria-selected", posts);
+  document.getElementById("tab-sched").setAttribute("aria-selected", !posts);
+  window.scrollTo({top:0});
+}
+document.getElementById("tab-posts").onclick = () => showTab("posts");
+document.getElementById("tab-sched").onclick = () => showTab("sched");
+
+/* Skip the gate for the rest of the browser session once it has been passed.
+   Runs last, because open_ reaches state declared above it. */
+try { if (sessionStorage.getItem("sfw-ok") === "1") open_(); } catch (_) {}
+</script>
+</body>
+</html>
