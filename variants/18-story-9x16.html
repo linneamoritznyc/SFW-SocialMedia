@@ -1,0 +1,49 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Field Notes 18, story and reel cover</title><link rel="stylesheet" href="_tokens.css">
+<!-- 1080 x 1920. Story, and the cover frame for a reel. Keep everything the
+     viewer must read inside the middle 70 percent: the top and bottom are
+     covered by the app's own interface. -->
+<style>
+ .frame--916{background:var(--scope)}
+ .bg{position:absolute;inset:0}.bg img{width:100%;height:100%;object-fit:cover;opacity:.75}
+ .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,
+   rgba(20,32,18,.86) 0%,rgba(20,32,18,.28) 34%,rgba(20,32,18,.55) 62%,rgba(16,26,15,.96) 100%)}
+ .safe{position:absolute;left:0;right:0;top:250px;bottom:280px;padding:0 80px;
+   display:flex;flex-direction:column}
+ .k{font-family:var(--display);font-weight:700;font-size:26px;letter-spacing:.2em;
+   text-transform:uppercase;color:var(--glow)}
+ h1{font-family:var(--display);font-weight:700;font-size:104px;line-height:1.02;color:#fff;
+   margin-top:26px;letter-spacing:-.025em;max-width:11ch}
+ .lede{font-family:var(--text-serif);font-size:40px;line-height:1.3;color:var(--glow);margin-top:28px;max-width:22ch}
+ .big{margin-top:auto;font-family:var(--display);font-weight:700;font-size:200px;line-height:.9;
+   color:var(--glow);letter-spacing:-.04em}
+ .big small{display:block;font-family:var(--sans);font-weight:400;font-size:30px;letter-spacing:0;
+   color:rgba(255,255,255,.88);margin-top:14px;line-height:1.3;max-width:24ch}
+ .row{margin-top:30px;display:flex;gap:16px}
+ .p{flex:1;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);
+   border-radius:16px;padding:18px 22px}
+ .p b{display:block;font-family:var(--display);font-weight:700;font-size:44px;color:#fff;line-height:1}
+ .p span{display:block;font-family:var(--sans);font-size:21px;color:rgba(255,255,255,.78);margin-top:6px}
+ .who{margin-top:34px;font-family:var(--display);font-weight:700;font-size:34px;color:var(--glow)}
+ .who span{display:block;font-family:var(--sans);font-weight:400;font-size:27px;color:rgba(255,255,255,.84);margin-top:3px}
+ .src{margin-top:14px;font-family:var(--sans);font-size:19px;color:rgba(255,255,255,.55)}
+ .zone{position:absolute;left:0;right:0;height:250px;border-bottom:2px dashed rgba(255,255,255,.14)}
+ .zone.b{top:auto;bottom:0;height:280px;border-bottom:0;border-top:2px dashed rgba(255,255,255,.14)}
+ .zone em{position:absolute;right:26px;bottom:10px;font-family:var(--sans);font-style:normal;
+   font-size:17px;color:rgba(255,255,255,.3)}
+ .zone.b em{bottom:auto;top:10px}
+</style></head><body><div class="frame frame--916">
+ <div class="bg"><img src="../assets/photo/handling-loose-soil.jpg" alt=""></div>
+ <div class="zone"><em>app interface, keep clear</em></div>
+ <div class="zone b"><em>app interface, keep clear</em></div>
+ <div class="safe">
+   <p class="k">Field notes &middot; <span data-field="season">2026</span></p>
+   <h1 data-field="test-question">Twenty years fallow.</h1>
+   <p class="lede">Three plots. One season. One of them went the wrong way.</p>
+   <p class="big" data-field="soil-result">46%<small>more organic matter where the biologically complete compost went in.</small></p>
+   <div class="row"><div class="p"><b>14%</b><span>control, water only</span></div>
+     <div class="p"><b>1%</b><span>teas and extracts</span></div></div>
+   <p class="who"><span data-field="name">Sandra Niggemeyer</span><span data-field="place">Van, Texas</span></p>
+   <p class="src">Source: her field trial report, 2026.</p>
+ </div>
+</div></body></html>

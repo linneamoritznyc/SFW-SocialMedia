@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Field Notes 08, before and after</title><link rel="stylesheet" href="_tokens.css">
+<style>
+ .frame{display:flex;flex-direction:column}
+ .half{flex:1;position:relative;overflow:hidden}
+ .half img{width:100%;height:100%;object-fit:cover}
+ .half .tint{position:absolute;inset:0}
+ .a .tint{background:linear-gradient(to right,rgba(60,56,65,.82),rgba(60,56,65,.35))}
+ .b .tint{background:linear-gradient(to right,rgba(28,44,24,.86),rgba(28,44,24,.38))}
+ .cap{position:absolute;left:78px;top:50%;transform:translateY(-50%)}
+ .k{font-family:var(--display);font-weight:700;font-size:23px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--glow)}
+ .n{font-family:var(--display);font-weight:700;font-size:112px;line-height:.95;color:#fff;
+    margin-top:10px;letter-spacing:-.02em}
+ .l{font-family:var(--sans);font-size:27px;color:rgba(255,255,255,.88);margin-top:8px;max-width:20ch}
+ .mid{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);height:4px;
+      background:var(--glow);z-index:4}
+ .badge{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;
+   background:var(--glow);color:var(--moss);font-family:var(--display);font-weight:700;
+   font-size:22px;letter-spacing:.1em;padding:10px 26px;border-radius:999px}
+ .head{position:absolute;top:56px;left:78px;right:78px;display:flex;justify-content:space-between;
+   align-items:baseline;z-index:6}
+ .season{font-family:var(--display);font-weight:600;font-size:23px;letter-spacing:.1em;color:rgba(255,255,255,.8)}
+ .foot{position:absolute;bottom:40px;left:78px;right:78px;z-index:6;display:flex;
+   justify-content:space-between;align-items:flex-end;gap:20px}
+ .who{font-family:var(--display);font-weight:700;font-size:28px;color:var(--glow)}
+ .who span{font-family:var(--sans);font-weight:400;color:rgba(255,255,255,.85)}
+ .src{font-family:var(--sans);font-size:16px;color:rgba(255,255,255,.6);text-align:right;max-width:30ch}
+</style></head><body><div class="frame">
+ <div class="half a"><img src="../assets/photo/fist-of-dry-soil.jpg" alt=""><div class="tint"></div>
+   <div class="cap"><p class="k">Control, water only</p><p class="n">14%</p>
+     <p class="l">organic matter gained. 19 oz of squash.</p></div></div>
+ <div class="half b"><img src="../assets/photo/hand-of-compost.jpg" alt=""><div class="tint"></div>
+   <div class="cap"><p class="k">Compost plot</p><p class="n">46%</p>
+     <p class="l">organic matter gained. 35 oz of squash.</p></div></div>
+ <div class="mid"></div><div class="badge">ONE SEASON APART</div>
+ <div class="head"><span class="eyebrow eyebrow--light">Field notes</span>
+   <span class="season" data-field="season">2026 season</span></div>
+ <div class="foot"><p class="who"><span data-field="name">Sandra Niggemeyer</span>, <span data-field="place">Van, Texas</span></p>
+   <p class="src">Source: her field trial report, 2026. Photographs from the Foundation library, standing in.</p></div>
+</div></body></html>

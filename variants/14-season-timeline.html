@@ -1,0 +1,36 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Field Notes 14, the season</title><link rel="stylesheet" href="_tokens.css">
+<style>
+ .frame{background:var(--panel);padding:72px 78px;display:flex;flex-direction:column}
+ .top{display:flex;justify-content:space-between;align-items:baseline}
+ .season{font-family:var(--display);font-weight:600;font-size:22px;letter-spacing:.1em;color:var(--ink-faint)}
+ h1{font-family:var(--display);font-weight:700;font-size:58px;line-height:1.1;color:var(--moss);
+   margin-top:16px;max-width:17ch;letter-spacing:-.02em}
+ .line{margin-top:36px;position:relative;padding-left:44px}
+ .line::before{content:"";position:absolute;left:14px;top:8px;bottom:8px;width:4px;
+   background:linear-gradient(to bottom,var(--sage),var(--green));border-radius:3px}
+ .ev{position:relative;padding:0 0 26px}
+ .ev::before{content:"";position:absolute;left:-38px;top:6px;width:20px;height:20px;border-radius:50%;
+   background:var(--green);border:4px solid var(--panel)}
+ .ev.bad::before{background:var(--soil)}
+ .ev b{display:block;font-family:var(--display);font-weight:700;font-size:30px;color:var(--moss)}
+ .ev span{display:block;font-family:var(--sans);font-size:24px;line-height:1.35;color:var(--ink-soft);margin-top:3px}
+ .ev.bad b{color:var(--soil)}
+ .foot{margin-top:auto;padding-top:18px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
+ .who{font-family:var(--display);font-weight:700;font-size:28px;color:var(--moss)}
+ .who span{display:block;font-family:var(--sans);font-weight:400;font-size:23px;color:var(--ink-soft);margin-top:2px}
+ .src{font-family:var(--sans);font-size:16px;color:var(--ink-faint);text-align:right;max-width:30ch}
+</style></head><body><div class="frame">
+ <div class="top"><span class="eyebrow">Field notes</span><span class="season" data-field="season">2026 season</span></div>
+ <h1 data-field="test-question">One season, as it actually went</h1>
+ <div class="line">
+  <div class="ev"><b>Spring</b><span>Three plots marked on ground fallow twenty years. Compost tilled into one.</span></div>
+  <div class="ev bad"><b>Hail</b><span>The first planting killed outright.</span></div>
+  <div class="ev bad"><b>Rodents</b><span>They took the second planting.</span></div>
+  <div class="ev bad"><b>June</b><span>Johnson grass ran the beds.</span></div>
+  <div class="ev"><b>Harvest</b><span data-field="crop-result">35 oz, 30 oz, 19 oz. Compost, teas, control.</span></div>
+  <div class="ev"><b>The soil test</b><span data-field="soil-result">46%, 1%, 14% organic matter gained. The ground moved more than the crop did.</span></div>
+ </div>
+ <div class="foot"><p class="who"><span data-field="name">Sandra Niggemeyer</span><span data-field="place">Van, Texas</span></p>
+   <p class="src">Source: her field trial report, 2026.</p></div>
+</div></body></html>

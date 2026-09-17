@@ -79,3 +79,8 @@ body { display: flex; align-items: flex-start; justify-content: flex-start; }
   color: var(--ink-faint);
 }
 .source--light { color: rgba(255,255,255,.72); }
+
+/* Other feed formats. 4:5 is Instagram's tallest feed crop and takes the most
+   screen. 9:16 is stories and reel covers. */
+.frame--45  { width: 1080px; height: 1350px; }
+.frame--916 { width: 1080px; height: 1920px; }

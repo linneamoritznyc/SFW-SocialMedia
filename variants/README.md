@@ -1,10 +1,10 @@
-# Field Notes, seven visual directions
+# Field Notes, eighteen visual directions
 
-Seven standalone 1080 by 1080 HTML files, all showing the same trial so they can
+Eighteen standalone HTML files, sixteen of them 1080 by 1080, all showing the same trial so they can
 be compared like with like. Open `index.html` to see them all on one page and
 screenshot it whole. Open any numbered file on its own to see it at full size.
 
-The trial in all seven: Sandra Niggemeyer, Van, Texas, 2026 season. Butternut
+The trial in all eighteen: Sandra Niggemeyer, Van, Texas, 2026 season. Butternut
 squash on clay and sand that sat fallow for twenty years. Three plots.
 
 Built 17 September 2026 for the Thursday Field Notes series, Community Voice
@@ -73,150 +73,72 @@ unattributed percentages. The line names the graduate's report and the year.
 
 ---
 
-## The seven directions
+## The eighteen directions
 
-### 1. Number first
+Grouped by what they are for. Time to update is for the next graduate, once the
+report has been read.
 
-**What it is good for.** The scroll stopper. One statistic at 320px filling the
-frame, with the two numbers that keep it honest sitting on a cream plate
-underneath. Works when the trial has one finding big enough to carry a whole
-post, which is not every trial.
+### Lead with a number
 
-**Pillar.** Community Voice. The number does the work, so it reads as evidence
-rather than as a congratulation.
+| # | Direction | Good for | Time |
+| :-- | :-- | :-- | :-- |
+| 1 | **Number first** | The scroll stopper. Deep green, statistic at 320px, microscopy drifting behind. Needs one finding big enough to carry a post | 5 min |
+| 9 | **Statement** | Her conclusion at 104px on glow green, no photograph at all. Cheapest to make, travels well as a repost | 4 min |
+| 16 | **Graduate announcement** | The celebration card proper, the direct replacement for the purple one | 8 min |
 
-**Watch for.** It is the easiest of the seven to make dishonest. The control
-plot gained 14% on its own, and that number has to stay on the card. A 46% with
-nothing beside it implies the compost did all of it.
+### Lead with the data
 
-**Time to update.** About 5 minutes. Swap four numbers, a name, a place and the
-source line.
+| # | Direction | Good for | Time |
+| :-- | :-- | :-- | :-- |
+| 3 | **Data card** | LinkedIn and practitioners who want the numbers. Two charts, one measure each | 15 min |
+| 6 | **The honest ledger** | The post that earns the series its credibility. Every result and every failure | 20 min |
+| 7 | **Specimen sheet** | Her own plate labels, A1, B and C1, each carrying a real organism | 15 min |
+| 8 | **Split, control against compost** | Two photographs, one number each, a hard line between. Reads instantly at thumbnail size | 8 min |
+| 11 | **Expected against happened** | Sets up the assumption, then breaks it. The most shareable structure in the set | 12 min |
+| 14 | **The season** | What happened in order, with the failures marked. Good mid carousel | 12 min |
 
-### 2. Portrait led
+### Lead with a picture
 
-**What it is good for.** The only direction that makes the post about a person
-rather than a result. It is what most organisations would reach for first, and it
-is the one this one currently cannot do.
+| # | Direction | Good for | Time |
+| :-- | :-- | :-- | :-- |
+| 2 | **Portrait led** | The only one that makes the post about a person. Ships blocked on consent | 10 min + consent |
+| 4 | **Field photograph** | Instagram feed, top of a carousel. Full bleed, one line | 5 min |
+| 10 | **Carousel opener** | Built to be slide one and nothing else. Centred question, swipe prompt | 5 min |
+| 13 | **Cover** | Masthead and issue number. Treats the series as a publication, which helps it feel like one | 10 min |
+| 15 | **Microscopy hero** | The organism as the subject. The one picture type no other soil account has | 8 min |
 
-**Pillar.** Community Voice.
+### Lead with the writing
 
-**Watch for.** It ships blocked on purpose. The frame holds a dashed placeholder
-listing the three conditions, which follows the house convention of a visible
-dashed box rather than filler. Do not put a stock face in it. Do not put a
-mentor's face in it either.
+| # | Direction | Good for | Time |
+| :-- | :-- | :-- | :-- |
+| 5 | **Quote card** | Shipping this week. No photograph of anyone, so no consent blocker on the image | 5 min + reading |
+| 12 | **Run your own trial** | The save. Four steps a grower can copy onto their own ground | 15 min, reusable |
 
-**Time to update.** About 10 minutes once the photograph exists, plus however
-long consent takes. Budget the consent request as the long pole, not the design.
+### Other formats
 
-### 3. Data card
+| # | Direction | Good for | Time |
+| :-- | :-- | :-- | :-- |
+| 17 | **Feed post, 4:5** | 1080 x 1350, the tallest crop Instagram allows in feed. If only one format gets built, build this one | 10 min |
+| 18 | **Story and reel cover, 9:16** | 1080 x 1920, with the app's interface zones marked so nothing important sits under them | 10 min |
 
-**What it is good for.** LinkedIn, and anywhere the audience is a practitioner
-who wants the actual numbers. Two small bar charts, drawn in plain HTML, no
-library.
+### Notes that apply across the set
 
-**Pillar.** Community Voice, though it reads as Science Explained and can be
-scheduled as either.
-
-**The chart rules, so a Canva rebuild keeps them.**
-
-- One measure per chart. Percent and ounces never share an axis. Two measures
-  means two charts.
-- Every bar starts at zero. Never trim the baseline to make a difference look
-  bigger.
-- One colour for every bar in a chart. Length carries the magnitude and the
-  label carries the identity, so no legend is needed and colour blindness cannot
-  break it. Do not colour-code the plots.
-- Every bar is labelled with its own value.
-
-**Bar arithmetic for the next graduate.** Pick a round number above the largest
-value and use it as the full width. Organic matter here: largest is 46, round up
-to 50, so each bar's width is `value / 50 × 100%`. That gives 92%, 28% and 2%.
-Harvest: largest is 35, round up to 40, so 87.5%, 75% and 47.5%. Keep the same
-ceiling for every bar within one chart or the comparison is a lie.
-
-**Time to update.** About 15 minutes. The bar widths are the fiddly part and the
-only place in the set where you can make an arithmetic mistake that looks fine.
-
-### 4. Field photograph
-
-**What it is good for.** Instagram feed and the top of a carousel. Full bleed,
-one line, nothing else.
-
-**Pillar.** Community Voice.
-
-**Watch for.** The weakest evidence in the set until a real plot photograph
-arrives, because a library photograph of somebody else's hands proves nothing
-about Sandra's ground. The stand-in is named in the card's own source line so
-that nobody can forget. Strategy guidance already says field photos and data
-graphics beat stock; a Foundation library photo standing in for a specific claim
-is the same trap one step removed.
-
-**Time to update.** About 5 minutes to set. Getting a usable photograph from the
-graduate is the actual cost, and that is a request, not a design task.
-
-### 5. Quote card
-
-**What it is good for.** Shipping this week. It needs no photograph of anyone,
-so it carries no consent blocker on the image, and it is the only direction that
-puts the graduate's own thinking in front of her results.
-
-**Pillar.** Community Voice, reads as The Bigger Picture.
-
-**Watch for.** The sentence has to be hers and has to be quoted accurately.
-Sandra's is "soil biology rebuilds the ground before it rebuilds the yield",
-which is unusually good. Most reports will not hand you one that clean, and a
-tidied-up paraphrase in quotation marks is not a quote. If there is no sentence,
-this direction does not run.
-
-**Time to update.** About 5 minutes to set, plus perhaps 15 minutes reading the
-report to find a sentence worth setting.
-
-### 6. The honest ledger
-
-*Not on the brief. Added because the series promise asked for it.*
-
-**What it is good for.** The post that earns the series its credibility. Three
-plots, three measures, and the three things that went wrong, all on one card.
-The tea plot gained 1% organic matter and carried the fewest squash bugs. The
-control gained 14% on water alone. Neither fact is convenient and both are on the
-card.
-
-**Pillar.** Community Voice. This is the one that delivers "we publish what the
-trial found, including when the results disappoint" rather than just claiming it.
-
-**Watch for.** It is a table, not a chart, because percent, ounces and a pest
-count share no axis. Do not let anyone redraw it as a single graph. It is also
-the densest of the seven and the least suited to a phone glance, so it belongs
-mid carousel rather than as slide one.
-
-**Time to update.** About 20 minutes, and it is the only one that needs the whole
-report rather than the summary. You need every result and every failure, and
-Carla should science-check the takeaway before it goes to Stephanie.
-
-### 7. Specimen sheet
-
-*Not on the brief. Added because her own report already solved the layout.*
-
-**What it is good for.** Turning the structure of a field trial into the design
-itself. Three plates on a pale green ground, labelled A1, B and C1, which are
-Sandra's own labels from page 16. It reads as a specimen case rather than a
-social graphic, which is the register the brand is already in.
-
-**Pillar.** Community Voice, reads as Science Explained.
-
-**Watch for.** The plate labels belong to the graduate, not to us. If the next
-report labels its plots 1, 2 and 3, the card says 1, 2 and 3. Inventing tidier
-labels would be inventing data. This is also the direction that most wants the
-real page 16 photograph sitting beside it in a carousel.
-
-**Time to update.** About 15 minutes, and it needs the graduate's own plot
-labels, which means opening the report rather than working from the summary.
-
----
+- **Direction 3, the chart rules.** One measure per chart, percent and ounces never
+  share an axis. Every bar starts at zero. One colour per chart: length carries
+  magnitude, the label carries identity, so no legend is needed and colour
+  blindness cannot break it. To rescale, pick a round ceiling above the largest
+  value and set each width to `value / ceiling x 100%`. Keep one ceiling per chart.
+- **Direction 6 is a table, not a chart.** Percent, ounces and a pest count share
+  no axis. Do not let anyone redraw it as a single graph.
+- **Direction 7's plate labels belong to the graduate.** If the next report labels
+  its plots 1, 2 and 3, the card says 1, 2 and 3. Tidier labels would be invented
+  data.
+- **Directions 4, 8, 10, 13 and 17 use library photographs as stand-ins** and say
+  so in their own source lines.
 
 ## What I would put in front of Stephanie
 
-Three, not seven: **5 the quote card**, because it can run this week with no
+Three, not eighteen: **5 the quote card**, because it can run this week with no
 consent blocker on the image; **1 number first**, because it is the scroll
 stopper and the fastest to repeat; and **6 the honest ledger**, because it is the
 one that decides what kind of series this is.

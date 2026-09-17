@@ -1,99 +1,81 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
+<html lang="en"><head><meta charset="utf-8">
 <title>Field Notes 07, specimen sheet</title>
 <link rel="stylesheet" href="_tokens.css">
-<!-- ================================================================
-     SWAPPABLE FIELDS. Identical in all seven variants.
-       1  hero-number    46%
-       2  place          Van, Texas
-       3  headshot       (not used in this variant)
-       4  test-question  the heading
-       5  soil-result    one figure per plate
-       6  crop-result    one figure per plate
-
-     The layout copies page 16 of her own report: three sheets of brown
-     paper labelled A1, B and C1 with the squash from each plot laid out
-     on them. The plate labels below are HERS, not ours.
-
-     Token note: this is the one place --panel-green is used exactly as
-     the stylesheet describes it, "a pale green ground set behind a group
-     of plates to bind them into one object", with cream as the plates.
-     ================================================================ -->
+<!-- SWAPPABLE FIELDS, identical in all seven.
+     Layout copies page 16 of her own report: three sheets of brown paper
+     labelled A1, B and C1 with the squash from each plot laid out on them.
+     The plate labels are HERS. If the next report labels its plots 1, 2, 3,
+     the card says 1, 2, 3. Inventing tidier labels is inventing data. -->
 <style>
-  .frame { padding: 80px 76px; display: flex; flex-direction: column; }
-  .top { display: flex; justify-content: space-between; align-items: baseline; }
-  .season { font-family: var(--display); font-weight: 600; font-size: 20px;
-            letter-spacing: .1em; color: var(--ink-faint); }
-  h1 { font-family: var(--text-serif); font-weight: 500; font-size: 44px;
-       line-height: 1.25; color: var(--ink); max-width: 24ch; margin-top: 22px; }
-
-  .case { margin-top: 30px; background: var(--panel-green); border-radius: 12px;
-          padding: 26px; display: flex; gap: 22px; }
-  .plate { flex: 1; background: var(--panel); border-radius: 8px;
-           padding: 26px 22px 24px; box-shadow: var(--shadow);
-           display: flex; flex-direction: column; }
-  .label { font-family: var(--display); font-weight: 700; font-size: 17px;
-           letter-spacing: .2em; color: var(--olive); }
-  .treat { font-family: var(--sans); font-size: 20px; line-height: 1.3;
-           color: var(--ink-soft); margin-top: 8px; min-height: 4em; }
-  .hr { height: 1px; background: var(--rule); margin: 14px 0 16px; }
-  .big { font-family: var(--display); font-weight: 700; font-size: 66px;
-         line-height: 1; color: var(--green); letter-spacing: -.02em; }
-  .big small { display: block; font-family: var(--sans); font-weight: 400;
-               font-size: 17px; letter-spacing: 0; color: var(--ink-faint);
-               margin-top: 7px; line-height: 1.3; }
-  .yield { margin-top: auto; padding-top: 18px; font-family: var(--display);
-           font-weight: 700; font-size: 28px; color: var(--soil); }
-  .yield small { display: block; font-family: var(--sans); font-weight: 400;
-                 font-size: 17px; color: var(--ink-faint); margin-top: 3px; }
-
-  .foot { margin-top: auto; padding-top: 26px; display: flex;
-          justify-content: space-between; align-items: flex-end; gap: 28px; }
-  .who { font-family: var(--display); font-weight: 700; font-size: 28px; color: var(--ink); }
-  .who span { display: block; font-family: var(--sans); font-weight: 400;
-              font-size: 21px; color: var(--ink-soft); margin-top: 3px; }
-  .source { max-width: 42ch; text-align: right; font-size: 16px; }
-</style>
-</head>
-<body>
-<div class="frame">
-  <div class="top">
-    <span class="eyebrow">Field notes</span>
-    <span class="season" data-field="season">2026 season</span>
-  </div>
-
-  <h1 data-field="test-question">She laid the squash from each plot on brown paper and labelled the sheets. This is what they said.</h1>
+  .frame { background:var(--moss); padding:66px 60px; display:flex; flex-direction:column; }
+  .top { display:flex; justify-content:space-between; align-items:baseline; padding:0 12px; }
+  .season { font-family:var(--display); font-weight:600; font-size:24px; letter-spacing:.1em;
+            color:rgba(255,255,255,.62); }
+  h1 { font-family:var(--text-serif); font-weight:500; font-size:50px; line-height:1.22;
+       color:#fff; max-width:22ch; margin:18px 12px 0; }
+  .case { margin-top:30px; display:flex; gap:18px; }
+  .plate { flex:1; background:var(--panel); border-radius:14px; padding:0 0 24px;
+           display:flex; flex-direction:column; overflow:hidden; box-shadow:var(--shadow); }
+  .spec { height:170px; background:var(--panel-green); display:flex; align-items:center;
+          justify-content:center; }
+  .spec img { width:88%; }
+  .body { padding:20px 22px 0; display:flex; flex-direction:column; flex:1; }
+  .label { font-family:var(--display); font-weight:700; font-size:19px; letter-spacing:.2em;
+           color:var(--olive); }
+  .treat { font-family:var(--sans); font-size:22px; line-height:1.28; color:var(--ink-soft);
+           margin-top:8px; min-height:3.9em; }
+  .hr { height:1px; background:var(--rule); margin:12px 0 16px; }
+  .big { font-family:var(--display); font-weight:700; font-size:62px; line-height:1;
+         color:var(--green); letter-spacing:-.02em; }
+  .big small { display:block; font-family:var(--sans); font-weight:400; font-size:18px;
+               letter-spacing:0; color:var(--ink-faint); margin-top:7px; line-height:1.25; }
+  .yield { margin-top:auto; padding-top:16px; font-family:var(--display); font-weight:700;
+           font-size:30px; color:var(--soil); }
+  .yield small { display:block; font-family:var(--sans); font-weight:400; font-size:18px;
+                 color:var(--ink-faint); margin-top:3px; }
+  .foot { margin-top:auto; padding:24px 12px 0; display:flex; justify-content:space-between;
+          align-items:flex-end; gap:24px; }
+  .who { font-family:var(--display); font-weight:700; font-size:32px; color:var(--glow); }
+  .who span { display:block; font-family:var(--sans); font-weight:400; font-size:25px;
+              color:rgba(255,255,255,.82); margin-top:2px; }
+  .src { font-family:var(--sans); font-size:17px; line-height:1.4; color:rgba(255,255,255,.55);
+         max-width:30ch; text-align:right; }
+</style></head>
+<body><div class="frame">
+  <div class="top"><span class="eyebrow eyebrow--light">Field notes</span>
+    <span class="season" data-field="season">2026 season</span></div>
+  <h1 data-field="test-question">She laid the squash from each plot on brown paper and labelled the sheets.</h1>
 
   <div class="case">
     <div class="plate">
-      <span class="label">A1</span>
-      <p class="treat">Biologically complete compost, tilled in before planting</p>
-      <div class="hr"></div>
-      <p class="big" data-field="soil-result">46%<small>organic matter gained</small></p>
-      <p class="yield" data-field="crop-result">35 oz<small>squash harvested</small></p>
+      <div class="spec"><img src="../assets/microscopy/cutout-1.png" alt=""></div>
+      <div class="body"><span class="label">A1</span>
+        <p class="treat">Biologically complete compost, tilled in before planting</p>
+        <div class="hr"></div>
+        <p class="big" data-field="soil-result">46%<small>organic matter gained</small></p>
+        <p class="yield" data-field="crop-result">35 oz<small>squash harvested</small></p></div>
     </div>
     <div class="plate">
-      <span class="label">B</span>
-      <p class="treat">Teas and extracts applied through the season</p>
-      <div class="hr"></div>
-      <p class="big">1%<small>organic matter gained</small></p>
-      <p class="yield">30 oz<small>squash harvested</small></p>
+      <div class="spec"><img src="../assets/microscopy/cutout-3.png" alt=""></div>
+      <div class="body"><span class="label">B</span>
+        <p class="treat">Teas and extracts applied through the season</p>
+        <div class="hr"></div>
+        <p class="big">1%<small>organic matter gained</small></p>
+        <p class="yield">30 oz<small>squash harvested</small></p></div>
     </div>
     <div class="plate">
-      <span class="label">C1</span>
-      <p class="treat">Water only, the control</p>
-      <div class="hr"></div>
-      <p class="big">14%<small>organic matter gained</small></p>
-      <p class="yield">19 oz<small>squash harvested</small></p>
+      <div class="spec"><img src="../assets/microscopy/cutout-6.png" alt=""></div>
+      <div class="body"><span class="label">C1</span>
+        <p class="treat">Water only, the control</p>
+        <div class="hr"></div>
+        <p class="big">14%<small>organic matter gained</small></p>
+        <p class="yield">19 oz<small>squash harvested</small></p></div>
     </div>
   </div>
 
   <div class="foot">
     <p class="who"><span data-field="name">Sandra Niggemeyer</span><span data-field="place">Van, Texas</span></p>
-    <p class="source">Source: Sandra Niggemeyer, field trial report, 2026, page 16. Plate labels are her own. Butternut squash on clay and sand, fallow twenty years.</p>
+    <p class="src">Source: her report, 2026, page 16. Plate labels are her own.</p>
   </div>
-</div>
-</body>
-</html>
+</div></body></html>
