@@ -61,7 +61,7 @@ plus a small number of files whose origin is in question (marked ⚑).
 | `assets/photo/erc-rancho-cacachilas-agro.jpg` | 1500 x 1000 | — | 424 KB | Long rows of crops running to a line of trees under a wide clouded sky |
 | `assets/photo/erc-rancho-cacachilas-agro2.jpg` | 1500 x 1000 | — | 501 KB | A broad tree standing over dense green undergrowth |
 | `assets/photo/erc-rancho-cacachilas-agro8.jpg` | 1000 x 666 | — | 146 KB | Rows of flowering crops and low tunnels seen from directly above |
-| `assets/photo/fist-of-dry-soil.jpg` | 2000 x 2000 | — | 1.0 MB | A closed fist holding dry, pale soil |
+| `assets/photo/fist-of-dry-soil.jpg` | 2000 x 2000 | — | 1.0 MB | **Corrected 17 Sep 2026. Not dry soil.** A hand squeezing dark, moist, visibly aggregated soil with readable crumb structure. The squeeze test. One of the best images we hold for showing good structure, filed and named as its opposite. Verified by eye ⚑ |
 | `assets/photo/garden-vegetable-beds.jpg` | 1600 x 1066 | — | 653 KB | Raised timber beds planted with onions, brassicas and strawberries |
 | `assets/photo/gloved-hands-red-bucket-mulch.jpg` | 2000 x 2000 | — | 907 KB | Two orange-gloved hands lifting wood-chip mulch out of a red bucket, from above |
 | `assets/photo/hand-of-compost.jpg` | 2000 x 2000 | — | 979 KB | A hand lifting a fistful of dark finished compost above the pile it came from |
@@ -299,7 +299,7 @@ frames. They sit on any background.
 | `assets/microscopy/cutout-6.png` | 800 x 550 | — | 429 KB | Nematode coiled, microscopy cut-out on transparency |
 | `assets/microscopy/cutout-7.png` | 800 x 550 | — | 237 KB | Nematode, whole body in a shallow hook, gut contents visible. Cut-out on transparency. Verified by eye |
 | `assets/microscopy/fungal-spores-in-suspension.jpg` | 2000 x 1533 | — | 720 KB | Brightfield microscope view of a soil sample: round spores and short bacterial rods on a pale green field |
-| `assets/microscopy/fungi-in-under-grape-soil.jpg` | 2000 x 1500 | — | 1.3 MB | Fungal hyphae in soil taken from under grape vines |
+| `assets/microscopy/fungi-in-under-grape-soil.jpg` | 2000 x 1500 | — | 1.3 MB | **Corrected 17 Sep 2026. This is not microscopy.** A field photograph of a vineyard in leaf with a large pale mushroom growing in the mulch in the foreground. A fungal fruiting body, not hyphae. Misfiled: belongs in `assets/photo/`. Verified by eye ⚑ |
 | `assets/microscopy/sfw-amoeba-still-square.jpg` | 1600 x 1600 | — | 191 KB | Still frame from the amoeba microscopy loop, square |
 | `assets/microscopy/sfw-amoeba-still-wide.jpg` | 1280 x 720 | — | 151 KB | Still frame from the amoeba microscopy loop, 16:9 |
 | `assets/microscopy/sfw-teas-still-square.jpg` | 800 x 800 | — | 47 KB | Still frame from the compost tea clip, square |
