@@ -33,4 +33,4 @@ package*
 exports/*.zip
 
 # Review packages are zipped copies of review/ for Drive upload
-sfw-social-review-*.zip
+sfw-social-*.zip
