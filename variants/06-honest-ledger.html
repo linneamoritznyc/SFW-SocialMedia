@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Field Notes 06, the honest ledger</title>
+<link rel="stylesheet" href="_tokens.css">
+<!-- SWAPPABLE FIELDS, identical in all seven.
+     Three units sit side by side here, so this is a layout and not a chart.
+     Percent, ounces and a pest count share no axis. Do not redraw it as one. -->
+<style>
+  .frame { background:var(--panel-green); padding:58px 68px; display:flex; flex-direction:column; }
+  .top { display:flex; justify-content:space-between; align-items:baseline; }
+  .season { font-family:var(--display); font-weight:600; font-size:28px; letter-spacing:.1em;
+            color:var(--ink-faint); }
+  h1 { font-family:var(--display); font-weight:700; font-size:62px; line-height:1.1;
+       color:var(--moss); max-width:15ch; margin-top:18px; letter-spacing:-.015em; }
+  .rows { margin-top:30px; display:flex; flex-direction:column; gap:12px; }
+  .row { background:var(--paper); border-radius:16px; padding:20px 26px; display:grid;
+         grid-template-columns:1fr auto auto auto; align-items:center; gap:26px;
+         box-shadow:var(--shadow); }
+  .row .p { font-family:var(--display); font-weight:700; font-size:28px; color:var(--moss);
+            line-height:1.2; }
+  .cell { text-align:right; min-width:132px; }
+  .cell b { display:block; font-family:var(--display); font-weight:700; font-size:42px;
+            color:var(--green); line-height:1; }
+  .cell.bug b { color:var(--soil); font-size:38px; }
+  .cell span { display:block; font-family:var(--sans); font-size:28px; color:var(--ink-faint);
+               margin-top:5px; }
+  .against { margin-top:16px; background:var(--moss); border-radius:16px; padding:24px 28px; }
+  .against h2 { font-family:var(--display); font-weight:700; font-size:28px; color:var(--glow);
+                letter-spacing:.02em; }
+  .against ul { list-style:none; margin-top:12px; display:flex; gap:26px; }
+  .against li { flex:1; font-family:var(--sans); font-size:28px; line-height:1.35; color:#fff;
+                border-left:4px solid var(--living); padding-left:14px; }
+  .foot { margin-top:auto; padding-top:22px; display:flex; justify-content:space-between;
+          align-items:flex-end; gap:24px; }
+  .who { font-family:var(--display); font-weight:700; font-size:34px; color:var(--moss); }
+  .who span { display:block; font-family:var(--sans); font-weight:400; font-size:28px;
+              color:var(--ink-soft); margin-top:2px; }
+  .src { font-family:var(--sans); font-size:28px; line-height:1.4; color:var(--ink-faint);
+         max-width:30ch; text-align:right; }
+</style></head>
+<body><div class="frame">
+  <div class="top"><span class="eyebrow">Field notes</span>
+    <span class="season" data-field="season">2026 season</span></div>
+  <h1 data-field="test-question">Everything one season did, including the letdowns.</h1>
+
+  <div class="rows" data-field="soil-result">
+    <div class="row"><p class="p">Compost</p>
+      <div class="cell"><b>46%</b><span>organic matter</span></div>
+      <div class="cell" data-field="crop-result"><b>35 oz</b><span>squash</span></div>
+      <div class="cell bug"><b>Middle</b><span>squash bugs</span></div></div>
+    <div class="row"><p class="p">Teas and extracts</p>
+      <div class="cell"><b>1%</b><span>organic matter</span></div>
+      <div class="cell"><b>30 oz</b><span>squash</span></div>
+      <div class="cell bug"><b>Fewest</b><span>squash bugs</span></div></div>
+    <div class="row"><p class="p">Control, water only</p>
+      <div class="cell"><b>14%</b><span>organic matter</span></div>
+      <div class="cell"><b>19 oz</b><span>squash</span></div>
+      <div class="cell bug"><b>Most</b><span>squash bugs</span></div></div>
+  </div>
+
+  <div class="against">
+    <h2>What the season did to all three</h2>
+    <ul><li>Hail killed the first planting.</li>
+        <li>Rodents took the second.</li>
+        <li>Johnson grass ran the beds by June.</li></ul>
+  </div>
+
+  <div class="foot">
+    <p class="who"><span data-field="name">Sandra Niggemeyer</span><span data-field="place">Van, Texas</span></p>
+    <p class="src">Source: her field trial report, 2026. One season, no repeats.</p>
+  </div>
+</div></body></html>

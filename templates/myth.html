@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Template, myth slide</title><link rel="stylesheet" href="../variants/_tokens.css">
+<!-- ================================================================
+     REUSABLE MYTH SLIDE, 1080 x 1080.
+     Nineteen myths are left in the two banks inside SFW Social Ideas_.docx.
+     This layout produces the lot in an afternoon: change the six fields,
+     change nothing else.
+
+     THE SIX SWAPPABLE FIELDS
+       1  myth           the claim, in the words people actually use
+       2  what-people-do what the myth causes them to do
+       3  mechanism      what is really happening, with organisms named
+       4  instead        what to do instead
+       5  organisms      the named organisms, as chips
+       6  source         where the rebuttal comes from
+
+     RULES BUILT INTO THE LAYOUT
+     - The organisms row is not decoration. A myth post without a named
+       mechanism is contradiction, so the row is required. If you cannot
+       fill it, the myth is not ready to post.
+     - The myth is set struck through. The reader should be able to tell
+       which half is wrong at thumbnail size, without reading.
+     - No percentage goes on this card unless the source line names where
+       it came from.
+     - The myth banks are headed "Chat GPT top 20". They are a starting
+       list, not a citable source. Check the rebuttal before it runs.
+     ================================================================ -->
+<style>
+ .frame{background:var(--paper);padding:50px 62px;display:flex;flex-direction:column}
+ .top{display:flex;justify-content:space-between;align-items:baseline}
+ .n{font-family:var(--display);font-weight:600;font-size:30px;letter-spacing:.08em;color:var(--ink-faint)}
+
+ /* 1. the myth */
+ .myth{margin-top:16px;background:var(--panel);border-radius:18px;padding:20px 26px}
+ .myth .tag{font-family:var(--display);font-weight:700;font-size:28px;letter-spacing:.16em;
+   text-transform:uppercase;color:var(--ink-faint)}
+ .myth p{margin-top:10px;font-family:var(--text-serif);font-size:42px;line-height:1.18;
+   color:var(--ink-soft);text-decoration:line-through;text-decoration-thickness:3px;
+   text-decoration-color:rgba(106,102,92,.45)}
+
+ /* 2. what people do */
+ .does{margin-top:16px;padding-left:22px;border-left:5px solid var(--sage);
+   font-family:var(--sans);font-size:32px;line-height:1.32;color:var(--ink-soft)}
+
+ /* 3. the mechanism */
+ .mech{margin-top:16px;background:var(--green);border-radius:18px;padding:22px 28px}
+ .mech .tag{font-family:var(--display);font-weight:700;font-size:28px;letter-spacing:.16em;
+   text-transform:uppercase;color:var(--glow)}
+ .mech p{margin-top:10px;font-family:var(--display);font-weight:700;font-size:40px;
+   line-height:1.2;color:#fff}
+ .mech p em{font-style:normal;color:var(--glow)}
+
+ /* 5. named organisms, required */
+ .bugs{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px}
+ .bugs span{font-family:var(--sans);font-size:26px;color:var(--moss);background:var(--panel-green);
+   border:2px solid var(--sage);border-radius:999px;padding:8px 18px}
+
+ /* 4. what to do instead */
+ .instead{margin-top:auto;padding-top:14px}
+ .instead .tag{font-family:var(--display);font-weight:700;font-size:28px;letter-spacing:.16em;
+   text-transform:uppercase;color:var(--green)}
+ .instead p{margin-top:8px;font-family:var(--display);font-weight:700;font-size:38px;
+   line-height:1.22;color:var(--moss);max-width:24ch}
+
+ /* 6. source */
+ .src{margin-top:12px;font-family:var(--sans);font-size:28px;line-height:1.4;color:var(--ink-faint)}
+</style></head><body><div class="frame">
+ <div class="top"><span class="eyebrow">Myth</span><span class="n">1 of 7</span></div>
+
+ <div class="myth"><p class="tag">What you hear</p>
+   <p data-field="myth">Plant beans next to your tomatoes. They fix nitrogen and feed them.</p></div>
+
+ <p class="does" data-field="what-people-do">So the beans go in between the tomatoes, the nitrogen never arrives, and the bag of fertiliser comes out anyway.</p>
+
+ <div class="mech"><p class="tag">What is actually happening</p>
+   <p data-field="mechanism">The nitrogen goes into <em>the bean</em>. It reaches the bed when the bean dies and decomposes.</p></div>
+
+ <div class="bugs" data-field="organisms">
+   <span>Rhizobium bacteria</span><span>mycorrhizal fungi</span><span>protozoa</span><span>nematodes</span>
+ </div>
+
+ <div class="instead"><p class="tag">Instead</p>
+   <p data-field="instead">Chop the beans in at season's end. This year's beans feed next year's tomatoes.</p></div>
+
+ <p class="src" data-field="source">Mechanism: Ingham et al. 1985, USDA Soil Biology Primer 1999.</p>
+</div></body></html>

@@ -1,0 +1,101 @@
+/* ==========================================================================
+   Field Notes variants — shared tokens.
+   Every value is copied verbatim from the :root block of the old
+   css/site.css, recorded in INVENTORY.md. Nothing here is invented.
+   ========================================================================== */
+:root {
+  /* Colour, in use here */
+  --paper:        #FFFFFF;   /* the page */
+  --panel:        #F4F1EA;   /* Organic Cream. A SHAPE, never the page */
+  --panel-green:  #E6EADC;   /* the specimen case */
+  --green:        #156826;   /* Food Web Green. Buttons, links, eyebrows */
+  --moss:         #22371F;   /* deep green: dark bands */
+  --glow:         #DBE6A7;   /* the brightest thing in the frame */
+  --living:       #A2AE77;   /* living green, from the field of the slide */
+  --olive:        #5F6A3C;   /* engraving line accents */
+  --sage:         #A7B097;   /* cut-out textures, hover ground on dark */
+  --scope:        #3C3841;   /* deep, read off the microscopy */
+  --ink:          #333130;   /* body text */
+  --ink-soft:     #4A463F;   /* secondary text */
+  --ink-faint:    #6A665C;   /* captions, source lines */
+  --soil:         #4F3433;   /* headings */
+  --white:        #FFFFFF;
+
+  /* Deliberately absent from every variant in this folder:
+     --legacy       #6B4C7A  Dr. Elaine Ingham memorial content ONLY
+     --gold         #C9A227  donate call only
+     --green-legacy #59A66C  decorative only, fails contrast, never text
+     --edu          #3780B8  course tags
+     If you find any of those four in a Field Notes graphic, it is a bug. */
+
+  --rule:        rgba(79, 52, 51, .22);
+  --rule-strong: rgba(79, 52, 51, .55);
+  --shadow:      0 2px 12px rgba(79, 52, 51, 0.10); /* THE only shadow */
+
+  --display:     "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --sans:        "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+  --text-serif:  "EB Garamond", Georgia, "Times New Roman", serif;
+}
+
+@font-face { font-family:"Montserrat"; font-style:normal; font-weight:600 700; font-display:swap;
+  src:url("../assets/font/montserrat-latin-variable.woff2") format("woff2-variations"); }
+@font-face { font-family:"Source Sans 3"; font-style:normal; font-weight:400; font-display:swap;
+  src:url("../assets/font/source-sans-3-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family:"Source Sans 3"; font-style:italic; font-weight:400; font-display:swap;
+  src:url("../assets/font/source-sans-3-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family:"Source Sans 3"; font-style:normal; font-weight:600; font-display:swap;
+  src:url("../assets/font/source-sans-3-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family:"EB Garamond"; font-style:normal; font-weight:400; font-display:swap;
+  src:url("../assets/font/eb-garamond-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family:"EB Garamond"; font-style:italic; font-weight:400; font-display:swap;
+  src:url("../assets/font/eb-garamond-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family:"EB Garamond"; font-style:normal; font-weight:500; font-display:swap;
+  src:url("../assets/font/eb-garamond-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family:"EB Garamond"; font-style:italic; font-weight:500; font-display:swap;
+  src:url("../assets/font/eb-garamond-latin-500-italic.woff2") format("woff2"); }
+@font-face { font-family:"EB Garamond"; font-style:normal; font-weight:600; font-display:swap;
+  src:url("../assets/font/eb-garamond-latin-600-normal.woff2") format("woff2"); }
+
+/* The frame. Every variant is exactly 1080 x 1080 at 1:1. */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #E9E7E2; }
+body { display: flex; align-items: flex-start; justify-content: flex-start; }
+.frame {
+  width: 1080px; height: 1080px; position: relative; overflow: hidden;
+  background: var(--paper); font-family: var(--sans); color: var(--ink);
+  font-size: 16px; line-height: 1.4;
+}
+
+/* The eyebrow that marks the series. Identical in all seven. */
+.eyebrow {
+  font-family: var(--display); font-weight: 700; font-size: 20px;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--green);
+}
+.eyebrow--light { color: var(--glow); }
+
+/* The source line. Brand rule: every number gets one. */
+.source {
+  font-family: var(--sans); font-size: 17px; line-height: 1.45;
+  color: var(--ink-faint);
+}
+.source--light { color: rgba(255,255,255,.72); }
+
+/* Other feed formats. 4:5 is Instagram's tallest feed crop and takes the most
+   screen. 9:16 is stories and reel covers. */
+.frame--45  { width: 1080px; height: 1350px; }
+.frame--916 { width: 1080px; height: 1920px; }
+
+/* --------------------------------------------------------------------------
+   Phone legibility floor.
+   A 1080px square renders about 390px wide in an Instagram feed, so everything
+   in these frames is seen at roughly 36 percent of the size it is drawn at.
+   Multiply by 0.36 to get what the thumb actually sees:
+       28px  ->  10px   credit and source lines. The floor. Never go under.
+       34px  ->  12px   supporting body text
+       40px  ->  14px   the line people actually read
+       56px  ->  20px   sub headings, stat labels
+       80px  ->  29px   headlines
+      160px+ ->  58px+  hero numbers
+   If a layout will not fit at these sizes, cut words, not type.
+   -------------------------------------------------------------------------- */
+.frame .source, .frame .src { font-size: 28px; line-height: 1.4; }

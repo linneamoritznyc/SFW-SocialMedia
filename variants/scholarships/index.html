@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Scholarships carousel, June 2026</title><link rel="stylesheet" href="../_tokens.css">
+<style>
+ html,body{background:#F7F6F3}body{display:block;font-family:var(--sans);color:var(--ink)}
+ .page{max-width:1600px;margin:0 auto;padding:56px 44px 90px}
+ h1{font-family:var(--display);font-weight:700;font-size:44px;line-height:1.14;max-width:24ch}
+ .lede{font-family:var(--text-serif);font-size:25px;line-height:1.45;color:var(--ink-soft);margin-top:14px;max-width:72ch}
+ .warn{margin-top:22px;background:var(--panel);border-left:6px solid var(--green);border-radius:0 14px 14px 0;
+   padding:20px 26px;max-width:94ch;font-size:19px;line-height:1.55;color:var(--ink-soft)}
+ .warn b{color:var(--soil)}
+ .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:34px 28px;margin-top:40px;align-items:start}
+ figure{margin:0}
+ .shell{width:100%;aspect-ratio:1080/1350;position:relative;overflow:hidden;border-radius:10px;
+   box-shadow:var(--shadow);border:1px solid var(--rule);background:#fff}
+ .shell iframe{position:absolute;top:0;left:0;width:1080px;height:1350px;border:0;transform-origin:0 0}
+ figcaption{margin-top:10px;font-size:17px;color:var(--ink-soft);line-height:1.4}
+ figcaption b{font-family:var(--display);font-weight:700;font-size:19px;color:var(--ink);display:block}
+ figcaption a{color:var(--green);font-size:15px}
+</style></head><body><div class="page">
+<span class="eyebrow">Scholarships</span>
+<h1>June 2026 scholarship carousel</h1>
+<p class="lede">Seven slides. The collage from the board deck leads, five recipients follow, and the ask arrives last, after six faces.</p>
+<div class="warn"><b>Nothing here can ship yet.</b> Consent is required from every recipient on slides 2 to 6 <em>and</em> from every face in the collage on slide 1, and the 8 September notes record that consent is not currently being collected. Anyone who declines comes out of the collage before it is exported. The consent email to send is in <code>captions.md</code>.<br><br>
+<b>Two figures are unconfirmed</b> and are drawn as visible placeholders rather than guessed: how many recipients the $72,000 covers, and whether June was a typical month. The headline does not work without the first.</div>
+<div class="grid">
+ <figure><div class="shell"><iframe src="slide-1.html" scrolling="no"></iframe></div><figcaption><b>1. The collage</b>Headline reworked to put people first.<br><a href="slide-1.html">Open</a></figcaption></figure>
+ <figure><div class="shell"><iframe src="slide-2.html" scrolling="no"></iframe></div><figcaption><b>2 to 6. One recipient each</b>Photograph, name, country, their own sentence. Five identical templates.<br><a href="slide-2.html">Open</a></figcaption></figure>
+ <figure><div class="shell"><iframe src="slide-3.html" scrolling="no"></iframe></div><figcaption><b>Slide 3</b><a href="slide-3.html">Open</a></figcaption></figure>
+ <figure><div class="shell"><iframe src="slide-4.html" scrolling="no"></iframe></div><figcaption><b>Slide 4</b><a href="slide-4.html">Open</a></figcaption></figure>
+ <figure><div class="shell"><iframe src="slide-5.html" scrolling="no"></iframe></div><figcaption><b>Slide 5</b><a href="slide-5.html">Open</a></figcaption></figure>
+ <figure><div class="shell"><iframe src="slide-6.html" scrolling="no"></iframe></div><figcaption><b>Slide 6</b><a href="slide-6.html">Open</a></figcaption></figure>
+ <figure><div class="shell"><iframe src="slide-7.html" scrolling="no"></iframe></div><figcaption><b>7. How the fund works</b>Then the ask, and only here.<br><a href="slide-7.html">Open</a></figcaption></figure>
+</div>
+</div>
+<script>function fit(){document.querySelectorAll('.shell').forEach(function(s){
+ var f=s.querySelector('iframe');f.style.transform='scale('+(s.clientWidth/1080)+')';});}
+addEventListener('resize',fit);addEventListener('load',fit);fit();</script></body></html>

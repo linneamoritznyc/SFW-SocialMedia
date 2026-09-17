@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Field Notes 03, data card</title>
+<link rel="stylesheet" href="_tokens.css">
+<!-- SWAPPABLE FIELDS, identical in all seven.
+     CHART RULES: one measure per chart, never two axes. Every bar from zero.
+     One colour per chart, length carries magnitude, label carries identity,
+     so no legend and colour blindness cannot break it. Every bar labelled. -->
+<style>
+  .frame { background:var(--green); padding:52px 76px; display:flex; flex-direction:column; }
+  .top { display:flex; justify-content:space-between; align-items:baseline; }
+  .season { font-family:var(--display); font-weight:600; font-size:28px; letter-spacing:.1em;
+            color:rgba(255,255,255,.66); }
+  h1 { font-family:var(--display); font-weight:700; font-size:50px; line-height:1.1;
+       color:#fff; max-width:15ch; margin-top:16px; }
+  .chart { margin-top:16px; }
+  .chart h2 { font-family:var(--display); font-weight:700; font-size:34px; color:var(--glow);
+              letter-spacing:.01em; }
+  .chart .unit { font-family:var(--sans); font-size:28px; color:rgba(255,255,255,.66); margin-top:3px; }
+  .plot { display:grid; grid-template-columns:238px 1fr; align-items:center; gap:18px; margin-top:12px; }
+  .nm { font-family:var(--sans); font-size:28px; color:#fff; text-align:right; line-height:1.22; }
+  .track { display:flex; align-items:center; height:52px;
+           border-left:3px solid rgba(255,255,255,.45); padding-left:3px; }
+  .bar { height:42px; background:var(--glow); border-radius:0 5px 5px 0; }
+  .val { font-family:var(--display); font-weight:700; font-size:38px; color:#fff;
+         margin-left:16px; white-space:nowrap; }
+  .note { margin-top:16px; background:rgba(255,255,255,.12);
+          border-left:5px solid var(--glow); border-radius:0 14px 14px 0; padding:22px 26px;
+          font-family:var(--sans); font-size:28px; line-height:1.4; color:#fff; }
+  .foot { margin-top:auto; padding-top:16px; display:flex; justify-content:space-between;
+          align-items:flex-end; gap:24px; }
+  .who { font-family:var(--display); font-weight:700; font-size:34px; color:var(--glow); }
+  .who span { display:block; font-family:var(--sans); font-weight:400; font-size:28px;
+              color:rgba(255,255,255,.84); margin-top:2px; }
+  .src { font-family:var(--sans); font-size:28px; line-height:1.4; color:rgba(255,255,255,.58);
+         max-width:28ch; text-align:right; }
+</style></head>
+<body><div class="frame">
+  <div class="top"><span class="eyebrow eyebrow--light">Field notes</span>
+    <span class="season" data-field="season">2026 season</span></div>
+  <h1 data-field="test-question">Three plots. One season.</h1>
+
+  <div class="chart" data-field="soil-result">
+    <h2>Organic matter gained</h2>
+    <p class="unit">Percent. Bars start at zero.</p>
+    <div class="plot"><span class="nm">Compost</span>
+      <div class="track"><div class="bar" style="width:92%"></div><span class="val">46%</span></div></div>
+    <div class="plot"><span class="nm">Control,<br>water only</span>
+      <div class="track"><div class="bar" style="width:28%"></div><span class="val">14%</span></div></div>
+    <div class="plot"><span class="nm">Teas and<br>extracts</span>
+      <div class="track"><div class="bar" style="width:2%"></div><span class="val">1%</span></div></div>
+  </div>
+
+  <div class="chart" data-field="crop-result">
+    <h2>Squash harvested</h2>
+    <p class="unit">Ounces. A small harvest.</p>
+    <div class="plot"><span class="nm">Compost</span>
+      <div class="track"><div class="bar" style="width:87.5%"></div><span class="val">35 oz</span></div></div>
+    <div class="plot"><span class="nm">Teas and<br>extracts</span>
+      <div class="track"><div class="bar" style="width:75%"></div><span class="val">30 oz</span></div></div>
+    <div class="plot"><span class="nm">Control</span>
+      <div class="track"><div class="bar" style="width:47.5%"></div><span class="val">19 oz</span></div></div>
+  </div>
+
+  <p class="note">The plot that gained least carried the fewest squash bugs.</p>
+
+  <div class="foot">
+    <p class="who"><span data-field="name">Sandra Niggemeyer</span><span data-field="place">Van, Texas</span></p>
+    <p class="src">Source: her field trial report, 2026.</p>
+  </div>
+</div></body></html>
