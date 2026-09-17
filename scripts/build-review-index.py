@@ -24,6 +24,9 @@ SETS = [
  ("5-templates", "Reusable templates",
   "Myth, checklist and microbe layouts. Swap the marked fields and the layout holds. "
   "Not posts, tooling.", None, None),
+ ("7-quote-cards", "Quote cards",
+  "Lines from the phrase bank, set as cards. These are finished posts, not drafts.",
+  None, None),
  ("6-motion-stills", "Motion pieces (still frames)",
   "One frame each from four animated HTML pages at 9:16. These are not finished posts. "
   "The animation lives in motion/ in the repo and has to be screen-recorded.", None, None),

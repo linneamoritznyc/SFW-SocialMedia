@@ -33,6 +33,7 @@ for f in $(find variants templates motion -name "*.html" ! -name "index.html" | 
     variants/umass/*)        set="2-umass-amherst" ;;
     variants/scholarships/*) set="3-scholarships" ;;
     variants/india/*)        set="4-india-tour" ;;
+    variants/quotes/*)       set="7-quote-cards" ;;
     templates/*)             set="5-templates" ;;
     motion/*)                set="6-motion-stills" ;;
     *)                       set="1-graduate-celebration" ;;

@@ -45,7 +45,16 @@ nav button[aria-selected=true]{color:var(--moss);font-weight:600;border-bottom-c
 main{padding:0 32px 90px;max-width:1500px}
 
 /* ---------- posts ---------- */
-.postnav{display:flex;flex-wrap:wrap;gap:8px;padding:26px 0 4px}
+.postnav{padding:24px 0 4px}
+.chipgroup{margin-bottom:16px}
+.chiplabel{font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:#8a837c;font-weight:700;margin-bottom:7px}
+.chiprow{display:flex;flex-wrap:wrap;gap:8px}
+.chip::before{content:"";width:7px;height:7px;border-radius:50%;display:inline-block;
+  margin-right:7px;vertical-align:middle;background:#C9BFAE}
+.chip.s-ready::before{background:#156826}
+.chip.s-review::before,.chip.s-needs-consent::before{background:#C9A227}
+.chip.s-blocked::before{background:#8A4B3F}
 .chip{border:1px solid var(--line);padding:7px 13px;border-radius:2px;font-size:14px;color:var(--soil)}
 .chip[aria-current=true]{background:var(--moss);border-color:var(--moss);color:#fff}
 .post{display:grid;grid-template-columns:minmax(300px,440px) minmax(320px,1fr);
@@ -115,6 +124,15 @@ details.email summary{padding:13px 18px;cursor:pointer;font-size:14.5px;color:va
 details.email .inner{padding:0 18px 18px}
 details.email p{font-size:14.5px;margin-bottom:11px;color:var(--soil)}
 details.email .why{border-top:1px solid var(--line);padding-top:12px;font-size:13.5px;color:var(--faint)}
+.noart{padding:52px 26px;text-align:center;background:var(--panel);
+  border:2px dashed #C9BFAE;margin:0}
+.noart b{display:block;font-size:14px;letter-spacing:.08em;text-transform:uppercase;
+  color:#8a837c;margin-bottom:10px}
+.noart p{font-size:14.5px;color:var(--soil);max-width:34ch;margin:0 auto;line-height:1.55}
+.imgnote{padding:11px 13px;border-top:1px solid var(--line);font-size:12.5px;
+  color:var(--faint);line-height:1.45}
+.draftlink{margin-top:26px;font-size:13px;color:var(--faint)}
+.draftlink code{background:var(--panel);padding:2px 6px;font-size:12.5px}
 .moregrid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));margin-top:12px}
 .moregrid a{display:block;border:1px solid var(--line)}
 .moregrid img{display:block;width:100%;height:auto}
@@ -164,7 +182,7 @@ footer b{color:var(--soil)}
 <div id="app" hidden>
   <header class="top">
     <h1>Social posts for review</h1>
-    <div class="sub">Seven posts, the artwork, the caption as written, and where each one sits in the quarter.</div>
+    <div class="sub" id="subline"></div>
     <nav>
       <button id="tab-posts" aria-selected="true">Posts</button>
       <button id="tab-sched" aria-selected="false">Schedule</button>
@@ -204,13 +222,40 @@ document.getElementById("gateform").onsubmit = e => {
 };
 function open_(){ gate.remove(); app.hidden = false; render(); }
 
+function subline(){
+  const ready = POSTS.filter(p => p.status === "ready").length;
+  const art   = POSTS.filter(p => p.images && p.images.length).length;
+  return POSTS.length + " drafted posts, September to December. "
+       + art + " have artwork, " + ready + " are clear to run. "
+       + "Every one says what is still blocking it.";
+}
+
 /* ---------- state ---------- */
 let cur = 0, slide = 0, cap = 0;
 
+/* Forty posts is too many for one undifferentiated row of chips, so they are
+   grouped the way the calendar is read: by month, with the unscheduled ones last. */
+function groupOf(p){
+  const s = p.slot || "";
+  if (/Unscheduled|Evergreen|Same day/i.test(s)) return "Unscheduled";
+  if (/September|October/.test(s)) return "September and October";
+  if (/November/.test(s)) return "November";
+  if (/December/.test(s)) return "December";
+  return "Unscheduled";
+}
+const GROUPS = ["September and October", "November", "December", "Unscheduled"];
+
 function render(){
-  document.getElementById("postnav").innerHTML = POSTS.map((p,i) =>
-    `<button class="chip" aria-current="${i===cur}" onclick="go(${i})">${esc(p.title)}</button>`
-  ).join("");
+  document.getElementById("subline").textContent = subline();
+  document.getElementById("postnav").innerHTML = GROUPS.map(g => {
+    const inGroup = POSTS.map((p,i) => [p,i]).filter(([p]) => groupOf(p) === g);
+    if (!inGroup.length) return "";
+    return `<div class="chipgroup"><p class="chiplabel">${esc(g)}</p><div class="chiprow">`
+      + inGroup.map(([p,i]) =>
+          `<button class="chip s-${esc(p.status)}" aria-current="${i===cur}" onclick="go(${i})">${esc(p.title)}</button>`
+        ).join("")
+      + `</div></div>`;
+  }).join("");
   document.getElementById("postbody").innerHTML = postHTML(POSTS[cur]);
   renderSchedule();
 }
@@ -224,8 +269,9 @@ function esc(s){ return String(s).replace(/[&<>"]/g, c =>
 function postHTML(p){
   const [label, colour] = STATUS[p.status];
   const c = p.captions[Math.min(cap, p.captions.length - 1)];
-  const img = p.images[Math.min(slide, p.images.length - 1)];
-  const many = p.images.length > 1;
+  const has = p.images && p.images.length > 0;
+  const img = has ? p.images[Math.min(slide, p.images.length - 1)] : null;
+  const many = has && p.images.length > 1;
   return `
   <div class="post">
     <div class="phone">
@@ -233,7 +279,7 @@ function postHTML(p){
         <div class="av">SFW</div>
         <div class="handle">soilfoodwebfoundation<span>${esc(p.platform)} &middot; ${esc(p.format)}</span></div>
       </div>
-      <div class="slides">
+      ${has ? `<div class="slides">
         <img src="${img.src}" alt="${esc(img.label)}">
         ${many ? `<button class="arrow l" ${slide===0?"disabled":""} onclick="setSlide(${slide-1})">&#8249;</button>
                   <button class="arrow r" ${slide===p.images.length-1?"disabled":""} onclick="setSlide(${slide+1})">&#8250;</button>` : ""}
@@ -241,7 +287,9 @@ function postHTML(p){
       ${many ? `<div class="dots">${p.images.map((_,i)=>`<span class="dot" aria-current="${i===slide}"></span>`).join("")}</div>` : ""}
       <div class="slidelabel">${esc(img.label)}</div>
       ${many ? `<div class="thumbs">${p.images.map((im,i)=>
-        `<button aria-current="${i===slide}" onclick="setSlide(${i})">${esc(im.label)}</button>`).join("")}</div>` : ""}
+        `<button aria-current="${i===slide}" onclick="setSlide(${i})">${esc(im.label)}</button>`).join("")}</div>` : ""}`
+      : `<div class="noart"><b>No artwork yet</b><p>${esc(p.needs || "Nothing made for this post.")}</p></div>`}
+      ${p.imageNote ? `<div class="imgnote">${esc(p.imageNote)}</div>` : ""}
     </div>
 
     <div class="detail">
@@ -259,7 +307,7 @@ function postHTML(p){
 
       <h3 class="sec">${p.captions.length > 1 ? "Caption options" : "Caption"}</h3>
       <div class="captabs">${p.captions.map((x,i)=>
-        `<button aria-selected="${i===cap}" onclick="setCap(${i})">${esc(x.name)}${x.recommended?'<span class="rec">rec</span>':""}</button>`).join("")}</div>
+        `<button aria-selected="${i===cap}" onclick="setCap(${i})">${esc(x.name)}${(x.recommended && p.captions.length > 1)?'<span class="rec">rec</span>':""}</button>`).join("")}</div>
 
       <div class="caption">
         <div class="body" id="captext">${c.body.map(l=>`<p>${esc(l)}</p>`).join("")}</div>
@@ -275,6 +323,8 @@ function postHTML(p){
 
       ${p.email ? emailHTML() : ""}
       ${p.more ? moreHTML(p.more) : ""}
+      ${p.draft ? `<p class="draftlink">Full draft, with the evidence rung behind every
+        claim: <code>${esc(p.draft)}</code></p>` : ""}
     </div>
   </div>`;
 }
