@@ -13,7 +13,7 @@ evidence:
   - claim: "Over $72,000 in full scholarships awarded in June 2026, around Dr. Elaine's birthday."
     rung: Documented
     source: "Meeting notes section 3: '$72,000+ in full scholarships awarded in June alone, around Dr. Elaine's birthday'."
-  - claim: "Around $250,000 in partial scholarships."
+  - claim: "Over a quarter of a million dollars in partial scholarships in June, run by Zulfiia with custom coupons, excluding the permaculture certificate, the Compost Intensive Course and other program scholarships."
     rung: AMBIGUOUS
     source: "Meeting notes. The period is an open question in the notes themselves. See below."
   - claim: "Zulfiia Dasaeva ran the partial scholarship work."
@@ -52,6 +52,11 @@ Neither figure goes on a card until both are answered.
   finding out what would work for them, building custom coupons. The partials are
   not a discount code. They are one person negotiating with people individually.
   That is a better story than the total.
+- **The partial figure excludes the permaculture certificate, the Compost
+  Intensive Course and other programme scholarships.** So it understates the real
+  total, which is worth saying in the caption rather than hiding, because "and
+  that is before the other programmes" is a stronger sentence than a bigger
+  number would be.
 - **The notes' own line:** "An organization that gives away more access than it
   sells has a claim to legitimacy." Worth checking whether that is literally true
   before using it, but if the ratio holds it is the strongest sentence available.
@@ -60,7 +65,7 @@ Neither figure goes on a card until both are answered.
 
 > [N] people started their training in June without paying for it.
 >
-> The full scholarships came to more than $72,000, awarded in the month of Dr. Elaine Ingham's birthday. Alongside them, roughly $250,000 in partial scholarships [SLOT: over what period].
+> The full scholarships came to more than $72,000, awarded in the month of Dr. Elaine Ingham's birthday. Alongside them, over a quarter of a million dollars in partial scholarships [SLOT: over what period], and that figure does not include the permaculture certificate, the Compost Intensive Course or the other programme scholarships.
 >
 > The partials are the part worth knowing about. They are not a discount code. Zulfiia contacted recipients one at a time, asked what would actually make it work for them, and built the arrangement around the answer.
 >

@@ -32,9 +32,9 @@ their profile too. It is not a tag and it is not a repost.
 | Series | Collab partner | Who asks |
 | :-- | :-- | :-- |
 | **Field Notes**, every graduate post | The graduate's own account | Whoever drafts the post, in the same message as the consent request |
-| **India**, every post | Isha Outreach, and RYSS where they appear | Evan or Kavi, because they hold the relationship |
+| **India**, every post | Isha Outreach, RYSS, or Return to Earth, whichever the post is about | Evan or Kavi, because they hold the relationship |
+| **Guest webinars**, every one | The guest, and their organisation | Whoever booked the guest. This is the tactic that worked at the PDC launch |
 | **Scholarship recipients** | The recipient's account | In the consent email, as one more question |
-| **Webinar and guest content** | The guest, and their organisation | Whoever booked the guest |
 | **Press and partner coverage** | The publication | Whoever holds the contact |
 
 Everything else is optional. A collab request to someone with no reason to say

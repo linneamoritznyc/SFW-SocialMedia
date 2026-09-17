@@ -10,9 +10,9 @@ cta: "Compártelo con quien lo necesite."
 hashtags: [SoilFoodWeb, SueloVivo, BiologiaDelSuelo, AgriculturaRegenerativa, SaludDelSuelo, Compostaje]
 source: "SFW All-Team Meeting notes, 17 September 2026, sections 5 and B2."
 evidence:
-  - claim: "The CIC is the first course translated into Spanish."
+  - claim: "The Compost Intensive Course is the first course translated into Spanish, and Spanish transcribed videos exist on the new platform."
     rung: Documented
-    source: "Meeting notes section 5: 'CIC first to be translated into Spanish.'"
+    source: "Meeting notes section 5 and the Spanish transcription note."
   - claim: "Someone in marketing did not know it existed."
     rung: Documented
     source: "Meeting notes B2: Allison Duck 'Did not know the Spanish CIC existed.'"
@@ -32,12 +32,14 @@ nobody outside will find it."
 That is the whole argument. This is not a launch. It is telling people about
 something that already shipped.
 
-## The acronym
+## The course, named in full
 
-The internal name is an acronym and it does not go in public copy. **Ask Elena
-what the course is actually called in full** before this runs. She is named in
-the notes as the person to ask about curriculum. The post below describes it by
-what it teaches rather than by its name, which works either way.
+It is the **Compost Intensive Course**, and that is what public copy calls it.
+The internal three-letter form never appears.
+
+The notes add one thing the earlier draft did not have: **Spanish transcribed
+videos already exist on the new platform.** So this is not a promise of a
+translation, it is an announcement that the thing is finished and sitting there.
 
 ## The post, in Spanish
 
@@ -47,7 +49,7 @@ what it teaches rather than by its name, which works either way.
 
 ## Caption
 
-> Nuestro primer curso traducido al español ya está disponible.
+> El Curso Intensivo de Compost ya está disponible en español, con los vídeos transcritos.
 >
 > Enseña a producir compost biológicamente completo: no solo materia orgánica descompuesta, sino compost con los organismos vivos que el suelo necesita. Bacterias, hongos, protozoos y nematodos. La diferencia se ve al microscopio y se nota en el campo.
 >

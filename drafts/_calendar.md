@@ -3,6 +3,19 @@
 Everything in `drafts/` laid out against the standing weekly template. Written
 17 September 2026.
 
+## This is a swap, not a volume increase
+
+The meeting's own recommendation was to **hold content volume flat**: cadence is
+already high and the website destination is still unfixed, so more posts pointing
+at a page that is not ready is not a win.
+
+So nothing here adds to the queue. **Each of these replaces a generic post already
+scheduled**, and the reason to make the swap is that every one of them has a real
+fact behind it: a named person, a measured figure, a course that already exists,
+a line somebody actually said.
+
+Three to four posts a week, unchanged. Better posts in the same slots.
+
 ## The standing template
 
 From the Q3 strategy, 3 to 4 posts a week:

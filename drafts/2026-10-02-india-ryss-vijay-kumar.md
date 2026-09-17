@@ -4,81 +4,79 @@ series: India
 pillar: The Bigger Picture
 platform: [Instagram carousel, LinkedIn]
 format: 1080x1350, four slides
-status: draft, BLOCKED on the two million figure
-collab: "REQUIRED. RYSS, and Isha Outreach where they appear. Evan or Kavi asks, because they hold the relationship."
+status: draft, one figure pending verification
+collab: "REQUIRED. RYSS. Evan or Kavi asks, because they hold the relationship."
 cta: "Tell us where you are working."
 hashtags: [SoilFoodWeb, LivingSoil, NaturalFarming, SoilHealth, RegenerativeAgriculture, FoodSecurity]
 source: "SFW All-Team Meeting notes, 17 September 2026, appendix J3."
 evidence:
   - claim: "Vijay Kumar and RYSS have helped nearly two million farmers across India transition from conventional commodity cropping to food forests, agroforestry and their own biofertilizers."
-    rung: UNVERIFIED
-    source: "Internal only. Meeting notes J3. No public source checked."
-  - claim: "Based on Soil Food Web science."
-    rung: UNVERIFIED
-    source: "Internal only, same line. This is the more dangerous half of the claim. See below."
+    rung: PENDING VERIFICATION
+    source: "Meeting notes J3. Needs a public RYSS or programme source with a year attached before it goes on a card."
 assets:
-  missing: "No photograph from India or anywhere in Asia exists in this library. See ASSET-GAPS.md."
+  missing: "No photograph from India or anywhere in Asia. See ASSET-GAPS.md."
 ---
 
 # Vijay Kumar and RYSS
 
-## This post is blocked, and it should stay blocked
+## The post is about their work, not ours
 
-You asked me to confirm the two million figure against a public source. **I could
-not.** The network egress proxy in this environment blocks the external domains I
-would need, including `apcnf.in`. I have no way to check it from here.
+The post credits RYSS with what RYSS did and says nothing about whose science is
+behind it. That removes the only real risk in it and it also makes it a better
+post: a Foundation account pointing at somebody else's work at a scale ours has
+never reached is more interesting than a Foundation account finding a way to be
+in the story.
 
-So what exists is the internal claim, verbatim from the meeting notes:
+Evan's own framing for the tour is the same instinct: putting the offering in
+front of people closest to the land. This is the version of that which costs us
+nothing.
 
-> Vijay Kumar and RYSS, who have helped nearly two million farmers across India
-> transition from conventional commodity cropping to food forests, agroforestry
-> and their own biofertilizers, based on Soil Food Web science
+## The one thing still outstanding
 
-**Two separate things need checking and the second one matters more.**
+**The figure.** Nearly two million farmers. I could not verify it: the network
+egress proxy in this environment blocks the domains I would need, including
+`apcnf.in`.
 
-1. **The number.** Nearly two million farmers. RySS and the Andhra Pradesh
-   Community Managed Natural Farming programme publish participation figures, and
-   those figures have been reported in the international press. Somebody with
-   network access should take the number from their publication, cite it, and put
-   the year on it. Programme figures move and a stale number is worse than none.
+Somebody with network access takes the number from a RYSS or programme
+publication, puts the year on it, and the source line on the card names that
+publication. Programme figures move, and a number without a year goes stale
+quietly.
 
-2. **"Based on Soil Food Web science."** This is the claim that would embarrass
-   us. APCNF is its own programme with its own lineage, its own agronomists and
-   its own name. Describing two million farmers' work as based on our science,
-   in public, on our account, when they have not said that themselves, is exactly
-   the kind of credit-taking that the India posts have been careful to avoid so
-   far.
+**Until that is done the card carries no number.** The post still works, because
+"across India" and "food forests, agroforestry and their own biofertilizers" is
+already a scale claim that does not need a digit behind it.
 
-   **Ask RYSS what they would like said.** They are a co-host. That is a one
-   message question and it turns a risk into a collaboration.
+## The four slides
 
-Until both are answered, this draft does not become a post.
+**1. The scale.** The figure once sourced, or the sentence without it.
 
-## What the post is, once it is unblocked
-
-Four slides. The Foundation is not the subject of any of them.
-
-**1.** The figure, once sourced, with the source on the card.
-
-**2.** What the transition actually is: conventional commodity cropping to food
+**2. What the transition actually is.** Conventional commodity cropping to food
 forests, agroforestry, and farmers making their own biofertilizers. The last one
-is the part our audience will recognise.
+is what our audience will recognise instantly and it is the bridge.
 
-**3.** The connection, stated at whatever strength RYSS agrees to. If they say
-"shared principles", the card says shared principles.
+**3. What making your own biofertilizer does.** This is our contribution to the
+conversation: the biology of growing organisms locally and putting them back,
+rather than buying a product. We can explain the mechanism without claiming the
+programme.
 
-**4.** We are teaching in India in October, one line, and the question.
+**4. We are teaching in India in October.** One line, and the question.
 
-## Caption skeleton
+## Caption
 
-> [SLOT: the figure, with its source and year] farmers in India have moved from conventional commodity cropping to food forests, agroforestry, and making their own biofertilizers.
+> [SLOT: the figure, with its source and year] farmers across India have moved from conventional commodity cropping to food forests, agroforestry, and making their own biofertilizers.
 >
-> That work is led by Vijay Kumar and RYSS. It is theirs, at a scale nothing in our own record comes close to.
+> That work is led by Vijay Kumar and RYSS. It is theirs, at a scale nothing in our own record comes close to, and it is worth knowing about whether or not you have ever heard of us.
 >
-> [SLOT: one sentence describing the relationship, in the words RYSS agrees to.]
+> The part we would point at: farmers making their own biological amendments rather than buying them. Growing the organisms locally and putting them back is a different proposition from applying a product, because what you are adding is a living population that then reproduces in the soil rather than a dose that depletes. It is also the only version of this that works when the nearest supplier is a long way away and the money is not there.
 >
-> [Mechanism paragraph: what making your own biofertilizer does biologically, which is our contribution to the conversation and does not require claiming anyone else's results.]
+> We are in India this month, teaching a workshop near Coimbatore.
 >
-> We are in India this month. Tell us where you are working.
+> Tell us where you are working.
 >
 > #SoilFoodWeb #LivingSoil #NaturalFarming #SoilHealth #RegenerativeAgriculture #FoodSecurity
+
+## Collab
+
+RYSS, per `sop/collab-posts.md`. Evan or Kavi sends it, and they see the copy
+first. A post about someone's work, in their grid, that they have not read, is
+the one way this goes wrong.
