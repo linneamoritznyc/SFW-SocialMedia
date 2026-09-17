@@ -1,0 +1,302 @@
+{
+  "_source": "Copy deck v2, sections 1.1 to 1.3, reconciled with the staging menu (About us, Learn, Science, Practice, Community) and the Site Map of 7 September 2026. Labels are sentence case and say where they go; 'and' is spelled out.",
+  "utilityBar": {
+    "tagline": "The Soil Food Web Foundation 501(c)(3)",
+    "actions": [
+      {
+        "label": "Student login",
+        "href": "login"
+      },
+      {
+        "label": "Subscribe",
+        "href": "news#subscribe"
+      },
+      {
+        "label": "Donate",
+        "href": "donate"
+      }
+    ]
+  },
+  "nav": {
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "About us",
+        "href": "about",
+        "pillar": null,
+        "children": [
+          {
+            "label": "Mission, vision and story",
+            "href": "about#mission"
+          },
+          {
+            "label": "Our team and board",
+            "href": "about-team"
+          },
+          {
+            "label": "Governance and financials",
+            "href": "about-governance"
+          },
+          {
+            "label": "Dr. Elaine Ingham",
+            "href": "about-elaine"
+          },
+          {
+            "label": "Foundation news",
+            "href": "news#foundation"
+          },
+          {
+            "label": "Contact us",
+            "href": "contact"
+          }
+        ]
+      },
+      {
+        "label": "Learn",
+        "href": "learn",
+        "pillar": "Teach It",
+        "children": [
+          {
+            "label": "Explore our programs",
+            "href": "learn"
+          },
+          {
+            "label": "Courses on school.soilfoodweb.com",
+            "href": "https://school.soilfoodweb.com"
+          },
+          {
+            "label": "In-person workshops",
+            "href": "calendar#workshops"
+          },
+          {
+            "label": "Calendar",
+            "href": "calendar"
+          },
+          {
+            "label": "Free webinars",
+            "href": "learn-webinars"
+          },
+          {
+            "label": "Scholarships",
+            "href": "learn-scholarships"
+          },
+          {
+            "label": "Student login",
+            "href": "login"
+          }
+        ]
+      },
+      {
+        "label": "Science",
+        "href": "science",
+        "pillar": "Prove It",
+        "children": [
+          {
+            "label": "How the soil food web works",
+            "href": "science"
+          },
+          {
+            "label": "Research and publications",
+            "href": "research"
+          },
+          {
+            "label": "Partner on research",
+            "href": "research#work-with-us"
+          }
+        ]
+      },
+      {
+        "label": "Practice",
+        "href": "practice",
+        "pillar": "Practice It",
+        "children": [
+          {
+            "label": "Case studies",
+            "href": "practice#case-studies"
+          },
+          {
+            "label": "Find a professional",
+            "href": "directory"
+          },
+          {
+            "label": "Work with us",
+            "href": "practice#work-with-us"
+          }
+        ],
+        "note": "Projects removed Sep 8 (Evan), returns when the projects database has real entries. Our Impact removed Sep 7, returns with the annual report."
+      },
+      {
+        "label": "Community",
+        "href": "community",
+        "pillar": "Grow It",
+        "children": [
+          {
+            "label": "Community map",
+            "href": "community#community-map"
+          },
+          {
+            "label": "News and stories",
+            "href": "news"
+          },
+          {
+            "label": "Calendar",
+            "href": "calendar"
+          },
+          {
+            "label": "Join the community",
+            "href": "community#join"
+          },
+          {
+            "label": "The mobile app",
+            "href": "app"
+          },
+          {
+            "label": "Volunteer with us",
+            "href": "volunteer"
+          }
+        ],
+        "note": "Find a Professional removed Sep 7, reached from Practice only; directory content still lives on the Community page."
+      }
+    ]
+  },
+  "happeningNow": {
+    "heading": "Happening now",
+    "items": [
+      {
+        "datetime": "2026-09-16",
+        "dated": "16 September to 20 December 2026",
+        "label": "Permaculture Design Certification cohort",
+        "href": "learn#permaculture"
+      },
+      {
+        "datetime": "2026-10-19",
+        "dated": "19 to 30 October 2026",
+        "label": "Accelerator Workshop India 2026, Coimbatore",
+        "href": "calendar#workshops"
+      }
+    ],
+    "more": {
+      "label": "Everything that is happening",
+      "href": "calendar"
+    },
+    "note": "Two items only until the events database has more dated entries. Copy deck 1.2 asks for the three most recent."
+  },
+  "footer": {
+    "brandLine": "Healing soil. Feeding humanity. Restoring the living world.",
+    "columns": [
+      {
+        "head": "Foundation",
+        "links": [
+          {
+            "label": "About us",
+            "href": "about"
+          },
+          {
+            "label": "Our team and board",
+            "href": "about-team"
+          },
+          {
+            "label": "Dr. Elaine's research",
+            "href": "about-elaine"
+          },
+          {
+            "label": "Governance and financials",
+            "href": "about-governance"
+          },
+          {
+            "label": "Contact us",
+            "href": "contact"
+          }
+        ]
+      },
+      {
+        "head": "Learn",
+        "links": [
+          {
+            "label": "Explore our programs",
+            "href": "learn"
+          },
+          {
+            "label": "Courses on school.soilfoodweb.com",
+            "href": "https://school.soilfoodweb.com"
+          },
+          {
+            "label": "Workshops and events",
+            "href": "calendar#workshops"
+          },
+          {
+            "label": "Calendar",
+            "href": "calendar"
+          },
+          {
+            "label": "Free webinars",
+            "href": "learn-webinars"
+          },
+          {
+            "label": "Scholarships",
+            "href": "learn-scholarships"
+          }
+        ]
+      },
+      {
+        "head": "Resources",
+        "links": [
+          {
+            "label": "How the soil food web works",
+            "href": "science"
+          },
+          {
+            "label": "Research and publications",
+            "href": "research"
+          },
+          {
+            "label": "Case studies",
+            "href": "practice#case-studies"
+          },
+          {
+            "label": "Media and press",
+            "href": "contact#media"
+          },
+          {
+            "label": "sMApp on soilmapp.com",
+            "href": "https://www.soilmapp.com/"
+          }
+        ]
+      },
+      {
+        "head": "Get involved",
+        "links": [
+          {
+            "label": "Donate",
+            "href": "donate"
+          },
+          {
+            "label": "Volunteer with us",
+            "href": "volunteer"
+          },
+          {
+            "label": "Invite us to speak",
+            "href": "contact#speak"
+          },
+          {
+            "label": "Find a professional",
+            "href": "directory"
+          },
+          {
+            "label": "Logo and name use",
+            "href": "contact#logo"
+          }
+        ]
+      }
+    ],
+    "legalLine": "© 2026 Soil Food Web Foundation, a 501(c)(3) nonprofit organization. Soil Food Web School is a program of the Soil Food Web Foundation.",
+    "_source": "Reconciled against the footer on new.soilfoodweb.com, which is the newest decision. Its three columns are kept and its missing entries added; Resources stays because those pages exist and are otherwise only in the menu. Labels are sentence case per the copy rules.",
+    "social": {
+      "status": "placeholder",
+      "note": "The staging footer carries four social icons: X, Facebook, Google and Instagram. The account addresses were not supplied and could not be read from staging, so no icons print here rather than four links to nowhere. Evan."
+    }
+  }
+}

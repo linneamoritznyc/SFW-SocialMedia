@@ -1,0 +1,496 @@
+/* ==========================================================================
+   Soil Food Web Foundation, six-panel trifold. Print only.
+   Separate from css/site.css on purpose: this is a printed artifact, it is
+   never served to a browser as a page, and it must not touch the site's
+   stylesheet. Tokens below are copied verbatim from css/site.css section 1
+   so the two stay in step; the comment beside each one is the site's own.
+   Units are inches and points throughout, because this is print.
+   ========================================================================== */
+
+:root {
+  /* Colour, copied from css/site.css section 1. */
+  --paper:      #FFFFFF;   /* the page. White, and mostly empty. */
+  --panel:      #F4F1EA;   /* Organic Cream. A SHAPE, never the page. */
+  --panel-green:#E6EADC;   /* the specimen case */
+  --ink:        #333130;   /* body text */
+  --ink-soft:   #4A463F;
+  --ink-faint:  #6A665C;   /* captions, source lines */
+  --soil:       #4F3433;   /* headings */
+  --moss:       #22371F;
+  --green:      #156826;   /* Food Web Green */
+  --edu:        #3780B8;   /* Education Blue */
+  --legacy:     #6B4C7A;   /* Legacy Purple. Dr. Elaine content ONLY. */
+  --tan:        #C89B7B;
+  /* --gold (#C9A227) is deliberately absent. site.css scopes it to the
+     Donate button and there is no donate button in this brochure. */
+
+  --rule:        rgba(79, 52, 51, .22);
+  --rule-strong: rgba(79, 52, 51, .55);
+
+  --display: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --sans:    "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+  --serif:   "EB Garamond", Georgia, "Times New Roman", serif;
+
+  /* Trim. Letter tri-fold: the tucked panel is 1/16in narrower. */
+  --w-wide: 3.6875in;
+  --w-tuck: 3.625in;
+  --h:      8.5in;
+  --bleed:  0.125in;
+  --pad:    0.28in;   /* panel margin. Safe area is --pad in from trim. */
+
+  /* One rhythm across all six panels. The band and the photograph are fixed
+     heights, so their edges line up across both folds however long a heading
+     runs. Headings that need fewer lines sit lower in the band rather than
+     pulling the photograph up with them, which is what made the panels look
+     unrelated. */
+  --band-h:  0.98in;
+  --photo-h: 1.02in;
+}
+
+/* Fonts, self-hosted and subsetted, from the repository's own fonts/ folder.
+   Rules copied from css/site.css section 2, paths rewritten for this depth. */
+@font-face { font-family: "Montserrat";    font-style: normal; font-weight: 600 700; src: url("/fonts/montserrat-latin-variable.woff2") format("woff2-variations"); }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 400; src: url("/fonts/source-sans-3-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Source Sans 3"; font-style: italic; font-weight: 400; src: url("/fonts/source-sans-3-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 600; src: url("/fonts/source-sans-3-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "EB Garamond";   font-style: normal; font-weight: 400; src: url("/fonts/eb-garamond-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "EB Garamond";   font-style: italic; font-weight: 400; src: url("/fonts/eb-garamond-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "EB Garamond";   font-style: normal; font-weight: 500; src: url("/fonts/eb-garamond-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "EB Garamond";   font-style: normal; font-weight: 600; src: url("/fonts/eb-garamond-latin-600-normal.woff2") format("woff2"); }
+
+* , *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; background: var(--paper); }
+
+/* The sheet is trim plus bleed on all four sides. The bleed is not padding
+   on the sheet: the panels themselves carry it, so a photograph set flush to
+   a panel edge runs past the trim instead of stopping at it. Top and bottom
+   bleed belong to every panel; left and right only to the two outer ones. */
+.sheet {
+  position: relative;
+  width:  calc(var(--w-wide) * 2 + var(--w-tuck) + var(--bleed) * 2);
+  height: calc(var(--h) + var(--bleed) * 2);
+  background: var(--paper);
+  overflow: hidden;
+}
+
+.spread { display: flex; width: 100%; height: 100%; }
+
+.panel {
+  position: relative;
+  height: 100%;
+  padding: calc(var(--pad) + var(--bleed)) var(--pad);
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 8.4pt;
+  line-height: 1.38;
+  overflow: hidden;
+}
+.panel--wide { width: var(--w-wide); flex: 0 0 var(--w-wide); }
+.panel--tuck { width: var(--w-tuck); flex: 0 0 var(--w-tuck); }
+
+/* The two panels against the outer trim edge are one bleed wider, so their
+   border box ends at the sheet edge and .figure--full reaches it. */
+.panel--first { flex-basis: calc(var(--w-wide) + var(--bleed)); width: calc(var(--w-wide) + var(--bleed)); padding-left:  calc(var(--pad) + var(--bleed)); }
+.panel--last  { flex-basis: calc(var(--w-tuck) + var(--bleed)); width: calc(var(--w-tuck) + var(--bleed)); padding-right: calc(var(--pad) + var(--bleed)); }
+
+/* --------------------------------------------------------------------------
+   Type
+   -------------------------------------------------------------------------- */
+p, ul { margin: 0 0 0.07in; }
+p:last-child, ul:last-child { margin-bottom: 0; }
+strong { font-weight: 600; }
+
+.eyebrow {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 6.4pt;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin: 0 0 0.055in;
+}
+.eyebrow--edu    { color: var(--edu); }
+.eyebrow--legacy { color: var(--legacy); }
+.eyebrow span { color: var(--ink-faint); font-weight: 600; }
+
+h1, h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  color: var(--soil);
+  letter-spacing: -0.006em;
+  line-height: 1.08;
+  margin: 0 0 0.09in;
+  text-wrap: balance;
+}
+h1 { font-size: 20pt; }
+h2 { font-size: 15.5pt; }
+
+h3 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 8.4pt;
+  color: var(--soil);
+  line-height: 1.2;
+  margin: 0 0 0.03in;
+}
+
+/* EB Garamond carries the small, considered text: ledes, captions, figure
+   labels and pull quotes. css/site.css section 1, --text-serif. */
+.lede {
+  font-family: var(--serif);
+  font-size: 9.8pt;
+  line-height: 1.3;
+  color: var(--ink);
+  margin: 0 0 0.085in;
+}
+.caption, .source {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 6.7pt;
+  line-height: 1.26;
+  color: var(--ink-faint);
+  margin: 0.045in 0 0;
+}
+.source::before { content: "Source: "; font-style: normal; }
+
+/* A fact that is not confirmed yet. The site does this with .todo, which is
+   display:none until ?notes=1 is set; in a flattened print PNG that would
+   render as nothing at all. So it is always visible here, in the .awaiting
+   tone: a straight sentence about what is coming, not a grey box. */
+.awaiting {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 7.1pt;
+  line-height: 1.28;
+  color: var(--ink-soft);
+  border-left: 1.4pt solid var(--tan);
+  padding: 0.005in 0 0.005in 0.07in;
+  margin: 0.06in 0;
+}
+.awaiting b { font-style: normal; font-weight: 600; color: var(--soil); }
+
+.pull {
+  font-family: var(--serif);
+  font-size: 8.9pt;
+  line-height: 1.29;
+  color: var(--ink);
+}
+.pull b {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 7.6pt;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--soil);
+  display: block;
+  margin-bottom: 0.035in;
+}
+
+.url {
+  font-family: var(--sans);
+  font-size: 7.1pt;
+  color: var(--green);
+  word-break: break-word;
+}
+
+/* --------------------------------------------------------------------------
+   Shapes and rules
+   -------------------------------------------------------------------------- */
+.hr   { border: 0; border-top: 0.7pt solid var(--rule); margin: 0.085in 0; }
+.hr--strong { border-top: 1pt solid var(--rule-strong); }
+
+/* --------------------------------------------------------------------------
+   The colour band
+   --------------------------------------------------------------------------
+   Each pillar panel opens with its eyebrow and heading reversed out of Food
+   Web Green, running the full width of the panel and up through the panel's
+   own top padding into the bleed, so after trimming it sits flush to the top
+   edge. It costs almost no height: that top padding was already empty white,
+   so only the band's bottom padding is new.
+
+   The gradient runs green to moss, both already in the palette. The eyebrow
+   accent modifiers (--edu, --legacy) do not apply inside the band, since
+   neither blue nor purple holds against green; the accents still carry the
+   QR rules, where they have room to read. */
+.banner {
+  margin: calc((var(--pad) + var(--bleed)) * -1) calc(var(--pad) * -1) 0;
+  padding: calc(var(--bleed) + 0.13in) var(--pad) 0.11in;
+  height: calc(var(--band-h) + var(--bleed));
+  box-sizing: border-box;
+  /* The panel is a flex column, so without this the band and the photograph
+     are shrunk on whichever panel carries the most copy, and the rhythm the
+     fixed heights exist to create is quietly lost on exactly one panel. */
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(158deg, var(--field-a) 0%, var(--field-b) 100%);
+}
+.panel--first .banner {
+  margin-left: calc((var(--pad) + var(--bleed)) * -1);
+  padding-left: calc(var(--pad) + var(--bleed));
+}
+.panel--last .banner {
+  margin-right: calc((var(--pad) + var(--bleed)) * -1);
+  padding-right: calc(var(--pad) + var(--bleed));
+}
+.banner .eyebrow,
+.banner .eyebrow--edu,
+.banner .eyebrow--legacy { color: rgba(255, 255, 255, 0.86); }
+.banner h2 { color: #FFFFFF; margin-bottom: 0; line-height: 1.05; font-size: 14pt; }
+
+/* --------------------------------------------------------------------------
+   Colour fields
+   --------------------------------------------------------------------------
+   A field is a block of Food Web Green running to moss, carrying white type.
+   Three sizes of the same idea:
+
+     .banner        the eyebrow and heading at the top of a pillar panel
+     .field         a bounded block inside a white panel
+     .panel--field  a whole panel given over to the colour
+
+   A background costs no height, which is the reason a whole panel can turn
+   green on a sheet where four of the six panels have under 12 points spare.
+   Only the padding of a bounded field is new height. */
+.field {
+  margin-left: calc(var(--pad) * -1);
+  margin-right: calc(var(--pad) * -1);
+  padding: 0.16in var(--pad);
+  background: linear-gradient(158deg, var(--field-a) 0%, var(--field-b) 100%);
+  color: #FFFFFF;
+}
+.panel--first .field { margin-left: calc((var(--pad) + var(--bleed)) * -1); padding-left: calc(var(--pad) + var(--bleed)); }
+.panel--last  .field { margin-right: calc((var(--pad) + var(--bleed)) * -1); padding-right: calc(var(--pad) + var(--bleed)); }
+.field--flush { margin-bottom: calc((var(--pad) + var(--bleed)) * -1); padding-bottom: calc(var(--pad) + var(--bleed)); }
+
+/* A whole panel in the colour. Everything that carries an ink token has to be
+   restated, or it keeps a colour tuned for white paper and disappears. */
+/* Every panel carries the two ends of its own gradient. Green is the default;
+   the story panel takes Legacy Purple and the teaching panel Education Blue,
+   so each pillar's accent becomes its field rather than only its QR rule. The
+   deep ends are the same hues taken down, not new tokens. */
+:root {
+  --field-a: var(--green);
+  --field-b: var(--moss);
+  --edu-deep:    #1F4E73;
+  --legacy-deep: #3F2C4B;
+}
+.panel--field       { --field-a: var(--green);  --field-b: var(--moss); color: #FFFFFF; }
+.panel--field--edu    { --field-a: var(--edu);    --field-b: var(--edu-deep); }
+.panel--field--legacy { --field-a: var(--legacy); --field-b: var(--legacy-deep); }
+.panel--field .banner { background: none; margin-bottom: 0; padding-bottom: 0.11in; }
+
+/* Everything that sets its own ink colour has to be restated here, or it keeps
+   a value tuned for white paper and either disappears or sits at two or three
+   to one against the field. This is the full list as of this pass: if a new
+   component sets a colour, it belongs here too. */
+.panel--field h1,
+.panel--field h2,
+.panel--field h3,
+.panel--field .lede,
+.panel--field .pull,
+.panel--field .pull b,
+.panel--field .awaiting b,
+.panel--field .checks b,
+.panel--field .figures .n,
+.panel--field .qr .t,
+.panel--field .legal .addr,
+.panel--field .tagline,
+.panel--field .url,
+.panel--field a            { color: #FFFFFF; }
+.panel--field .eyebrow,
+.panel--field .eyebrow--edu,
+.panel--field .eyebrow--legacy { color: rgba(255, 255, 255, 0.86); }
+.panel--field .awaiting,
+.panel--field .legal,
+.panel--field .qr .d,
+.panel--field .figures .l  { color: rgba(255, 255, 255, 0.86); }
+.panel--field .caption,
+.panel--field .source,
+.panel--field .eyebrow span,
+.panel--field .qr .h       { color: rgba(255, 255, 255, 0.70); }
+.panel--field .hr          { border-top-color: rgba(255, 255, 255, 0.28); }
+.panel--field .pull        { border-left-color: rgba(255, 255, 255, 0.55); }
+.panel--field .awaiting    { border-left-color: rgba(255, 255, 255, 0.45); }
+.panel--field .checks li::before { background: rgba(255, 255, 255, 0.85); }
+.panel--field .qr--green,
+.panel--field .qr--edu,
+.panel--field .qr--legacy  { border-top-color: rgba(255, 255, 255, 0.55); }
+/* A code has to be dark on light to scan, whatever it is standing on. */
+.panel--field .qr img {
+  background: #FFFFFF;
+  padding: 0.055in;
+  border-radius: 0.035in;
+  width: 1.04in; height: 1.04in;
+}
+
+/* The figures block reversed out, for the cover's closing field. */
+.field .figures .n { color: #FFFFFF; }
+.field .figures .l { color: rgba(255, 255, 255, 0.86); }
+.field .source     { color: rgba(255, 255, 255, 0.68); }
+.field .tagline    { color: #FFFFFF; }
+
+/* A photograph in the colour panel fades into the field along its lower edge,
+   so the picture joins the green rather than sitting on it as a hard rectangle.
+
+   Only in the colour panel. On a white panel the same fade lands behind the
+   caption and turns it into grey type on a grey-green band, which is how it
+   first went out. The caption is lifted above the fade either way. */
+.figure { position: relative; }
+.panel--field .figure--fade::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: 0.7in;
+  background: linear-gradient(to bottom, transparent 0%, var(--field-b) 94%);
+  pointer-events: none;
+  z-index: 0;
+}
+.figure figcaption { position: relative; z-index: 1; }
+
+/* The fold carry.
+   Panel 6 is a colour field; this is the same field continuing left past the
+   crease, so the block reads as one shape folded rather than as a panel that
+   happens to be green. Width is panel 5's right padding exactly, so no copy
+   sits on it. Sheet geometry: panel 4 is wide + bleed, panel 5 is wide, so the
+   crease falls at (wide + bleed) + wide from the sheet's left edge. */
+.carry {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--w-wide) + var(--bleed) + var(--w-wide) - var(--pad));
+  width: var(--pad);
+  background: linear-gradient(168deg, var(--green) 0%, var(--moss) 108%);
+  border-top-left-radius: 0.22in;
+  border-bottom-left-radius: 0.22in;
+  z-index: 0;
+}
+.panel { z-index: 1; }
+.panel--field { background: none; }
+.panel--field::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(168deg, var(--field-a) 0%, var(--field-b) 108%);
+  z-index: -1;
+}
+
+/* Organic Cream as a bounded rectangle behind a group, never as the page. */
+.card {
+  background: var(--panel-green);
+  padding: 0.12in 0.13in;
+  border-radius: 0.045in;
+  border-left: 1.6pt solid var(--green);
+}
+.card--cream { background: var(--panel); border-left-color: var(--tan); }
+.panel--field .card {
+  background: rgba(255, 255, 255, 0.12);
+  border-left-color: rgba(255, 255, 255, 0.65);
+}
+
+/* Photographs. .figure--full reaches both panel edges; add --bleed-l or
+   --bleed-r on a panel that sits against the outer trim. */
+.figure { margin: 0; }
+.figure--full { margin-left: calc(var(--pad) * -1); margin-right: calc(var(--pad) * -1); }
+.panel--first .figure--full { margin-left:  calc((var(--pad) + var(--bleed)) * -1); }
+.panel--last  .figure--full { margin-right: calc((var(--pad) + var(--bleed)) * -1); }
+.figure--full .caption { margin-left: var(--pad); margin-right: var(--pad); }
+.panel--first .figure--full .caption { margin-left: calc(var(--pad) + var(--bleed)); }
+.panel--last  .figure--full .caption { margin-right: calc(var(--pad) + var(--bleed)); }
+.figure img {
+  display: block;
+  width: 100%;
+  height: var(--photo-h);
+  object-fit: cover;
+}
+/* The lower edge of each photograph is not its own shape. One curve is drawn
+   across the whole sheet and each picture is clipped by the segment of it that
+   falls in that panel, so the three edges join into a single line across both
+   folds. The polygons are generated per panel from the panel spans that
+   build/measure.js reports; they are inline on the images because each one is
+   a different part of the same curve. */
+.figure--full { margin-bottom: 0.06in; flex: 0 0 auto; }
+
+.spacer { flex: 1 1 auto; min-height: 0.06in; }
+
+/* --------------------------------------------------------------------------
+   Components
+   -------------------------------------------------------------------------- */
+
+/* The masthead: the provisional logo, then the type-set wordmark, exactly
+   as the live site does until the real vector mark arrives (Decision 16). */
+.mast { display: flex; align-items: center; gap: 0.1in; }
+.mast img { width: 0.46in; height: auto; }
+.mast .wordmark {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 10.2pt;
+  line-height: 1.12;
+  letter-spacing: -0.008em;
+  color: var(--soil);
+}
+.mast .sub {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 7.2pt;
+  color: var(--ink-faint);
+  margin-top: 0.015in;
+}
+
+/* The three figures from the homepage, as a bounded cream shape. */
+.figures { display: flex; flex-direction: column; gap: 0.065in; }
+.figures .row { display: flex; align-items: baseline; gap: 0.085in; }
+.figures .n {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15pt;
+  line-height: 1;
+  color: var(--green);
+  flex: 0 0 0.72in;
+  text-align: right;
+  letter-spacing: -0.02em;
+}
+.figures .l { font-size: 7.9pt; line-height: 1.22; color: var(--ink-soft); }
+
+/* A stack of named items separated by hairlines. */
+.items > * + * { border-top: 0.7pt solid var(--rule); padding-top: 0.06in; margin-top: 0.06in; }
+.items p { margin: 0; font-size: 8.1pt; line-height: 1.33; }
+
+.checks { list-style: none; padding: 0; margin: 0 0 0.085in; }
+.checks li { position: relative; padding-left: 0.135in; margin-bottom: 0.045in; font-size: 8.1pt; line-height: 1.33; }
+.checks li:last-child { margin-bottom: 0; }
+.checks li::before {
+  content: ""; position: absolute; left: 0.015in; top: 0.055in;
+  width: 0.045in; height: 0.045in; border-radius: 50%; background: var(--green);
+}
+.checks b { font-family: var(--display); font-weight: 600; font-size: 8pt; color: var(--soil); }
+
+/* One QR per panel. Never two on a page: a phone reading two codes at once
+   gets confused. The frame colour is the panel's own accent token. */
+.qr { display: flex; align-items: center; gap: 0.12in; }
+.qr img { width: 1.15in; height: 1.15in; display: block; }
+.qr .t {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 9pt;
+  line-height: 1.16;
+  color: var(--soil);
+}
+.qr .d { font-size: 7.4pt; line-height: 1.28; color: var(--ink-soft); margin-top: 0.035in; }
+.qr .h { font-family: var(--serif); font-style: italic; font-size: 7pt; color: var(--ink-faint); margin-top: 0.035in; }
+.qr--legacy { border-top: 2pt solid var(--legacy); padding-top: 0.11in; }
+.qr--edu    { border-top: 2pt solid var(--edu);    padding-top: 0.11in; }
+.qr--green  { border-top: 2pt solid var(--green);  padding-top: 0.11in; }
+
+/* The legal block, ratified wording, verbatim. */
+.legal { font-size: 6.8pt; line-height: 1.35; color: var(--ink-soft); }
+.legal .addr { font-family: var(--display); font-weight: 600; font-size: 7.6pt; color: var(--soil); line-height: 1.3; margin-bottom: 0.045in; }
+
+.tagline {
+  font-family: var(--serif);
+  font-size: 10.6pt;
+  line-height: 1.26;
+  color: var(--soil);
+}

@@ -1,0 +1,36 @@
+{
+  "_source": "SFWF Website Copy Deck v1.0, section 11. Copy verbatim.",
+  "hero": {
+    "eyebrow": "STUDENT ACCESS",
+    "h1": "Welcome back, Soil Regenerator",
+    "intro": "Your courses live on one of two learning platforms. Pick yours below. One click and you’re home."
+  },
+  "choosers": [
+    {
+      "name": "New platform, Soil Food Web School on Thinkific",
+      "programs": "For courses bought after 15 March 2026, or accounts that have already moved.",
+      "cta": {
+        "label": "Log in on school.soilfoodweb.com",
+        "href": "https://school.soilfoodweb.com/users/sign_in"
+      }
+    },
+    {
+      "name": "Original platform",
+      "programs": "For courses bought before 15 March 2026 whose accounts have not moved yet.",
+      "cta": {
+        "label": "Log in on soilfoodweb.com",
+        "href": "https://soilfoodweb.com/login/"
+      }
+    },
+    {
+      "name": "sMApp, the microscope tool",
+      "programs": "Turns what you count through a microscope into biomass figures and a report. A separate free tool with its own account, not a course platform. Accounts are for enrolled students for now.",
+      "cta": {
+        "label": "Open sMApp on soilmapp.com",
+        "href": "https://www.soilmapp.com/"
+      }
+    }
+  ],
+  "helpLine": "Students are moving to the new platform in stages. You will get an email when your account moves. Unsure? Write to info@soilfoodweb.com.",
+  "source": "The live login page at soilfoodweb.com, checked 11 September 2026. The split is by purchase date and migration status."
+}

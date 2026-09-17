@@ -1,0 +1,140 @@
+{
+  "_source": "SFWF Website Copy Deck v1.0, section 13. Copy verbatim.",
+  "hero": {
+    "eyebrow": "PRACTICE",
+    "h1": "Putting living soil to work",
+    "intro": "Field trials, restoration efforts, and partnerships where the Foundation and its practitioners apply the soil food web, documented as they grow."
+  },
+  "projects": {
+    "status": "removed",
+    "note": "Projects section removed Sep 8 (Evan), restore when the projects database has real entries."
+  },
+  "caseStudies": {
+    "eyebrow": "CASE STUDIES",
+    "h2": "Documented results, one site at a time",
+    "lede": "Each case study pairs a grower’s story with the data behind it, where they started, what they practiced, and what was measured.",
+    "cards": [
+      {
+        "name": "Roberto Silva",
+        "place": "Piura, Peru",
+        "kind": "Agricultural",
+        "vimeo": "790985081",
+        "hash": "92231c295c",
+        "poster": "img/erc-rancho-cacachilas-agro.jpg",
+        "posterAlt": "Long rows of crops running to a line of trees under a wide clouded sky"
+      },
+      {
+        "name": "Cory Miller",
+        "place": "Montana, USA",
+        "kind": "Agricultural",
+        "vimeo": "812185778",
+        "hash": "dd3a45ec17",
+        "poster": "img/harringtons-organic-land-care-york-farms-1-768x1024.jpg",
+        "posterAlt": "A gloved hand holding back a mat of crop residue to show dark crumb soil underneath"
+      },
+      {
+        "name": "Nick Tomasini",
+        "place": "Portland, Oregon",
+        "kind": "Soil Food Web Consultant",
+        "vimeo": "410049306",
+        "hash": "251e4606ca",
+        "poster": "img/hand-soil-roots-fungi.jpg",
+        "posterAlt": "An open palm holding a clump of soil bound together by roots and pale fungal strands"
+      }
+    ],
+    "source": "The practitioners' own films, from the Foundation's Vimeo library.",
+    "status": "placeholder",
+    "note": "All eleven films from the Consultant and Farmer Case Studies playlists are here, in content/videos.json. Still open: a restoration-segment case, and the written detail behind each film, where they started, what they practiced and what was measured. Evan and Stephanie. The place and scale beside each name are quoted from the Foundation's own playlist pages, not asserted here; anything the old pages did not print is not shown.",
+    "more": {
+      "note": "The other fifteen videos are in content/videos.json too, under Testimonials, Implementing and Meet the Family, and all six How It Works animations now have their private hash. Nothing is wired to a page yet except these eleven."
+    }
+  },
+  "app": {
+    "_note": "sMApp is a web app. There is NO App Store or Google Play listing for it. Do not add store buttons here: the 'SoilMapp' listed in both stores is CSIRO's unrelated Australian soil survey app (Apple id578173447, package au.csiro.soilmapp), and searching the stores by name leads there. Never link an APK mirror. Verify any future listing by Apple app ID and Android package name, not by app name.",
+    "eyebrow": "TOOLS",
+    "h2": "sMApp, the microscope tool",
+    "what": "Count what you see through the microscope, type the numbers in, and sMApp returns bacterial and fungal biomass, the fungal to bacterial ratio, and protozoa and nematode numbers. It builds the same report a Soil Food Web laboratory sends back on a posted sample.",
+    "free": "Free to use.",
+    "cta": {
+      "label": "Open sMApp",
+      "href": "https://www.soilmapp.com/"
+    },
+    "host": "www.soilmapp.com",
+    "install": {
+      "h3": "Put it on your phone",
+      "lede": "sMApp runs in a browser, so there is nothing to install from an app store. Adding it to your home screen gives you an icon that opens sMApp directly.",
+      "platforms": [
+        {
+          "name": "iPhone and iPad",
+          "steps": [
+            "Open www.soilmapp.com in Safari.",
+            "Tap the Share button.",
+            "Choose Add to Home Screen, then tap Add."
+          ]
+        },
+        {
+          "name": "Android",
+          "steps": [
+            "Open www.soilmapp.com in Chrome.",
+            "Tap the menu button, the three dots.",
+            "Choose Add to Home screen. Some phones say Install app."
+          ]
+        }
+      ]
+    },
+    "source": "What sMApp does, the 400x microscope, the student only accounts and the free to use line were given by the Foundation, 12 September 2026. sMApp has no App Store or Google Play listing, checked 11 September 2026.",
+    "detail": "Work is organised as portfolios, clients and projects, so one practitioner can follow many sites over the years. It needs a microscope that reaches about 400x. A phone camera will not do it. None of the data you enter is kept by Soil Food Web.",
+    "access": {
+      "status": "VERIFY",
+      "note": "Open release is planned but undated. When it happens, drop 'Accounts are for enrolled students for now' from the free line. Confirm the wording with whoever runs soilmapp.com before it goes out."
+    },
+    "limit": "Accounts are for enrolled students for now."
+  },
+  "workWithUs": {
+    "h2": "WORK WITH US",
+    "tagline": "Accelerating understanding into action.",
+    "lede": "Whether you’re a farmer looking to implement the soil food web approach to cut back on synthetic inputs and build your natural soil fertility, a landowner looking to restore biodiversity and remediate contamination, or a school system wanting to incorporate our methodology into your curriculum, we welcome you to reach out to us.",
+    "cards": [
+      {
+        "title": "Farm with biology",
+        "body": "Cut back on synthetic inputs and build your natural soil fertility. We’ll connect you with our team and trained practitioners to plan, implement, and monitor the transition on your operation.",
+        "href": "directory",
+        "cta": "Find a trained professional near you"
+      },
+      {
+        "title": "Restore your land",
+        "body": "Bring biodiversity back to degraded sites and put biology to work on remediation, from gardens and smallholdings to large landholdings and public lands.",
+        "href": "research#work-with-us",
+        "cta": "See how we partner on land and trials"
+      },
+      {
+        "title": "Bring it to your classroom",
+        "body": "Incorporate the soil food web methodology into your curriculum: for school systems, universities, and training programs.",
+        "href": "learn",
+        "cta": "Explore our programs"
+      }
+    ],
+    "form": {
+      "title": "Start the conversation",
+      "fields": [
+        "Name",
+        "Email",
+        "Organization",
+        "I am a…",
+        "Tell us about your land, project, or program"
+      ],
+      "status": "verify",
+      "note": "routes to info@soilfoodweb.com, VERIFY routing/owner"
+    },
+    "crossLinks": [
+      {
+        "label": "Partner on research",
+        "href": "research#work-with-us"
+      },
+      {
+        "label": "Volunteer with us",
+        "href": "volunteer.html"
+      }
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "_source": "SFWF Website Copy Deck v1.0, section 4. Copy verbatim.",
+  "hero": {
+    "eyebrow": "SCHOLARSHIPS",
+    "h1": "Increasing the accessibility of our programs and the diversity of our community",
+    "intro": "Our scholarship program extends the Foundation’s training to farmers, land stewards, and community leaders who couldn’t otherwise afford it, with priority for applicants working in under-resourced regions where restored soil changes lives fastest."
+  },
+  "stories": {
+    "h2": "What a seat in the classroom becomes",
+    "status": "placeholder",
+    "note": "Two to three scholarship recipient stories: photo, name, country, one paragraph each. Doubles as donor-facing proof.",
+    "awaiting": "The first scholars are partway through their programs. We will publish their stories here when they are ready to tell them, in their own words rather than ours.",
+    "link": {
+      "label": "Apply for a scholarship",
+      "href": "mailto:info@soilfoodweb.com?subject=Scholarship%20application"
+    }
+  },
+  "apply": {
+    "h2": "How it works",
+    "steps": [
+      {
+        "n": 1,
+        "title": "Tell us about you",
+        "body": "A short application: where you are, what you steward, and what you would do with the training."
+      },
+      {
+        "n": 2,
+        "title": "We review in cohorts",
+        "body": "Applications are read in batches rather than one at a time, so everyone in a round is compared fairly.",
+        "status": "verify",
+        "note": "Confirm the review cadence and the criteria with the education team, then replace this sentence with the real ones. How often is a round read, and what is weighed? Evan."
+      },
+      {
+        "n": 3,
+        "title": "Start learning",
+        "body": "Scholars join the same courses, the same community and the same guarantee as every other student."
+      }
+    ],
+    "cta": {
+      "label": "Apply for a scholarship",
+      "href": "mailto:info@soilfoodweb.com?subject=Scholarship%20application"
+    }
+  },
+  "donorPanel": {
+    "title": "Fund a scholarship",
+    "body": "Every seat you sponsor puts a trained Soil Regenerator in a community that needs one. Scholarship-designated gifts go directly to student access.",
+    "cta": {
+      "label": "Donate to the scholarship fund",
+      "href": "donate"
+    }
+  }
+}
