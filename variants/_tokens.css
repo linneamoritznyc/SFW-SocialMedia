@@ -84,3 +84,18 @@ body { display: flex; align-items: flex-start; justify-content: flex-start; }
    screen. 9:16 is stories and reel covers. */
 .frame--45  { width: 1080px; height: 1350px; }
 .frame--916 { width: 1080px; height: 1920px; }
+
+/* --------------------------------------------------------------------------
+   Phone legibility floor.
+   A 1080px square renders about 390px wide in an Instagram feed, so everything
+   in these frames is seen at roughly 36 percent of the size it is drawn at.
+   Multiply by 0.36 to get what the thumb actually sees:
+       28px  ->  10px   credit and source lines. The floor. Never go under.
+       34px  ->  12px   supporting body text
+       40px  ->  14px   the line people actually read
+       56px  ->  20px   sub headings, stat labels
+       80px  ->  29px   headlines
+      160px+ ->  58px+  hero numbers
+   If a layout will not fit at these sizes, cut words, not type.
+   -------------------------------------------------------------------------- */
+.frame .source, .frame .src { font-size: 28px; line-height: 1.4; }

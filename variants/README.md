@@ -1,10 +1,10 @@
-# Field Notes, eighteen visual directions
+# Field Notes, twenty seven visual directions
 
-Eighteen standalone HTML files, sixteen of them 1080 by 1080, all showing the same trial so they can
+Twenty seven standalone HTML files, twenty five of them 1080 by 1080, all showing the same trial so they can
 be compared like with like. Open `index.html` to see them all on one page and
 screenshot it whole. Open any numbered file on its own to see it at full size.
 
-The trial in all eighteen: Sandra Niggemeyer, Van, Texas, 2026 season. Butternut
+The trial in all of them: Sandra Niggemeyer, Van, Texas, 2026 season. Butternut
 squash on clay and sand that sat fallow for twenty years. Three plots.
 
 Built 17 September 2026 for the Thursday Field Notes series, Community Voice
@@ -121,6 +121,44 @@ report has been read.
 | 17 | **Feed post, 4:5** | 1080 x 1350, the tallest crop Instagram allows in feed. If only one format gets built, build this one | 10 min |
 | 18 | **Story and reel cover, 9:16** | 1080 x 1920, with the app's interface zones marked so nothing important sits under them | 10 min |
 
+
+### Built at the phone legibility floor
+
+A 1080 square is about 390px wide in an Instagram feed, so everything in these
+frames is seen at roughly 36 percent of the size it is drawn at. The floor,
+written at the bottom of `_tokens.css`:
+
+| Drawn at | Seen at | Used for |
+| :-- | :-- | :-- |
+| 28px | 10px | credit and source lines. Never go under this |
+| 34px | 12px | supporting text |
+| 40px | 14px | the line people actually read |
+| 56px | 20px | sub headings and stat labels |
+| 80px | 29px | headlines |
+| 160px+ | 58px+ | hero numbers |
+
+**If a layout will not fit at these sizes, cut words, not type.** That is how
+every card here was fixed when the type went up.
+
+### Fast to make, one number each
+
+| # | Direction | Good for | Time |
+| :-- | :-- | :-- | :-- |
+| 19 | **One number** | Nothing but the figure at 440px. The simplest thing in the set | 3 min |
+| 21 | **One word** | FALLOW at 210px over dry soil. Built to work as a thumbnail | 4 min |
+| 23 | **Four numbers** | The whole season as a 2 by 2 grid. Fastest to read | 6 min |
+
+### Teaching and engagement
+
+| # | Direction | Good for | Time |
+| :-- | :-- | :-- | :-- |
+| 20 | **Myth and measurement** | What people say, struck through. What she measured, underneath | 8 min |
+| 22 | **The mechanism** | Three steps of soil biology. Sits in Science Explained as easily as here | 10 min, reusable |
+| 24 | **The question** | Engagement post. One question, one prompt | 4 min |
+| 25 | **Carousel end card** | The series promise and the cadence. Reuse unchanged on every post | 0 min after the first |
+| 26 | **Three plots, three photographs** | One number on each. Reads at any size | 8 min |
+| 27 | **If you change one thing** | Keep a control plot, and why her 14% proves it | 8 min |
+
 ### Notes that apply across the set
 
 - **Direction 3, the chart rules.** One measure per chart, percent and ounces never
@@ -138,7 +176,7 @@ report has been read.
 
 ## What I would put in front of Stephanie
 
-Three, not eighteen: **5 the quote card**, because it can run this week with no
+Three, not twenty seven: **5 the quote card**, because it can run this week with no
 consent blocker on the image; **1 number first**, because it is the scroll
 stopper and the fastest to repeat; and **6 the honest ledger**, because it is the
 one that decides what kind of series this is.
