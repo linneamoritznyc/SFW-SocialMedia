@@ -5,11 +5,17 @@ Foundation website. `vercel.json` sets `outputDirectory` to `public`, so
 **only `public/` is served**. Nothing in `docs/`, `drafts/`, `variants/` or
 `assets/` is reachable from the deployed URL.
 
-## Deploy
+## Live
 
-1. On vercel.com, New Project, import `linneamoritznyc/SFW-SocialMedia`.
-2. Framework preset: **Other**. Leave the build command empty.
-3. Deploy. `vercel.json` handles the rest.
+**https://sfw-social-media.vercel.app**, password `Wormhole123`.
+
+Vercel project `sfw-social-media`, deployed from **`main`**.
+
+**One setting still to change.** The project's production branch is still the
+repository default, `claude/session-gni7rl`, which carries none of this. That is
+why the first deploy returned 404. Production was deployed from `main`
+explicitly, but until the setting changes, pushes to `main` build as previews
+rather than production: Settings, Git, Production Branch, set to `main`.
 
 ## The password
 
@@ -20,9 +26,15 @@ the page, but the password is in the page source and anyone who opens developer
 tools can read it. It is fine for sending a review link to a colleague. It is not
 a lock.
 
-For a real lock, use Vercel's own protection instead:
-Project Settings, Deployment Protection, Password Protection. That runs at the
-edge and never sends the page to an unauthenticated visitor. It needs a Pro plan.
+Vercel's own Password Protection runs at the edge and never sends the page to an
+unauthenticated visitor, which is the real lock. **It needs a Pro plan**, and
+this account is not on one: setting it returns 428 invalid_password_protection.
+
+Vercel Authentication was on, which admitted only Vercel team members and so
+excluded the reviewer this site exists for. It is now off, so the URL opens for
+anyone holding it. It is unlisted and carries `X-Robots-Tag: noindex, nofollow`,
+but it is not locked, and it shows a named grower's unpublished trial results
+before her consent is in. Do not post the link publicly.
 
 To change the soft password, edit one line in `public/index.html`:
 
