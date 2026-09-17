@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Field Notes 05, quote card</title>
+<link rel="stylesheet" href="_tokens.css">
+<!-- ================================================================
+     SWAPPABLE FIELDS. Identical in all seven variants.
+       1  hero-number    46% (carried in the footer line here)
+       2  place          Van, Texas
+       3  headshot       (optional small circle, empty until consent)
+       4  test-question  (the quote answers it; not shown)
+       5  soil-result    compost 46%, control 14%, tea 1%
+       6  crop-result    (not shown in this variant)
+     ================================================================ -->
+<style>
+  .frame { background: var(--moss); padding: 100px 104px;
+           display: flex; flex-direction: column; }
+  .mark { width: 74px; height: 4px; background: var(--glow); margin: 46px 0 40px; }
+  blockquote { font-family: var(--text-serif); font-weight: 500; font-size: 78px;
+               line-height: 1.22; color: var(--glow); max-width: 15ch;
+               letter-spacing: -.005em; }
+  .attrib { margin-top: auto; display: flex; align-items: flex-end;
+            justify-content: space-between; gap: 34px; }
+  .who { font-family: var(--display); font-weight: 700; font-size: 30px; color: #fff; }
+  .who span { display: block; font-family: var(--sans); font-weight: 400; font-size: 22px;
+              color: rgba(255,255,255,.76); margin-top: 3px; }
+  .who span + span { margin-top: 1px; font-size: 20px; color: rgba(255,255,255,.62); }
+  .num { font-family: var(--display); font-weight: 700; font-size: 22px;
+         letter-spacing: .04em; color: var(--glow); text-align: right; }
+  .num span { display: block; font-family: var(--sans); font-weight: 400;
+              font-size: 18px; letter-spacing: 0; color: rgba(255,255,255,.66); margin-top: 6px; }
+  .source { margin-top: 22px; max-width: 60ch; }
+</style>
+</head>
+<body>
+<div class="frame">
+  <span class="eyebrow eyebrow--light">Field notes</span>
+  <div class="mark"></div>
+  <blockquote>Soil biology rebuilds the ground before it rebuilds the yield.</blockquote>
+  <div class="attrib">
+    <p class="who"><span data-field="name">Sandra Niggemeyer</span><span data-field="place">Van, Texas</span><span data-field="season">2026 season</span></p>
+    <p class="num" data-field="soil-result">46% / 14% / 1%<span>Organic matter gained. Compost, control, tea.</span></p>
+  </div>
+  <p class="source source--light">Her own conclusion, quoted from her field trial report, 2026. In degraded soil, she wrote, the first season is the ground.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Field Notes 04, field photograph</title>
+<link rel="stylesheet" href="_tokens.css">
+<!-- ================================================================
+     SWAPPABLE FIELDS. Identical in all seven variants.
+       1  hero-number    46% (in the source line only; the picture leads)
+       2  place          Van, Texas
+       3  headshot       (not used in this variant)
+       4  test-question  the single overlaid line
+       5  soil-result    in the source line
+       6  crop-result    (not shown in this variant)
+
+     THE PICTURE IS A STAND-IN. assets/photo/red-soil-hand.jpg is from the
+     Foundation library and is NOT Sandra's plot. The real picture for this
+     slot is page 16 of her report: three sheets of brown paper labelled
+     A1, B and C1 with the squash from each plot laid out on them. Get that
+     page from Carla, with Sandra's permission, before this runs.
+     ================================================================ -->
+<style>
+  .frame { position: relative; }
+  .shot { position: absolute; inset: 0; }
+  .shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .veil { position: absolute; inset: 0;
+          background: linear-gradient(to top, rgba(34,55,31,.92) 0%,
+                      rgba(34,55,31,.55) 34%, rgba(34,55,31,.10) 62%,
+                      rgba(34,55,31,.42) 100%); }
+  .top { position: absolute; top: 74px; left: 88px; right: 88px;
+         display: flex; justify-content: space-between; align-items: baseline; }
+  .season { font-family: var(--display); font-weight: 600; font-size: 20px;
+            letter-spacing: .1em; color: rgba(255,255,255,.8); }
+  .over { position: absolute; left: 0; right: 0; bottom: 0; padding: 0 88px 84px; }
+  .line { font-family: var(--display); font-weight: 700; font-size: 76px;
+          line-height: 1.14; color: #fff; max-width: 14ch; }
+  .who { margin-top: 26px; font-family: var(--display); font-weight: 700;
+         font-size: 30px; color: var(--glow); }
+  .who span { font-family: var(--sans); font-weight: 400; color: rgba(255,255,255,.84); }
+  .source { margin-top: 18px; max-width: 58ch; }
+</style>
+</head>
+<body>
+<div class="frame">
+  <div class="shot">
+    <img src="../assets/photo/red-soil-hand.jpg"
+         alt="An open palm resting on deep red soil, the same soil caught in the creases of the fingers.">
+  </div>
+  <div class="veil"></div>
+  <div class="top">
+    <span class="eyebrow eyebrow--light">Field notes</span>
+    <span class="season" data-field="season">2026 season</span>
+  </div>
+  <div class="over">
+    <p class="line" data-field="test-question">Twenty years fallow. One season of biology.</p>
+    <p class="who"><span data-field="name">Sandra Niggemeyer</span>, <span data-field="place">Van, Texas</span></p>
+    <p class="source source--light" data-field="soil-result">Organic matter gained: 46% on compost, 14% on the water-only control, 1% on teas and extracts. Source: her field trial report, 2026. Photograph from the Foundation library, standing in until her own plot picture is cleared.</p>
+  </div>
+</div>
+</body>
+</html>

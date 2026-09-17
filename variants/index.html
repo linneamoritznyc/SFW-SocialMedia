@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Field Notes, seven visual directions</title>
+<link rel="stylesheet" href="_tokens.css">
+<style>
+  html, body { background: #F7F6F3; }
+  body { display: block; font-family: var(--sans); color: var(--ink); }
+  .page { max-width: 1640px; margin: 0 auto; padding: 64px 48px 96px; }
+  header { max-width: 78ch; }
+  h1 { font-family: var(--display); font-weight: 700; font-size: 44px;
+       line-height: 1.16; color: var(--ink); }
+  .lede { font-family: var(--text-serif); font-size: 25px; line-height: 1.45;
+          color: var(--ink-soft); margin-top: 16px; }
+  .meta { font-size: 18px; color: var(--ink-faint); margin-top: 14px; line-height: 1.5; }
+
+  .flags { margin-top: 28px; background: var(--panel); border-radius: 12px;
+           padding: 24px 28px; box-shadow: var(--shadow); max-width: 96ch; }
+  .flags h2 { font-family: var(--display); font-weight: 700; font-size: 20px;
+              letter-spacing: .04em; color: var(--soil); }
+  .flags ol { margin: 12px 0 0 20px; }
+  .flags li { font-size: 19px; line-height: 1.5; color: var(--ink-soft); margin-top: 8px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
+          gap: 44px 40px; margin-top: 52px; }
+  figure { margin: 0; }
+  .shell { width: 100%; aspect-ratio: 1 / 1; position: relative; overflow: hidden;
+           border-radius: 10px; box-shadow: var(--shadow);
+           border: 1px solid var(--rule); background: #fff; }
+  .shell iframe { position: absolute; top: 0; left: 0; width: 1080px; height: 1080px;
+                  border: 0; transform-origin: 0 0; }
+  figcaption { margin-top: 14px; }
+  figcaption b { font-family: var(--display); font-weight: 700; font-size: 21px;
+                 color: var(--ink); display: block; }
+  figcaption span { display: block; font-size: 18px; line-height: 1.45;
+                    color: var(--ink-soft); margin-top: 5px; }
+  figcaption a { font-size: 16px; color: var(--green); margin-top: 7px;
+                 display: inline-block; }
+  .tag { display: inline-block; font-family: var(--display); font-weight: 600;
+         font-size: 14px; letter-spacing: .08em; text-transform: uppercase;
+         color: var(--olive); border: 1px solid var(--sage); border-radius: 999px;
+         padding: 3px 11px; margin-top: 9px; }
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <span class="eyebrow">Field notes</span>
+  <h1>Seven visual directions for graduate celebration posts</h1>
+  <p class="lede">All seven show the same trial, so they can be compared like with like: Sandra Niggemeyer, Van, Texas, 2026 season. Butternut squash on clay and sand that sat fallow for twenty years.</p>
+  <p class="meta">Each tile is a live 1080 by 1080 file scaled down. Click through for the full size. Colours are the real brand tokens, recorded in INVENTORY.md. Type is the self-hosted Montserrat, Source Sans 3 and EB Garamond in assets/font. Legacy Purple, Harvest Gold and Green Legacy appear nowhere.</p>
+  <div class="flags">
+    <h2>Four things to decide before any of these run</h2>
+    <ol>
+      <li><b>The current graduate graphic is purple.</b> Legacy Purple is reserved for Dr. Elaine Ingham memorial content. Every direction here is green and cream instead.</li>
+      <li><b>Consent is not being obtained today.</b> The 8 September notes record it as required and missing. Direction 2 cannot run at all without it, and no direction should name a person without it.</li>
+      <li><b>No photograph of Sandra's own plot is in this repository.</b> Direction 4 uses a Foundation library photograph as a stand-in and says so in its own source line. The picture this series actually wants is page 16 of her report.</li>
+      <li><b>The harvest is measured in ounces.</b> Thirty five against nineteen is a real difference and a very small sample. Every direction that shows it says so rather than turning it into a percentage.</li>
+    </ol>
+  </div>
+</header>
+
+<div class="grid">
+  <figure><div class="shell"><iframe src="01-number-first.html" scrolling="no" loading="lazy"></iframe></div>
+    <figcaption><b>1. Number first</b><span>The statistic fills the frame. The two numbers that keep it honest sit on a cream plate below it.</span><span class="tag">Community voice</span><br><a href="01-number-first.html">Open full size</a></figcaption></figure>
+
+  <figure><div class="shell"><iframe src="02-portrait-led.html" scrolling="no" loading="lazy"></iframe></div>
+    <figcaption><b>2. Portrait led</b><span>The graduate's face carries it. Shown here in its blocked state, because consent has not been asked for yet.</span><span class="tag">Community voice</span><br><a href="02-portrait-led.html">Open full size</a></figcaption></figure>
+
+  <figure><div class="shell"><iframe src="03-data-card.html" scrolling="no" loading="lazy"></iframe></div>
+    <figcaption><b>3. Data card</b><span>Two small bar charts, one measure each, every bar from zero, drawn in plain HTML.</span><span class="tag">Community voice, reads as science explained</span><br><a href="03-data-card.html">Open full size</a></figcaption></figure>
+
+  <figure><div class="shell"><iframe src="04-field-photograph.html" scrolling="no" loading="lazy"></iframe></div>
+    <figcaption><b>4. Field photograph</b><span>Full bleed, one line. The fastest to make and the weakest evidence until the real plot picture arrives.</span><span class="tag">Community voice</span><br><a href="04-field-photograph.html">Open full size</a></figcaption></figure>
+
+  <figure><div class="shell"><iframe src="05-quote-card.html" scrolling="no" loading="lazy"></iframe></div>
+    <figcaption><b>5. Quote card</b><span>Her own sentence in EB Garamond on a moss field. No photograph needed, so no consent blocker on the image.</span><span class="tag">Community voice, reads as the bigger picture</span><br><a href="05-quote-card.html">Open full size</a></figcaption></figure>
+
+  <figure><div class="shell"><iframe src="06-honest-ledger.html" scrolling="no" loading="lazy"></iframe></div>
+    <figcaption><b>6. The honest ledger</b><span>Not on the brief. Every result and every failure in one table, including the plot that gained almost nothing and still had the fewest pests.</span><span class="tag">Community voice, carries the series promise</span><br><a href="06-honest-ledger.html">Open full size</a></figcaption></figure>
+
+  <figure><div class="shell"><iframe src="07-specimen-sheet.html" scrolling="no" loading="lazy"></iframe></div>
+    <figcaption><b>7. Specimen sheet</b><span>Not on the brief. Copies the layout of her own report page: three labelled plates on a pale green ground.</span><span class="tag">Community voice, reads as science explained</span><br><a href="07-specimen-sheet.html">Open full size</a></figcaption></figure>
+</div>
+</div>
+
+<script>
+  // Scale each 1080 frame to whatever width its tile got. No build step.
+  function fit() {
+    document.querySelectorAll('.shell').forEach(function (s) {
+      s.querySelector('iframe').style.transform = 'scale(' + (s.clientWidth / 1080) + ')';
+    });
+  }
+  addEventListener('resize', fit);
+  addEventListener('load', fit);
+  fit();
+</script>
+</body>
+</html>
