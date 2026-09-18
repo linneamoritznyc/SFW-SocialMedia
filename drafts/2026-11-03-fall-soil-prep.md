@@ -111,13 +111,13 @@ Everything else in the draft stands on its own.
 >
 > Four things worth doing between the last harvest and the first hard frost, and why each one matters to the organisms rather than to the plants.
 >
-> Put compost on now rather than in spring. Compost is an inoculant, not a fertiliser. What you are adding is organisms, and in autumn they get the whole cool, damp end of the year to spread, colonise residue and find their food. In spring you are asking them to establish and deliver at the same time. [SLOT: graduate name] came out of her field trial recommending exactly this.
+> Put compost on now rather than in spring. Compost is an inoculant, not a fertiliser: what you are adding is organisms, and in autumn they get the whole cool, damp end of the year to spread, colonise residue and find their food. Ask them to establish and deliver at the same time in April and they will do both badly. [SLOT: graduate name] came out of her field trial recommending exactly this.
 >
-> Leave the residue. Every stalk you clear away is food removed from the bacteria and fungi whose glues and threads hold your soil in crumbs. Bare soil loses that structure to rain and to freeze and thaw.
+> Leave the residue. Every stalk you clear away is food removed from the bacteria and fungi whose glues and threads hold your soil in crumbs, and bare soil loses that structure to rain and to freeze and thaw.
 >
-> Get something living in the ground. A cover crop is for the roots, not the cover. Living roots feed the microbial community around them through the winter, and a mix feeds more than a single species will.
+> Get something living in the ground. A cover crop is for the roots rather than the cover. Living roots feed the microbial community around them right through the winter, and a mix feeds more of it than a single species will.
 >
-> Under snow the biology slows rather than stops, insulated and damp, still working through what you left it. In an open winter with no snow it freezes hard and dries, which is the real argument for mulch.
+> Under snow the biology slows rather than stops, insulated and damp, still working through whatever you left it. An open winter with no snow freezes hard and dries out instead, which is the argument for mulch if you need one.
 >
 > Save this and work through it before your first frost.
 >

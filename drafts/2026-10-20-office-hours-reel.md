@@ -79,13 +79,13 @@ On screen, one line at a time:
 
 ## Caption
 
-> She came to office hours with one question. She stayed the full hour. That happens three times a week and almost nobody outside this organisation knows it exists.
+> She came to office hours with one question and stayed the full hour. That happens three times a week, and almost nobody outside this organisation knows it exists.
 >
 > Carla runs them. Students in our advanced practicum can join once they have started the first part. They arrive with something specific: a ratio that looks wrong, a pile that will not heat, something at 400x they cannot name. Then they stay, because somebody else's problem turns out to be interesting too.
 >
 > [SLOT: one line naming what was actually asked in this clip.]
 >
-> We built a forum and a community formed in a live call instead. That is worth saying out loud, because it is not what anyone planned.
+> We built a forum, and the community formed in a live call instead. Nobody planned that.
 >
 > Follow for what students actually ask.
 >

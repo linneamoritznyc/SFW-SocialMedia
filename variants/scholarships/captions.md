@@ -73,11 +73,11 @@ whole reason for the running order.
 
 > [N] people started their training in June without paying for it.
 >
-> They are in Kenya, India, Ethiopia, and [COUNTRY], and their scholarships came to $72,000. Some farm a few acres. Some work inside organisations. One of them wrote to us having read about soil biology and having no land at all yet.
+> They are in Kenya, India, Ethiopia and [COUNTRY], and their scholarships came to $72,000. Some farm a few acres. Some work inside organisations. [SLOT: one real recipient, in one line, or cut this sentence.]
 >
 > They take the same courses as every other student, in the same community, on the same terms. The only difference is who paid.
 >
-> The fund exists because people give to it. Scholarship-designated gifts go to student access and nothing else, and that is the entire mechanism. There is no endowment behind it and no grant. When someone funds a seat, someone sits in it.
+> The fund exists because people give to it. Scholarship-designated gifts go to student access and nothing else, with no endowment and no grant behind them, so a funded seat is a seat somebody sits in that term.
 >
 > Swipe to meet five of them.
 >

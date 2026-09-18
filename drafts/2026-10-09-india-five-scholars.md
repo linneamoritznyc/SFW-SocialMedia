@@ -70,11 +70,11 @@ needs an owner.
 >
 > [SLOT: the five, by name and by where they work.]
 >
-> The reason to do it this way is simple enough. A two-week residential workshop priced for someone earning in dollars puts it out of reach of most of the people whose land it would change. The scholarship is the fix for that, and it is funded by people who give to it.
+> A two-week residential workshop priced for someone earning in dollars is out of reach of most of the people whose land it would change. Scholarships are how that gets fixed, and they are funded by people who give to them.
 >
 > [SLOT: one line from one of the five about what they intend to do with it.]
 >
-> They will be running real trials on real ground after this. We will publish what they find, including the parts that disappoint.
+> Each of them will run a field trial on their own ground after this, and we will publish what they find, including the parts that disappoint.
 >
 > Follow the five.
 >

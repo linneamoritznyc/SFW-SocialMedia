@@ -65,13 +65,13 @@ Neither figure goes on a card until both are answered.
 
 > [N] people started their training in June without paying for it.
 >
-> The full scholarships came to more than $72,000, awarded in the month of Dr. Elaine Ingham's birthday. Alongside them, over a quarter of a million dollars in partial scholarships [SLOT: over what period], and that figure does not include the permaculture certificate, the Compost Intensive Course or the other programme scholarships.
+> The full scholarships came to more than $72,000, awarded in the month of Dr. Elaine Ingham's birthday. Alongside them, over a quarter of a million dollars in partial scholarships [SLOT: over what period], and that figure leaves out the permaculture certificate, the Compost Intensive Course and the other programme scholarships.
 >
-> The partials are the part worth knowing about. They are not a discount code. Zulfiia contacted recipients one at a time, asked what would actually make it work for them, and built the arrangement around the answer.
+> The partials deserve more attention than the total. They are not a discount code. Zulfiia contacted recipients one at a time, asked what would actually make it work for them, and built the arrangement around each answer.
 >
 > Scholars take the same courses as every other student, in the same community, on the same terms. The only difference is who paid.
 >
-> The fund exists because people give to it. Scholarship-designated gifts go to student access and nothing else. There is no endowment behind it. When someone funds a seat, someone sits in it.
+> The fund exists because people give to it. Scholarship-designated gifts go to student access and nothing else, and there is no endowment behind it, so a funded seat is a seat somebody sits in that term.
 >
 > Swipe to meet five of them.
 >

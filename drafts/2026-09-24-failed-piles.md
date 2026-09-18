@@ -43,11 +43,11 @@ field and the attribution.
 
 > "The most is learned from failed piles."
 >
-> That is Loide, who has been here since February 2019 and leads the advanced programme. She was talking about compost, and she is right about compost, and she is also describing the only honest way to teach anything.
+> Loide said that. She has been here since February 2019 and leads our advanced programme, and she was talking about compost. She is right about compost, and she is also describing the only honest way to teach anything.
 >
-> A pile that goes anaerobic teaches you what your materials were actually doing. A pile that never heats teaches you what your ratio really was. A pile that works teaches you very little, because you do not find out which of the things you did was the one that mattered.
+> A pile that goes anaerobic tells you what your materials were actually doing. A pile that never heats tells you what your ratio really was. A pile that works tells you very little, because you never find out which of the things you did was the one that mattered.
 >
-> We are starting a series in two weeks about what our graduates found in their field trials. Some of those trials did not go the way anyone hoped. Those are the ones worth reading.
+> In two weeks we start publishing what our graduates found in their own field trials. Several of those trials did not go the way anyone hoped, and those are the ones we are most interested in.
 >
 > Field Notes starts in two weeks.
 >

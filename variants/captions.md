@@ -19,13 +19,13 @@ that proves we publish what the trial found.
 >
 > Sandra Niggemeyer ran three plots on the same Texas ground, fallow for twenty years, clay and sand. Biologically complete compost tilled into one. Teas and extracts through the season on another. Water only on the third.
 >
-> The compost plot gained 46 percent organic matter. The control gained 14 percent on water alone. The tea plot gained one.
+> The compost plot gained 46 percent organic matter over the season. The control gained 14 on water alone. The tea plot gained one.
 >
-> But the tea plot carried the fewest squash bugs, and the control carried the most. Beneficial microorganisms applied as extracts occupy the leaf and root surfaces that pests would otherwise colonise. That is a different mechanism from building soil structure, and one season on one field cannot separate them.
+> But the tea plot carried the fewest squash bugs and the control carried the most. Beneficial microorganisms applied as extracts occupy the leaf and root surfaces that pests would otherwise colonise, which is a different job from building soil structure, and one season on one field cannot separate the two.
 >
-> Her own conclusion: soil biology rebuilds the ground before it rebuilds the yield. In degraded soil, the first season is the ground.
+> Her own conclusion, after all that: soil biology rebuilds the ground before it rebuilds the yield.
 >
-> What did your first season on tired ground actually give you? Tell us below.
+> What did your first season on tired ground give you? Tell us below.
 >
 > #SoilFoodWeb #LivingSoil #SoilBiology #Compost #RegenerativeFarming #SoilHealth #SoilFoodWebFoundation
 
@@ -38,19 +38,17 @@ that proves we publish what the trial found.
 For the frame that leads with 46 percent. Shorter, harder, and the control number
 does the honesty work inside the caption instead of the image.
 
-> Twenty years fallow. One season of biology. 46 percent more organic matter.
+> Twenty years fallow, one season of biology, 46 percent more organic matter.
 >
-> Sandra Niggemeyer put biologically complete compost into one plot of Texas clay and sand, teas and extracts into a second, and water only into a third. Bacteria and fungi produce the glues that bind soil particles into aggregates. Fungal hyphae weave those into larger ones. Protozoa and nematodes graze the bacteria and release nutrients at the root, in the form the plant can use.
+> Sandra Niggemeyer put biologically complete compost into one plot of Texas clay and sand, teas and extracts into a second, and water only into a third. Bacteria and fungi produce the glues that bind soil particles into aggregates, fungal hyphae weave those into larger ones, and protozoa and nematodes graze the bacteria and release nutrients at the root in the form the plant can use.
 >
-> The honest version: the control gained 14 percent on water alone, and the tea plot gained one. Harvest was 35 ounces against 19. A real difference, and a small sample.
+> The rest of her ledger: the control gained 14 percent on water alone and the tea plot gained one, and the harvest was 35 ounces against 19. A real difference on a small sample, from one field in one season.
 >
 > Ground that has been left alone does not need a miracle. It needs the organisms back.
 >
 > Save this for the next time somebody tells you degraded soil takes a decade.
 >
 > #SoilFoodWeb #LivingSoil #SoilHealth #Compost #RegenerativeAgriculture #SoilBiology
->
-**Pairs with** direction 1 number first, or 4 field photograph.
 
 ---
 
@@ -61,15 +59,17 @@ educators.
 
 > "Soil biology rebuilds the ground before it rebuilds the yield."
 >
-> That is Sandra Niggemeyer's own conclusion after a season of butternut squash on Texas clay and sand that had been fallow for twenty years.
+> Sandra Niggemeyer wrote that at the end of a season of butternut squash on Texas clay and sand that had been fallow for twenty years. She ran three plots on the same field: biologically complete compost tilled into one, teas and extracts through the season on another, water only on the third.
 >
-> Three plots. Compost into one, teas and extracts into another, water only into the third. The compost plot gained 46 percent organic matter, the control 14 percent, the tea plot one. The harvest was 35 ounces, 30 and 19.
+> Organic matter gained: 46 percent on the compost plot, 14 on the control, 1 on the teas. Harvest: 35 ounces, 30 and 19. One field, one season, and she is the first person to say so.
 >
-> Hail killed her first planting. Rodents took the second. Johnson grass ran the beds by June. She wrote all of it down, which is why the numbers are worth anything at all.
+> The result she did not expect is the one she kept. The tea plot, which barely moved the organic matter at all, carried the fewest squash bugs, and the control carried the most. Occupying leaf and root surfaces is a different job from building soil structure, and one unreplicated season cannot separate them.
 >
-> In degraded soil, she says, the first season is the ground.
+> Hail killed her first planting. Rodents took the second. Johnson grass ran the beds by June. She wrote all of it down, which is why there are numbers at all.
 >
-> Follow along. Every other Thursday we publish what a field trial actually found.
+> [SLOT: two or three sentences in Sandra's own words, from her report. Ask her which paragraph she would want quoted.]
+>
+> Every other Thursday we publish what a field trial found.
 >
 > #SoilFoodWeb #LivingSoil #SoilBiology #RegenerativeFarming #SoilHealth #SoilFoodWebFoundation
 

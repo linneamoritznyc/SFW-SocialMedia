@@ -135,9 +135,9 @@ Then:
 >
 > [SLOT: one sentence of what the speaker actually says happened.]
 >
-> What we can say about the mechanism, separately from this one garden: soil that holds together holds water. Bacteria and fungi produce the glues that bind soil particles into crumbs, and fungal threads weave those crumbs into larger ones. The result behaves like a sponge. Soil without that structure sheds water instead of taking it in, and dries out faster.
+> Separately from this one garden, the mechanism is worth knowing. Bacteria and fungi produce the glues that bind soil particles into crumbs, fungal threads weave those crumbs into larger ones, and soil built that way behaves like a sponge. Soil without that structure sheds water instead of taking it in, and dries out faster once the rain stops.
 >
-> One garden does not prove what saved it. It is a reason to go and look at the soil, which is what we do.
+> None of which proves what saved this particular garden. It is a reason to go and look at the soil underneath it.
 >
 > Follow for what we find in the soil.
 >

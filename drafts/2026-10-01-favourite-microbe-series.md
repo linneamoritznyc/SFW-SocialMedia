@@ -65,9 +65,9 @@ them also live in humans.
 
 > Sammie has a tardigrade as her avatar, which the rest of us took as settling it.
 >
-> We asked everyone their favourite microbe at the all-team meeting, as an icebreaker. It turned into a territorial dispute. Allison wanted tardigrades. So did Lukas. Sammie had the avatar and therefore, the room decided, prior claim. She offered to share. Allison's backup had already been taken by Carla.
+> We asked everyone their favourite microbe at the all-team meeting, as an icebreaker, and it turned into a territorial dispute. Allison wanted tardigrades. So did Lukas. Sammie had the avatar and therefore, the room decided, prior claim. She offered to share. Allison's backup had already been taken by Carla.
 >
-> Tardigrades are not really soil microbes in the sense the rest of this series is about. They are micro-animals, they live in the water film around soil particles and moss, and they survive being dried out, frozen and irradiated in a way nothing else here does. Sammie called her own pick debatable before anyone else could.
+> Tardigrades are not really soil microbes in the sense the rest of this series is about. They are micro-animals. They live in the film of water around soil particles and moss, and they survive being dried out, frozen and irradiated in a way nothing else here does. Sammie called her own pick debatable before anyone else could.
 >
 > Ten people, ten microbes, over the next ten weeks. Nobody outside this organisation knows we do this.
 >

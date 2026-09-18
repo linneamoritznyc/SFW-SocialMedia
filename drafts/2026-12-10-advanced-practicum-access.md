@@ -69,15 +69,13 @@ not a video course, and supervision does not scale to everyone.
 
 ## Caption
 
-> Some of what we teach is only open to students in our advanced practicum, and it is worth explaining what sits behind that door rather than letting people assume it is a paywall for its own sake.
->
-> Three things.
+> Some of what we teach is only open to students in our advanced practicum. It is worth saying what sits behind that door, rather than letting people assume it is a paywall for its own sake.
 >
 > A mentor, with no clock running. Students get a primary mentor and access to the wider team, and the time is not metered by the hour.
 >
-> Office hours, three times a week. Carla runs them. Students come with one question and almost nobody leaves at the fifteen minute mark. A community formed in a live call rather than in the forum we built for it, which is not what anyone planned.
+> Office hours, three times a week, run by Carla. Students come with one question and almost nobody leaves at the fifteen minute mark.
 >
-> And a field trial on real ground. You design it, you mark the plots, you run it for a season, you collect the data yourself, and you write up what you found. That is the reason the door is there. Supervising a piece of original research is not something that scales to everybody at once.
+> And a field trial on ground you choose. You design it, mark the plots, run it for a season, collect the data yourself and write up what you found. Supervising a piece of original research one student at a time is why that door exists at all.
 >
 > Then we publish what those trials found, including the seasons that went badly. Those are usually the useful ones.
 >

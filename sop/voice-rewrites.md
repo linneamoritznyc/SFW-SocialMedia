@@ -167,10 +167,37 @@ six are the kind of thing that gets noticed in a board review.
 
 ## What to change in the SOP, if these land
 
-The caption structure in `sop/` currently specifies hook on line one, science in
-lines two to five, the implication, one call to action, five to eight hashtags.
-That is what produced the isometry. The factual guardrails are what protect us
-and they should stay exactly as they are: sources named, consent in writing, no
-invented figures, no unattributed percentages, every dated item dated.
+**A correction to my own earlier note.** I first wrote that the caption
+choreography should be dropped. It should not. SOP-SFWF-001 section 3.2 sets it
+as house policy: hook on line one, the science in lines two to five, the action
+or implication, then exactly one call to action. Stephanie owns that document
+and it is not mine to overrule.
 
-Drop the paragraph choreography. Keep the ladder.
+The structure was never the problem. Section 3.2 governs the order the
+information arrives in, and it says nothing about rhythm, paragraph count or
+sentence length. What produced 23 captions with a median of exactly five
+paragraphs was treating a content order as a paragraph template. The same four
+movements fit in three paragraphs or in nine.
+
+Section 3.1 makes the point by example. Its own approved lines are "This is not
+theory. This is measurable." and "Stop fertilizing. Start feeding the web."
+Those are the fragment and the antithesis, sanctioned in writing. The device is
+house voice. The objection is only ever to the device appearing in every post
+whether or not it has anything to carry.
+
+So the three rules worth adding to the SOP are about variance, not structure:
+
+1. **Paragraph count is not fixed.** Section 3.2 sets the order of the four
+   movements. It does not set how many paragraphs they take.
+2. **One aphorism per post, and it has to be true of that post only.** If the
+   line would work equally well on a different subject, it is decoration, which
+   section 2.3 of the Messaging House already calls damage.
+3. **No sentence whose only job is to tell the reader which part mattered.**
+   Section 7.4 of the Messaging House asks us not to talk down to the people who
+   feed us, and that is what those sentences do.
+
+The factual guardrails stay exactly as they are. Sources named, consent in
+writing, no invented figures, the evidence ladder applied to every number, the
+expertise bar cleared on every Take Action and Science Explained post. Those are
+what protect the account, and none of them was ever the reason the copy read as
+machine-made.
