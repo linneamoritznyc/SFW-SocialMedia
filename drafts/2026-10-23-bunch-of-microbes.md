@@ -45,13 +45,7 @@ it is a throwaway line that turns out to be true.
 
 > In the end, aren't we all just a bunch of microbes?
 >
-> Somebody said it to close our all-team meeting and everyone laughed, and then it sat there being accurate.
->
-> You are carrying a microbial population of your own, in numbers comparable to your own cells. Most of what it does you never notice. It breaks down what you cannot, it occupies surfaces so that other things cannot colonise them, and it is doing that whether or not you think about it.
->
-> Which is also a fair description of the top six inches of a healthy field. Bacteria and fungi breaking down what the plant cannot use directly. Protozoa and nematodes grazing them and releasing nutrients where roots can reach. Beneficial organisms holding the surfaces that pathogens would otherwise take.
->
-> Same arrangement. Different scale. Nobody in either system asked to be part of it.
+> Somebody said it to close our all-team meeting and everyone laughed, and then nobody could find anything wrong with it. You carry a microbial population in numbers comparable to your own cells. It breaks down what you cannot, and it holds surfaces that something worse would otherwise take. So does the top six inches of a healthy field.
 >
 > Save it for the next time someone asks what you do.
 >

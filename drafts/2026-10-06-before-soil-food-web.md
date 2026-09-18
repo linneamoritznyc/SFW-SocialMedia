@@ -54,13 +54,11 @@ credential we could list.
 
 ## Caption, Gerald's post
 
-> Six years ago Gerald was a conventional agronomist, and frustrated that he could not get at Dr. Elaine Ingham's teaching.
+> Six years ago Gerald was a conventional agronomist, frustrated that he could not get at Dr. Elaine Ingham's teaching. He now teaches it.
 >
-> He now teaches it.
+> Almost everyone who works here arrived as a student or a practitioner first. A farmer. An agronomist. Someone managing orchards in California. A landscaper. People who were doing the work, ran into the limits of what they had been taught, and went looking for something that explained it.
 >
-> Almost everyone who works here arrived as a student or a practitioner first. A farmer. An agronomist. Someone managing orchards in California. A landscaper. People who were doing the work, ran into the limits of what they had been taught, and went looking.
->
-> That is worth saying out loud because the usual question about soil biology is whether the people teaching it have ever farmed anything. Most of this team did that first and the teaching came second.
+> We mention it because the usual question about soil biology is whether the people teaching it have ever farmed anything. Most of this team did that first, and the teaching came second.
 >
 > What were you doing before soil?
 >

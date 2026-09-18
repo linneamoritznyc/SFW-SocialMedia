@@ -67,7 +67,7 @@ details on the school site" and the number stays off.
 >
 > Indian residents pay half the workshop rate. That is deliberate. A residential workshop priced for someone earning in dollars is out of reach of most of the people whose land it would actually change, and we would rather the room was full of them.
 >
-> India has more Soil Food Web practitioners than we have events to hold, and most of them have never met each other. That is the real reason for the trip. The talks are the excuse. The room is the point.
+> India has more Soil Regenerators than we have events to hold, and most of them have never met each other in person. We are going partly to teach and mostly to get them in one room.
 >
 > If you are going, say so in the comments and tell us where you are coming from. We would like to know who will be there before we arrive.
 >

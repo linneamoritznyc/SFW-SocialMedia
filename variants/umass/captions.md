@@ -37,9 +37,9 @@ Files: `slide-1.html` to `slide-5.html`, 1080 x 1350.
 >
 > Read the center's scope and one line stands out. Alongside food safety, food chemistry and processing, it names everything involving cultivation, including soil cultivation, seed effectiveness and clean water.
 >
-> Soil biology has spent decades being treated as a separate conversation from the food system. It is the same conversation. What lives in the ground decides what nutrients a plant can reach, how much water the soil holds, and how a crop handles a bad season. A food initiative that skips the biology is studying the last few feet of a much longer chain.
+> Soil biology has spent decades being treated as a separate conversation from the food system, and it is the same conversation. What lives in the ground decides what nutrients a plant can reach, how much water the soil holds, and how a crop handles a bad season. A food initiative that skips the biology is studying the last few feet of a much longer chain.
 >
-> The university was built in Amherst over 160 years ago so it would sit near farms and farmers. A century and a half later, the question is back where it started.
+> The university was built in Amherst over 160 years ago so that it would sit near farms and farmers. A century and a half later the question is back where it started.
 >
 > What would you want a $120 million food research program to study first? Tell us in the comments.
 >

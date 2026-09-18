@@ -98,15 +98,15 @@ nodule mechanism herself, and that check has not happened.
 
 ## Caption
 
-> Plant beans next to your tomatoes and they will feed them. This is the most repeated piece of advice in home gardening, and it is the wrong way round.
+> Plant beans next to your tomatoes and they will feed them. It is the most repeated piece of advice in home gardening and it has the timing exactly backwards.
 >
-> Legumes do fix nitrogen. Rhizobium bacteria infect the root hairs and build nodules, and inside those nodules they convert nitrogen gas into a form a plant can use. Mycorrhizal fungi have to be in the partnership for it to work properly.
+> Legumes do fix nitrogen. Rhizobium bacteria infect the root hairs and build nodules, and inside those nodules the bacteria convert nitrogen gas into a form a plant can use. Mycorrhizal fungi need to be in the partnership for it to work properly.
 >
-> But the nitrogen goes into the bean. The bean is paying for it with sugars. Very little of it leaves while the plant is alive.
+> But the bean is paying for that nitrogen with sugars, and it keeps what it pays for. Very little of it leaves while the plant is alive.
 >
-> It reaches the rest of the bed when the bean dies and decomposes. Even then it does not go straight into a tomato root. Bacteria and fungi break the residue down and hold that nitrogen in their own bodies. Protozoa and nematodes graze on them, and the surplus is released at the root in plant-available form. That is the delivery mechanism, and it runs on a season, not a summer.
+> It reaches the rest of the bed once the bean dies and decomposes, and even then it does not travel straight into a tomato root. Bacteria and fungi break the residue down and hold the nitrogen in their own bodies. Protozoa and nematodes graze on them and release the surplus at the root, in the form a plant can take up. Several organisms are involved in the delivery, and between them they run on a season rather than a summer.
 >
-> So grow the legume and then feed the bed with it. Chop it in at the end of the season, leave the roots in the ground, and let this year's beans feed next year's tomatoes.
+> So grow the legume, then feed the bed with it. Chop it in at the end of the season, leave the roots in the ground, and let this year's beans feed next year's tomatoes.
 >
 > Save this for next spring, when the companion planting charts come back round.
 >

@@ -63,11 +63,11 @@ programme.
 
 ## Caption
 
-> [SLOT: the figure, with its source and year] farmers across India have moved from conventional commodity cropping to food forests, agroforestry, and making their own biofertilizers.
+> [SLOT: the figure, with its source and year] farmers across India have moved from conventional commodity cropping to food forests, agroforestry and making their own biofertilizers.
 >
 > That work is led by Vijay Kumar and RYSS. It is theirs, at a scale nothing in our own record comes close to, and it is worth knowing about whether or not you have ever heard of us.
 >
-> The part we would point at: farmers making their own biological amendments rather than buying them. Growing the organisms locally and putting them back is a different proposition from applying a product, because what you are adding is a living population that then reproduces in the soil rather than a dose that depletes. It is also the only version of this that works when the nearest supplier is a long way away and the money is not there.
+> What interests us most is the part where farmers make the biological amendments themselves rather than buying them. Growing the organisms locally and putting them back is a different proposition from applying a product: you are adding a living population that reproduces in the soil, not a dose that depletes. It is also the only version of this that works when the nearest supplier is a long way away and the money is not there.
 >
 > We are in India this month, teaching a workshop near Coimbatore.
 >

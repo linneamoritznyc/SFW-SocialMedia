@@ -34,9 +34,9 @@ layout at `variants/09-statement.html` is built for exactly this.
 
 > Be the mycelium you want to see in the world.
 >
-> Somebody said it at our all-team meeting and within a minute someone else had asked for it on a shirt.
+> Somebody said it at our all-team meeting and within a minute somebody else had asked for it on a shirt.
 >
-> It is a joke and it is also accurate. Mycelium is the part of the system that connects things that are not otherwise connected. Fungal threads run between plants, move nutrients and water along the network, and hold soil crumbs together so the whole thing does not wash away. None of it is visible from above ground.
+> It is a joke and it is also accurate. Fungal threads run between plants, carry nutrients and water along the network, and hold soil crumbs together so the whole thing does not wash away in the first heavy rain. None of it is visible from above ground.
 >
 > Would you wear it?
 >

@@ -82,9 +82,9 @@ Five slides, 1080 x 1350. `post1-slide-1.html` to `post1-slide-5.html`.
 
 > We are coming to India in October.
 >
-> Four events across the country: a lecture, a panel, a seminar, and a workshop, with people who have spent their careers on natural farming and soil policy. Delegates are coming from organizations leading that work globally.
+> Four events across the country: a lecture, a panel, a seminar and a workshop, with people who have spent their careers on natural farming and soil policy.
 >
-> India has more Soil Food Web practitioners than we have events to hold, and most of them have never met each other. That is the actual reason for this trip. The talks are the excuse. The room is the point.
+> India has more Soil Regenerators than we have events to hold, and most of them have never met each other in person. We are going partly to teach and mostly to get them in one room.
 >
 > If you are going, say so in the comments and tell us where you are coming from. We would like to know who will be there before we arrive.
 >
@@ -130,19 +130,19 @@ The tour post asks people to show up. This one earns the right to ask.
 
 ### Caption
 
-> Rice, then wheat, then rice again, for forty years. The biology does not fail all at once. It fails in an order.
+> Rice, then wheat, then rice again, for forty years. The biology under a field like that does not fail all at once, which is part of why it is so easy to miss.
 >
-> Flooding a field for rice does two things at the same time. Water fills the pore space and pushes the oxygen out, so the root zone sits anaerobic for weeks. Then tillage cuts the fungal network, which is made of threads, into pieces.
+> Flooding does the first half of the damage. Water fills the pore space and pushes the oxygen out, so the root zone sits anaerobic for weeks at a time. Tillage does the second half, and it does something quite specific. A fungal network is made of threads, so cutting it is less like pruning a plant and more like cutting a cable.
 >
-> Bacteria tolerate both. Fungi tolerate neither. They need oxygen, they grow as a physical network, and they rebuild slowly: bacteria divide in hours, a hyphal network takes seasons.
+> Bacteria come through both. They are single cells, they tolerate low oxygen, and they divide in hours. Fungi come through neither. They need oxygen, they exist only as a connected network, and rebuilding one takes seasons rather than days. So forty years of that rotation does not leave you with dead soil. It leaves you with bacterial soil, which still looks busy under a microscope and behaves quite differently in the field.
 >
-> Lose the fungi and you lose what they were doing. The glues and threads that hold soil crumbs together, so water soaks in instead of running off. The slow release of nitrogen that favours your crop over the fast weeds that thrive on nitrate.
+> What goes with the fungi is what a grower feels first: the glues and threads that bind soil crumbs together, so rain soaks in instead of running off, and the slow release of nitrogen that suits a crop rather than the fast nitrate flush that suits the weeds competing with it.
 >
-> It comes back in an order too. Bacteria first, then the protozoa that eat them and release nitrogen at the root, then beneficial nematodes, then fungi last. Which is why the first season of recovery rarely looks like much, and why people give up in it.
+> Recovery has an order to it too, and the order is the reason people give up. Bacteria return first. Then the protozoa that graze them and release nitrogen where roots can reach. Then beneficial nematodes. Fungi last, and slowest. Which means the first season back rarely looks like anything at all, and by the second most people have decided it did not work.
 >
-> Left alone, that recovery takes three to ten years depending on how far the soil has gone. The alternative is to grow the missing organisms separately and put them back, which is what compost and extracts are for.
+> Left to itself, that takes somewhere between three and ten years, depending how far the soil has gone. That range is ours, from teaching this, not a measurement from one site. The alternative is to grow the missing organisms somewhere else and put them back, which is what compost and extracts are for.
 >
-> We are in India from 19 to 30 October, and the events are open.
+> We are in India from 19 to 30 October and the events are open.
 >
 > #SoilFoodWeb #SoilBiology #NaturalFarming #LivingSoil #SoilHealth #Agroecology #RegenerativeAgriculture
 
@@ -178,9 +178,9 @@ we look up.
 
 > This is who was in the room.
 >
-> [N] people, from [list the places]. Some came a few hours. One came [furthest distance].
+> [N] people, from [list the places]. Some travelled a few hours and one came [furthest distance].
 >
-> Most of them had never met another Soil Food Web practitioner in person. That was the reason for the trip, more than any of the talks were.
+> Most of them had never met another Soil Regenerator in person, which was more of the reason for the trip than any of the talks were.
 >
 > If you are working on soil biology somewhere in the region and you were not here, tell us where you are. We would rather know before we plan the next one.
 >
