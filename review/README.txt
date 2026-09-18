@@ -13,6 +13,7 @@ THE SIX SETS
 4-india-tour            3 posts: invitation, rice-wheat science, story + attendees
 5-templates             Reusable myth / checklist / microbe layouts. Tooling, not posts
 6-motion-stills         One frame each from four animated pieces. Not finished posts
+7-quote-cards           Three lines from the phrase bank, set as cards. Finished posts
 
 CAPTIONS
 captions-field-notes.md / captions-umass.md / captions-scholarships.md /
