@@ -115,7 +115,11 @@ main{padding:0 32px 90px;max-width:1500px}
 
 h3.sec{font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--olive);
   margin:32px 0 11px;font-weight:700}
-ul.planner{margin:14px 0 4px;padding:0;border-top:1px solid #E3DFD6}
+ul.postwrap{padding:34px 0 40px;border-top:1px solid #E3DFD6}
+.postwrap:first-of-type{border-top:0;padding-top:8px}
+#sentinel{height:1px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.planner{margin:14px 0 4px;padding:0;border-top:1px solid #E3DFD6}
 .pf{display:grid;grid-template-columns:170px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid #EFEBE3}
 .pf dt{margin:0;font-weight:600;font-size:13.5px;color:#4A463F}
 .pf dd{margin:0;font-size:14.5px;color:#333130;word-break:break-word}
@@ -226,7 +230,11 @@ document.getElementById("gateform").onsubmit = e => {
     document.getElementById("gateerr").textContent = "Not that one. Try again.";
   }
 };
-function open_(){ gate.remove(); app.hidden = false; render(); }
+function open_(){
+  gate.remove(); app.hidden = false; render(); watch();
+  let t = null;
+  addEventListener("scroll", () => { clearTimeout(t); t = setTimeout(trackCurrent, 120); }, { passive: true });
+}
 
 function subline(){
   const ready = POSTS.filter(p => p.status === "ready").length;
@@ -237,7 +245,13 @@ function subline(){
 }
 
 /* ---------- state ---------- */
-let cur = 0, slide = 0, cap = 0;
+let cur = 0;
+/* One slide and caption index per post, because every post is on the page at
+   once now rather than one at a time. */
+const ST = {};
+function st(i){ return (ST[i] = ST[i] || { slide: 0, cap: 0 }); }
+const BATCH = 6;
+let shown = 0, io = null;
 
 /* Forty posts is too many for one undifferentiated row of chips, so they are
    grouped the way the calendar is read: by month, with the unscheduled ones last. */
@@ -253,6 +267,15 @@ const GROUPS = ["September and October", "November", "December", "Unscheduled"];
 
 function render(){
   document.getElementById("subline").textContent = subline();
+  renderNav();
+  const body = document.getElementById("postbody");
+  body.innerHTML = '<div id="sentinel" aria-hidden="true"></div>';
+  shown = 0;
+  more();
+  renderSchedule();
+}
+
+function renderNav(){
   document.getElementById("postnav").innerHTML = GROUPS.map(g => {
     const inGroup = POSTS.map((p,i) => [p,i]).filter(([p]) => groupOf(p) === g);
     if (!inGroup.length) return "";
@@ -262,12 +285,58 @@ function render(){
         ).join("")
       + `</div></div>`;
   }).join("");
-  document.getElementById("postbody").innerHTML = postHTML(POSTS[cur]);
-  renderSchedule();
 }
-function go(i){ cur = i; slide = 0; cap = 0; render(); window.scrollTo({top:0,behavior:"smooth"}); }
-function setSlide(i){ slide = i; document.getElementById("postbody").innerHTML = postHTML(POSTS[cur]); }
-function setCap(i){ cap = i; document.getElementById("postbody").innerHTML = postHTML(POSTS[cur]); }
+
+/* Render the next batch above the sentinel. The observer fires again while the
+   sentinel is still in view, so a tall screen fills itself. */
+function more(){
+  const body = document.getElementById("postbody");
+  const sentinel = document.getElementById("sentinel");
+  if (!sentinel || shown >= POSTS.length) { if (io) io.disconnect(); return; }
+  const upto = Math.min(shown + BATCH, POSTS.length);
+  let html = "";
+  for (let i = shown; i < upto; i++) html += articleHTML(POSTS[i], i);
+  sentinel.insertAdjacentHTML("beforebegin", html);
+  shown = upto;
+  if (shown >= POSTS.length && io) { io.disconnect(); io = null; }
+}
+
+function watch(){
+  const sentinel = document.getElementById("sentinel");
+  if (!sentinel || !("IntersectionObserver" in window)) { while (shown < POSTS.length) more(); return; }
+  io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) more(); }, { rootMargin: "800px" });
+  io.observe(sentinel);
+}
+
+function articleHTML(p, i){
+  return `<article class="postwrap" id="post-${i}" data-i="${i}">${postHTML(p, i)}</article>`;
+}
+
+/* Jump to a post. Everything before it has to exist first. */
+function go(i){
+  cur = i;
+  while (shown <= i) more();
+  renderNav();
+  const el = document.getElementById("post-" + i);
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function repaint(i){
+  const el = document.getElementById("post-" + i);
+  if (el) el.innerHTML = postHTML(POSTS[i], i);
+}
+function setSlide(i, n){ st(i).slide = n; repaint(i); }
+function setCap(i, n){ st(i).cap = n; repaint(i); }
+
+/* Keep the nav highlight on whichever post is nearest the top of the screen. */
+function trackCurrent(){
+  let best = cur, bestD = Infinity;
+  document.querySelectorAll(".postwrap").forEach(el => {
+    const d = Math.abs(el.getBoundingClientRect().top - 90);
+    if (d < bestD) { bestD = d; best = +el.dataset.i; }
+  });
+  if (best !== cur) { cur = best; renderNav(); }
+}
 
 function esc(s){ return String(s).replace(/[&<>"]/g, c =>
   ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
@@ -294,11 +363,14 @@ function plannerHTML(p){
     </dl>`;
 }
 
-function postHTML(p){
+function postHTML(p, i){
+  const s = st(i);
   const [label, colour] = STATUS[p.status];
-  const c = p.captions[Math.min(cap, p.captions.length - 1)];
+  const cap = Math.min(s.cap, p.captions.length - 1);
+  const c = p.captions[cap];
   const has = p.images && p.images.length > 0;
-  const img = has ? p.images[Math.min(slide, p.images.length - 1)] : null;
+  const slide = has ? Math.min(s.slide, p.images.length - 1) : 0;
+  const img = has ? p.images[slide] : null;
   const many = has && p.images.length > 1;
   return `
   <div class="post">
@@ -309,13 +381,13 @@ function postHTML(p){
       </div>
       ${has ? `<div class="slides">
         <img src="${img.src}" alt="${esc(img.label)}">
-        ${many ? `<button class="arrow l" ${slide===0?"disabled":""} onclick="setSlide(${slide-1})">&#8249;</button>
-                  <button class="arrow r" ${slide===p.images.length-1?"disabled":""} onclick="setSlide(${slide+1})">&#8250;</button>` : ""}
+        ${many ? `<button class="arrow l" ${slide===0?"disabled":""} onclick="setSlide(${i}, ${slide-1})">&#8249;</button>
+                  <button class="arrow r" ${slide===p.images.length-1?"disabled":""} onclick="setSlide(${i}, ${slide+1})">&#8250;</button>` : ""}
       </div>
-      ${many ? `<div class="dots">${p.images.map((_,i)=>`<span class="dot" aria-current="${i===slide}"></span>`).join("")}</div>` : ""}
+      ${many ? `<div class="dots">${p.images.map((_,j)=>`<span class="dot" aria-current="${j===slide}"></span>`).join("")}</div>` : ""}
       <div class="slidelabel">${esc(img.label)}</div>
-      ${many ? `<div class="thumbs">${p.images.map((im,i)=>
-        `<button aria-current="${i===slide}" onclick="setSlide(${i})">${esc(im.label)}</button>`).join("")}</div>` : ""}`
+      ${many ? `<div class="thumbs">${p.images.map((im,j)=>
+        `<button aria-current="${j===slide}" onclick="setSlide(${i}, ${j})">${esc(im.label)}</button>`).join("")}</div>` : ""}`
       : `<div class="noart"><b>No artwork yet</b><p>${esc(p.needs || "Nothing made for this post.")}</p></div>`}
       ${p.imageNote ? `<div class="imgnote">${esc(p.imageNote)}</div>` : ""}
     </div>
@@ -336,8 +408,8 @@ function postHTML(p){
       ${plannerHTML(p)}
 
       <h3 class="sec">${p.captions.length > 1 ? "Caption options" : "Caption"}</h3>
-      <div class="captabs">${p.captions.map((x,i)=>
-        `<button aria-selected="${i===cap}" onclick="setCap(${i})">${esc(x.name)}${(x.recommended && p.captions.length > 1)?'<span class="rec">rec</span>':""}</button>`).join("")}</div>
+      <div class="captabs">${p.captions.map((x,j)=>
+        `<button aria-selected="${j===cap}" onclick="setCap(${i}, ${j})">${esc(x.name)}${(x.recommended && p.captions.length > 1)?'<span class="rec">rec</span>':""}</button>`).join("")}</div>
 
       <div class="caption">
         <div class="body" id="captext">${c.body.map(l=>`<p>${esc(l)}</p>`).join("")}</div>
@@ -346,7 +418,7 @@ function postHTML(p){
         ${c.note ? `<div class="note">${esc(c.note)}</div>` : ""}
         ${c.pairs ? `<div class="note">${esc(c.pairs)}</div>` : ""}
       </div>
-      <button class="copy" onclick="copyCap(${cap})">Copy caption and hashtags</button>
+      <button class="copy" onclick="copyCap(${i}, ${cap})">Copy caption and hashtags</button>
 
       ${p.checks && p.checks.length ? `<h3 class="sec">Before this runs</h3>
         <ul class="checks">${p.checks.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>` : ""}
@@ -380,8 +452,8 @@ function moreHTML(m){
     ).join("")}</div>`;
 }
 
-function copyCap(i){
-  const c = POSTS[cur].captions[i];
+function copyCap(i, n){
+  const c = POSTS[i].captions[n];
   const text = c.body.join("\n\n") + (c.tags.length ? "\n\n" + c.tags.map(t=>"#"+t).join(" ") : "");
   navigator.clipboard.writeText(text).then(() => {
     const b = event.target; const old = b.textContent;

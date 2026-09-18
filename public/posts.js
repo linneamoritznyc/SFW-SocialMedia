@@ -70,9 +70,10 @@ const POSTS = [
   needs: "No artwork. Needs a photograph RYSS are happy for us to use, or a text card. Do not use a stock field image.",
   planner: { ctaWords: "Tell us where you are working.", ctaLink: null, canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
-    "[SLOT: the figure, with its source and year] farmers across India have moved from conventional commodity cropping to food forests, agroforestry and making their own biofertilizers.",
-    "That work is led by Vijay Kumar and RYSS. It is theirs, at a scale nothing in our own record comes close to, and it is worth knowing about whether or not you have ever heard of us.",
-    "What interests us most is the part where farmers make the biological amendments themselves rather than buying them. Growing the organisms locally and putting them back is a different proposition from applying a product: you are adding a living population that reproduces in the soil, not a dose that depletes. It is also the only version of this that works when the nearest supplier is a long way away and the money is not there.",
+    "Across India, farmers have moved off conventional commodity cropping onto food forests and agroforestry, and they grow their own biofertilizers to do it. [SLOT: the number, with a source and a year, before this runs.]",
+    "That is Vijay Kumar's work, with RYSS, at a scale worth knowing about on its own terms.",
+    "What we can add is the biology of making your own. A bought amendment is a dose. You apply it, it gets used up, you buy it again. Organisms you grow yourself are a population: put them into living soil and they feed, reproduce, and carry on working after you have stopped.",
+    "Which is also why it holds up where buying a product does not, when the supplier is far away and the money is not there.",
     "We are in India this month, teaching a workshop near Coimbatore.",
     "Tell us where you are working."
   ], tags: ["SoilFoodWeb","LivingSoil","NaturalFarming","SoilHealth","RegenerativeAgriculture","FoodSecurity"] }],
