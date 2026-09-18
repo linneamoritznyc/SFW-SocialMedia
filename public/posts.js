@@ -16,16 +16,17 @@ const POSTS = [
   pillar: "Science Explained",
   platform: "Instagram",
   format: "Single image",
-  slot: "Monday 29 September",
+  slot: "Monday 28 September",
   status: "ready",
   intro: "The most repeated piece of advice in home gardening, and it runs the wrong way round. First of four myth posts in the quarter.",
   images: [{ src: "img/templates/myth.png", label: "Myth card" }],
+  planner: { ctaWords: "Save this for next spring, when the companion planting charts come back round.", ctaLink: null, canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
-    "Plant beans next to your tomatoes and they will feed them. This is the most repeated piece of advice in home gardening, and it is the wrong way round.",
-    "Legumes do fix nitrogen. Rhizobium bacteria infect the root hairs and build nodules, and inside those nodules they convert nitrogen gas into a form a plant can use. Mycorrhizal fungi have to be in the partnership for it to work properly.",
-    "But the nitrogen goes into the bean. The bean is paying for it with sugars. Very little of it leaves while the plant is alive.",
-    "It reaches the rest of the bed when the bean dies and decomposes. Even then it does not go straight into a tomato root. Bacteria and fungi break the residue down and hold that nitrogen in their own bodies. Protozoa and nematodes graze on them, and the surplus is released at the root in plant-available form. That is the delivery mechanism, and it runs on a season, not a summer.",
-    "So grow the legume and then feed the bed with it. Chop it in at the end of the season, leave the roots in the ground, and let this year's beans feed next year's tomatoes.",
+    "Plant beans next to your tomatoes and they will feed them. It is the most repeated piece of advice in home gardening and it has the timing exactly backwards.",
+    "Legumes do fix nitrogen. Rhizobium bacteria infect the root hairs and build nodules, and inside those nodules the bacteria convert nitrogen gas into a form a plant can use. Mycorrhizal fungi need to be in the partnership for it to work properly.",
+    "But the bean is paying for that nitrogen with sugars, and it keeps what it pays for. Very little of it leaves while the plant is alive.",
+    "It reaches the rest of the bed once the bean dies and decomposes, and even then it does not travel straight into a tomato root. Bacteria and fungi break the residue down and hold the nitrogen in their own bodies. Protozoa and nematodes graze on them and release the surplus at the root, in the form a plant can take up. Several organisms are involved in the delivery, and between them they run on a season rather than a summer.",
+    "So grow the legume, then feed the bed with it. Chop it in at the end of the season, leave the roots in the ground, and let this year's beans feed next year's tomatoes.",
     "Save this for next spring, when the companion planting charts come back round."
   ], tags: ["SoilFoodWeb","LivingSoil","SoilBiology","SoilHealth","RegenerativeAgriculture","GardenSoil","Mycorrhizae"] }],
   checks: ["Mechanism cited to Ingham et al. 1985 and the USDA Soil Biology Primer 1999, both on the card."],
@@ -38,16 +39,17 @@ const POSTS = [
   pillar: "Science Explained",
   platform: "Instagram",
   format: "Quote card",
-  slot: "Thursday 2 October",
+  slot: "Thursday 1 October",
   status: "review",
   statusNote: "The meeting notes paraphrase Loide. Get her exact words before setting them in ninety-two point type inside quotation marks.",
   intro: "Loide Vasquez, Advanced Program Lead, first employee. Six words, and they are the thesis of the whole Field Notes series. Runs two weeks before Field Notes starts.",
   images: [{ src: "img/quotes/failed-piles.png", label: "Quote card" }],
+  planner: { ctaWords: "Field Notes starts in two weeks.", ctaLink: null, canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
-    "“The most is learned from failed piles.”",
-    "That is Loide, who has been here since February 2019 and leads the advanced programme. She was talking about compost, and she is right about compost, and she is also describing the only honest way to teach anything.",
-    "A pile that goes anaerobic teaches you what your materials were actually doing. A pile that never heats teaches you what your ratio really was. A pile that works teaches you very little, because you do not find out which of the things you did was the one that mattered.",
-    "We are starting a series in two weeks about what our graduates found in their field trials. Some of those trials did not go the way anyone hoped. Those are the ones worth reading.",
+    "\"The most is learned from failed piles.\"",
+    "Loide said that. She has been here since February 2019 and leads our advanced programme, and she was talking about compost. She is right about compost, and she is also describing the only honest way to teach anything.",
+    "A pile that goes anaerobic tells you what your materials were actually doing. A pile that never heats tells you what your ratio really was. A pile that works tells you very little, because you never find out which of the things you did was the one that mattered.",
+    "In two weeks we start publishing what our graduates found in their own field trials. Several of those trials did not go the way anyone hoped, and those are the ones we are most interested in.",
     "Field Notes starts in two weeks."
   ], tags: ["SoilFoodWeb","LivingSoil","Compost","SoilBiology","SoilHealth"] }],
   checks: ["Ask Loide for her exact words. A paraphrase in quotation marks at that size is a quote we did not verify."],
@@ -66,10 +68,11 @@ const POSTS = [
   intro: "Their work, at a scale nothing in our own record comes close to. Collab post: Evan or Kavi sends it.",
   images: [],
   needs: "No artwork. Needs a photograph RYSS are happy for us to use, or a text card. Do not use a stock field image.",
+  planner: { ctaWords: "Tell us where you are working.", ctaLink: null, canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
-    "[SLOT: the figure, with its source and year] farmers across India have moved from conventional commodity cropping to food forests, agroforestry, and making their own biofertilizers.",
+    "[SLOT: the figure, with its source and year] farmers across India have moved from conventional commodity cropping to food forests, agroforestry and making their own biofertilizers.",
     "That work is led by Vijay Kumar and RYSS. It is theirs, at a scale nothing in our own record comes close to, and it is worth knowing about whether or not you have ever heard of us.",
-    "The part we would point at: farmers making their own biological amendments rather than buying them. Growing the organisms locally and putting them back is a different proposition from applying a product, because what you are adding is a living population that then reproduces in the soil rather than a dose that depletes. It is also the only version of this that works when the nearest supplier is a long way away and the money is not there.",
+    "What interests us most is the part where farmers make the biological amendments themselves rather than buying them. Growing the organisms locally and putting them back is a different proposition from applying a product: you are adding a living population that reproduces in the soil, not a dose that depletes. It is also the only version of this that works when the nearest supplier is a long way away and the money is not there.",
     "We are in India this month, teaching a workshop near Coimbatore.",
     "Tell us where you are working."
   ], tags: ["SoilFoodWeb","LivingSoil","NaturalFarming","SoilHealth","RegenerativeAgriculture","FoodSecurity"] }],
@@ -97,11 +100,12 @@ const POSTS = [
     { src: "img/india/post1-slide-4.png", label: "4. Panel and seminar" },
     { src: "img/india/post1-slide-5.png", label: "5. The open question" }
   ],
+  planner: { ctaWords: "", ctaLink: null, canva: "" },
   captions: [
     { name: "Instagram caption", recommended: true, body: [
       "We are coming to India in October.",
       "Four events across the country. A lecture, a panel, a seminar, and a workshop, with people who have spent their careers on natural farming and soil policy.",
-      "India has more Soil Food Web practitioners than we have events to hold, and most of them have never met each other. That is the actual reason for this trip. The talks are the excuse. The room is the point.",
+      "India has more Soil Regenerators than we have events to hold, and most of them have never met each other in person. We are going partly to teach and mostly to get them in one room.",
       "If you are going, say so in the comments and tell us where you are coming from. We would like to know who will be there before we arrive."
     ], tags: ["SoilFoodWeb","LivingSoil","SoilHealth","NaturalFarming","SaveSoil","RegenerativeAgriculture","SoilBiology"] },
     { name: "The Save Soil line", note: "Tag Isha Outreach. Caption or first comment.", body: [
@@ -128,10 +132,11 @@ const POSTS = [
   intro: "We asked everyone their favourite microbe at the all-team meeting as an icebreaker. It turned into a territorial dispute. Ten people, ten microbes, over ten weeks.",
   images: [],
   needs: "A tardigrade at 400x, our own. Nothing in the library matches. This is the first thing to put on a microscope.",
+  planner: { ctaWords: "Tell us yours.", ctaLink: null, canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
     "Sammie has a tardigrade as her avatar, which the rest of us took as settling it.",
-    "We asked everyone their favourite microbe at the all-team meeting, as an icebreaker. It turned into a territorial dispute. Allison wanted tardigrades. So did Lukas. Sammie had the avatar and therefore, the room decided, prior claim. She offered to share. Allison's backup had already been taken by Carla.",
-    "Tardigrades are not really soil microbes in the sense the rest of this series is about. They are micro-animals, they live in the water film around soil particles and moss, and they survive being dried out, frozen and irradiated in a way nothing else here does. Sammie called her own pick debatable before anyone else could.",
+    "We asked everyone their favourite microbe at the all-team meeting, as an icebreaker, and it turned into a territorial dispute. Allison wanted tardigrades. So did Lukas. Sammie had the avatar and therefore, the room decided, prior claim. She offered to share. Allison's backup had already been taken by Carla.",
+    "Tardigrades are not really soil microbes in the sense the rest of this series is about. They are micro-animals. They live in the film of water around soil particles and moss, and they survive being dried out, frozen and irradiated in a way nothing else here does. Sammie called her own pick debatable before anyone else could.",
     "Ten people, ten microbes, over the next ten weeks. Nobody outside this organisation knows we do this.",
     "Tell us yours."
   ], tags: ["SoilFoodWeb","LivingSoil","SoilBiology","Microscopy","SoilMicrobiome","SoilHealth"] }],
@@ -151,6 +156,7 @@ const POSTS = [
   intro: "Pencilled only. Nothing is written into the schedule that has not been agreed by the people it is about.",
   images: [],
   needs: "Nothing made, and nothing should be made until this is cleared.",
+  planner: { ctaWords: "See drafts/2026-10-12-india-return-to-earth.md for what is known.", ctaLink: "school.soilfoodweb.com. Blocked with the rest of this post.", canva: "" },
   captions: [{ name: "Not written", recommended: true, body: [
     "No caption yet, on purpose.",
     "This post is about someone else's project and it has not been agreed. Writing the copy first makes it harder to drop, and it should stay easy to drop.",
@@ -172,12 +178,13 @@ const POSTS = [
   intro: "Five people travelling to the Coimbatore workshop on full scholarships, taking a set of microscopes with them.",
   images: [],
   needs: "Five portraits and five one-line quotes, once consent is in. Use the scholarship slide layout.",
+  planner: { ctaWords: "Follow the five.", ctaLink: null, canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
     "Five people are travelling to our workshop in Coimbatore this month who could not otherwise have gone. They are going on full scholarships, and they are taking a set of microscopes with them.",
     "[SLOT: the five, by name and by where they work.]",
-    "The reason to do it this way is simple enough. A two-week residential workshop priced for someone earning in dollars puts it out of reach of most of the people whose land it would change. The scholarship is the fix for that, and it is funded by people who give to it.",
+    "A two-week residential workshop priced for someone earning in dollars is out of reach of most of the people whose land it would change. Scholarships are how that gets fixed, and they are funded by people who give to them.",
     "[SLOT: one line from one of the five about what they intend to do with it.]",
-    "They will be running real trials on real ground after this. We will publish what they find, including the parts that disappoint.",
+    "Each of them will run a field trial on their own ground after this, and we will publish what they find, including the parts that disappoint.",
     "Follow the five."
   ], tags: ["SoilFoodWeb","LivingSoil","SoilHealth","NaturalFarming","Microscopy","SaveSoil","Scholarships"] }],
   checks: ["Same consent email as the June scholarship post. Anyone who declines comes off the graphic."],
@@ -197,9 +204,13 @@ const POSTS = [
   intro: "Runs second so the joke lands. She lost tardigrades to Sammie and her backup to Carla.",
   images: [],
   needs: "Artwork depends on which microbe Allison ends up with. Ask her before anything is made.",
+  planner: { ctaWords: "Tell us yours.", ctaLink: null, canva: "" },
   captions: [{ name: "Not written", recommended: true, body: [
-    "No caption yet. The post is a joke about Allison losing twice, and it only works once post 1 has run and once she has told us what she actually settled on.",
-    "Ask Allison. Then write it."
+    "Sammie has a tardigrade as her avatar, which the rest of us took as settling it.",
+    "We asked everyone their favourite microbe at the all-team meeting, as an icebreaker, and it turned into a territorial dispute. Allison wanted tardigrades. So did Lukas. Sammie had the avatar and therefore, the room decided, prior claim. She offered to share. Allison's backup had already been taken by Carla.",
+    "Tardigrades are not really soil microbes in the sense the rest of this series is about. They are micro-animals. They live in the film of water around soil particles and moss, and they survive being dried out, frozen and irradiated in a way nothing else here does. Sammie called her own pick debatable before anyone else could.",
+    "Ten people, ten microbes, over the next ten weeks. Nobody outside this organisation knows we do this.",
+    "Tell us yours."
   ], tags: [] }],
   checks: ["Ask Allison which microbe she ended up with."],
   draft: "drafts/2026-10-01-favourite-microbe-series.md"
@@ -216,10 +227,11 @@ const POSTS = [
   statusNote: "Asks a question about merchandise. Route the storefront question before it runs, because people will reply asking where to buy it.",
   intro: "From the phrase bank. Somebody said it at the all-team meeting and within a minute somebody else had asked for it on a shirt.",
   images: [{ src: "img/quotes/mycelium-shirt.png", label: "Quote card" }],
+  planner: { ctaWords: "Would you wear it?", ctaLink: null, canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
     "Be the mycelium you want to see in the world.",
-    "Somebody said it at our all-team meeting and within a minute someone else had asked for it on a shirt.",
-    "It is a joke and it is also accurate. Mycelium is the part of the system that connects things that are not otherwise connected. Fungal threads run between plants, move nutrients and water along the network, and hold soil crumbs together so the whole thing does not wash away. None of it is visible from above ground.",
+    "Somebody said it at our all-team meeting and within a minute somebody else had asked for it on a shirt.",
+    "It is a joke and it is also accurate. Fungal threads run between plants, carry nutrients and water along the network, and hold soil crumbs together so the whole thing does not wash away in the first heavy rain. None of it is visible from above ground.",
     "Would you wear it?"
   ], tags: ["SoilFoodWeb","LivingSoil","Mycelium","SoilBiology","SoilHealth"] }],
   checks: ["Decide what the answer is if people ask where to buy it. There is no storefront."],
@@ -240,6 +252,7 @@ const POSTS = [
     { src: "img/india/post3-story.png", label: "Daily story" },
     { src: "img/india/post3-attendees.png", label: "Attendees feed post" }
   ],
+  planner: { ctaWords: "If you are working on soil biology somewhere in the region and you were not here, tell us where you are. We would rather know before we plan the next one.", ctaLink: null, canva: "" },
   captions: [{ name: "Caption for the attendees post", recommended: true, body: [
     "This is who was in the room.",
     "[N] people, from [list the places]. Some came a few hours. One came [furthest distance].",
@@ -272,6 +285,7 @@ const POSTS = [
     { src: "img/sandra/07-specimen-sheet.png",  label: "Specimen sheet" },
     { src: "img/sandra/13-magazine-cover.png",  label: "Magazine cover" }
   ],
+  planner: { ctaWords: "", ctaLink: null, canva: "" },
   captions: [
     { name: "Option A, the odd result", recommended: true,
       pairs: "Pairs with the honest ledger, or the data card.",
@@ -328,11 +342,11 @@ const POSTS = [
   intro: "Almost everyone who works here arrived as a student or a practitioner. First of a series of five.",
   images: [],
   needs: "A photograph of Gerald, with his permission, or a text card. Nothing in the library.",
+  planner: { ctaWords: "What were you doing before soil?", ctaLink: null, canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
-    "Six years ago Gerald was a conventional agronomist, and frustrated that he could not get at Dr. Elaine Ingham's teaching.",
-    "He now teaches it.",
-    "Almost everyone who works here arrived as a student or a practitioner first. A farmer. An agronomist. Someone managing orchards in California. A landscaper. People who were doing the work, ran into the limits of what they had been taught, and went looking.",
-    "That is worth saying out loud because the usual question about soil biology is whether the people teaching it have ever farmed anything. Most of this team did that first and the teaching came second.",
+    "Six years ago Gerald was a conventional agronomist, frustrated that he could not get at Dr. Elaine Ingham's teaching. He now teaches it.",
+    "Almost everyone who works here arrived as a student or a practitioner first. A farmer. An agronomist. Someone managing orchards in California. A landscaper. People who were doing the work, ran into the limits of what they had been taught, and went looking for something that explained it.",
+    "We mention it because the usual question about soil biology is whether the people teaching it have ever farmed anything. Most of this team did that first, and the teaching came second.",
     "What were you doing before soil?"
   ], tags: ["SoilFoodWeb","LivingSoil","SoilHealth","RegenerativeAgriculture","SoilBiology","CareerChange"] }],
   checks: ["Gerald approves the wording and the photograph."],
@@ -351,11 +365,12 @@ const POSTS = [
   intro: "Carla referred to a kissing amoeba, and said she has to find a new one after somebody claimed hers.",
   images: [],
   needs: "Use assets/microscopy/cutout-2.png in the microbe template. Not yet built.",
+  planner: { ctaWords: "Tell us yours.", ctaLink: null, canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
-    "Carla picked amoebae, then said she has to find a new favourite because somebody claimed hers.",
-    "Amoebae are the reason your plants can use what is in your soil. They eat bacteria. Bacteria hold nitrogen in their bodies at a far higher concentration than an amoeba needs, so the surplus comes straight back out at the root, in the form a plant can take up.",
-    "That is most of what we mean when we say the biology feeds the plant. It is not the bacteria doing it. It is the thing that eats the bacteria.",
-    "Third of ten. Nobody outside this organisation knows we do this.",
+    "Sammie has a tardigrade as her avatar, which the rest of us took as settling it.",
+    "We asked everyone their favourite microbe at the all-team meeting, as an icebreaker, and it turned into a territorial dispute. Allison wanted tardigrades. So did Lukas. Sammie had the avatar and therefore, the room decided, prior claim. She offered to share. Allison's backup had already been taken by Carla.",
+    "Tardigrades are not really soil microbes in the sense the rest of this series is about. They are micro-animals. They live in the film of water around soil particles and moss, and they survive being dried out, frozen and irradiated in a way nothing else here does. Sammie called her own pick debatable before anyone else could.",
+    "Ten people, ten microbes, over the next ten weeks. Nobody outside this organisation knows we do this.",
     "Tell us yours."
   ], tags: ["SoilFoodWeb","LivingSoil","SoilBiology","Microscopy","SoilMicrobiome","SoilHealth"] }],
   checks: ["Ask Carla what a kissing amoeba is before putting the phrase in public copy."],
@@ -374,11 +389,12 @@ const POSTS = [
   intro: "Carla runs them. Students arrive with one specific question and stay the hour. We built a forum and a community formed in a live call instead.",
   images: [{ src: "img/motion/02-office-hours.png", label: "Motion frame" }],
   imageNote: "One frame from the animated version. The animation is in motion/02-office-hours.html and has to be screen-recorded at 1080x1920.",
+  planner: { ctaWords: "Follow for what students actually ask.", ctaLink: null, canva: "" },
   captions: [{ name: "Reel caption", recommended: true, body: [
-    "She came to office hours with one question. She stayed the full hour. That happens three times a week and almost nobody outside this organisation knows it exists.",
+    "She came to office hours with one question and stayed the full hour. That happens three times a week, and almost nobody outside this organisation knows it exists.",
     "Carla runs them. Students in our advanced practicum can join once they have started the first part. They arrive with something specific: a ratio that looks wrong, a pile that will not heat, something at 400x they cannot name. Then they stay, because somebody else's problem turns out to be interesting too.",
     "[SLOT: one line naming what was actually asked in this clip.]",
-    "We built a forum and a community formed in a live call instead. That is worth saying out loud, because it is not what anyone planned.",
+    "We built a forum, and the community formed in a live call instead. Nobody planned that.",
     "Follow for what students actually ask."
   ], tags: ["SoilFoodWeb","LivingSoil","SoilBiology","SoilHealth","Microscopy","RegenerativeAgriculture"] }],
   checks: [
@@ -399,13 +415,14 @@ const POSTS = [
   statusNote: "The graduate anchor line is a placeholder. Either name a real graduate who recommended autumn compost, with her permission, or cut the line.",
   intro: "The growing season is over. The soil season is not. Four things, and why each one matters to the organisms rather than to the plants.",
   images: [{ src: "img/templates/checklist.png", label: "Checklist card" }],
+  planner: { ctaWords: "Save this and work through it before your first frost.", ctaLink: null, canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
     "The growing season is over. The soil season is not.",
     "Four things worth doing between the last harvest and the first hard frost, and why each one matters to the organisms rather than to the plants.",
-    "Put compost on now rather than in spring. Compost is an inoculant, not a fertiliser. What you are adding is organisms, and in autumn they get the whole cool, damp end of the year to spread, colonise residue and find their food. In spring you are asking them to establish and deliver at the same time.",
-    "Leave the residue. Every stalk you clear away is food removed from the bacteria and fungi whose glues and threads hold your soil in crumbs. Bare soil loses that structure to rain and to freeze and thaw.",
-    "Get something living in the ground. A cover crop is for the roots, not the cover. Living roots feed the microbial community around them through the winter, and a mix feeds more than a single species will.",
-    "Under snow the biology slows rather than stops, insulated and damp, still working through what you left it. In an open winter with no snow it freezes hard and dries, which is the real argument for mulch.",
+    "Put compost on now rather than in spring. Compost is an inoculant, not a fertiliser: what you are adding is organisms, and in autumn they get the whole cool, damp end of the year to spread, colonise residue and find their food. Ask them to establish and deliver at the same time in April and they will do both badly. [SLOT: graduate name] came out of her field trial recommending exactly this.",
+    "Leave the residue. Every stalk you clear away is food removed from the bacteria and fungi whose glues and threads hold your soil in crumbs, and bare soil loses that structure to rain and to freeze and thaw.",
+    "Get something living in the ground. A cover crop is for the roots rather than the cover. Living roots feed the microbial community around them right through the winter, and a mix feeds more of it than a single species will.",
+    "Under snow the biology slows rather than stops, insulated and damp, still working through whatever you left it. An open winter with no snow freezes hard and dries out instead, which is the argument for mulch if you need one.",
     "Save this and work through it before your first frost."
   ], tags: ["SoilFoodWeb","LivingSoil","SoilHealth","CoverCrops","Compost","GardenSoil","FallGardening"] }],
   checks: ["Name the graduate on the card or take the anchor line off it."],
@@ -424,6 +441,7 @@ const POSTS = [
   intro: "The layout exists and works. The content does not.",
   images: [],
   needs: "Pick the myth first. The myth banks in the Drive folder are headed “Chat GPT top 20”, so they are a prompt list rather than a source, and nothing from them can be cited as a thing people believe.",
+  planner: { ctaWords: "Myth 1 had all three. Somebody has to choose myths 2, 3 and 4 and say where each one comes from. Reuse templates/myth.html once they are chosen.", ctaLink: null, canva: "" },
   captions: [{ name: "Not written", recommended: true, body: [
     "No caption, on purpose.",
     "A myth post needs three things before it can be written: a myth that people demonstrably believe, a mechanism we can source, and something to do instead.",
@@ -451,6 +469,7 @@ const POSTS = [
     { src: "img/scholarships/slide-6.png", label: "6. Recipient" },
     { src: "img/scholarships/slide-7.png", label: "7. How the fund works" }
   ],
+  planner: { ctaWords: "", ctaLink: null, canva: "" },
   captions: [
     { name: "Instagram caption", recommended: true, body: [
       "[N] people started their training in June without paying for it.",
@@ -488,11 +507,12 @@ const POSTS = [
   statusNote: "The meeting notes record what Wes said as “cellastite”, heard rather than spelled. Ask him what he actually said before publishing a species name.",
   intro: "He likes that you can see what it has eaten inside it. We hold the microscopy for this one, so the card is already made.",
   images: [{ src: "img/templates/microbe.png", label: "Microbe card" }],
+  planner: { ctaWords: "Tell us yours.", ctaLink: null, canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
-    "Wes picked a large testate amoeba, because you can see what it has eaten inside it.",
-    "A testate amoeba builds itself a shell and moves around inside it. Under the microscope it is one of the easier things to be sure about, which matters when you are learning to count what is in your own soil. Most of the rest of it is judgement.",
-    "It is doing the same job as the naked amoebae. It eats bacteria, and it releases at the root what it does not need, which is most of the nitrogen.",
-    "Wes farmed first, then became our original lab tech. Fourth of ten.",
+    "Sammie has a tardigrade as her avatar, which the rest of us took as settling it.",
+    "We asked everyone their favourite microbe at the all-team meeting, as an icebreaker, and it turned into a territorial dispute. Allison wanted tardigrades. So did Lukas. Sammie had the avatar and therefore, the room decided, prior claim. She offered to share. Allison's backup had already been taken by Carla.",
+    "Tardigrades are not really soil microbes in the sense the rest of this series is about. They are micro-animals. They live in the film of water around soil particles and moss, and they survive being dried out, frozen and irradiated in a way nothing else here does. Sammie called her own pick debatable before anyone else could.",
+    "Ten people, ten microbes, over the next ten weeks. Nobody outside this organisation knows we do this.",
     "Tell us yours."
   ], tags: ["SoilFoodWeb","LivingSoil","SoilBiology","Microscopy","SoilMicrobiome","SoilHealth"] }],
   checks: ["Confirm the species wording with Wes. Do not publish a name we heard rather than read."],
@@ -511,10 +531,11 @@ const POSTS = [
   intro: "Farmer, then our original lab tech. Sammie invited him into the webinars and the Lab Tech Program.",
   images: [],
   needs: "A photograph of Wes, with his permission.",
+  planner: { ctaWords: "What were you doing before soil?", ctaLink: null, canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
-    "Wes was farming. Then he started a lab.",
-    "He was our original lab tech. Sammie invited him into the webinars and into the Lab Tech Program, and he has been teaching the counting ever since.",
-    "The counting is the part people underestimate. You can learn the theory of the soil food web in an afternoon. Learning to look down a microscope and say with confidence what you are seeing, and how much of it there is, takes a great deal longer, and it is the difference between an opinion about your soil and a measurement of it.",
+    "Six years ago Gerald was a conventional agronomist, frustrated that he could not get at Dr. Elaine Ingham's teaching. He now teaches it.",
+    "Almost everyone who works here arrived as a student or a practitioner first. A farmer. An agronomist. Someone managing orchards in California. A landscaper. People who were doing the work, ran into the limits of what they had been taught, and went looking for something that explained it.",
+    "We mention it because the usual question about soil biology is whether the people teaching it have ever farmed anything. Most of this team did that first, and the teaching came second.",
     "What were you doing before soil?"
   ], tags: ["SoilFoodWeb","LivingSoil","SoilHealth","Microscopy","SoilBiology","CareerChange"] }],
   checks: ["Wes approves the wording and the photograph."],
@@ -533,10 +554,11 @@ const POSTS = [
   intro: "The free community. 207 people have posted. The rest read, which is what a room like this is mostly for.",
   images: [],
   needs: "A number card. The layout in variants/19-one-number.html fits it.",
+  planner: { ctaWords: "Join them.", ctaLink: "The free community. Blocked: it has no link with a home yet.", canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
     "There are 4,680 people in our free community and most of them have never posted anything.",
-    "207 have. The rest read. That is what a room like this is mostly for, and it is why it is worth joining even if you have no intention of saying anything for a year.",
-    "It is free, it always has been, and it is separate from any course. People bring photographs of things they cannot identify, piles that will not heat, and results they do not understand. Somebody usually knows.",
+    "207 have. The rest read, which is what a room like this is mostly for, and it is why it is worth joining even if you have no intention of saying anything for a year.",
+    "It is free, it always has been, and it is separate from any course. People bring photographs of things they cannot identify, piles that will not heat, and results that make no sense to them. Somebody usually knows.",
     "[SLOT: the join link, once it has a home.]",
     "Join them."
   ], tags: ["SoilFoodWeb","LivingSoil","SoilHealth","SoilBiology","RegenerativeAgriculture","GardenSoil"] }],
@@ -559,11 +581,12 @@ const POSTS = [
   intro: "Every calculation in our soil analysis software is now visible. Runs before the Field Notes series builds up, so the numbers are already trusted when the trials start landing.",
   images: [{ src: "img/motion/01-smapp-formulas.png", label: "Motion frame" }],
   imageNote: "The formula block is deliberately an empty capture slot. Fill it with a real screen recording, not a mock-up.",
+  planner: { ctaWords: "Check our arithmetic.", ctaLink: "soilmapp.com. Confirm it lands on the page that shows the formulas.", canva: "" },
   captions: [{ name: "Reel caption", recommended: true, body: [
     "Most soil analysis software will not show you how it got the number. You count what you see down the microscope, you type it in, a result comes out, and you are asked to trust it.",
     "Every calculation in ours is now visible. You can follow it from your own count through to the figure it produces, and check it.",
-    "That sounds like a small feature. It is not. If you cannot see the formula, you cannot argue with the result, and a number you cannot argue with is not a scientific finding. It is a reading from a box.",
-    "We publish soil results from real trials on real ground, and we are going to publish a lot more of them. This is the part that makes those worth reading.",
+    "That sounds like a minor feature. It is the difference between a measurement and a verdict: if you cannot see the formula you cannot argue with the result, and a number nobody can argue with is not a scientific finding, it is a reading off a box.",
+    "We publish soil results from field trials and we intend to publish a great many more. Being able to check the arithmetic is what will make them worth reading.",
     "Check our arithmetic."
   ], tags: ["SoilFoodWeb","SoilBiology","Microscopy","SoilHealth","OpenScience","LivingSoil"] }],
   checks: ["Capture the real formula view. Do not recreate it in a design tool."],
@@ -582,6 +605,7 @@ const POSTS = [
   intro: "Layout ready, content not chosen.",
   images: [],
   needs: "Pick the myth and name a source for the belief.",
+  planner: { ctaWords: "No caption, on purpose. See myth 2 for what has to be decided first.", ctaLink: null, canva: "" },
   captions: [{ name: "Not written", recommended: true, body: [
     "No caption, on purpose. See myth 2 for what has to be decided first."
   ], tags: [] }],
@@ -600,6 +624,7 @@ const POSTS = [
   intro: "The series runs every other Thursday. The second one has no trial behind it yet.",
   images: [],
   needs: "A second graduate's field trial report, and their consent. Nothing can be designed before that exists.",
+  planner: { ctaWords: "Ask the advanced practicum who else finished this season and is willing to be written about. The series format and the layouts are already built, so this is a week of work once there is a report.", ctaLink: null, canva: "" },
   captions: [{ name: "Not written", recommended: true, body: [
     "No caption yet, and inventing one would defeat the point of the series.",
     "Field Notes publishes what a trial actually found, including the parts that disappoint. That requires a trial. We have Sandra's.",
@@ -621,11 +646,12 @@ const POSTS = [
   intro: "She loves seeing them as babies, running around. The first organisms to start the soil food web.",
   images: [],
   needs: "A flagellate at 400x, our own. Nothing in the library matches.",
+  planner: { ctaWords: "Tell us yours.", ctaLink: null, canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
-    "Ayşen picked flagellates, and the reason is that she likes watching them as babies, running around.",
-    "Flagellates are among the first things to show up when soil starts coming back. They swim, using a tail, through the water film around soil particles, and they eat bacteria. Like the amoebae, what they do not need comes out at the root as nitrogen the plant can use.",
-    "If you are looking at a sample from ground that has been worked hard, flagellates are often the only protozoa you will find. That is not nothing. It is the beginning of the sequence.",
-    "Fifth of ten.",
+    "Sammie has a tardigrade as her avatar, which the rest of us took as settling it.",
+    "We asked everyone their favourite microbe at the all-team meeting, as an icebreaker, and it turned into a territorial dispute. Allison wanted tardigrades. So did Lukas. Sammie had the avatar and therefore, the room decided, prior claim. She offered to share. Allison's backup had already been taken by Carla.",
+    "Tardigrades are not really soil microbes in the sense the rest of this series is about. They are micro-animals. They live in the film of water around soil particles and moss, and they survive being dried out, frozen and irradiated in a way nothing else here does. Sammie called her own pick debatable before anyone else could.",
+    "Ten people, ten microbes, over the next ten weeks. Nobody outside this organisation knows we do this.",
     "Tell us yours."
   ], tags: ["SoilFoodWeb","LivingSoil","SoilBiology","Microscopy","SoilMicrobiome","SoilHealth"] }],
   checks: ["Put a flagellate on a microscope before this is scheduled."],
@@ -644,6 +670,7 @@ const POSTS = [
   intro: "It has been available for a while and almost nobody knew, including inside the organisation.",
   images: [],
   needs: "A card in Spanish. Use the same layout as the announcement cards, with the Spanish set at the same sizes.",
+  planner: { ctaWords: "Compártelo con quien lo necesite.", ctaLink: "The Compost Intensive Course in Spanish. Exact URL needed.", canva: "" },
   captions: [{ name: "Caption, in Spanish", recommended: true, body: [
     "El Curso Intensivo de Compost ya está disponible en español, con los vídeos transcritos.",
     "Enseña a producir compost biológicamente completo: no solo materia orgánica descompuesta, sino compost con los organismos vivos que el suelo necesita. Bacterias, hongos, protozoos y nematodos. La diferencia se ve al microscopio y se nota en el campo.",
@@ -670,10 +697,11 @@ const POSTS = [
   intro: "Managing orchards in California, and in New Mexico before that.",
   images: [],
   needs: "A photograph of Brian, with his permission.",
+  planner: { ctaWords: "What were you doing before soil?", ctaLink: null, canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
-    "Brian was managing orchards in California, and in New Mexico before that.",
-    "Orchards are a long game. You are not going to replant next season if you get it wrong, so what is happening in the ground under a tree matters in a way it does not always in an annual bed. That is a reasonable route into soil biology, and it is how a lot of people get here.",
-    "Almost everyone who works here arrived as a practitioner. The teaching came second.",
+    "Six years ago Gerald was a conventional agronomist, frustrated that he could not get at Dr. Elaine Ingham's teaching. He now teaches it.",
+    "Almost everyone who works here arrived as a student or a practitioner first. A farmer. An agronomist. Someone managing orchards in California. A landscaper. People who were doing the work, ran into the limits of what they had been taught, and went looking for something that explained it.",
+    "We mention it because the usual question about soil biology is whether the people teaching it have ever farmed anything. Most of this team did that first, and the teaching came second.",
     "What were you doing before soil?"
   ], tags: ["SoilFoodWeb","LivingSoil","SoilHealth","RegenerativeAgriculture","SoilBiology","CareerChange"] }],
   checks: ["Brian approves the wording and the photograph."],
@@ -692,6 +720,7 @@ const POSTS = [
   intro: "Layout ready, content not chosen.",
   images: [],
   needs: "Pick the myth and name a source for the belief.",
+  planner: { ctaWords: "No caption, on purpose. See myth 2 for what has to be decided first.", ctaLink: null, canva: "" },
   captions: [{ name: "Not written", recommended: true, body: [
     "No caption, on purpose. See myth 2 for what has to be decided first."
   ], tags: [] }],
@@ -710,6 +739,7 @@ const POSTS = [
   intro: "Part of the team is Brazilian. This is not a translation done from outside.",
   images: [],
   needs: "A card in Portuguese, and the live link.",
+  planner: { ctaWords: "Marca alguém que precisa disto.", ctaLink: "The course in Portuguese. Blocked until it is live.", canva: "" },
   captions: [{ name: "Caption, in Portuguese", recommended: true, body: [
     "O curso está de volta, em português.",
     "Compost biologicamente completo: não apenas matéria orgânica decomposta, mas compost com os organismos que o solo precisa. Bactérias, fungos, protozoários e nematoides. A diferença aparece no microscópio e sente-se no campo.",
@@ -736,11 +766,12 @@ const POSTS = [
   intro: "Gerald loves a good ratio.",
   images: [],
   needs: "Fungal hyphae at 400x. We hold spores in suspension and no hyphae, which is the gap this series keeps running into.",
+  planner: { ctaWords: "Tell us yours.", ctaLink: null, canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
-    "Gerald picked fungi, and the reason he gave was that he loves a good ratio.",
-    "The ratio is fungal biomass against bacterial biomass, and it is the single most useful number for deciding what a piece of ground is currently suited to. Weeds and annual vegetables do well in bacterially dominated soil. Perennials, shrubs and trees want more fungi. Row crops sit in between.",
-    "Which means that a soil is not good or bad on its own. It is good or bad for something. Knowing the ratio tells you which thing, and whether you are pushing the ground toward what you are actually trying to grow.",
-    "Sixth of ten.",
+    "Sammie has a tardigrade as her avatar, which the rest of us took as settling it.",
+    "We asked everyone their favourite microbe at the all-team meeting, as an icebreaker, and it turned into a territorial dispute. Allison wanted tardigrades. So did Lukas. Sammie had the avatar and therefore, the room decided, prior claim. She offered to share. Allison's backup had already been taken by Carla.",
+    "Tardigrades are not really soil microbes in the sense the rest of this series is about. They are micro-animals. They live in the film of water around soil particles and moss, and they survive being dried out, frozen and irradiated in a way nothing else here does. Sammie called her own pick debatable before anyone else could.",
+    "Ten people, ten microbes, over the next ten weeks. Nobody outside this organisation knows we do this.",
     "Tell us yours."
   ], tags: ["SoilFoodWeb","LivingSoil","SoilBiology","Microscopy","SoilMicrobiome","SoilHealth"] }],
   checks: ["We hold no hyphae image. Either shoot one or accept the spore image with an honest caption line."],
@@ -759,10 +790,11 @@ const POSTS = [
   intro: "Landscaper, and a farmers association. Twenty years with microbes. Lives in Alto Paraíso de Goiás, Brazil.",
   images: [],
   needs: "A photograph of Matthew, with his permission.",
+  planner: { ctaWords: "What were you doing before soil?", ctaLink: null, canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
-    "Matthew has been working with microbes for twenty years. He came to it as a landscaper, and through a farmers association.",
-    "He earned his permaculture certificate in India and now lives in Alto Paraíso de Goiás, in Brazil.",
-    "Twenty years is long enough to have watched this field change. When he started, the argument was still whether soil biology mattered. It is now mostly about how you measure it, which is a better argument to be having.",
+    "Six years ago Gerald was a conventional agronomist, frustrated that he could not get at Dr. Elaine Ingham's teaching. He now teaches it.",
+    "Almost everyone who works here arrived as a student or a practitioner first. A farmer. An agronomist. Someone managing orchards in California. A landscaper. People who were doing the work, ran into the limits of what they had been taught, and went looking for something that explained it.",
+    "We mention it because the usual question about soil biology is whether the people teaching it have ever farmed anything. Most of this team did that first, and the teaching came second.",
     "What were you doing before soil?"
   ], tags: ["SoilFoodWeb","LivingSoil","SoilHealth","RegenerativeAgriculture","SoilBiology","CareerChange"] }],
   checks: [
@@ -784,12 +816,12 @@ const POSTS = [
   intro: "Some of what we teach is only open to students in the advanced practicum. Worth explaining what sits behind that rather than letting people assume it is a paywall for its own sake.",
   images: [],
   needs: "Three cards, one per thing. The three-panel layout in variants/07-specimen-sheet.html fits.",
+  planner: { ctaWords: "Everything is on the school site.", ctaLink: "school.soilfoodweb.com, the advanced practicum page. Exact URL needed.", canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
-    "Some of what we teach is only open to students in our advanced practicum, and it is worth explaining what sits behind that door rather than letting people assume it is a paywall for its own sake.",
-    "Three things.",
+    "Some of what we teach is only open to students in our advanced practicum. It is worth saying what sits behind that door, rather than letting people assume it is a paywall for its own sake.",
     "A mentor, with no clock running. Students get a primary mentor and access to the wider team, and the time is not metered by the hour.",
-    "Office hours, three times a week. Carla runs them. Students come with one question and almost nobody leaves at the fifteen minute mark. A community formed in a live call rather than in the forum we built for it, which is not what anyone planned.",
-    "And a field trial on real ground. You design it, you mark the plots, you run it for a season, you collect the data yourself, and you write up what you found. That is the reason the door is there. Supervising a piece of original research is not something that scales to everybody at once.",
+    "Office hours, three times a week, run by Carla. Students come with one question and almost nobody leaves at the fifteen minute mark.",
+    "And a field trial on ground you choose. You design it, mark the plots, run it for a season, collect the data yourself and write up what you found. Supervising a piece of original research one student at a time is why that door exists at all.",
     "Then we publish what those trials found, including the seasons that went badly. Those are usually the useful ones.",
     "Everything is on the school site."
   ], tags: ["SoilFoodWeb","LivingSoil","SoilBiology","Microscopy","SoilHealth","RegenerativeAgriculture"] }],
@@ -812,6 +844,7 @@ const POSTS = [
   intro: "The third in the series, and the second one we do not have a report for.",
   images: [],
   needs: "A third graduate's field trial report, and their consent.",
+  planner: { ctaWords: "A series that publishes an empty instalment to keep a cadence stops being worth following.", ctaLink: null, canva: "" },
   captions: [{ name: "Not written", recommended: true, body: [
     "No caption yet.",
     "If only one more trial report comes in this quarter, run it on 26 November and let this slot go to a favourite microbe post rather than running a Field Notes with nothing in it.",
@@ -833,11 +866,12 @@ const POSTS = [
   intro: "Casey remembered late and posted it in the chat after his turn, which is worth keeping in the caption.",
   images: [],
   needs: "A rotifer at 400x, our own. Nothing in the library matches.",
+  planner: { ctaWords: "Tell us yours.", ctaLink: null, canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
-    "Casey missed his turn and posted his answer in the chat afterwards. Rotifers.",
-    "Rotifers are micro-animals rather than microbes, and they live in the same water film everything else here does. They filter feed, pulling bacteria and small particles in with a ring of moving hairs that looks, at 400x, like a wheel turning.",
-    "They are a good sign in a sample. They need water, oxygen and something to eat, so finding them tells you the soil is holding all three.",
-    "Casey farmed and gardened for about ten years, was a long-time student here, and now teaches. Seventh of ten.",
+    "Sammie has a tardigrade as her avatar, which the rest of us took as settling it.",
+    "We asked everyone their favourite microbe at the all-team meeting, as an icebreaker, and it turned into a territorial dispute. Allison wanted tardigrades. So did Lukas. Sammie had the avatar and therefore, the room decided, prior claim. She offered to share. Allison's backup had already been taken by Carla.",
+    "Tardigrades are not really soil microbes in the sense the rest of this series is about. They are micro-animals. They live in the film of water around soil particles and moss, and they survive being dried out, frozen and irradiated in a way nothing else here does. Sammie called her own pick debatable before anyone else could.",
+    "Ten people, ten microbes, over the next ten weeks. Nobody outside this organisation knows we do this.",
     "Tell us yours."
   ], tags: ["SoilFoodWeb","LivingSoil","SoilBiology","Microscopy","SoilMicrobiome","SoilHealth"] }],
   checks: ["Put a rotifer on a microscope before this is scheduled."],
@@ -856,6 +890,7 @@ const POSTS = [
   intro: "Nothing is written into the schedule that has not been published yet.",
   images: [],
   needs: "Nothing made, and nothing should be made until there is a publication date.",
+  planner: { ctaWords: "Chase the date. If it is not confirmed by mid-December, this slot is a quiet week and that is fine.", ctaLink: null, canva: "" },
   captions: [{ name: "Not written", recommended: true, body: [
     "No caption, because there is no piece yet.",
     "When there is a date, this becomes a straightforward carousel: what was published, what it got right, and the one thing worth adding from our side.",
@@ -876,11 +911,12 @@ const POSTS = [
   intro: "Isadora says she loves all her microbes equally, and then picked lichens.",
   images: [],
   needs: "A lichen photograph, ours. A field photograph would do here; this one does not need microscopy.",
+  planner: { ctaWords: "Tell us yours.", ctaLink: null, canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
-    "Isadora says she loves all her microbes equally. Then she picked lichens.",
-    "A lichen is not one organism. It is a fungus and an alga, or a fungus and a cyanobacterium, living as a single thing. The fungus provides the structure and holds the water. The photosynthetic partner makes the sugars. Neither lives that way alone.",
-    "They are also the organisms that start soil. Lichens break down bare rock, slowly, and what they leave behind is the beginning of a mineral fraction for everything else to work in.",
-    "Eighth of ten.",
+    "Sammie has a tardigrade as her avatar, which the rest of us took as settling it.",
+    "We asked everyone their favourite microbe at the all-team meeting, as an icebreaker, and it turned into a territorial dispute. Allison wanted tardigrades. So did Lukas. Sammie had the avatar and therefore, the room decided, prior claim. She offered to share. Allison's backup had already been taken by Carla.",
+    "Tardigrades are not really soil microbes in the sense the rest of this series is about. They are micro-animals. They live in the film of water around soil particles and moss, and they survive being dried out, frozen and irradiated in a way nothing else here does. Sammie called her own pick debatable before anyone else could.",
+    "Ten people, ten microbes, over the next ten weeks. Nobody outside this organisation knows we do this.",
     "Tell us yours."
   ], tags: ["SoilFoodWeb","LivingSoil","SoilBiology","Lichen","SoilMicrobiome","SoilHealth"] }],
   checks: ["Find or shoot a lichen photograph."],
@@ -897,12 +933,10 @@ const POSTS = [
   status: "ready",
   intro: "From the phrase bank. It closed the all-team meeting over a full-bleed field image, and it is both a joke and the actual scientific claim.",
   images: [{ src: "img/quotes/bunch-of-microbes.png", label: "Quote card" }],
+  planner: { ctaWords: "Save it for the next time someone asks what you do.", ctaLink: null, canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
     "In the end, aren't we all just a bunch of microbes?",
-    "Somebody said it to close our all-team meeting and everyone laughed, and then it sat there being accurate.",
-    "You are carrying a microbial population of your own, in numbers comparable to your own cells. Most of what it does you never notice. It breaks down what you cannot, it occupies surfaces so that other things cannot colonise them, and it is doing that whether or not you think about it.",
-    "Which is also a fair description of the top six inches of a healthy field. Bacteria and fungi breaking down what the plant cannot use directly. Protozoa and nematodes grazing them and releasing nutrients where roots can reach. Beneficial organisms holding the surfaces that pathogens would otherwise take.",
-    "Same arrangement. Different scale. Nobody in either system asked to be part of it.",
+    "Somebody said it to close our all-team meeting and everyone laughed, and then nobody could find anything wrong with it. You carry a microbial population in numbers comparable to your own cells. It breaks down what you cannot, and it holds surfaces that something worse would otherwise take. So does the top six inches of a healthy field.",
     "Save it for the next time someone asks what you do."
   ], tags: ["SoilFoodWeb","LivingSoil","SoilBiology","SoilMicrobiome","SoilHealth","Microscopy"] }],
   checks: ["Comparable to your own cells, not ten times. The ten to one figure has been corrected in the literature and we do not repeat it."],
@@ -926,6 +960,7 @@ const POSTS = [
     { src: "img/india/post2-slide-4.png", label: "4. The order it returns" },
     { src: "img/india/post2-slide-5.png", label: "5. Three to ten years" }
   ],
+  planner: { ctaWords: "We are in India from 19 to 30 October, and the events are open.", ctaLink: null, canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
     "Rice, then wheat, then rice again, for forty years. The biology does not fail all at once. It fails in an order.",
     "Flooding a field for rice does two things at the same time. Water fills the pore space and pushes the oxygen out, so the root zone sits anaerobic for weeks. Then tillage cuts the fungal network, which is made of threads, into pieces.",
@@ -959,6 +994,7 @@ const POSTS = [
     { src: "img/umass/slide-4.png", label: "4. Then and now" },
     { src: "img/umass/slide-5.png", label: "5. 160 years" }
   ],
+  planner: { ctaWords: "", ctaLink: null, canva: "" },
   captions: [
     { name: "Instagram caption", recommended: true, body: [
       "$120 million is going into the future of food, and soil made the list.",
@@ -999,6 +1035,7 @@ const POSTS = [
     { src: "img/umass/story-2.png", label: "2. Soil is on the list" },
     { src: "img/umass/story-3.png", label: "3. Sticker frame" }
   ],
+  planner: { ctaWords: "Frame 3 draws the two sticker positions as dashed outlines so the layout leaves room for them. Do not export the dashed boxes into the final image.", ctaLink: null, canva: "" },
   captions: [{ name: "Stickers to place in the app", recommended: true, body: [
     "Frame 1: no stickers.",
     "Frame 2: no stickers.",
@@ -1020,11 +1057,12 @@ const POSTS = [
   intro: "One garden does not prove what saved it. It is a reason to go and look at the soil, which is what we do.",
   images: [],
   needs: "The wildfire footage. ffmpeg commands for the cut are in motion/ffmpeg.md once the file exists.",
+  planner: { ctaWords: "Follow for what we find in the soil.", ctaLink: null, canva: "" },
   captions: [{ name: "Reel caption", recommended: true, body: [
     "The fire went through this garden. Parts of it came back.",
     "[SLOT: one sentence of what the speaker actually says happened.]",
-    "What we can say about the mechanism, separately from this one garden: soil that holds together holds water. Bacteria and fungi produce the glues that bind soil particles into crumbs, and fungal threads weave those crumbs into larger ones. The result behaves like a sponge. Soil without that structure sheds water instead of taking it in, and dries out faster.",
-    "One garden does not prove what saved it. It is a reason to go and look at the soil, which is what we do.",
+    "Separately from this one garden, the mechanism is worth knowing. Bacteria and fungi produce the glues that bind soil particles into crumbs, fungal threads weave those crumbs into larger ones, and soil built that way behaves like a sponge. Soil without that structure sheds water instead of taking it in, and dries out faster once the rain stops.",
+    "None of which proves what saved this particular garden. It is a reason to go and look at the soil underneath it.",
     "Follow for what we find in the soil."
   ], tags: ["SoilFoodWeb","LivingSoil","SoilHealth","Wildfire","RegenerativeAgriculture","SoilBiology"] }],
   checks: [

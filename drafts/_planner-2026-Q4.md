@@ -16,6 +16,13 @@ day they were written, not the day they run. The schedule here is the calendar's
 Approval, per SOP-SFWF-001 section 10: draft here, submit to Stephanie, upload to
 Later.com on approval, final review inside Later before release. Nothing skips a step.
 
+**Only six posts in the quarter carry a link.** Everything else asks the reader to
+save, comment, follow, swipe or tag, so there is no URL and nothing to track. The
+six that do are the advanced practicum, the free community, sMApp, the Spanish
+course, the Portuguese course and Return to Earth. Those are the only slots where
+the Switchy and UTM convention matters, and the convention still has not been
+supplied.
+
 ---
 
 # September 2026
@@ -29,7 +36,7 @@ Source: `drafts/2026-09-17-myth-beans-feed-tomatoes.md`
 **CTA (Optional):**
 
 - Words: Save this for next spring.
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -77,7 +84,7 @@ Source: `drafts/2026-09-24-failed-piles.md`
 **CTA (Optional):**
 
 - Words: Field Notes starts in two weeks.
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -111,7 +118,7 @@ Source: `drafts/2026-10-02-india-ryss-vijay-kumar.md`
 **CTA (Optional):**
 
 - Words: Tell us where you are working.
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -145,7 +152,7 @@ Source: `drafts/2026-10-16-india-four-events.md`
 **CTA (Optional):**
 
 - Words: If you are going, say where you are coming from.
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -179,7 +186,7 @@ Source: `drafts/2026-10-01-favourite-microbe-series.md`
 **CTA (Optional):**
 
 - Words: Tell us yours.
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -214,7 +221,7 @@ Source: `drafts/2026-10-12-india-return-to-earth.md`
 **CTA (Optional):**
 
 - Words: Details on the school site.
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: school.soilfoodweb.com. Blocked with the rest of this post. Route it through Switchy and UTM tag it, so the monthly review can tell which post sent the traffic.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -238,7 +245,7 @@ Source: `drafts/2026-10-09-india-five-scholars.md`
 **CTA (Optional):**
 
 - Words: Follow the five.
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -273,7 +280,7 @@ Community Voice
 **CTA (Optional):**
 
 - Words: [to fill]
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -297,7 +304,7 @@ Source: `drafts/2026-10-13-mycelium-shirt.md`
 **CTA (Optional):**
 
 - Words: Would you wear it?
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -328,7 +335,7 @@ Community Voice
 **CTA (Optional):**
 
 - Words: [to fill]
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -352,7 +359,7 @@ Source: `variants/captions.md`
 **CTA (Optional):**
 
 - Words: What did your first season on tired ground give you? Tell us below.
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -501,7 +508,7 @@ Source: `drafts/2026-10-06-before-soil-food-web.md`
 **CTA (Optional):**
 
 - Words: What were you doing before soil?
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -532,7 +539,7 @@ Community Voice
 **CTA (Optional):**
 
 - Words: [to fill]
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -555,7 +562,7 @@ Community Voice
 **CTA (Optional):**
 
 - Words: [to fill]
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -581,7 +588,7 @@ Source: `drafts/2026-10-20-office-hours-reel.md`
 **CTA (Optional):**
 
 - Words: Follow for what students actually ask.
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -616,7 +623,7 @@ Source: `drafts/2026-11-03-fall-soil-prep.md`
 **CTA (Optional):**
 
 - Words: Save this and work through it before your first frost.
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -657,7 +664,7 @@ Source: `variants/india/captions.md`
 **CTA (Optional):**
 
 - Words: If you were not here, tell us where you are.
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -688,7 +695,7 @@ Science Explained
 **CTA (Optional):**
 
 - Words: [to fill]
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -712,7 +719,7 @@ Source: `drafts/2026-11-10-scholarship-numbers.md`
 **CTA (Optional):**
 
 - Words: Swipe to meet five of them.
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -748,7 +755,7 @@ Community Voice
 **CTA (Optional):**
 
 - Words: [to fill]
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -771,7 +778,7 @@ Community Voice
 **CTA (Optional):**
 
 - Words: [to fill]
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -801,7 +808,7 @@ Source: `drafts/2026-11-19-community-4680.md`
 **CTA (Optional):**
 
 - Words: Join them.
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: The free community. Blocked: it has no link with a home yet. Route it through Switchy and UTM tag it, so the monthly review can tell which post sent the traffic.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -835,7 +842,7 @@ Source: `drafts/2026-10-27-smapp-transparency-reel.md`
 **CTA (Optional):**
 
 - Words: Check our arithmetic.
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: soilmapp.com. Confirm it lands on the page that shows the formulas. Route it through Switchy and UTM tag it, so the monthly review can tell which post sent the traffic.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -868,7 +875,7 @@ Science Explained
 **CTA (Optional):**
 
 - Words: [to fill]
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -891,7 +898,7 @@ Community Voice
 **CTA (Optional):**
 
 - Words: [to fill]
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -914,7 +921,7 @@ Community Voice
 **CTA (Optional):**
 
 - Words: [to fill]
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -940,7 +947,7 @@ Source: `drafts/2026-11-26-course-in-spanish.md`
 **CTA (Optional):**
 
 - Words: Compártelo con quien lo necesite.
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: The Compost Intensive Course in Spanish. Exact URL needed. Route it through Switchy and UTM tag it, so the monthly review can tell which post sent the traffic.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -973,7 +980,7 @@ Community Voice
 **CTA (Optional):**
 
 - Words: [to fill]
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -996,7 +1003,7 @@ Science Explained
 **CTA (Optional):**
 
 - Words: [to fill]
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -1020,7 +1027,7 @@ Source: `drafts/2026-12-03-course-in-portuguese.md`
 **CTA (Optional):**
 
 - Words: Marca alguém que precisa disto.
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: The course in Portuguese. Blocked until it is live. Route it through Switchy and UTM tag it, so the monthly review can tell which post sent the traffic.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -1053,7 +1060,7 @@ Community Voice
 **CTA (Optional):**
 
 - Words: [to fill]
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -1076,7 +1083,7 @@ Community Voice
 **CTA (Optional):**
 
 - Words: [to fill]
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -1100,7 +1107,7 @@ Source: `drafts/2026-12-10-advanced-practicum-access.md`
 **CTA (Optional):**
 
 - Words: Everything is on the school site.
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: school.soilfoodweb.com, the advanced practicum page. Exact URL needed. Route it through Switchy and UTM tag it, so the monthly review can tell which post sent the traffic.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -1135,7 +1142,7 @@ Community Voice
 **CTA (Optional):**
 
 - Words: [to fill]
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -1158,7 +1165,7 @@ Community Voice
 **CTA (Optional):**
 
 - Words: [to fill]
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -1181,7 +1188,7 @@ The Bigger Picture
 **CTA (Optional):**
 
 - Words: [to fill]
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 
@@ -1204,7 +1211,7 @@ Community Voice
 **CTA (Optional):**
 
 - Words: [to fill]
-- Link: [to fill, routed through Switchy and UTM tagged. The UTM convention has not been supplied.]
+- Link: none. The ask is save, comment, follow or tag, so there is nothing to track.
 
 **Visual Asset (Image Thumbnail for preview and Link to Canva Project):**
 

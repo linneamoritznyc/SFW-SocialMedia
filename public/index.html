@@ -115,7 +115,13 @@ main{padding:0 32px 90px;max-width:1500px}
 
 h3.sec{font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--olive);
   margin:32px 0 11px;font-weight:700}
-ul.checks{list-style:none}
+ul.planner{margin:14px 0 4px;padding:0;border-top:1px solid #E3DFD6}
+.pf{display:grid;grid-template-columns:170px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid #EFEBE3}
+.pf dt{margin:0;font-weight:600;font-size:13.5px;color:#4A463F}
+.pf dd{margin:0;font-size:14.5px;color:#333130;word-break:break-word}
+.pf dd.pf-missing{color:#8A6D1F}
+@media (max-width:560px){.pf{grid-template-columns:1fr;gap:2px}}
+.checks{list-style:none}
 ul.checks li{padding-left:20px;position:relative;font-size:14.5px;color:var(--soil);margin-bottom:8px}
 ul.checks li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;
   border-radius:50%;background:var(--living)}
@@ -266,6 +272,28 @@ function setCap(i){ cap = i; document.getElementById("postbody").innerHTML = pos
 function esc(s){ return String(s).replace(/[&<>"]/g, c =>
   ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
 
+function plannerHTML(p){
+  const pl = p.planner || {};
+  const art = (p.images && p.images.length)
+    ? p.images.map(i => i.src.replace(/^img\//, "")).join(", ")
+    : (p.needs ? "Not made yet. " + p.needs : "Not chosen.");
+  const row = (k, v, missing) =>
+    `<div class="pf"><dt>${esc(k)}</dt><dd class="${missing ? "pf-missing" : ""}">${esc(v)}</dd></div>`;
+  return `
+    <h3 class="sec">Planner fields</h3>
+    <p class="lede" style="font-size:14.5px">The fields the monthly planning doc asks for, in its order.
+      Anything marked in amber is still to fill before this goes to Later.com.</p>
+    <dl class="planner">
+      ${row("Date", p.slot, false)}
+      ${row("CTA (optional), words", pl.ctaWords || "Not set.", !pl.ctaWords)}
+      ${pl.ctaLink === null || pl.ctaLink === undefined
+          ? `<div class="pf"><dt>CTA link</dt><dd>No link. The ask is save, comment, follow or tag.</dd></div>`
+          : row("CTA link", pl.ctaLink, true)}
+      ${row("Visual asset", art, !(p.images && p.images.length))}
+      ${row("Canva project", pl.canva || "Not linked.", !pl.canva)}
+    </dl>`;
+}
+
 function postHTML(p){
   const [label, colour] = STATUS[p.status];
   const c = p.captions[Math.min(cap, p.captions.length - 1)];
@@ -304,6 +332,8 @@ function postHTML(p){
 
       ${p.imageChoice ? `<h3 class="sec">Pick one image</h3>
         <p class="lede" style="font-size:14.5px">Six directions for the same story. The buttons under the frame switch between them.</p>` : ""}
+
+      ${plannerHTML(p)}
 
       <h3 class="sec">${p.captions.length > 1 ? "Caption options" : "Caption"}</h3>
       <div class="captabs">${p.captions.map((x,i)=>
