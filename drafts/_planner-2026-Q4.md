@@ -10,6 +10,10 @@ month's Google Doc.
 so on. The dates below are the real Monday, Wednesday and Thursday slots and they
 match Stephanie's doc, which opens on Monday Sept 28th.
 
+**Mon, Wed, Fri.** An earlier version of this file used Thursday, from the
+Thu/Fri option in SOP-SFWF-001 section 7. Stephanie's September doc and every
+posted week in that month run Monday, Wednesday, Friday, so this grid does too.
+
 **Filename dates are not posting dates.** The files in `drafts/` are named for the
 day they were written, not the day they run. The schedule here is the calendar's.
 
@@ -75,7 +79,7 @@ Source: `drafts/2026-09-17-myth-beans-feed-tomatoes.md`
 
 # October 2026
 
-## Thursday Oct 1st
+## Friday Oct 2nd
 
 **Failed piles, Loide**  
 Science Explained · Instagram feed, Facebook, LinkedIn · 1080x1080, text only, green and cream  
@@ -177,7 +181,7 @@ Source: `drafts/2026-10-16-india-four-events.md`
 
 ---
 
-## Thursday Oct 8th
+## Friday Oct 9th
 
 **Favourite microbe 1, Sammie**  
 Community Voice · Instagram feed, Facebook · 1080x1080, one post per person  
@@ -272,7 +276,7 @@ Source: `drafts/2026-10-09-india-five-scholars.md`
 
 ---
 
-## Thursday Oct 15th
+## Friday Oct 16th
 
 **Favourite microbe 2, Allison**  
 Community Voice  
@@ -350,7 +354,7 @@ Community Voice
 
 ---
 
-## Thursday Oct 22nd
+## Friday Oct 23rd
 
 **Field Notes 1, Sandra Niggemeyer**  
 Community Voice  
@@ -554,7 +558,7 @@ Community Voice
 
 ---
 
-## Thursday Oct 29th
+## Friday Oct 30th
 
 **Favourite microbe 3, Carla**  
 Community Voice  
@@ -655,7 +659,7 @@ Source: `drafts/2026-11-03-fall-soil-prep.md`
 
 ---
 
-## Thursday Nov 5th
+## Friday Nov 6th
 
 **India: who was in the room**  
 Community Voice  
@@ -747,7 +751,7 @@ Source: `drafts/2026-11-10-scholarship-numbers.md`
 
 ---
 
-## Thursday Nov 12th
+## Friday Nov 13th
 
 **Favourite microbe 4, Wes**  
 Community Voice  
@@ -799,7 +803,7 @@ Community Voice
 
 ---
 
-## Thursday Nov 19th
+## Friday Nov 20th
 
 **4,680 people are already in**  
 Community Voice · Instagram feed, Facebook · 1080x1080, single post  
@@ -890,7 +894,7 @@ Science Explained
 
 ---
 
-## Thursday Nov 26th
+## Friday Nov 27th
 
 **Field Notes 2**  
 Community Voice  
@@ -972,7 +976,7 @@ Source: `drafts/2026-11-26-course-in-spanish.md`
 
 ---
 
-## Thursday Dec 3rd
+## Friday Dec 4th
 
 **Before Soil Food Web 3, Brian**  
 Community Voice  
@@ -1052,7 +1056,7 @@ Source: `drafts/2026-12-03-course-in-portuguese.md`
 
 ---
 
-## Thursday Dec 10th
+## Friday Dec 11th
 
 **Favourite microbe 6, Gerald**  
 Community Voice  
@@ -1134,7 +1138,7 @@ Source: `drafts/2026-12-10-advanced-practicum-access.md`
 
 ---
 
-## Thursday Dec 17th
+## Friday Dec 18th
 
 **Field Notes 3**  
 Community Voice  
@@ -1180,7 +1184,7 @@ Community Voice
 
 ---
 
-## Thursday Dec 24th
+## Friday Dec 25th
 
 **Guardian carousel**  
 The Bigger Picture  
@@ -1203,7 +1207,7 @@ The Bigger Picture
 
 ---
 
-## Thursday Dec 31st
+## Friday Jan 1st
 
 **Favourite microbe 8, Isadora**  
 Community Voice  

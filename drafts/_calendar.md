@@ -24,7 +24,7 @@ From the Q3 strategy, 3 to 4 posts a week:
 | :-- | :-- |
 | Monday | Science Explained, or The Bigger Picture |
 | Wednesday | Take Action, or Events and Programs |
-| Thursday | Community Voice, or Science Explained |
+| Friday | Community Voice, or Science Explained |
 
 **The stacking rule:** never two promotional pillars in one week. Events and
 Programs is the promotional pillar. Community Voice, Science Explained, Take
@@ -37,7 +37,7 @@ India's, and anything else moves around them.
 
 ## October
 
-| Week | Mon | Wed | Thu | Notes |
+| Week | Mon | Wed | Fri | Notes |
 | :-- | :-- | :-- | :-- | :-- |
 | **29 Sep** | Myth 1, beans and tomatoes | no post | **Failed piles**, Loide | Teaser week. Failed piles runs two weeks before Field Notes |
 | **5 Oct** | **India: Vijay Kumar and RYSS** | **India: four events** | Favourite microbe 1, Sammie | Two India posts. Neither is promotional except the events card, so no stack |
@@ -51,7 +51,7 @@ Bigger Picture or Community Voice, so nothing stacks.
 
 ## November
 
-| Week | Mon | Wed | Thu | Notes |
+| Week | Mon | Wed | Fri | Notes |
 | :-- | :-- | :-- | :-- | :-- |
 | **2 Nov** | **Office hours reel** | **Fall soil prep** | **India: who was in the room** | The attendee post. The one that makes the next tour easier to fill |
 | **9 Nov** | Myth 2 | **Scholarship numbers carousel** | Favourite microbe 4, Wes | Scholarship is Community Voice, not a donation drive |
@@ -64,7 +64,7 @@ Take Action and the two reels sit here.
 
 ## December
 
-| Week | Mon | Wed | Thu | Notes |
+| Week | Mon | Wed | Fri | Notes |
 | :-- | :-- | :-- | :-- | :-- |
 | **7 Dec** | Myth 4 | **Portuguese course** | Favourite microbe 6, Gerald | Hold Portuguese until it is live on the new platform |
 | **14 Dec** | Before Soil Food Web 4, Matthew | **Advanced practicum access** | **Field Notes 3** | Two Events and Programs posts in eight days. **Move one if Portuguese slips into this week** |
