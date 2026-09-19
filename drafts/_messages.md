@@ -105,5 +105,5 @@ Full text in `2026-10-01-favourite-microbe-series.md`. Covers both the microbe
 series and the "Before Soil Food Web" series in one message, so nobody is asked
 twice.
 
-**Send once, to all twelve.** Loide Vasquez and Elena Kalli did not name a
+**Send once, to all twelve.** Loida Vasquez and Elena Kalli did not name a
 microbe in the meeting and the message gives them the chance to claim one.

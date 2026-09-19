@@ -24,7 +24,7 @@ assets:
 ## The count is ten, not thirteen
 
 The meeting table lists twelve people. **Ten named a microbe. Two did not:**
-Loide Vasquez and Elena Kalli. So this is a ten post series until those two
+Loida Vasquez and Elena Kalli. So this is a ten post series until those two
 answer, and the request email below asks them.
 
 ## The order, and why Sammie goes first
@@ -128,7 +128,7 @@ One message to all twelve, not thirteen separate ones.
 > I need three things from each of you.
 >
 > **1. Your microbe, confirmed.** I have you down from the meeting chat as
-> [MICROBE]. Correct me if I misheard, and Loide and Elena, you did not say, so
+> [MICROBE]. Correct me if I misheard, and Loida and Elena, you did not say, so
 > this is your chance to claim one before they run out.
 >
 > **2. One line about why.** One sentence, in your own words. I will quote it

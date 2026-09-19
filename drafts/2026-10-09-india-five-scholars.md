@@ -60,7 +60,7 @@ needs an owner.
 - **Whether they want to be named at all.** A scholarship is a financial fact
   about a person. Some will be glad to be named and some will not, and asking is
   not optional.
-- **Who is asking them.** Sammie, Loide, Gerald and Kavi carried the work behind
+- **Who is asking them.** Sammie, Loida, Gerald and Kavi carried the work behind
   the tour, per the notes. One of them has the relationship. It should not be a
   cold email from social media.
 

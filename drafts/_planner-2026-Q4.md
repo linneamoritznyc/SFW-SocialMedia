@@ -23,9 +23,11 @@ Later.com on approval, final review inside Later before release. Nothing skips a
 **Only six posts in the quarter carry a link.** Everything else asks the reader to
 save, comment, follow, swipe or tag, so there is no URL and nothing to track. The
 six that do are the advanced practicum, the free community, sMApp, the Spanish
-course, the Portuguese course and Return to Earth. Those are the only slots where
-the Switchy and UTM convention matters, and the convention still has not been
-supplied.
+course, the Portuguese course and Return to Earth.
+
+Those six links go through Switchy, which Sammie Bass owns, and each one gets a
+UTM from the UTM Links 2026 sheet, which Banjo Bray owns. Ask Banjo for the six
+rows and they can be filled in one pass.
 
 ---
 
@@ -81,7 +83,7 @@ Source: `drafts/2026-09-17-myth-beans-feed-tomatoes.md`
 
 ## Friday Oct 2nd
 
-**Failed piles, Loide**  
+**Failed piles, Loida**  
 Science Explained · Instagram feed, Facebook, LinkedIn · 1080x1080, text only, green and cream  
 Source: `drafts/2026-09-24-failed-piles.md`
 
@@ -99,7 +101,7 @@ Source: `drafts/2026-09-24-failed-piles.md`
 
 > "The most is learned from failed piles."
 >
-> Loide said that. She has been here since February 2019 and leads our advanced programme, and she was talking about compost. She is right about compost, and she is also describing the only honest way to teach anything.
+> Loida Vasquez said that. She is our Director of Advanced Education, she has been here since February 2019, and she was talking about compost. She is right about compost, and she is also describing the only honest way to teach anything.
 >
 > A pile that goes anaerobic tells you what your materials were actually doing. A pile that never heats tells you what your ratio really was. A pile that works tells you very little, because you never find out which of the things you did was the one that mattered.
 >
@@ -109,7 +111,7 @@ Source: `drafts/2026-09-24-failed-piles.md`
 >
 > #SoilFoodWeb #LivingSoil #Compost #SoilBiology #SoilHealth
 
-**Before it runs:** draft, needs Loide's sign-off on the wording Runs two weeks before Field Notes launches.
+**Before it runs:** draft, needs Loida's sign-off on the wording Runs two weeks before Field Notes launches.
 
 ---
 
@@ -137,7 +139,7 @@ Source: `drafts/2026-10-02-india-ryss-vijay-kumar.md`
 >
 > What interests us most is the part where farmers make the biological amendments themselves rather than buying them. Growing the organisms locally and putting them back is a different proposition from applying a product: you are adding a living population that reproduces in the soil, not a dose that depletes. It is also the only version of this that works when the nearest supplier is a long way away and the money is not there.
 >
-> We are in India this month, teaching a workshop near Coimbatore.
+> We spend two weeks on exactly this in October, compost in the first week and liquid amendments in the second, at the Save Soil Regenerative Revolution Farm outside Coimbatore.
 >
 > Tell us where you are working.
 >
@@ -167,9 +169,9 @@ Source: `drafts/2026-10-16-india-four-events.md`
 
 > We are coming to India in October.
 >
-> A two-week workshop at Save Soil Farm near Coimbatore, from the nineteenth. A panel in Hyderabad with several organisations working on natural farming. And [SLOT: the other two events, once confirmed].
+> A two-week workshop from 19 to 30 October at the Save Soil Regenerative Revolution Farm outside Coimbatore, in collaboration with Isha Outreach. A panel in Hyderabad with several organisations working on natural farming. And [SLOT: the other two events, once confirmed].
 >
-> Indian residents pay half the workshop rate. That is deliberate. A residential workshop priced for someone earning in dollars is out of reach of most of the people whose land it would actually change, and we would rather the room was full of them.
+> If you live in India, email us about local pricing. A residential workshop priced in dollars is out of reach of most of the people whose land it would actually change, and we would rather the room was full of them.
 >
 > India has more Soil Regenerators than we have events to hold, and most of them have never met each other in person. We are going partly to teach and mostly to get them in one room.
 >
@@ -859,7 +861,7 @@ Source: `drafts/2026-10-27-smapp-transparency-reel.md`
 >
 > Every calculation in ours is now visible. You can follow it from your own count through to the figure it produces, and check it.
 >
-> That sounds like a minor feature. It is the difference between a measurement and a verdict: if you cannot see the formula you cannot argue with the result, and a number nobody can argue with is not a scientific finding, it is a reading off a box.
+> That sounds like a minor feature. If you cannot see the formula you cannot argue with the result, and a result nobody can argue with has no business in a field trial.
 >
 > We publish soil results from field trials and we intend to publish a great many more. Being able to check the arithmetic is what will make them worth reading.
 >

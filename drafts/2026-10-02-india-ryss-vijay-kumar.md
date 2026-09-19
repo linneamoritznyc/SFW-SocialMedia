@@ -71,7 +71,7 @@ programme.
 >
 > Which is also why it holds up where buying a product does not, when the supplier is far away and the money is not there.
 >
-> We are in India this month, teaching a workshop near Coimbatore.
+> We spend two weeks on exactly this in October, compost in the first week and liquid amendments in the second, at the Save Soil Regenerative Revolution Farm outside Coimbatore.
 >
 > Tell us where you are working.
 >

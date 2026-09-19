@@ -41,18 +41,18 @@ const POSTS = [
   format: "Quote card",
   slot: "Friday 2 October",
   status: "review",
-  statusNote: "The meeting notes paraphrase Loide. Get her exact words before setting them in ninety-two point type inside quotation marks.",
-  intro: "Loide Vasquez, Advanced Program Lead, first employee. Six words, and they are the thesis of the whole Field Notes series. Runs two weeks before Field Notes starts.",
+  statusNote: "The meeting notes paraphrase Loida. Get her exact words before setting them in ninety-two point type inside quotation marks.",
+  intro: "Loida Vasquez, Advanced Program Lead, first employee. Six words, and they are the thesis of the whole Field Notes series. Runs two weeks before Field Notes starts.",
   images: [{ src: "img/quotes/failed-piles.png", label: "Quote card" }],
   planner: { ctaWords: "Field Notes starts in two weeks.", ctaLink: null, canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
     "\"The most is learned from failed piles.\"",
-    "Loide said that. She has been here since February 2019 and leads our advanced programme, and she was talking about compost. She is right about compost, and she is also describing the only honest way to teach anything.",
+    "Loida Vasquez said that. She is our Director of Advanced Education, she has been here since February 2019, and she was talking about compost. She is right about compost, and she is also describing the only honest way to teach anything.",
     "A pile that goes anaerobic tells you what your materials were actually doing. A pile that never heats tells you what your ratio really was. A pile that works tells you very little, because you never find out which of the things you did was the one that mattered.",
     "In two weeks we start publishing what our graduates found in their own field trials. Several of those trials did not go the way anyone hoped, and those are the ones we are most interested in.",
     "Field Notes starts in two weeks."
   ], tags: ["SoilFoodWeb","LivingSoil","Compost","SoilBiology","SoilHealth"] }],
-  checks: ["Ask Loide for her exact words. A paraphrase in quotation marks at that size is a quote we did not verify."],
+  checks: ["Ask Loida for her exact words. A paraphrase in quotation marks at that size is a quote we did not verify."],
   draft: "drafts/2026-09-24-failed-piles.md"
 },
 
@@ -74,7 +74,7 @@ const POSTS = [
     "That is Vijay Kumar's work, with RYSS, at a scale worth knowing about on its own terms.",
     "What we can add is the biology of making your own. A bought amendment is a dose. You apply it, it gets used up, you buy it again. Organisms you grow yourself are a population: put them into living soil and they feed, reproduce, and carry on working after you have stopped.",
     "Which is also why it holds up where buying a product does not, when the supplier is far away and the money is not there.",
-    "We are in India this month, teaching a workshop near Coimbatore.",
+    "We spend two weeks on exactly this in October, compost in the first week and liquid amendments in the second, at the Save Soil Regenerative Revolution Farm outside Coimbatore.",
     "Tell us where you are working."
   ], tags: ["SoilFoodWeb","LivingSoil","NaturalFarming","SoilHealth","RegenerativeAgriculture","FoodSecurity"] }],
   checks: [
@@ -141,7 +141,7 @@ const POSTS = [
     "Ten people, ten microbes, over the next ten weeks. Nobody outside this organisation knows we do this.",
     "Tell us yours."
   ], tags: ["SoilFoodWeb","LivingSoil","SoilBiology","Microscopy","SoilMicrobiome","SoilHealth"] }],
-  checks: ["Ten named a microbe, not thirteen. Loide and Elena have not answered yet and are asked in the request email."],
+  checks: ["Ten named a microbe, not thirteen. Loida and Elena have not answered yet and are asked in the request email."],
   draft: "drafts/2026-10-01-favourite-microbe-series.md"
 },
 
@@ -586,7 +586,7 @@ const POSTS = [
   captions: [{ name: "Reel caption", recommended: true, body: [
     "Most soil analysis software will not show you how it got the number. You count what you see down the microscope, you type it in, a result comes out, and you are asked to trust it.",
     "Every calculation in ours is now visible. You can follow it from your own count through to the figure it produces, and check it.",
-    "That sounds like a minor feature. It is the difference between a measurement and a verdict: if you cannot see the formula you cannot argue with the result, and a number nobody can argue with is not a scientific finding, it is a reading off a box.",
+    "That sounds like a minor feature. If you cannot see the formula you cannot argue with the result, and a result nobody can argue with has no business in a field trial.",
     "We publish soil results from field trials and we intend to publish a great many more. Being able to check the arithmetic is what will make them worth reading.",
     "Check our arithmetic."
   ], tags: ["SoilFoodWeb","SoilBiology","Microscopy","SoilHealth","OpenScience","LivingSoil"] }],
@@ -671,7 +671,7 @@ const POSTS = [
   intro: "It has been available for a while and almost nobody knew, including inside the organisation.",
   images: [],
   needs: "A card in Spanish. Use the same layout as the announcement cards, with the Spanish set at the same sizes.",
-  planner: { ctaWords: "Compártelo con quien lo necesite.", ctaLink: "The Compost Intensive Course in Spanish. Exact URL needed.", canva: "" },
+  planner: { ctaWords: "Compártelo con quien lo necesite.", ctaLink: "The Compost Intensive Course in Spanish. Exact URL needed. UTM from Banjo Bray\u2019s UTM Links 2026 sheet, shortened via Switchy (Sammie Bass).", canva: "" },
   captions: [{ name: "Caption, in Spanish", recommended: true, body: [
     "El Curso Intensivo de Compost ya está disponible en español, con los vídeos transcritos.",
     "Enseña a producir compost biológicamente completo: no solo materia orgánica descompuesta, sino compost con los organismos vivos que el suelo necesita. Bacterias, hongos, protozoos y nematodos. La diferencia se ve al microscopio y se nota en el campo.",
@@ -817,7 +817,7 @@ const POSTS = [
   intro: "Some of what we teach is only open to students in the advanced practicum. Worth explaining what sits behind that rather than letting people assume it is a paywall for its own sake.",
   images: [],
   needs: "Three cards, one per thing. The three-panel layout in variants/07-specimen-sheet.html fits.",
-  planner: { ctaWords: "Everything is on the school site.", ctaLink: "school.soilfoodweb.com, the advanced practicum page. Exact URL needed.", canva: "" },
+  planner: { ctaWords: "Everything is on the school site.", ctaLink: "school.soilfoodweb.com, the advanced practicum page. Exact URL needed. UTM from Banjo Bray\u2019s UTM Links 2026 sheet, shortened via Switchy (Sammie Bass).", canva: "" },
   captions: [{ name: "Instagram caption", recommended: true, body: [
     "Some of what we teach is only open to students in our advanced practicum. It is worth saying what sits behind that door, rather than letting people assume it is a paywall for its own sake.",
     "A mentor, with no clock running. Students get a primary mentor and access to the wider team, and the time is not metered by the hour.",
@@ -1107,7 +1107,7 @@ const SCHEDULE = {
   ],
   months: [
     { name: "September and October", note: "Four India posts plus the daily stories. That is the ceiling. One Events and Programs post in the month, so nothing stacks.", weeks: [
-      { w: "29 Sep", mon: ["Myth 1, beans and tomatoes","myth-1"], wed: "no post", thu: ["Failed piles, Loide","failed-piles"], note: "Teaser week. Failed piles runs two weeks before Field Notes" },
+      { w: "29 Sep", mon: ["Myth 1, beans and tomatoes","myth-1"], wed: "no post", thu: ["Failed piles, Loida","failed-piles"], note: "Teaser week. Failed piles runs two weeks before Field Notes" },
       { w: "5 Oct",  mon: ["India: Vijay Kumar and RYSS","india-ryss"], wed: ["India: four events","india-1"], thu: ["Favourite microbe 1, Sammie","microbe-1"], note: "Two India posts. Neither is promotional except the events card" },
       { w: "12 Oct", mon: ["India: Return to Earth (if cleared)","india-return-to-earth"], wed: ["India: five scholars","india-five-scholars"], thu: ["Favourite microbe 2, Allison","microbe-2"], note: "If Return to Earth is not cleared, move Before Soil Food Web 1 up" },
       { w: "19 Oct", mon: ["Mycelium shirt","mycelium-shirt"], wed: ["India stories, daily","india-3"], thu: ["Field Notes 1, Sandra","field-notes-1"], note: "Workshop runs 19 to 30. Stories daily from the ground" },
@@ -1135,7 +1135,7 @@ const SCHEDULE = {
     ["India: Return to Earth", "Not cleared. Pencilled at 12 October and comes out if it is not agreed"],
     ["Guardian carousel", "No publication date. Pencilled at 24 December"],
     ["Favourite microbe 9 and 10", "Brian and Tommy both chose small underdog microbes. Run them as a pair in January, or ask one to pick again"],
-    ["Loide and Elena's microbes", "Not stated in the meeting. They are asked in the request email"],
+    ["Loida and Elena's microbes", "Not stated in the meeting. They are asked in the request email"],
     ["Before Soil Food Web 5", "Casey. Depends which five you want"]
   ]
 };

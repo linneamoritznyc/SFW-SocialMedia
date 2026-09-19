@@ -39,7 +39,7 @@ India's, and anything else moves around them.
 
 | Week | Mon | Wed | Fri | Notes |
 | :-- | :-- | :-- | :-- | :-- |
-| **29 Sep** | Myth 1, beans and tomatoes | no post | **Failed piles**, Loide | Teaser week. Failed piles runs two weeks before Field Notes |
+| **29 Sep** | Myth 1, beans and tomatoes | no post | **Failed piles**, Loida | Teaser week. Failed piles runs two weeks before Field Notes |
 | **5 Oct** | **India: Vijay Kumar and RYSS** | **India: four events** | Favourite microbe 1, Sammie | Two India posts. Neither is promotional except the events card, so no stack |
 | **12 Oct** | **India: Return to Earth** *(if cleared)* | **India: five scholars** | Favourite microbe 2, Allison | If Return to Earth is not cleared, move Before Soil Food Web 1 (Gerald) up |
 | **19 Oct** | Mycelium shirt | *India stories, daily* | **Field Notes 1, Sandra** | Workshop runs 19 to 30. Stories daily from the ground |
@@ -85,7 +85,7 @@ happens.
 | **India: Return to Earth** | Not cleared. Pencilled at 12 October and comes out if it is not agreed |
 | **Guardian carousel** | No publication date. Pencilled at 21 December |
 | **Favourite microbe 9 and 10** | Brian and Tommy both chose "small underdog microbes". Run them as a pair in January, or ask one to pick again |
-| **Loide and Elena's microbes** | Not stated in the meeting. They are asked in the request email |
+| **Loida and Elena's microbes** | Not stated in the meeting. They are asked in the request email |
 | **Before Soil Food Web 5** | Depends which five you want. See that draft |
 | **The wildfire reel** | Blocked on the video file. Slot it into any Monday once cut |
 

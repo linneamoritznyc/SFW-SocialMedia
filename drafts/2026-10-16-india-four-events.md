@@ -10,7 +10,7 @@ cta: "If you are going, say where you are coming from."
 hashtags: [SoilFoodWeb, LivingSoil, SoilHealth, NaturalFarming, SaveSoil, RegenerativeAgriculture, SoilBiology]
 source: "SFW All-Team Meeting notes 17 September 2026 J3; content/calendar.json; docs/copy-deck-v2.md."
 evidence:
-  - claim: "Accelerator Workshop, Coimbatore, 19 to 30 October 2026, at Save Soil Farm near the Isha Yoga Center."
+  - claim: "Accelerator Workshop, Coimbatore, 19 to 30 October 2026, at Save Soil Regenerative Revolution Farm near the Isha Yoga Center."
     rung: Documented
     source: "content/calendar.json, marked verified. Note copy deck DECISION 12 records a date conflict across the footer, FAQ and inclusions."
   - claim: "A panel discussion in Hyderabad with several organizations."
@@ -35,7 +35,7 @@ cards. The notes fill one and a half of them.
 
 | Event | Status |
 | :-- | :-- |
-| **Accelerator Workshop, Coimbatore** | Confirmed. 19 to 30 October, Save Soil Farm, near the Isha Yoga Center |
+| **Accelerator Workshop, Coimbatore** | Confirmed. 19 to 30 October, Save Soil Regenerative Revolution Farm, near the Isha Yoga Center |
 | **Panel discussion, Hyderabad** | Confirmed that it exists. **No date, no venue, no named organisations** |
 | **Teaching alongside Return to Earth** | Unverified. See the separate draft |
 | **The fourth event** | Still not named anywhere. Your brief says lecture, panel, seminar and workshop. The notes name the panel and the workshop |
@@ -63,9 +63,9 @@ details on the school site" and the number stays off.
 
 > We are coming to India in October.
 >
-> A two-week workshop at Save Soil Farm near Coimbatore, from the nineteenth. A panel in Hyderabad with several organisations working on natural farming. And [SLOT: the other two events, once confirmed].
+> A two-week workshop from 19 to 30 October at the Save Soil Regenerative Revolution Farm outside Coimbatore, in collaboration with Isha Outreach. A panel in Hyderabad with several organisations working on natural farming. And [SLOT: the other two events, once confirmed].
 >
-> Indian residents pay half the workshop rate. That is deliberate. A residential workshop priced for someone earning in dollars is out of reach of most of the people whose land it would actually change, and we would rather the room was full of them.
+> If you live in India, email us about local pricing. A residential workshop priced in dollars is out of reach of most of the people whose land it would actually change, and we would rather the room was full of them.
 >
 > India has more Soil Regenerators than we have events to hold, and most of them have never met each other in person. We are going partly to teach and mostly to get them in one room.
 >

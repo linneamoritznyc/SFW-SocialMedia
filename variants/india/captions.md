@@ -41,7 +41,7 @@ This is the single thing here that turns a good post into an apology.
 
 - Accelerator Workshop India 2026, Coimbatore. **19 to 30 October 2026**, marked
   verified in the Foundation calendar.
-- Save Soil Farm, near the Isha Yoga Center, Coimbatore, Tamil Nadu.
+- Save Soil Regenerative Revolution Farm, near the Isha Yoga Center, Coimbatore, Tamil Nadu.
 - Co-hosted with **Isha Outreach**, whose programme is **Conscious Planet: Save Soil**.
 - Two weeks, hands on. The advanced programme condensed, learned as a group.
   The first one in Asia.

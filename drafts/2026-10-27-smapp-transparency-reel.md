@@ -84,7 +84,7 @@ Stay on screen, or cut to a microscope.
 >
 > Every calculation in ours is now visible. You can follow it from your own count through to the figure it produces, and check it.
 >
-> That sounds like a minor feature. It is the difference between a measurement and a verdict: if you cannot see the formula you cannot argue with the result, and a number nobody can argue with is not a scientific finding, it is a reading off a box.
+> That sounds like a minor feature. If you cannot see the formula you cannot argue with the result, and a result nobody can argue with has no business in a field trial.
 >
 > We publish soil results from field trials and we intend to publish a great many more. Being able to check the arithmetic is what will make them worth reading.
 >
