@@ -34,6 +34,37 @@ const POSTS = [
 },
 
 {
+  id: "pdc-feedback",
+  title: "Sixteen countries, one course",
+  pillar: "Community Voice",
+  platform: "Instagram",
+  format: "Carousel, 4:5",
+  slot: "Unscheduled. Ready once consent is in",
+  status: "needs-consent",
+  statusNote: "Thirteen named students wrote this feedback for the course, not for a public grid. Every one quoted says yes in writing or their card comes out. Delvin holds the relationship and should ask.",
+  intro: "A testimonial post usually earns a like and nothing else. This one has an observation inside it: sixteen countries learning a discipline that is site-specific by definition, and the students named that spread themselves.",
+  images: [],
+  needs: "Quote cards on the green and cream template (variants/05-quote-card.html). Slides 1 and 8 have no photograph. Best available image would be one group screenshot from a weekly call, with everyone's permission.",
+  planner: { ctaWords: "Tell us what you are designing for: your climate, your slope, your worst month.", ctaLink: null, canva: "" },
+  captions: [{ name: "Instagram caption", recommended: true, body: [
+    "Sixteen countries took the same course this year. None of them will design the same garden.",
+    "Australia, Canada, Denmark, England, Germany, Guyana, India, Malaysia, New Zealand, Norway, Romania, Scotland, Singapore, South Africa, Switzerland, Trinidad. All on the Permaculture Design Certificate, run by Kavi Reddy and Delvin Solkinson.",
+    "Permaculture design is local by definition. Slope, frost dates, where the water goes, what the soil is already doing. A group spread that wide could have pushed the teaching towards the generic, and the students say it did the opposite.",
+    "\u201cI learnt about the different climates and how people farm differently all over the world with permaculture ethics and principles.\u201d Yongliang Rao, Singapore",
+    "\u201cA clear, practical framework for understanding and integrating principles and design practice.\u201d Sarah Bronsdon, Scotland",
+    "\u201cThe logical next step in Soil Food Web endeavours.\u201d Ben Armstrong, Australia",
+    "Swipe for the rest of what they said. Then tell us what you are designing for: your climate, your slope, your worst month."
+  ], tags: ["SoilFoodWeb","LivingSoil","Permaculture","PermacultureDesign","SoilHealth","RegenerativeAgriculture"] }],
+  checks: [
+    "Consent in writing from every student quoted. This is the gate.",
+    "The country list and the quotes disagree. Delvin lists sixteen; the quotes include the USA, Wales and Jersey, none of them on that list. Reconcile against the enrolment record before publishing the number.",
+    "Daniel Burnett's quote is left out: it ends \u201cexcited to get certified\u201d and certified is on the banned list. Alec Blenche's is out too, no country given.",
+    "Kavi Reddy's handle is not on file. Collab tag @visionary_permaculture for Delvin.",
+    "No enrolment link. Cohort 2 started 20 September, so a join CTA points at a closed door."
+  ],
+  draft: "drafts/2026-09-19-pdc-student-feedback.md"
+},
+{
   id: "failed-piles",
   title: "The most is learned from failed piles",
   pillar: "Science Explained",
