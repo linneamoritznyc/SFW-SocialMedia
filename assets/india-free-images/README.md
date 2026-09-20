@@ -3,6 +3,22 @@
 Free-to-use images from Unsplash for India posts. Linnea uploads these.
 Use only files in this folder for India visuals.
 
+## Where to upload
+
+**Drop the Coimbatore pictures here, in the browser, no git needed:**
+
+<https://github.com/linneamoritznyc/SFW-SocialMedia/upload/claude/upbeat-babbage-ggergv/assets/india-free-images>
+
+That opens GitHub's drag-and-drop upload straight into this folder on the
+working branch `claude/upbeat-babbage-ggergv`. Drag the files in, write
+"india images" in the commit box, press Commit changes.
+
+To look at what is already there:
+<https://github.com/linneamoritznyc/SFW-SocialMedia/tree/claude/upbeat-babbage-ggergv/assets/india-free-images>
+
+The folder lives on that branch until it is merged, so use these two links
+rather than the ones on `main`, where it does not exist yet.
+
 ## Rules that travel with this folder
 
 - **Never present these as Soil Food Web workshop photographs.** They are

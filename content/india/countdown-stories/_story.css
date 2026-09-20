@@ -120,3 +120,46 @@ h1.dark { color:var(--moss); }      /* when it sits on a cream shape */
 }
 
 .push { margin-top:auto; }
+
+/* --- The top row: who this is, and where it sits in the run --------------- */
+.top { display:flex; flex-direction:column; gap:12px; align-items:flex-start; }
+.step {
+  font-family:var(--display); font-weight:700; font-size:24px;
+  letter-spacing:.16em; text-transform:uppercase; color:rgba(219,230,167,.72);
+  white-space:nowrap;
+}
+
+/* --- A kicker above a headline ------------------------------------------- */
+.kicker {
+  font-family:var(--display); font-weight:700; font-size:34px;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--glow);
+}
+
+/* --- The standing facts, repeated as a strip ------------------------------ */
+.strip { display:flex; gap:0; margin-top:38px; }
+.strip div { flex:1; padding:0 26px; border-left:2px solid rgba(219,230,167,.34); }
+.strip div:first-child { padding-left:0; border-left:0; }
+.strip b {
+  display:block; font-family:var(--display); font-weight:700; font-size:22px;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--glow); margin-bottom:10px;
+}
+.strip span {
+  display:block; font-family:var(--sans); font-size:32px; line-height:1.24;
+  color:rgba(255,255,255,.92);
+}
+.strip.dark b { color:var(--green); }
+.strip.dark span { color:var(--ink); }
+.strip.dark div { border-left-color:rgba(34,55,31,.28); }
+
+/* --- A week block: a big label, then what happens in it -------------------- */
+.week { display:flex; gap:30px; align-items:flex-start; }
+.week + .week { margin-top:34px; }
+.week b {
+  font-family:var(--display); font-weight:700; font-size:64px; line-height:.94;
+  letter-spacing:-.02em; color:var(--glow); flex:0 0 250px;
+}
+.week p { font-family:var(--sans); font-size:42px; line-height:1.28; color:rgba(255,255,255,.94); }
+
+/* --- A hairline between blocks -------------------------------------------- */
+.rule { height:2px; background:rgba(219,230,167,.34); margin:34px 0; }
+.rule.dark { background:rgba(34,55,31,.24); }

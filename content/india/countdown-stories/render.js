@@ -3,9 +3,9 @@
  *
  *   node content/india/countdown-stories/render.js
  *
- * Writes, per story:  story-x.png         the frame to post
- *                     story-x-guides.png  the same frame with the reserved
- *                                         areas painted in, for planning only
+ * Writes, per frame:  story-N-name.png         the frame to post
+ *                     story-N-name-guides.png  the same frame with the reserved
+ *                                              areas painted in, for planning only
  *
  * Served over http rather than opened as file:// because Chromium will not
  * load @font-face files across a file:// origin, and these are set in the
@@ -18,7 +18,8 @@ const fs = require('fs');
 
 const HERE = __dirname;
 const REPO = path.resolve(HERE, '..', '..', '..');
-const STORIES = ['a', 'b', 'c', 'd', 'e'];
+const STORIES = ['1-deadline', '2-why-attend', '3-what-you-learn',
+                 '4-more-info', '5-next-time'];
 const W = 1080, H = 1920;
 
 /* The reserved rectangles, in the same numbers as _story.css. */
@@ -73,7 +74,7 @@ const GUIDES = `
 
     /* Geometry check: every drawn element against every reserved rectangle. */
     const boxes = await page.evaluate(() => {
-      const sel = '.lockup, .eyebrow, h1, .sub, .partner, .card, .credit, .shape, .plate';
+      const sel = '.lockup, .step, .kicker, .eyebrow, h1, .sub, .partner, .card, .credit,\n                   .shape, .plate, .strip, .strip div, .week, .week b, .week p, .rule';
       return [...document.querySelectorAll(sel)].map((el) => {
         const r = el.getBoundingClientRect();
         return { what: (el.className || el.tagName).toString().split(' ')[0],
