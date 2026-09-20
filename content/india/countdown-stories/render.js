@@ -1,19 +1,14 @@
-/* Render the India countdown stories, and audit each frame before it ships.
+/* Render the India assets and check each one against the five rules.
  *
  *   node content/india/countdown-stories/render.js
  *
- * Writes story-x.png per frame, and story-x-guides.png with the sticker band
- * drawn in for planning. Fails loudly, with a reason, if a frame breaks any
- * of the three rules the layout is built on:
- *
- *   1. every line of type sits inside the solid block, between the split at
- *      864 and the top of the sticker band at 1500;
- *   2. every text colour is one of the three allowed for that block colour;
- *   3. the mark sits on the photograph, below the interface band, and the
- *      photograph itself actually loaded.
- *
- * Served over http rather than file:// because Chromium will not load
- * @font-face files across a file:// origin.
+ * For every file it prints, in order:
+ *   1. exact pixel size
+ *   2. all text on the solid or cream band, none over the photograph
+ *   3. logo present, cream, top left
+ *   4. copy matches content/india/copy.md word for word
+ *   5. story only: the bottom 500px is empty
+ * and exits non zero if any answer is no.
  */
 const { chromium } = require('/opt/node22/lib/node_modules/playwright');
 const http = require('http');
@@ -22,28 +17,15 @@ const fs = require('fs');
 
 const HERE = __dirname;
 const REPO = path.resolve(HERE, '..', '..', '..');
-const STORIES = ['s1-hook', 's2-do', 's3-place', 's4-who', 's5-ask',
-                 'd1-tonight', 'd2-extended', 'd3-open'];
-const W = 1080, H = 1920;
-const SPLIT = 960;        // photo above, solid block below
-const STICKERS = 1560;    // top of the empty band, 420px tall
-const UI_TOP = 250;
+const COPY = fs.readFileSync(path.join(REPO, 'content', 'india', 'copy.md'), 'utf8');
 
-/* The three pairs, as hex. Nothing else may appear as a text colour. */
-const CREAM = '#F4F1EA', SOIL = '#4F3433', MOSS = '#22371F',
-      TAN = '#C89B7B', GOLD = '#C9A227', GREEN = '#156826';
-const PAIRS = {
-  [MOSS]:  { name: 'deep green block',    text: CREAM },
-  [SOIL]:  { name: 'Soil Brown block',    text: CREAM },
-  [CREAM]: { name: 'Organic Cream block', text: SOIL  },
-};
-const hex = (rgb) => {
-  const m = rgb.match(/\d+/g);
-  return '#' + m.slice(0, 3).map((n) => (+n).toString(16).padStart(2, '0')).join('').toUpperCase();
-};
-
+const ASSETS = [
+  ...[1,2,3,4,5,6].map((n) => ({ id: `india-post-${n}`,  w: 1080, h: 1350, kind: 'post'  })),
+  ...[1,2,3,4,5].map((n)   => ({ id: `india-story-${n}`, w: 1080, h: 1920, kind: 'story' })),
+];
+const CREAM = '#F4F1EA';
 const TYPES = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8',
-  '.woff2': 'font/woff2', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg' };
+  '.woff2': 'font/woff2', '.png': 'image/png', '.jpg': 'image/jpeg' };
 
 function serve() {
   return new Promise((resolve) => {
@@ -59,92 +41,65 @@ function serve() {
     server.listen(0, '127.0.0.1', () => resolve(server));
   });
 }
-
-const GUIDES = `
- .zone--stickers{outline:3px dashed rgba(219,230,167,.6); outline-offset:-3px;
-   background:rgba(219,230,167,.10)}
- .zone--stickers::after{content:"sticker band, 420px, keep empty";
-   position:absolute;left:18px;top:14px;font:700 24px/1.3 Arial,sans-serif;
-   letter-spacing:.1em;text-transform:uppercase;color:rgba(219,230,167,.9)}
- .zone--ui-top{outline:3px dashed rgba(255,255,255,.45); outline-offset:-3px}
-`;
+const norm = (s) => s.replace(/’/g, "'").replace(/·/g, '·').replace(/\s+/g, ' ').trim();
 
 (async () => {
   const server = await serve();
   const port = server.address().port;
   const browser = await chromium.launch();
-  const page = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: 1 });
-  let problems = 0;
+  let bad = 0;
 
-  for (const id of STORIES) {
-    await page.goto(`http://127.0.0.1:${port}/content/india/countdown-stories/story-${id}.html`,
+  for (const a of ASSETS) {
+    const page = await browser.newPage({ viewport: { width: a.w, height: a.h }, deviceScaleFactor: 1 });
+    await page.goto(`http://127.0.0.1:${port}/content/india/countdown-stories/${a.id}.html`,
                     { waitUntil: 'networkidle' });
     await page.evaluate(() => document.fonts.ready);
 
-    const data = await page.evaluate(() => {
+    const d = await page.evaluate(() => {
       const box = (el) => { const r = el.getBoundingClientRect();
         return { x: Math.round(r.x), y: Math.round(r.y), w: Math.round(r.width), h: Math.round(r.height) }; };
-      const host = document.querySelector('.host');
-      const head = document.querySelector('h1');
-      const collide = host && head &&
-        head.getBoundingClientRect().bottom > host.getBoundingClientRect().top + 1;
-      const text = [...document.querySelectorAll('h1, .host')].map((el) => ({
-        what: (el.className || el.tagName).toString().split(' ')[0],
-        copy: (el.textContent || '').trim().slice(0, 40),
-        colour: getComputedStyle(el).color,
-        size: getComputedStyle(el).fontSize,
-        ...box(el),
-      }));
-      const img = document.querySelector('.photo img');
+      const band = document.querySelector('.band');
+      const img = document.querySelector('.mark img');
       return {
-        photoLoaded: !!img && img.naturalWidth > 0,
-        photoSrc: img ? img.getAttribute('src').split('/').pop() : '(none)',
-        text,
-        collide,
-        mark: box(document.querySelector('.mark')),
-        block: getComputedStyle(document.querySelector('.block')).backgroundColor,
+        frame: box(document.querySelector('.frame')),
+        band: box(band),
+        text: [...document.querySelectorAll('.eyebrow, h1, .support')].map((el) => ({
+          what: el.tagName === 'H1' ? 'headline' : el.className,
+          copy: (el.textContent || '').trim(),
+          size: getComputedStyle(el).fontSize, colour: getComputedStyle(el).color, ...box(el),
+        })),
+        mark: { ...box(document.querySelector('.mark')), loaded: !!img && img.naturalWidth > 0,
+                src: img ? img.getAttribute('src').split('/').pop() : '(none)' },
       };
     });
 
-    const blockHex = hex(data.block);
-    const pair = PAIRS[blockHex];
-    const hits = [];
-    if (!pair) hits.push(`block colour ${blockHex} is not one of the three pairs`);
+    await page.screenshot({ path: path.join(HERE, `${a.id}.png`) });
+    const dim = await page.evaluate(() => [0, 0]);
+    await page.close();
 
-    for (const t of data.text) {
-      if (t.h === 0) continue;
-      if (t.y < SPLIT) hits.push(`${t.what} "${t.copy}" sits on the photograph (top ${t.y}, split ${SPLIT})`);
-      if (t.y + t.h > STICKERS) hits.push(`${t.what} "${t.copy}" runs into the sticker band (bottom ${t.y + t.h})`);
-      if (t.x < 90 || t.x + t.w > W - 90) hits.push(`${t.what} "${t.copy}" breaks the 90px margin`);
-      if (pair) {
-        if (hex(t.colour) !== pair.text) {
-          hits.push(`${t.what} "${t.copy}" is ${hex(t.colour)}, the pair says ${pair.text}`);
-        }
-        if (t.what === 'H1' && t.size !== '96px') {
-          hits.push(`the headline is ${t.size}; the set uses one size, 96px`);
-        }
-      }
-    }
-    if (!data.photoLoaded) hits.push(`the photograph did not load: ${data.photoSrc}`);
-    if (data.collide) hits.push('the headline runs into the host line');
-    if (data.mark.y < UI_TOP) hits.push(`the mark sits in the interface band (top ${data.mark.y})`);
-    if (data.mark.y + data.mark.h > SPLIT) hits.push(`the mark crosses the split (bottom ${data.mark.y + data.mark.h})`);
+    const png = fs.readFileSync(path.join(HERE, `${a.id}.png`));
+    const pw = png.readUInt32BE(16), ph = png.readUInt32BE(20);
 
-    const low = Math.max(...data.text.filter((t) => t.h).map((t) => t.y + t.h));
-    console.log(`story-${id}: ${pair ? pair.name : blockHex}, ${data.text.length} lines, ` +
-                `type runs ${Math.min(...data.text.map((t) => t.y))} to ${low}, ` +
-                (hits.length ? `${hits.length} PROBLEM(S)` : 'all three checks pass'));
-    hits.forEach((h) => console.log('   ! ' + h));
-    problems += hits.length;
+    const onBand = d.text.every((t) => t.y >= d.band.y - 1 && t.y + t.h <= d.band.y + d.band.h + 1);
+    const strayText = d.text.filter((t) => !(t.y >= d.band.y - 1 && t.y + t.h <= d.band.y + d.band.h + 1));
+    const logoOK = d.mark.loaded && d.mark.src.includes('cream') && d.mark.x <= 90 && d.mark.y <= 90;
+    const copyOK = d.text.every((t) => norm(COPY).includes(norm(t.copy)));
+    const missing = d.text.filter((t) => !norm(COPY).includes(norm(t.copy))).map((t) => t.copy);
+    const lowest = Math.max(...d.text.map((t) => t.y + t.h));
+    const bottomOK = a.kind === 'post' ? null : lowest <= a.h - 500;
 
-    await page.screenshot({ path: path.join(HERE, `story-${id}.png`) });
-    await page.addStyleTag({ content: GUIDES });
-    await page.screenshot({ path: path.join(HERE, `story-${id}-guides.png`) });
+    const yn = (v) => (v ? 'yes' : 'NO');
+    console.log(`\n${a.id}.png`);
+    console.log(`  1. size            ${pw} x ${ph}  ${pw === a.w && ph === a.h ? 'yes' : 'NO'}`);
+    console.log(`  2. text on band    ${yn(onBand)}${strayText.length ? '  <- ' + strayText.map((t) => t.what).join(', ') : ''}`);
+    console.log(`  3. logo cream, top left  ${yn(logoOK)}  (${d.mark.src}, at ${d.mark.x},${d.mark.y})`);
+    console.log(`  4. copy matches copy.md  ${yn(copyOK)}${missing.length ? '  <- ' + missing.join(' | ') : ''}`);
+    console.log(`  5. bottom 500 empty      ${a.kind === 'post' ? 'n/a, feed post' : yn(bottomOK) + `  (lowest text ${lowest}, limit ${a.h - 500})`}`);
+    if (!(pw === a.w && ph === a.h) || !onBand || !logoOK || !copyOK || bottomOK === false) bad++;
   }
 
   await browser.close();
   server.close();
-  console.log(problems ? `\n${problems} problem(s). Fix before posting.`
-                       : `\nAll ${STORIES.length} frames pass: type inside the block, colours from the pairs.`);
-  process.exit(problems ? 1 : 0);
+  console.log(bad ? `\n${bad} file(s) failed. Fix before posting.` : `\nAll ${ASSETS.length} files pass all five checks.`);
+  process.exit(bad ? 1 : 0);
 })();

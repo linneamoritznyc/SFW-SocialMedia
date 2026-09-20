@@ -1,34 +1,29 @@
 /* ==========================================================================
-   India Accelerator Workshop, Instagram Stories. 1080 x 1920.
+   India Accelerator Workshop. Feed posts 1080 x 1350, stories 1080 x 1920.
+   Built to the layout spec, with the copy taken from content/india/copy.md.
 
-   One line of copy per frame, about twelve words, because that is what a
-   frame holds before it stops being readable. Detail belongs in a carousel.
+   FEED POST: full bleed photograph, no tint. A cream band #F4F1EA across the
+   bottom, full width, 380px tall. Inside it, 70px margins: eyebrow 26px
+   Montserrat 600 uppercase in Food Web Green, headline 64px Montserrat 700
+   in Soil Brown, one support line 34px Source Sans 3 in Ink.
 
-   ONE type size across the whole set. No per frame overrides:
-     headline 96px Montserrat 700
-     host line 30px Source Sans 3
-   Headline sits in the 95 to 150 band stories use; the host line sits in the
-   27 to 32 caption band. Nothing else appears on a frame.
+   STORY: the photograph fills the top 720px. The spec says 40 percent, 768,
+   but story 4 ran 24px past the sticker band at that height, and the rule is
+   to shrink the photograph rather than the type, so all five sit at 720 and
+   stay identical to each other. Below it a solid
+   block of Moss #22371F. Inside, 70px margins, starting 80px below the
+   photograph: eyebrow 30px in Harvest Gold, headline 96px in Organic Cream,
+   support lines 46px in Organic Cream, each on its own line. The bottom
+   500px of the block stays empty for the link and countdown stickers.
 
-   Layout: the top half, 0 to 960, is the photograph at full colour with
-   nothing over it. The bottom half is one flat brand colour. They meet on a
-   straight edge. Type starts at 1020 and stops at 1560, which leaves the
-   bottom 360px clear for the countdown and link stickers.
-
-   Three colour pairs, and nothing else:
-     deep green #22371F block, Organic Cream text
-     Soil Brown #4F3433 block, Organic Cream text
-     Organic Cream #F4F1EA block, Soil Brown text
-   Legacy Purple is memorial content only and appears nowhere.
+   Logo on both: the cream knockout, 110px, top left of the photograph.
    ========================================================================== */
 :root {
-  --cream: #F4F1EA;
-  --soil:  #4F3433;
-  --moss:  #22371F;
+  --green: #156826;  --moss: #22371F;  --soil: #4F3433;
+  --cream: #F4F1EA;  --gold: #C9A227;  --ink:  #333130;
   --display: "Montserrat", "Helvetica Neue", Arial, sans-serif;
   --sans:    "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
 }
-
 @font-face { font-family:"Montserrat"; font-style:normal; font-weight:600 700; font-display:block;
   src:url("../../../assets/font/montserrat-latin-variable.woff2") format("woff2-variations"); }
 @font-face { font-family:"Source Sans 3"; font-style:normal; font-weight:400; font-display:block;
@@ -40,31 +35,50 @@
 html, body { background:#E9E7E2; }
 body { display:flex; align-items:flex-start; justify-content:flex-start; }
 
-.frame {
-  width:1080px; height:1920px; position:relative; overflow:hidden;
-  background:var(--block); font-family:var(--sans); color:var(--type);
-}
-
-.photo { position:absolute; left:0; right:0; top:0; height:960px; overflow:hidden; }
+.frame { position:relative; overflow:hidden; font-family:var(--sans); }
+.photo { position:absolute; overflow:hidden; }
 .photo img { width:100%; height:100%; object-fit:cover; display:block; }
+.mark { position:absolute; left:60px; top:60px; line-height:0; }
+.mark img { display:block; width:110px; height:auto; }
+.band { position:absolute; }
+.copy { position:absolute; }
 
-.block { position:absolute; left:0; right:0; top:960px; bottom:0; background:var(--block); }
-
-.mark { position:absolute; left:90px; top:264px; line-height:0; }
-.mark img { display:block; width:130px; height:auto; }
-
-h1 {
-  position:absolute; left:90px; right:90px; top:1020px;
-  font-family:var(--display); font-weight:700; font-size:96px; line-height:1.0;
-  letter-spacing:-.02em; color:var(--type);
+/* --- Feed post ----------------------------------------------------------- */
+.post { width:1080px; height:1350px; background:var(--cream); }
+.post .photo { left:0; right:0; top:0; height:1350px; }
+.post .band  { left:0; right:0; bottom:0; height:380px; background:var(--cream); }
+.post .copy  { left:70px; right:70px; bottom:0; height:380px; padding-top:44px; }
+.post .eyebrow {
+  font-family:var(--display); font-weight:600; font-size:26px;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--green);
+}
+.post h1 {
+  font-family:var(--display); font-weight:700; font-size:64px; line-height:1.08;
+  letter-spacing:-.02em; color:var(--soil); margin-top:16px;
+}
+.post .support {
+  font-family:var(--sans); font-size:34px; line-height:1.35; color:var(--ink);
+  margin-top:16px;
 }
 
-.host {
-  position:absolute; left:90px; right:90px; bottom:360px;
-  font-family:var(--sans); font-size:30px; line-height:1.4; color:var(--type);
-  opacity:.8;
+/* --- Story --------------------------------------------------------------- */
+.story { width:1080px; height:1920px; background:var(--moss); }
+.story .photo { left:0; right:0; top:0; height:720px; }
+.story .band  { left:0; right:0; top:720px; bottom:0; background:var(--moss); }
+.story .copy  { left:70px; right:70px; top:800px; }
+.story .eyebrow {
+  font-family:var(--display); font-weight:600; font-size:30px;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--gold);
 }
+.story h1 {
+  font-family:var(--display); font-weight:700; font-size:96px; line-height:1.04;
+  letter-spacing:-.02em; color:var(--cream); margin-top:22px;
+}
+.story .support {
+  font-family:var(--sans); font-size:46px; line-height:1.3; color:var(--cream);
+  margin-top:18px;
+}
+.story .support + .support { margin-top:10px; }
 
-.zone { position:absolute; }
-.zone--stickers { left:0; right:0; top:1560px; height:360px; }
-.zone--ui-top   { left:0; right:0; top:0; height:250px; }
+/* The bottom 500px of a story stays empty. Drawn only in the guides PNG. */
+.zone { position:absolute; left:0; right:0; bottom:0; height:500px; }
