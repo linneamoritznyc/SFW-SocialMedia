@@ -1,27 +1,30 @@
 /* ==========================================================================
-   India countdown stories. 1080 x 1920, hard split.
+   India Accelerator Workshop, Instagram Stories. 1080 x 1920.
 
-   Top 40 percent (0 to 768) is the photograph, full colour, no scrim.
-   Bottom 60 percent (768 to 1920) is one solid brand colour. The two meet on
-   a straight edge. All type sits inside the solid block, left aligned, 90px
-   margins, and stops at 1560 so the bottom 360px stays clear for the sticker.
-   The photograph gave back five percent so the type could get bigger without
-   losing a single word.
+   One line of copy per frame, about twelve words, because that is what a
+   frame holds before it stops being readable. Detail belongs in a carousel.
+
+   ONE type size across the whole set. No per frame overrides:
+     headline 96px Montserrat 700
+     host line 30px Source Sans 3
+   Headline sits in the 95 to 150 band stories use; the host line sits in the
+   27 to 32 caption band. Nothing else appears on a frame.
+
+   Layout: the top half, 0 to 960, is the photograph at full colour with
+   nothing over it. The bottom half is one flat brand colour. They meet on a
+   straight edge. Type starts at 1020 and stops at 1560, which leaves the
+   bottom 360px clear for the countdown and link stickers.
 
    Three colour pairs, and nothing else:
-     deep green  #22371F block, cream text, Harvest Gold eyebrow
-     Soil Brown  #4F3433 block, cream text, Natural Tan eyebrow
-     Organic Cream #F4F1EA block, Soil Brown text, Food Web Green eyebrow
+     deep green #22371F block, Organic Cream text
+     Soil Brown #4F3433 block, Organic Cream text
+     Organic Cream #F4F1EA block, Soil Brown text
    Legacy Purple is memorial content only and appears nowhere.
    ========================================================================== */
 :root {
   --cream: #F4F1EA;
   --soil:  #4F3433;
-  --green: #156826;
   --moss:  #22371F;
-  --tan:   #C89B7B;
-  --gold:  #C9A227;
-
   --display: "Montserrat", "Helvetica Neue", Arial, sans-serif;
   --sans:    "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
 }
@@ -30,8 +33,6 @@
   src:url("../../../assets/font/montserrat-latin-variable.woff2") format("woff2-variations"); }
 @font-face { font-family:"Source Sans 3"; font-style:normal; font-weight:400; font-display:block;
   src:url("../../../assets/font/source-sans-3-latin-400-normal.woff2") format("woff2"); }
-@font-face { font-family:"Source Sans 3"; font-style:italic; font-weight:400; font-display:block;
-  src:url("../../../assets/font/source-sans-3-latin-400-italic.woff2") format("woff2"); }
 @font-face { font-family:"Source Sans 3"; font-style:normal; font-weight:600; font-display:block;
   src:url("../../../assets/font/source-sans-3-latin-600-normal.woff2") format("woff2"); }
 
@@ -42,48 +43,28 @@ body { display:flex; align-items:flex-start; justify-content:flex-start; }
 .frame {
   width:1080px; height:1920px; position:relative; overflow:hidden;
   background:var(--block); font-family:var(--sans); color:var(--type);
-  font-size:16px; line-height:1.4;
 }
 
-/* --- Top 45 percent: the photograph, untouched ---------------------------- */
-.photo { position:absolute; left:0; right:0; top:0; height:768px; overflow:hidden; }
+.photo { position:absolute; left:0; right:0; top:0; height:960px; overflow:hidden; }
 .photo img { width:100%; height:100%; object-fit:cover; display:block; }
 
-/* --- Bottom 55 percent: one flat colour, no gradient, no transparency ----- */
-.block { position:absolute; left:0; right:0; top:768px; bottom:0; background:var(--block); }
+.block { position:absolute; left:0; right:0; top:960px; bottom:0; background:var(--block); }
 
-/* --- The mark, on the photograph ----------------------------------------- */
 .mark { position:absolute; left:90px; top:264px; line-height:0; }
 .mark img { display:block; width:130px; height:auto; }
 
-/* --- The words, inside the block ----------------------------------------- */
-.copy { position:absolute; left:90px; right:90px; top:822px; }
-
-.eyebrow {
-  font-family:var(--display); font-weight:700; font-size:30px;
-  letter-spacing:.18em; text-transform:uppercase; color:var(--eyebrow);
-  margin-bottom:18px;
-}
 h1 {
-  font-family:var(--display); font-weight:700; font-size:88px; line-height:1.1;
+  position:absolute; left:90px; right:90px; top:1020px;
+  font-family:var(--display); font-weight:700; font-size:96px; line-height:1.0;
   letter-spacing:-.02em; color:var(--type);
 }
-.body { margin-top:26px; }
-.body p {
-  font-family:var(--sans); font-size:52px; line-height:1.3; color:var(--type);
-}
-.body p + p { margin-top:14px; }
-.body p b { font-family:var(--display); font-weight:700; }
 
-/* The fine print sits just above the sticker band, always. */
-.fine { position:absolute; left:90px; right:90px; bottom:360px; }
-.fine p {
-  font-family:var(--sans); font-size:28px; line-height:1.4; color:var(--type);
+.host {
+  position:absolute; left:90px; right:90px; bottom:360px;
+  font-family:var(--sans); font-size:30px; line-height:1.4; color:var(--type);
   opacity:.8;
 }
-.fine p.credit { font-style:italic; }
 
-/* --- The sticker band: the bottom 420px of the block, kept empty ---------- */
 .zone { position:absolute; }
 .zone--stickers { left:0; right:0; top:1560px; height:360px; }
 .zone--ui-top   { left:0; right:0; top:0; height:250px; }

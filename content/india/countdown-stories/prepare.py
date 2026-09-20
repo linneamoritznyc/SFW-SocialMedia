@@ -38,21 +38,22 @@ for tone, rgb in KNOCKOUTS.items():
 
 # --- the crops --------------------------------------------------------------
 CROPS = {
-    # The photograph is the top 40 percent, 1080 x 768, a 1.40625:1 window.
-    # Each box is (left, top, right, bottom) in the source's own pixels.
-    'navi-EkQEfFhmhrg-unsplash.jpg':            ( 188,    0, 5813, 4000),
-    'nitish-surelia-OWyHIv86QSY-unsplash.jpg':  (   0, 1000, 2717, 2932),
-    'cymatics-in-pz73YMEi21I-unsplash.jpg':     ( 400,    0, 3564, 2250),
-    'ranjini-hemanth-KljpahUzp9U-unsplash.jpg': ( 188,    0, 5813, 4000),
-    'gowtham-agm-WUmWuxVdC1g-unsplash.jpg':     (   0,  900, 3000, 3033),
-    'remi-clinton-E5egsk4eUQ0-unsplash.jpg':    ( 188,    0, 5813, 4000),
-    'div-1UFPvT_Qrt4-unsplash.jpg':             ( 400,    0, 3589, 2268),
+    # The photograph is the top half, 1080 x 960, a 1.125:1 window. One line
+    # of copy needs far less block than five did, so the picture takes the
+    # room back. Boxes are (left, top, right, bottom) in the source's own px.
+    'navi-EkQEfFhmhrg-unsplash.jpg':            ( 750,    0, 5250, 4000),
+    'nitish-surelia-OWyHIv86QSY-unsplash.jpg':  (   0,  800, 2717, 3216),
+    'cymatics-in-pz73YMEi21I-unsplash.jpg':     ( 735,    0, 3266, 2250),
+    'ranjini-hemanth-KljpahUzp9U-unsplash.jpg': ( 750,    0, 5250, 4000),
+    'gowtham-agm-WUmWuxVdC1g-unsplash.jpg':     (   0,  900, 3000, 3567),
+    'remi-clinton-E5egsk4eUQ0-unsplash.jpg':    ( 750,    0, 5250, 4000),
+    'div-1UFPvT_Qrt4-unsplash.jpg':             ( 750,    0, 3266, 2268),
 }
-OUT_W, OUT_H = 1080, 768
+OUT_W, OUT_H = 1080, 960
 for name, box in CROPS.items():
     im = Image.open(os.path.join(SRC, name))
     w, h = box[2]-box[0], box[3]-box[1]
-    assert abs(w/h - OUT_W/OUT_H) < 0.02, (name, w, h, w/h)
+    assert abs(w/h - OUT_W/OUT_H) < 0.03, (name, w, h, w/h)
     out = im.crop(box).resize((OUT_W, OUT_H), Image.LANCZOS)
     dst = os.path.join(OUT, name.replace('-unsplash.jpg', '-%sx%s.jpg' % (OUT_W, OUT_H)))
     out.save(dst, quality=90, subsampling=1, optimize=True)

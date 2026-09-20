@@ -22,10 +22,10 @@ const fs = require('fs');
 
 const HERE = __dirname;
 const REPO = path.resolve(HERE, '..', '..', '..');
-const STORIES = ['a-deadline', 'b-hands', 'c-weeks', 'd-payment', 'e-next',
-                 'f-extended', 'g-stillopen'];
+const STORIES = ['s1-hook', 's2-do', 's3-place', 's4-who', 's5-ask',
+                 'd1-tonight', 'd2-extended', 'd3-open'];
 const W = 1080, H = 1920;
-const SPLIT = 768;        // photo above, solid block below
+const SPLIT = 960;        // photo above, solid block below
 const STICKERS = 1560;    // top of the empty band, 420px tall
 const UI_TOP = 250;
 
@@ -33,9 +33,9 @@ const UI_TOP = 250;
 const CREAM = '#F4F1EA', SOIL = '#4F3433', MOSS = '#22371F',
       TAN = '#C89B7B', GOLD = '#C9A227', GREEN = '#156826';
 const PAIRS = {
-  [MOSS]:  { name: 'deep green block',    text: CREAM, eyebrow: GOLD },
-  [SOIL]:  { name: 'Soil Brown block',    text: CREAM, eyebrow: TAN },
-  [CREAM]: { name: 'Organic Cream block', text: SOIL,  eyebrow: GREEN },
+  [MOSS]:  { name: 'deep green block',    text: CREAM },
+  [SOIL]:  { name: 'Soil Brown block',    text: CREAM },
+  [CREAM]: { name: 'Organic Cream block', text: SOIL  },
 };
 const hex = (rgb) => {
   const m = rgb.match(/\d+/g);
@@ -84,11 +84,11 @@ const GUIDES = `
     const data = await page.evaluate(() => {
       const box = (el) => { const r = el.getBoundingClientRect();
         return { x: Math.round(r.x), y: Math.round(r.y), w: Math.round(r.width), h: Math.round(r.height) }; };
-      const fine = document.querySelector('.fine');
-      const lastBody = [...document.querySelectorAll('.body p')].pop();
-      const collide = fine && lastBody &&
-        lastBody.getBoundingClientRect().bottom > fine.getBoundingClientRect().top + 1;
-      const text = [...document.querySelectorAll('.eyebrow, h1, .body p, .fine p')].map((el) => ({
+      const host = document.querySelector('.host');
+      const head = document.querySelector('h1');
+      const collide = host && head &&
+        head.getBoundingClientRect().bottom > host.getBoundingClientRect().top + 1;
+      const text = [...document.querySelectorAll('h1, .host')].map((el) => ({
         what: (el.className || el.tagName).toString().split(' ')[0],
         copy: (el.textContent || '').trim().slice(0, 40),
         colour: getComputedStyle(el).color,
@@ -117,14 +117,16 @@ const GUIDES = `
       if (t.y + t.h > STICKERS) hits.push(`${t.what} "${t.copy}" runs into the sticker band (bottom ${t.y + t.h})`);
       if (t.x < 90 || t.x + t.w > W - 90) hits.push(`${t.what} "${t.copy}" breaks the 90px margin`);
       if (pair) {
-        const want = t.what === 'eyebrow' ? pair.eyebrow : pair.text;
-        if (hex(t.colour) !== want) {
-          hits.push(`${t.what} "${t.copy}" is ${hex(t.colour)}, the pair says ${want}`);
+        if (hex(t.colour) !== pair.text) {
+          hits.push(`${t.what} "${t.copy}" is ${hex(t.colour)}, the pair says ${pair.text}`);
+        }
+        if (t.what === 'H1' && t.size !== '96px') {
+          hits.push(`the headline is ${t.size}; the set uses one size, 96px`);
         }
       }
     }
     if (!data.photoLoaded) hits.push(`the photograph did not load: ${data.photoSrc}`);
-    if (data.collide) hits.push('the last body line runs into the fine print');
+    if (data.collide) hits.push('the headline runs into the host line');
     if (data.mark.y < UI_TOP) hits.push(`the mark sits in the interface band (top ${data.mark.y})`);
     if (data.mark.y + data.mark.h > SPLIT) hits.push(`the mark crosses the split (bottom ${data.mark.y + data.mark.h})`);
 
