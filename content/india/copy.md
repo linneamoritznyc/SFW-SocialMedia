@@ -125,3 +125,17 @@ The five frames of the sequence, in order.
 - **Headline:** Accommodation, meals, transport and materials included.
 - **Support:** Details on the school site.
 - *Split at the sentence boundary. No words changed.*
+
+---
+
+## Sign-up stories, 1080 x 1920
+
+The enrollment page's own urgency copy, unchanged, on a photograph. Three
+photo options of the same frame: india-story-6, 7 and 8. The bottom 500px is
+empty for the countdown sticker.
+
+- **Eyebrow:** ACCELERATOR WORKSHOP · INDIA 2026
+- **Headline:** Enrollment is filling up!
+- **Body:** If you are eager to accelerate your Soil Food Web Consultant education, or simply want to have the experience of a lifetime, don't delay!
+- **Body:** Receive gold-standard Soil Food Web education and gain professional experience on-site in a place designed for holistic wellness and a deep realization of what the Earth needs now.
+- **Call to action:** Save Your Seat, Don't Delay!

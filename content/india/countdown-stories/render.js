@@ -25,7 +25,7 @@ const COPY = fs.readFileSync(path.join(REPO, 'content', 'india', 'copy.md'), 'ut
 
 const ASSETS = [
   ...[1,2,3,4,5,6].map((n) => ({ id: `india-post-${n}`,  w: 1080, h: 1350, kind: 'post'  })),
-  ...[1,2,3,4,5].map((n)   => ({ id: `india-story-${n}`, w: 1080, h: 1920, kind: 'story' })),
+  ...[1,2,3,4,5,6,7,8].map((n) => ({ id: `india-story-${n}`, w: 1080, h: 1920, kind: 'story' })),
 ];
 const CREAM = '#F4F1EA';
 const TYPES = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8',
@@ -45,7 +45,7 @@ function serve() {
     server.listen(0, '127.0.0.1', () => resolve(server));
   });
 }
-const norm = (s) => s.replace(/’/g, "'").replace(/·/g, '·').replace(/\s+/g, ' ').trim();
+const norm = (s) => s.replace(/\u2019/g, "'").replace(/\s+/g, ' ').trim().toLowerCase();
 
 (async () => {
   const server = await serve();
@@ -67,7 +67,7 @@ const norm = (s) => s.replace(/’/g, "'").replace(/·/g, '·').replace(/\s+/g, 
       return {
         frame: box(document.querySelector('.frame')),
         band: box(band),
-        text: [...document.querySelectorAll('.eyebrow, h1, .support')].map((el) => ({
+        text: [...document.querySelectorAll('.eyebrow, h1, .lede, .support, .cta')].map((el) => ({
           what: el.tagName === 'H1' ? 'headline' : el.className,
           copy: (el.textContent || '').trim(),
           size: getComputedStyle(el).fontSize, colour: getComputedStyle(el).color, ...box(el),
