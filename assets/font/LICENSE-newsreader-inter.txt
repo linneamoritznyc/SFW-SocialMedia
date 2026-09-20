@@ -1,0 +1,4 @@
+Newsreader and Inter are used under the SIL Open Font License 1.1, the same
+licence as the other faces in this folder. Both were downloaded from Google
+Fonts on 20 September 2026 because the Foundation brand board names them:
+"Headline: Newsreader Light  ·  Text: Inter".

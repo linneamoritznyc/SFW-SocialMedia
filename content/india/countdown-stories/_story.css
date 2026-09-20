@@ -1,31 +1,33 @@
 /* ==========================================================================
-   India countdown stories, shared frame and type.
-   Colour values copied from variants/_tokens.css, which took them verbatim
-   from the :root block of the old css/site.css. Nothing here is invented.
+   India Accelerator Workshop. Feed posts 1080 x 1350, stories 1080 x 1920.
+   Built to the layout spec, with the copy taken from content/india/copy.md.
 
-   One canvas: 1080 x 1920. Five files use it. Each file adds only its own
-   shape composition, never new type sizes.
+   FEED POST: full bleed photograph, no tint. A cream band #F4F1EA across the
+   bottom, full width, 380px tall. Inside it, 70px margins: eyebrow 26px
+   Montserrat 600 uppercase in Food Web Green, headline 64px Montserrat 700
+   in Soil Brown, one support line 34px Source Sans 3 in Ink.
+
+   STORY: the photograph fills the top 720px. The spec says 40 percent, 768,
+   but story 4 ran 24px past the sticker band at that height, and the rule is
+   to shrink the photograph rather than the type, so all five sit at 720 and
+   stay identical to each other. Below it a solid
+   block of Moss #22371F. Inside, 70px margins, starting 80px below the
+   photograph: eyebrow 30px in Harvest Gold, headline 96px in Organic Cream,
+   support lines 46px in Organic Cream, each on its own line. The bottom
+   500px of the block stays empty for the link and countdown stickers.
+
+   Logo on both: the cream knockout, 110px, top left of the photograph.
    ========================================================================== */
 :root {
-  --moss:   #22371F;   /* deep green, the field of every frame */
-  --panel:  #F4F1EA;   /* Organic Cream. A SHAPE, never the page */
-  --glow:   #DBE6A7;   /* the brightest thing in the frame */
-  --green:  #156826;   /* Food Web Green */
-  --olive:  #5F6A3C;
-  --gold:   #C9A227;   /* Harvest Gold. DEADLINE TEXT ONLY, see README */
-  --ink:    #333130;
-  --white:  #FFFFFF;
-
-  --display:  "Montserrat", "Helvetica Neue", Arial, sans-serif;
-  --sans:     "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+  --green: #156826;  --moss: #22371F;  --soil: #4F3433;
+  --cream: #F4F1EA;  --gold: #C9A227;  --ink:  #333130;
+  --display: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --sans:    "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
 }
-
 @font-face { font-family:"Montserrat"; font-style:normal; font-weight:600 700; font-display:block;
   src:url("../../../assets/font/montserrat-latin-variable.woff2") format("woff2-variations"); }
 @font-face { font-family:"Source Sans 3"; font-style:normal; font-weight:400; font-display:block;
   src:url("../../../assets/font/source-sans-3-latin-400-normal.woff2") format("woff2"); }
-@font-face { font-family:"Source Sans 3"; font-style:italic; font-weight:400; font-display:block;
-  src:url("../../../assets/font/source-sans-3-latin-400-italic.woff2") format("woff2"); }
 @font-face { font-family:"Source Sans 3"; font-style:normal; font-weight:600; font-display:block;
   src:url("../../../assets/font/source-sans-3-latin-600-normal.woff2") format("woff2"); }
 
@@ -33,137 +35,91 @@
 html, body { background:#E9E7E2; }
 body { display:flex; align-items:flex-start; justify-content:flex-start; }
 
-.frame {
-  width:1080px; height:1920px; position:relative; overflow:hidden;
-  background:var(--moss); font-family:var(--sans); color:var(--white);
-  font-size:16px; line-height:1.4;
+.frame { position:relative; overflow:hidden; font-family:var(--sans); }
+.photo { position:absolute; overflow:hidden; }
+.photo img { width:100%; height:100%; object-fit:cover; display:block; }
+.mark { position:absolute; left:60px; top:60px; line-height:0; }
+.mark img { display:block; width:110px; height:auto; }
+.band { position:absolute; }
+.copy { position:absolute; }
+
+/* --- Feed post ----------------------------------------------------------- */
+.post { width:1080px; height:1350px; background:var(--cream); }
+.post .photo { left:0; right:0; top:0; height:1350px; }
+.post .band  { left:0; right:0; bottom:0; height:380px; background:var(--cream); }
+.post .copy  { left:70px; right:70px; bottom:0; height:380px; padding-top:44px; }
+.post .eyebrow {
+  font-family:var(--display); font-weight:600; font-size:26px;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--green);
+}
+.post h1 {
+  font-family:var(--display); font-weight:700; font-size:64px; line-height:1.08;
+  letter-spacing:-.02em; color:var(--soil); margin-top:16px;
+}
+.post .support {
+  font-family:var(--sans); font-size:34px; line-height:1.35; color:var(--ink);
+  margin-top:16px;
 }
 
-/* --- The photograph layer ------------------------------------------------
-   Optional and empty by default. Uncomment the <img> in a story file once a
-   file exists in assets/india-free-images/, fill the .credit line, and add
-   the row to that folder's CREDITS.md. Never a workshop photograph.        */
-/* The photograph is a band across the lower half, under the text and behind
-   the stickers. A band rather than a full bleed: these pictures are landscape,
-   and a 9:16 crop of one is mostly sky. At this size nothing is upscaled. */
-.photo { position:absolute; left:0; right:0; top:860px; bottom:0; overflow:hidden; }
-.photo img { width:100%; height:100%; object-fit:cover; }
-.photo::after {
-  content:""; position:absolute; inset:0;
-  background:linear-gradient(to bottom,
-    rgba(34,55,31,1) 0%, rgba(34,55,31,.92) 6%, rgba(34,55,31,.46) 22%,
-    rgba(34,55,31,.38) 62%, rgba(34,55,31,.72) 100%);
+/* --- Story --------------------------------------------------------------- */
+.story { width:1080px; height:1920px; background:var(--moss); }
+.story .photo { left:0; right:0; top:0; height:720px; }
+.story .band  { left:0; right:0; top:720px; bottom:0; background:var(--moss); }
+.story .copy  { left:70px; right:70px; top:800px; }
+.story .eyebrow {
+  font-family:var(--display); font-weight:600; font-size:30px;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--gold);
 }
+.story h1 {
+  font-family:var(--display); font-weight:700; font-size:96px; line-height:1.04;
+  letter-spacing:-.02em; color:var(--cream); margin-top:22px;
+}
+.story .support {
+  font-family:var(--sans); font-size:46px; line-height:1.3; color:var(--cream);
+  margin-top:18px;
+}
+.story .support + .support { margin-top:10px; }
 
-/* --- Cream shapes --------------------------------------------------------
-   Flat planes, no radius, no shadow. Cream is a shape and never the page.  */
-.shape { position:absolute; background:var(--panel); }
-.shape--glow { background:var(--glow); }
-.shape--olive { background:var(--olive); }
+/* The bottom 500px of a story stays empty. Drawn only in the guides PNG. */
+.zone { position:absolute; left:0; right:0; bottom:0; height:500px; }
 
-/* --- The reserved areas --------------------------------------------------
-   250px clear at top and bottom for the Instagram interface. A 700 x 300
-   hole for the countdown sticker. A 640 x 160 hole for the link sticker.
-   Nothing may be drawn inside them. They are invisible in the posted PNG;
-   render.js paints them in for the *-guides.png preview only.             */
-.zone { position:absolute; }
-.zone--ui-top    { left:0; right:0; top:0;    height:250px; }
-.zone--ui-bottom { left:0; right:0; bottom:0; height:250px; }
-.zone--countdown { left:190px; top:1120px; width:700px; height:300px; }
-.zone--link      { left:220px; top:1490px; width:640px; height:160px; }
-
-/* --- Content -------------------------------------------------------------
-   Everything readable lives between 250 and 1100.                          */
-.stage {
-  position:absolute; left:80px; right:80px; top:250px; height:850px;
-  display:flex; flex-direction:column;
+/* --- Sign-up story -------------------------------------------------------
+   The enrollment page's urgency copy in full, so the photograph is a band
+   across the top rather than half the frame, and the cream panel runs to the
+   bottom edge. Type stops at 1420, leaving the bottom 500px for the
+   countdown sticker. Colours and roles follow the page itself: near black
+   headline, Harvest Gold on "don't delay", Ink body, bold call to action.
+   The support paragraph sits at 46px, the same size the other stories use,
+   so it reads at arm's length. The photograph band pays for the extra height:
+   it was 690 and is now 570, and the -signup.jpg crops were recut to match
+   by content/india/countdown-stories/recrop-signup.py. The type is never cut
+   to fit. */
+.signup { width:1080px; height:1920px; background:var(--cream); }
+.signup .photo { left:0; right:0; top:0; height:570px; }
+.signup .band  { left:0; right:0; top:570px; bottom:0; background:var(--cream); }
+.signup .copy  { left:70px; right:70px; top:628px; }
+.signup .eyebrow {
+  font-family:var(--display); font-weight:600; font-size:30px;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--green);
 }
-
-.lockup {
-  font-family:var(--display); font-weight:700; font-size:26px;
-  letter-spacing:.2em; text-transform:uppercase; color:var(--glow);
+.signup .eyebrow::after {
+  content:""; display:block; width:96px; height:4px; background:var(--gold);
+  margin-top:16px;
 }
-.eyebrow {
-  font-family:var(--display); font-weight:700; font-size:32px;
-  letter-spacing:.16em; text-transform:uppercase; color:var(--glow);
+.signup h1 {
+  font-family:var(--display); font-weight:700; font-size:76px; line-height:1.06;
+  letter-spacing:-.02em; color:var(--soil); margin-top:20px;
 }
-h1 {
-  font-family:var(--display); font-weight:700; line-height:1.04;
-  letter-spacing:-.02em; font-size:104px; color:var(--white);
+.signup .lede {
+  font-family:var(--display); font-weight:700; font-size:44px; line-height:1.24;
+  color:var(--soil); margin-top:26px;
 }
-h1.gold { color:var(--gold); }      /* deadline text, nothing else */
-h1.dark { color:var(--moss); }      /* when it sits on a cream shape */
-
-.sub {
-  font-family:var(--sans); font-size:42px; line-height:1.34;
-  color:rgba(255,255,255,.90);
+.signup .lede b { color:var(--gold); font-weight:700; }
+.signup .support {
+  font-family:var(--sans); font-size:46px; line-height:1.36; color:var(--ink);
+  margin-top:26px;
 }
-.sub.dark { color:var(--ink); }
-
-.card {
-  background:var(--panel); color:var(--ink); padding:40px 44px;
-  font-family:var(--sans); font-size:40px; line-height:1.32;
+.signup .cta {
+  font-family:var(--display); font-weight:700; font-size:44px; line-height:1.2;
+  color:var(--soil); margin-top:30px;
 }
-.card b {
-  display:block; font-family:var(--display); font-weight:700;
-  font-size:30px; letter-spacing:.14em; text-transform:uppercase;
-  color:var(--green); margin-bottom:14px;
-}
-
-.partner {
-  font-family:var(--sans); font-style:italic; font-size:28px; line-height:1.36;
-  color:rgba(255,255,255,.78);
-}
-.partner.dark { color:#5A564E; font-style:italic; }
-
-/* Photographer credit. Small, always present when a photo is used. */
-.credit {
-  position:absolute; left:80px; top:1436px;
-  font-family:var(--sans); font-size:22px; color:rgba(255,255,255,.86);
-  text-shadow:0 1px 3px rgba(16,26,15,.55);
-}
-
-.push { margin-top:auto; }
-
-/* --- The top row: who this is, and where it sits in the run --------------- */
-.top { display:flex; flex-direction:column; gap:12px; align-items:flex-start; }
-.step {
-  font-family:var(--display); font-weight:700; font-size:24px;
-  letter-spacing:.16em; text-transform:uppercase; color:rgba(219,230,167,.72);
-  white-space:nowrap;
-}
-
-/* --- A kicker above a headline ------------------------------------------- */
-.kicker {
-  font-family:var(--display); font-weight:700; font-size:34px;
-  letter-spacing:.14em; text-transform:uppercase; color:var(--glow);
-}
-
-/* --- The standing facts, repeated as a strip ------------------------------ */
-.strip { display:flex; gap:0; margin-top:38px; }
-.strip div { flex:1; padding:0 26px; border-left:2px solid rgba(219,230,167,.34); }
-.strip div:first-child { padding-left:0; border-left:0; }
-.strip b {
-  display:block; font-family:var(--display); font-weight:700; font-size:22px;
-  letter-spacing:.16em; text-transform:uppercase; color:var(--glow); margin-bottom:10px;
-}
-.strip span {
-  display:block; font-family:var(--sans); font-size:32px; line-height:1.24;
-  color:rgba(255,255,255,.92);
-}
-.strip.dark b { color:var(--green); }
-.strip.dark span { color:var(--ink); }
-.strip.dark div { border-left-color:rgba(34,55,31,.28); }
-
-/* --- A week block: a big label, then what happens in it -------------------- */
-.week { display:flex; gap:30px; align-items:flex-start; }
-.week + .week { margin-top:34px; }
-.week b {
-  font-family:var(--display); font-weight:700; font-size:64px; line-height:.94;
-  letter-spacing:-.02em; color:var(--glow); flex:0 0 250px;
-}
-.week p { font-family:var(--sans); font-size:42px; line-height:1.28; color:rgba(255,255,255,.94); }
-
-/* --- A hairline between blocks -------------------------------------------- */
-.rule { height:2px; background:rgba(219,230,167,.34); margin:34px 0; }
-.rule.dark { background:rgba(34,55,31,.24); }
