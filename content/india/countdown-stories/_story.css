@@ -43,13 +43,16 @@ body { display:flex; align-items:flex-start; justify-content:flex-start; }
    Optional and empty by default. Uncomment the <img> in a story file once a
    file exists in assets/india-free-images/, fill the .credit line, and add
    the row to that folder's CREDITS.md. Never a workshop photograph.        */
-.photo { position:absolute; inset:0; }
+/* The photograph is a band across the lower half, under the text and behind
+   the stickers. A band rather than a full bleed: these pictures are landscape,
+   and a 9:16 crop of one is mostly sky. At this size nothing is upscaled. */
+.photo { position:absolute; left:0; right:0; top:860px; bottom:0; overflow:hidden; }
 .photo img { width:100%; height:100%; object-fit:cover; }
 .photo::after {
   content:""; position:absolute; inset:0;
   background:linear-gradient(to bottom,
-    rgba(34,55,31,.82) 0%, rgba(34,55,31,.62) 40%,
-    rgba(34,55,31,.88) 72%, rgba(34,55,31,.97) 100%);
+    rgba(34,55,31,1) 0%, rgba(34,55,31,.92) 6%, rgba(34,55,31,.46) 22%,
+    rgba(34,55,31,.38) 62%, rgba(34,55,31,.72) 100%);
 }
 
 /* --- Cream shapes --------------------------------------------------------
@@ -115,8 +118,9 @@ h1.dark { color:var(--moss); }      /* when it sits on a cream shape */
 
 /* Photographer credit. Small, always present when a photo is used. */
 .credit {
-  position:absolute; left:80px; bottom:262px;
-  font-family:var(--sans); font-size:22px; color:rgba(255,255,255,.62);
+  position:absolute; left:80px; top:1436px;
+  font-family:var(--sans); font-size:22px; color:rgba(255,255,255,.86);
+  text-shadow:0 1px 3px rgba(16,26,15,.55);
 }
 
 .push { margin-top:auto; }
