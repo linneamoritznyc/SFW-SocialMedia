@@ -1,23 +1,26 @@
 /* ==========================================================================
-   India countdown stories, shared frame and type.
-   Colour values copied from variants/_tokens.css, which took them verbatim
-   from the :root block of the old css/site.css. Nothing here is invented.
+   India countdown stories. Five frames, 1080 x 1920, one colour family each.
 
-   One canvas: 1080 x 1920. Five files use it. Each file adds only its own
-   shape composition, never new type sizes.
+   Every colour is a brand colour, taken from docs/brand-guide.html and
+   variants/_tokens.css. Legacy Purple #6B4C7A is memorial content only and
+   appears nowhere here. Harvest Gold is on frame A only.
+
+   The frame is: a full bleed photograph, a scrim that is clear at the top
+   and holds at 85 percent across the bottom 45 percent, and type sitting on
+   the dark part. Each frame sets its own --scrim, --type and --accent.
    ========================================================================== */
 :root {
-  --moss:   #22371F;   /* deep green, the field of every frame */
-  --panel:  #F4F1EA;   /* Organic Cream. A SHAPE, never the page */
-  --glow:   #DBE6A7;   /* the brightest thing in the frame */
+  --cream:  #F4F1EA;   /* Organic Cream */
+  --soil:   #4F3433;   /* Soil Brown */
   --green:  #156826;   /* Food Web Green */
-  --olive:  #5F6A3C;
-  --gold:   #C9A227;   /* Harvest Gold. DEADLINE TEXT ONLY, see README */
-  --ink:    #333130;
-  --white:  #FFFFFF;
+  --moss:   #22371F;   /* deep green */
+  --tan:    #C89B7B;   /* Natural Tan */
+  --gold:   #C9A227;   /* Harvest Gold. Frame A only */
+  --light:  #59A66C;   /* Light Green */
+  --edu:    #3780B8;   /* Education Blue */
 
-  --display:  "Montserrat", "Helvetica Neue", Arial, sans-serif;
-  --sans:     "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+  --display: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --sans:    "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
 }
 
 @font-face { font-family:"Montserrat"; font-style:normal; font-weight:600 700; font-display:block;
@@ -35,129 +38,81 @@ body { display:flex; align-items:flex-start; justify-content:flex-start; }
 
 .frame {
   width:1080px; height:1920px; position:relative; overflow:hidden;
-  background:var(--moss); font-family:var(--sans); color:var(--white);
+  background:var(--moss); font-family:var(--sans); color:var(--type);
   font-size:16px; line-height:1.4;
 }
 
-/* --- The photograph layer ------------------------------------------------
-   Optional and empty by default. Uncomment the <img> in a story file once a
-   file exists in assets/india-free-images/, fill the .credit line, and add
-   the row to that folder's CREDITS.md. Never a workshop photograph.        */
-/* The photograph runs from under the text block to the bottom edge, with no
-   tint on it at all. Nothing is printed over it, so nothing needs a scrim:
-   the picture keeps its own colour. The deep green block above it holds the
-   logo and the words, and fades out over its last 90px so the two meet
-   softly rather than on a hard line. */
-.photo { position:absolute; left:0; right:0; top:1120px; bottom:0; overflow:hidden; }
-.photo img { width:100%; height:100%; object-fit:cover; object-position:50% 50%; }
+/* --- The photograph, full bleed, full colour ----------------------------- */
+.photo { position:absolute; inset:0; }
+.photo img { width:100%; height:100%; object-fit:cover; display:block; }
 
-.field {
-  position:absolute; left:0; right:0; top:0; height:1252px;
-  background:linear-gradient(to bottom,
-    var(--moss) 0%, var(--moss) 90.5%, rgba(34,55,31,0) 100%);
+/* --- The scrim -----------------------------------------------------------
+   Clear across the top, holding at 85 percent from 55 percent down, which
+   is the bottom 45 percent of the frame. Each frame supplies the colour.
+   The three dark scrims multiply, so the tint grades the photograph instead
+   of painting over it and the ridge lines survive underneath. Frame E's tan
+   is a light colour under dark type, the opposite job, so it stays normal. */
+.scrim { position:absolute; inset:0; }
+
+/* --- The mark ------------------------------------------------------------
+   A one colour knockout of the wordmark, 120px wide, no box behind it. */
+.mark { position:absolute; left:80px; top:264px; line-height:0; }
+.mark img { display:block; width:120px; height:auto; }
+
+/* --- The words -----------------------------------------------------------
+   Bottom left, ending at 1100, which is 20px above the countdown sticker. */
+.copy { position:absolute; left:80px; right:80px; bottom:820px; }
+
+h1 {
+  font-family:var(--display); font-weight:700; font-size:88px; line-height:1.02;
+  letter-spacing:-.025em; color:var(--type);
+}
+h1.accent { color:var(--accent); }
+
+.support {
+  font-family:var(--sans); font-size:34px; line-height:1.35;
+  color:var(--type); margin-top:24px;
+}
+.support.accent { color:var(--accent); }
+
+.partner {
+  font-family:var(--sans); font-style:italic; font-size:22px; line-height:1.4;
+  color:var(--type); opacity:.6; margin-top:28px;
 }
 
-/* --- Cream shapes --------------------------------------------------------
-   Flat planes, no radius, no shadow. Cream is a shape and never the page.  */
-.shape { position:absolute; background:var(--panel); }
-.shape--glow { background:var(--glow); }
-.shape--olive { background:var(--olive); }
+/* --- The photographer, set vertically down the right edge ---------------- */
+.credit {
+  position:absolute; right:34px; top:700px;
+  writing-mode:vertical-rl; text-orientation:mixed;
+  font-family:var(--sans); font-size:18px; letter-spacing:.1em;
+  color:var(--type); opacity:.55;
+}
+
+/* --- Frame C: the two weeks ---------------------------------------------- */
+.week { font-family:var(--sans); font-size:40px; line-height:1.28; color:var(--type); }
+.week b {
+  font-family:var(--display); font-weight:700; font-size:44px;
+  color:var(--accent); margin-right:18px;
+}
+.week-rule { height:2px; background:var(--cream); opacity:.45; margin:32px 0; }
+
+/* --- Frame D: the card ---------------------------------------------------
+   Organic Cream as a bounded rectangle behind grouped content, which is the
+   one thing the brand guide says cream is for. */
+.card {
+  position:absolute; left:80px; bottom:820px; width:594px;
+  background:var(--cream); padding:46px 44px;
+}
+.card h1 { font-size:52px; }
+.card .support { font-size:32px; }
+.card .partner { margin-top:24px; }
 
 /* --- The reserved areas --------------------------------------------------
-   250px clear at top and bottom for the Instagram interface. A 700 x 300
-   hole for the countdown sticker. A 640 x 160 hole for the link sticker.
-   Nothing may be drawn inside them. They are invisible in the posted PNG;
-   render.js paints them in for the *-guides.png preview only.             */
+   250px clear top and bottom for the Instagram interface, a 700 x 300 hole
+   for the countdown sticker and a 640 x 160 hole for the link sticker.
+   Invisible here; render.js paints them into the *-guides.png preview. */
 .zone { position:absolute; }
 .zone--ui-top    { left:0; right:0; top:0;    height:250px; }
 .zone--ui-bottom { left:0; right:0; bottom:0; height:250px; }
 .zone--countdown { left:190px; top:1120px; width:700px; height:300px; }
 .zone--link      { left:220px; top:1490px; width:640px; height:160px; }
-
-/* --- Content -------------------------------------------------------------
-   Everything readable lives between 250 and 1100.                          */
-.stage {
-  position:absolute; left:80px; right:80px; top:250px; height:850px;
-  display:flex; flex-direction:column;
-}
-
-.eyebrow {
-  font-family:var(--display); font-weight:700; font-size:32px;
-  letter-spacing:.16em; text-transform:uppercase; color:var(--glow);
-}
-h1 {
-  font-family:var(--display); font-weight:700; line-height:1.04;
-  letter-spacing:-.02em; font-size:104px; color:var(--white);
-}
-h1.gold { color:var(--gold); }      /* deadline text, nothing else */
-h1.dark { color:var(--moss); }      /* when it sits on a cream shape */
-
-.sub {
-  font-family:var(--sans); font-size:42px; line-height:1.34;
-  color:rgba(255,255,255,.90);
-}
-.sub.dark { color:var(--ink); }
-
-.card {
-  background:var(--panel); color:var(--ink); padding:40px 44px;
-  font-family:var(--sans); font-size:40px; line-height:1.32;
-}
-.card b {
-  display:block; font-family:var(--display); font-weight:700;
-  font-size:30px; letter-spacing:.14em; text-transform:uppercase;
-  color:var(--green); margin-bottom:14px;
-}
-
-.partner {
-  font-family:var(--sans); font-style:italic; font-size:28px; line-height:1.36;
-  color:rgba(255,255,255,.78);
-}
-.partner.dark { color:#5A564E; font-style:italic; }
-
-
-.push { margin-top:auto; }
-
-/* --- The mark ------------------------------------------------------------
-   The wordmark is a colour logo: its green and brown disappear on the deep
-   green field, so it sits on a cream rectangle, which is the one thing the
-   brand guide says Organic Cream is for. */
-.mark {
-  position:absolute; left:80px; top:264px;
-  background:var(--panel); padding:22px 24px; line-height:0;
-}
-.mark img { display:block; width:200px; height:auto; }
-
-/* --- A kicker above a headline ------------------------------------------- */
-.kicker {
-  font-family:var(--display); font-weight:700; font-size:34px;
-  letter-spacing:.14em; text-transform:uppercase; color:var(--glow);
-}
-
-/* --- The standing facts, repeated as a strip ------------------------------ */
-.strip { display:flex; gap:0; margin-top:38px; }
-.strip div { flex:1; padding:0 26px; border-left:2px solid rgba(219,230,167,.34); }
-.strip div:first-child { padding-left:0; border-left:0; }
-.strip b {
-  display:block; font-family:var(--display); font-weight:700; font-size:22px;
-  letter-spacing:.16em; text-transform:uppercase; color:var(--glow); margin-bottom:10px;
-}
-.strip span {
-  display:block; font-family:var(--sans); font-size:32px; line-height:1.24;
-  color:rgba(255,255,255,.92);
-}
-.strip.dark b { color:var(--green); }
-.strip.dark span { color:var(--ink); }
-.strip.dark div { border-left-color:rgba(34,55,31,.28); }
-
-/* --- A week block: a big label, then what happens in it -------------------- */
-.week { display:flex; gap:30px; align-items:flex-start; }
-.week + .week { margin-top:34px; }
-.week b {
-  font-family:var(--display); font-weight:700; font-size:64px; line-height:.94;
-  letter-spacing:-.02em; color:var(--glow); flex:0 0 250px;
-}
-.week p { font-family:var(--sans); font-size:42px; line-height:1.28; color:rgba(255,255,255,.94); }
-
-/* --- A hairline between blocks -------------------------------------------- */
-.rule { height:2px; background:rgba(219,230,167,.34); margin:34px 0; }
-.rule.dark { background:rgba(34,55,31,.24); }

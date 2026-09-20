@@ -1,60 +1,74 @@
 # India countdown stories
 
-A run of four Instagram Stories for the last hours of enrollment on the
-Accelerator Workshop in Coimbatore, plus a fifth tail card. Post 1 to 4 in
-order, a few minutes apart. Built 20 September 2026.
+Five Instagram Stories for the last hours of enrollment on the Accelerator
+Workshop in Coimbatore. Post A to D in order; E is the tail card. Rebuilt
+20 September 2026.
 
 Each frame is three files:
 
 | File | What it is |
 | :-- | :-- |
-| `story-N-name.html` | the source. Edit the words here |
-| `story-N-name.png` | 1080 x 1920, the frame to post |
-| `story-N-name-guides.png` | the same frame with the reserved areas drawn in. Planning only, never post this one |
+| `story-x-name.html` | the source. Edit the words here |
+| `story-x-name.png` | 1080 x 1920, the frame to post |
+| `story-x-name-guides.png` | the same frame with the reserved areas drawn in. Planning only, never post this one |
 
-`_story.css` holds the frame, the colours and the type scale for all five.
-`render.js` rebuilds the PNGs and fails if anything has been drawn where a
-sticker or the Instagram interface goes.
+`_story.css` holds the frame and the type scale. `prepare.py` makes the two
+things CSS cannot: the knockout wordmarks and the hand cut crops.
+`render.js` rebuilds the PNGs and fails if anything is drawn where a sticker
+or the Instagram interface goes.
 
 ```
-node content/india/countdown-stories/render.js
+python3 content/india/countdown-stories/prepare.py   # crops and wordmarks
+node    content/india/countdown-stories/render.js    # the ten PNGs
 ```
 
 ---
 
-## The run
+## The five
 
-Every frame carries the wordmark on a cream rectangle at the top, and the
-Velliangiri Hills photograph from the lower half down to the bottom edge.
+| | Layout | Says | Colour family | Photograph |
+| :-- | :-- | :-- | :-- | :-- |
+| **A** | headline only, very large | Enrollment closes tonight / Coimbatore, India · Oct 19 to 30 | Soil Brown scrim, cream type, **Harvest Gold** headline | Navi, the Velliangiri Hills |
+| **B** | headline bottom left, photo open at the top | Learn with your hands in the pile / Coimbatore, India · Oct 19 to 30 | Food Web Green scrim, cream type, **Natural Tan** support | Nitish Surelia, the peak under cloud |
+| **C** | two stacked week lines, thin cream rule between | Week 1 and Week 2 | deep green scrim, cream type, **Light Green** labels | Cymatics, light through storm cloud |
+| **D** | cream card at bottom left, 55% of the width | Payment plans available / India residents: email us for local pricing | cream card, Soil Brown type, **Education Blue** pricing line | Ranjini Hemanth, the terraces |
+| **E** | type centred and small under an open sky | Can't make these dates? / Join the list for future workshops | Natural Tan scrim, Soil Brown type, **Food Web Green** call to action | Gowtham AGM, sunset |
 
-| | Frame | Carries | Stickers to add |
-| :-- | :-- | :-- | :-- |
-| 1 | **Closing** | Last hours to enroll / Enrollment closes tonight, in gold, and the standing facts | countdown **and** link |
-| 2 | **Why attend** | Learn with your hands in the pile / 10 days on the Save Soil farm with the Soil Food Web team | countdown and link |
-| 3 | **What you will learn** | Week 1 and Week 2 | countdown and link |
-| 4 | **More info** | Payment plans available / India residents: email us for local pricing | countdown and link |
-| 5 | **After the run** | Can't make these dates? / Join the list for future workshops | link only |
+A to D link to `school.soilfoodweb.com/courses/india-workshop-2026`. E links to
+`school.soilfoodweb.com/pages/workshop-interest` and is the only frame that
+does not point at the workshop page: it is for the people these dates do not
+fit.
 
-Frames 1 to 4 link to `school.soilfoodweb.com/courses/india-workshop-2026`.
-Frame 5 links to `school.soilfoodweb.com/pages/workshop-interest` and is the
-only one that does not point at the workshop page: it is for the people these
-dates do not fit. Post it after the deadline passes, or alongside frame 4 if
-you want it in the same run.
+Harvest Gold is on A and nowhere else. Legacy Purple #6B4C7A is memorial
+content only and appears nowhere. One accent colour per frame.
 
-Frames 1 and 3 repeat the standing facts as a strip, so anyone who joins the
-run halfway still gets where, when and how long: Coimbatore, India · Oct 19 to
-30 · 10 days. The partner line runs along the bottom of all five: *with the
-Isha Foundation and the Conscious Planet Save Soil movement*.
+**Two approved lines are not used in this set:** "Last hours to enroll" and
+"10 days on the Save Soil farm with the Soil Food Web team". Both are still
+yours; say the word and either one swaps into A or B.
 
-The countdown zone is reserved on all five. If you skip the countdown sticker
-on 2 to 5, that is 700 x 300 of free space and nothing needs re-rendering.
+---
+
+## How a frame is built
+
+A full bleed photograph at full colour, then a scrim that is clear across the
+top and holds at 85 percent from 55 percent down, then type on the dark part.
+The three dark scrims (A, B, C) multiply rather than cover, so the ridge
+lines and the cloud survive underneath and the colour reads as a grade rather
+than paint. E's Natural Tan sits under dark type, the opposite job, so it
+stays a normal scrim. D has no scrim at all: the cream card carries the words,
+so the terraces need nothing done to them.
+
+The wordmark is a one colour knockout, 120px, no box: cream on A to D, Soil
+Brown on E because that scrim is light. `prepare.py` makes both from the
+supplied logo.
+
+The crops are cut by hand in `prepare.py`, each with its box and the reason,
+because CSS can only choose one axis when the picture and the frame disagree
+this much. The subject sits in the top half of every frame, clear of the type.
 
 ---
 
 ## The reserved areas
-
-The numbers are the same in `_story.css` and in `render.js`, and the guides PNG
-shows them.
 
 | Area | Box | Who fills it |
 | :-- | :-- | :-- |
@@ -63,78 +77,45 @@ shows them.
 | Countdown sticker | 700 x 300 at x 190, y 1120 | you, in the Instagram app |
 | Link sticker | 640 x 160 at x 220, y 1490 | you, in the Instagram app |
 
-All readable content sits between y 250 and y 1103, which leaves at least 17px
-of air above the countdown box.
+All type ends at 1100, twenty pixels above the countdown box. `render.js`
+checks every text box, the card and the wordmark against all four areas on
+every build and exits non zero if anything overlaps.
 
 ---
 
-## Colour
+## Contrast, measured off the rendered PNGs
 
-Deep green `#22371F` is the field. Organic Cream `#F4F1EA` is a shape and never
-the page. Glow `#DBE6A7` is the accent. Montserrat for headings, Source Sans 3
-for body. Values are copied from `variants/_tokens.css`.
+| | Measured | Threshold | |
+| :-- | :-- | :-- | :-- |
+| A, gold headline on the brown scrim | 5.53:1 | 3:1 large | passes |
+| B, tan support on the green scrim | 5.86:1 | 3:1 large | passes |
+| C, Light Green labels at 44px | 3.63:1 | 3:1 large | passes |
+| D, Education Blue pricing line at 32px | 3.73:1 | 3:1 large | passes |
+| E, Food Web Green call to action at 34px | **2.84:1** | 3:1 large | **short** |
 
-Harvest Gold `#C9A227` appears on frame 1 only, on the deadline line, which is
-the rule you set. `variants/README.md` reserves gold for donate calls in the
-Field Notes series; these are not Field Notes and the gold is doing one job
-here. If Stephanie wants that rule held everywhere, the headline goes cream and
-nothing else changes.
+Light Green is marked decorative in the brand guide and banned for text; at
+44px it is large text, where the threshold is 3:1, which is why it works here
+and would not at body size.
 
----
-
-## Photographs
-
-Every frame works with no photograph, which is why they can post today.
-
-Each frame has its own picture, chosen against what the frame says:
-
-| Frame | Picture | Why |
-| :-- | :-- | :-- |
-| 1 | Navi, the Velliangiri Hills | the range the Isha Yoga Center sits at the foot of |
-| 2 | Ranjini Hemanth, terraces | the frame is about working ground, so the picture is worked ground |
-| 3 | Remi Clinton, misty farmland | calm, because this frame carries the most words |
-| 4 | Cymatics, light over the plain | it sits behind the cream panel |
-| 5 | Div, sun going down behind the ridge | a closing picture for the closing frame |
-
-Nine more pictures sit unused in `assets/india-free-images/`. To swap one in,
-point the `.photo` block at it, adjust `object-position` if the subject sits
-off centre, then re-run `render.js`.
-
-**No tint sits on any photograph.** The deep green block holds the logo and
-the words and fades out below the last line of type, at y 1133, and the
-picture runs from there to the bottom edge with its own colour untouched. No
-type is ever set over the picture, so none is needed. If you move a text block
-lower, move the seam with it: `.field` height and `.photo` top in
-`_story.css`. No photographer credit is printed on the frames. Unsplash asks for a credit
-rather than requiring one, and the decision here is not to carry one. The
-credit still belongs in `CREDITS.md`.
-
-Upload pictures here, in the browser:
-<https://github.com/linneamoritznyc/SFW-SocialMedia/upload/claude/upbeat-babbage-ggergv/assets/india-free-images>
-
-Unsplash pictures are not workshop photographs and nothing here may suggest they
-are. See `assets/india-free-images/README.md`.
+Food Web Green on Natural Tan cannot pass: the two colours are 2.78:1 against
+each other at best. Deep green #22371F on the same tan measures 5.15:1 and
+keeps the family. One line in `story-e-next.html` changes it.
 
 ---
 
 ## What is on these frames, and what is not
 
 Only the facts supplied for this deadline: the name in full, the place, the
-dates, the ten days, the two weeks' content, payment plans, local pricing for
-India residents, and the interest list. No price, no attendance number, no
-claim about results. The section labels (Why attend, What you will learn, More
-info) in the file names and the field labels (Where, When, How long) are
-structure, not claims.
+dates, the two weeks' content, payment plans, local pricing for India
+residents, and the interest list. No price, no attendance number, no claim
+about results. The hours remaining are not written on any frame, on purpose:
+the countdown sticker carries that and stays right as the hours pass.
 
-The hours remaining are not written on any frame, on purpose. The countdown
-sticker carries that and stays right as the hours pass; typed-in text does not.
+The partner line reads **Isha Foundation**, as supplied.
+`content/calendar.json` and `drafts/2026-10-16-india-four-events.md` both say
+*Isha Outreach*, the outreach arm of the same organisation. The dates follow
+`content/calendar.json`, 19 to 30 October 2026, verified against the live
+enrollment page on 11 September 2026.
 
-Two notes for the record, nothing to action:
-
-1. The partner line says **Isha Foundation**, as supplied.
-   `content/calendar.json` and `drafts/2026-10-16-india-four-events.md` both say
-   *Isha Outreach*, which is the outreach arm of the same organisation. The
-   frames follow what was supplied for this post.
-2. The dates follow `content/calendar.json`, 19 to 30 October 2026, marked
-   verified against the live enrollment page and checked 11 September 2026.
-   Copy deck DECISION 12 records a date conflict elsewhere on the old site.
+No photograph here is a workshop photograph and nothing on these frames
+suggests otherwise. See `assets/india-free-images/README.md`.

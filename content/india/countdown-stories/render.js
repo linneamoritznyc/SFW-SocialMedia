@@ -18,8 +18,7 @@ const fs = require('fs');
 
 const HERE = __dirname;
 const REPO = path.resolve(HERE, '..', '..', '..');
-const STORIES = ['1-deadline', '2-why-attend', '3-what-you-learn',
-                 '4-more-info', '5-next-time'];
+const STORIES = ['a-deadline', 'b-hands', 'c-weeks', 'd-payment', 'e-next'];
 const W = 1080, H = 1920;
 
 /* The reserved rectangles, in the same numbers as _story.css. */
@@ -74,7 +73,7 @@ const GUIDES = `
 
     /* Geometry check: every drawn element against every reserved rectangle. */
     const boxes = await page.evaluate(() => {
-      const sel = '.mark, .kicker, .eyebrow, h1, .sub, .partner, .card,\n                   .panel, .plate, .strip, .strip div, .week, .week b, .week p, .rule';
+      const sel = '.mark, h1, .support, .partner, .credit, .card, .week, .week b,\n                   .week-rule';
       return [...document.querySelectorAll(sel)].map((el) => {
         const r = el.getBoundingClientRect();
         return { what: (el.className || el.tagName).toString().split(' ')[0],
