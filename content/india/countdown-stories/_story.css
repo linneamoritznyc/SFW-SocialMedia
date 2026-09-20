@@ -43,22 +43,18 @@ body { display:flex; align-items:flex-start; justify-content:flex-start; }
    Optional and empty by default. Uncomment the <img> in a story file once a
    file exists in assets/india-free-images/, fill the .credit line, and add
    the row to that folder's CREDITS.md. Never a workshop photograph.        */
-/* The photograph. It starts under the type and runs to the bottom edge, so
-   the lower half of the frame is the landscape rather than empty green. The
-   scrim is near solid where the words are and opens up below them, which is
-   also where the stickers go. Nothing is upscaled at this size. */
-.photo { position:absolute; left:0; right:0; top:700px; bottom:0; overflow:hidden; }
-.photo img { width:100%; height:100%; object-fit:cover; object-position:58% 50%; }
-.photo::after {
-  content:""; position:absolute; inset:0;
+/* The photograph runs from under the text block to the bottom edge, with no
+   tint on it at all. Nothing is printed over it, so nothing needs a scrim:
+   the picture keeps its own colour. The deep green block above it holds the
+   logo and the words, and fades out over its last 90px so the two meet
+   softly rather than on a hard line. */
+.photo { position:absolute; left:0; right:0; top:1120px; bottom:0; overflow:hidden; }
+.photo img { width:100%; height:100%; object-fit:cover; object-position:50% 50%; }
+
+.field {
+  position:absolute; left:0; right:0; top:0; height:1252px;
   background:linear-gradient(to bottom,
-    rgba(34,55,31,.99)  0%,
-    rgba(34,55,31,.96)  16%,
-    rgba(34,55,31,.88)  32%,
-    rgba(34,55,31,.52)  44%,
-    rgba(34,55,31,.30)  62%,
-    rgba(34,55,31,.34)  84%,
-    rgba(34,55,31,.62) 100%);
+    var(--moss) 0%, var(--moss) 90.5%, rgba(34,55,31,0) 100%);
 }
 
 /* --- Cream shapes --------------------------------------------------------

@@ -98,10 +98,14 @@ Each frame has its own picture, chosen against what the frame says:
 
 Nine more pictures sit unused in `assets/india-free-images/`. To swap one in,
 point the `.photo` block at it, adjust `object-position` if the subject sits
-off centre, then re-run `render.js`. The scrim over the picture is near solid where the words are and
-opens up below them, which is where the stickers go.
+off centre, then re-run `render.js`.
 
-No photographer credit is printed on the frames. Unsplash asks for a credit
+**No tint sits on any photograph.** The deep green block holds the logo and
+the words and fades out below the last line of type, at y 1133, and the
+picture runs from there to the bottom edge with its own colour untouched. No
+type is ever set over the picture, so none is needed. If you move a text block
+lower, move the seam with it: `.field` height and `.photo` top in
+`_story.css`. No photographer credit is printed on the frames. Unsplash asks for a credit
 rather than requiring one, and the decision here is not to carry one. The
 credit still belongs in `CREDITS.md`.
 
