@@ -1,5 +1,9 @@
 /* Render the India assets and check each one against the five rules.
  *
+ * The finished PNGs are written to two sibling folders, ready to drag into
+ * Drive: content/india/posts/ and content/india/stories/. The HTML that
+ * makes them stays here.
+ *
  *   node content/india/countdown-stories/render.js
  *
  * For every file it prints, in order:
@@ -73,11 +77,13 @@ const norm = (s) => s.replace(/’/g, "'").replace(/·/g, '·').replace(/\s+/g, 
       };
     });
 
-    await page.screenshot({ path: path.join(HERE, `${a.id}.png`) });
+    const OUT = path.join(HERE, '..', a.kind === 'post' ? 'posts' : 'stories');
+    fs.mkdirSync(OUT, { recursive: true });
+    await page.screenshot({ path: path.join(OUT, `${a.id}.png`) });
     const dim = await page.evaluate(() => [0, 0]);
     await page.close();
 
-    const png = fs.readFileSync(path.join(HERE, `${a.id}.png`));
+    const png = fs.readFileSync(path.join(OUT, `${a.id}.png`));
     const pw = png.readUInt32BE(16), ph = png.readUInt32BE(20);
 
     const onBand = d.text.every((t) => t.y >= d.band.y - 1 && t.y + t.h <= d.band.y + d.band.h + 1);
