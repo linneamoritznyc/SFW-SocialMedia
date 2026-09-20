@@ -86,10 +86,19 @@ nothing else changes.
 
 Every frame works with no photograph, which is why they can post today.
 
-All five use `navi-EkQEfFhmhrg-unsplash.jpg`, the Velliangiri Hills at
-Coimbatore. To swap it, point the `.photo` block at another file in
-`assets/india-free-images/`, add that file's row to `CREDITS.md`, then re-run
-`render.js`. The scrim over the picture is near solid where the words are and
+Each frame has its own picture, chosen against what the frame says:
+
+| Frame | Picture | Why |
+| :-- | :-- | :-- |
+| 1 | Navi, the Velliangiri Hills | the range the Isha Yoga Center sits at the foot of |
+| 2 | Ranjini Hemanth, terraces | the frame is about working ground, so the picture is worked ground |
+| 3 | Remi Clinton, misty farmland | calm, because this frame carries the most words |
+| 4 | Cymatics, light over the plain | it sits behind the cream panel |
+| 5 | Div, sun going down behind the ridge | a closing picture for the closing frame |
+
+Nine more pictures sit unused in `assets/india-free-images/`. To swap one in,
+point the `.photo` block at it, adjust `object-position` if the subject sits
+off centre, then re-run `render.js`. The scrim over the picture is near solid where the words are and
 opens up below them, which is where the stickers go.
 
 No photographer credit is printed on the frames. Unsplash asks for a credit
