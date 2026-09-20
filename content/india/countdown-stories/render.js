@@ -9,7 +9,8 @@
  *   1. every line of type sits inside the solid block, between the split at
  *      864 and the top of the sticker band at 1500;
  *   2. every text colour is one of the three allowed for that block colour;
- *   3. the mark sits on the photograph, below the interface band.
+ *   3. the mark sits on the photograph, below the interface band, and the
+ *      photograph itself actually loaded.
  *
  * Served over http rather than file:// because Chromium will not load
  * @font-face files across a file:// origin.
@@ -24,8 +25,8 @@ const REPO = path.resolve(HERE, '..', '..', '..');
 const STORIES = ['a-deadline', 'b-hands', 'c-weeks', 'd-payment', 'e-next',
                  'f-extended', 'g-stillopen'];
 const W = 1080, H = 1920;
-const SPLIT = 864;        // photo above, solid block below
-const STICKERS = 1500;    // top of the empty band, 420px tall
+const SPLIT = 768;        // photo above, solid block below
+const STICKERS = 1560;    // top of the empty band, 420px tall
 const UI_TOP = 250;
 
 /* The three pairs, as hex. Nothing else may appear as a text colour. */
@@ -94,7 +95,10 @@ const GUIDES = `
         size: getComputedStyle(el).fontSize,
         ...box(el),
       }));
+      const img = document.querySelector('.photo img');
       return {
+        photoLoaded: !!img && img.naturalWidth > 0,
+        photoSrc: img ? img.getAttribute('src').split('/').pop() : '(none)',
         text,
         collide,
         mark: box(document.querySelector('.mark')),
@@ -119,6 +123,7 @@ const GUIDES = `
         }
       }
     }
+    if (!data.photoLoaded) hits.push(`the photograph did not load: ${data.photoSrc}`);
     if (data.collide) hits.push('the last body line runs into the fine print');
     if (data.mark.y < UI_TOP) hits.push(`the mark sits in the interface band (top ${data.mark.y})`);
     if (data.mark.y + data.mark.h > SPLIT) hits.push(`the mark crosses the split (bottom ${data.mark.y + data.mark.h})`);

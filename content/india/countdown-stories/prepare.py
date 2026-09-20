@@ -38,20 +38,17 @@ for tone, rgb in KNOCKOUTS.items():
 
 # --- the crops --------------------------------------------------------------
 CROPS = {
-    # The photograph is now the top 45 percent of the frame, 1080 x 864, so
-    # the crop is a 1.25:1 window rather than a 9:16 slice. Each box is
-    # (left, top, right, bottom) in the source file's own pixels, chosen so
-    # the subject sits in the frame and the top left stays dark enough for a
-    # cream logo.
-    'navi-EkQEfFhmhrg-unsplash.jpg':            ( 500,    0, 5500, 4000),
-    'nitish-surelia-OWyHIv86QSY-unsplash.jpg':  (   0,  900, 2717, 3074),
-    'cymatics-in-pz73YMEi21I-unsplash.jpg':     ( 600,    0, 3413, 2250),
-    'ranjini-hemanth-KljpahUzp9U-unsplash.jpg': ( 500,    0, 5500, 4000),
-    'gowtham-agm-WUmWuxVdC1g-unsplash.jpg':     (   0,  800, 3000, 3200),
-    'remi-clinton-E5egsk4eUQ0-unsplash.jpg':    ( 500,    0, 5500, 4000),
-    'div-1UFPvT_Qrt4-unsplash.jpg':             ( 600,    0, 3435, 2268),
+    # The photograph is the top 40 percent, 1080 x 768, a 1.40625:1 window.
+    # Each box is (left, top, right, bottom) in the source's own pixels.
+    'navi-EkQEfFhmhrg-unsplash.jpg':            ( 188,    0, 5813, 4000),
+    'nitish-surelia-OWyHIv86QSY-unsplash.jpg':  (   0, 1000, 2717, 2932),
+    'cymatics-in-pz73YMEi21I-unsplash.jpg':     ( 400,    0, 3564, 2250),
+    'ranjini-hemanth-KljpahUzp9U-unsplash.jpg': ( 188,    0, 5813, 4000),
+    'gowtham-agm-WUmWuxVdC1g-unsplash.jpg':     (   0,  900, 3000, 3033),
+    'remi-clinton-E5egsk4eUQ0-unsplash.jpg':    ( 188,    0, 5813, 4000),
+    'div-1UFPvT_Qrt4-unsplash.jpg':             ( 400,    0, 3589, 2268),
 }
-OUT_W, OUT_H = 1080, 864
+OUT_W, OUT_H = 1080, 768
 for name, box in CROPS.items():
     im = Image.open(os.path.join(SRC, name))
     w, h = box[2]-box[0], box[3]-box[1]
@@ -59,5 +56,5 @@ for name, box in CROPS.items():
     out = im.crop(box).resize((OUT_W, OUT_H), Image.LANCZOS)
     dst = os.path.join(OUT, name.replace('-unsplash.jpg', '-%sx%s.jpg' % (OUT_W, OUT_H)))
     out.save(dst, quality=90, subsampling=1, optimize=True)
-    print('%-44s %s -> %sx%s  %s KB' % (os.path.basename(dst), (w, h), OUT_W, OUT_H,
-                                        round(os.path.getsize(dst)/1024)))
+    print('%-42s -> %sx%s  %s KB' % (os.path.basename(dst), OUT_W, OUT_H,
+                                     round(os.path.getsize(dst)/1024)))

@@ -1,10 +1,12 @@
 /* ==========================================================================
    India countdown stories. 1080 x 1920, hard split.
 
-   Top 45 percent (0 to 864) is the photograph, full colour, no scrim.
-   Bottom 55 percent (864 to 1920) is one solid brand colour. The two meet on
+   Top 40 percent (0 to 768) is the photograph, full colour, no scrim.
+   Bottom 60 percent (768 to 1920) is one solid brand colour. The two meet on
    a straight edge. All type sits inside the solid block, left aligned, 90px
-   margins, and stops at 1500 so the bottom 420px stays clear for the sticker.
+   margins, and stops at 1560 so the bottom 360px stays clear for the sticker.
+   The photograph gave back five percent so the type could get bigger without
+   losing a single word.
 
    Three colour pairs, and nothing else:
      deep green  #22371F block, cream text, Harvest Gold eyebrow
@@ -44,18 +46,18 @@ body { display:flex; align-items:flex-start; justify-content:flex-start; }
 }
 
 /* --- Top 45 percent: the photograph, untouched ---------------------------- */
-.photo { position:absolute; left:0; right:0; top:0; height:864px; overflow:hidden; }
+.photo { position:absolute; left:0; right:0; top:0; height:768px; overflow:hidden; }
 .photo img { width:100%; height:100%; object-fit:cover; display:block; }
 
 /* --- Bottom 55 percent: one flat colour, no gradient, no transparency ----- */
-.block { position:absolute; left:0; right:0; top:864px; bottom:0; background:var(--block); }
+.block { position:absolute; left:0; right:0; top:768px; bottom:0; background:var(--block); }
 
 /* --- The mark, on the photograph ----------------------------------------- */
 .mark { position:absolute; left:90px; top:264px; line-height:0; }
 .mark img { display:block; width:130px; height:auto; }
 
 /* --- The words, inside the block ----------------------------------------- */
-.copy { position:absolute; left:90px; right:90px; top:904px; }
+.copy { position:absolute; left:90px; right:90px; top:822px; }
 
 .eyebrow {
   font-family:var(--display); font-weight:700; font-size:30px;
@@ -68,20 +70,20 @@ h1 {
 }
 .body { margin-top:26px; }
 .body p {
-  font-family:var(--sans); font-size:38px; line-height:1.5; color:var(--type);
+  font-family:var(--sans); font-size:52px; line-height:1.3; color:var(--type);
 }
-.body p + p { margin-top:8px; }
+.body p + p { margin-top:14px; }
 .body p b { font-family:var(--display); font-weight:700; }
 
 /* The fine print sits just above the sticker band, always. */
-.fine { position:absolute; left:90px; right:90px; bottom:420px; }
+.fine { position:absolute; left:90px; right:90px; bottom:360px; }
 .fine p {
-  font-family:var(--sans); font-size:22px; line-height:1.45; color:var(--type);
-  opacity:.72;
+  font-family:var(--sans); font-size:28px; line-height:1.4; color:var(--type);
+  opacity:.8;
 }
 .fine p.credit { font-style:italic; }
 
 /* --- The sticker band: the bottom 420px of the block, kept empty ---------- */
 .zone { position:absolute; }
-.zone--stickers { left:0; right:0; top:1500px; height:420px; }
+.zone--stickers { left:0; right:0; top:1560px; height:360px; }
 .zone--ui-top   { left:0; right:0; top:0; height:250px; }
