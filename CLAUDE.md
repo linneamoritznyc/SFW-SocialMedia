@@ -13,6 +13,7 @@ docs/sfw-website-audit-verbatim.md (Evan's feedback, the spec), docs/Fable_Cours
 - Never invent a price, name, date, statistic or document. Use <p class="todo">what is needed, who supplies it</p>.
 - Copy comes from docs/copy-deck-v2.md. Do not write new marketing copy.
 - No em dashes, no "nature's operating system", no "certified", no acronyms (FC/AP/PDC) in public text, no percentages without a named source.
+- Exception: India posts may use Unsplash images from assets/india-free-images/. Never present them as SFW workshop photos. Credits go in that folder's CREDITS.md and the photographer is named in small text on any story that uses a photo.
 - Every number gets a .source line. Every dated item shows its date. Every page has the footer legal block.
 - Links to school.soilfoodweb.com only; never to the WordPress shop or /foundation-courses-2/.
 - After building a page: screenshot it at 1440 and 390 with Playwright, look, fix, then stop and report placeholders.
