@@ -8,87 +8,88 @@ boundaries, noted where they happen. Captions are unchanged.
 
 ## Feed posts, 1080 x 1350
 
+Every line below is taken word for word from the live enrollment page at
+school.soilfoodweb.com/courses/india-workshop-2026, checked 20 September
+2026. Headlines are the page's own section headings; support lines and
+captions are its own sentences. Nothing is paraphrased.
+
 ### india-post-1
 - **Eyebrow:** ACCELERATOR WORKSHOP · INDIA 2026
-- **Headline:** The Accelerator Workshop comes to India this October.
-- **Support:** Ten immersive days at the Isha Yoga Center in Coimbatore.
-- **Caption:** Learn how to use beneficial soil microorganisms to improve soil function, increase water retention, reduce topsoil erosion, support healthier plants, make better use of organic waste, and reduce dependence on costly external inputs.
+- **Headline:** Fast-Track Your Soil Food Web Training
+- **Support:** Gain a year's worth of hands-on experience in one immersive 10-day workshop.
+- **Caption:** In collaboration with Isha Outreach, the Soil Food Web Foundation invites you to join us for the Accelerator Workshop, India 2026.
 
-  The Accelerator Workshop comes to India this October. Ten immersive days at the Isha Yoga Center in Coimbatore, with field work on the Save Soil farm.
+  Gain a year's worth of hands-on experience in one immersive 10-day workshop. Build BioComplete™ Compost, create biological liquid amendments, and practice microscopy alongside Dr. Elaine's team of experienced mentors and an international community.
 
-  Rather than spending years piecing together information through videos, books, or trial and error, participants practice the complete process on a working farm with guidance from experienced Soil Food Web mentors. They build and monitor compost, prepare biological soil amendments, examine microorganisms under a microscope, apply amendments in the field, and learn how to recognize and correct problems as they arise.
-
-  Enrollment covers 13 nights of accommodation, daily meals, transportation between the Isha Yoga Center and the Save Soil farm, workshop materials, and direct access to the instructional team.
-
-  Details on the school site. Link in bio.
-
-### india-post-2
-- **Eyebrow:** WHAT YOU TAKE HOME
-- **Headline:** Experience you can use the week you get home.
-- **Support:** India, this October. Link in bio.
-- **Caption:** Participants will leave with:
-
-  A practical understanding of how soil microorganisms influence nutrient availability, plant health, soil structure, and water retention.
-
-  Experience converting locally available organic materials into high-quality biological compost.
-
-  Skills for monitoring compost and responding to changes in moisture, temperature, aeration, and biological activity.
-
-  Experience making compost extracts, teas, and other biological preparations for field application.
-
-  An introduction to microscopy as a tool for evaluating soil, compost, and biological amendments.
-
-  Greater confidence to begin applying these practices on their own farm, garden, composting operation, or restoration project.
-
-  India, this October. Link in bio.
-
-### india-post-3
-- **Eyebrow:** TIME
-- **Headline:** The one thing you can't get more of is time.
-- **Support:** Coimbatore, this October. Link in bio.
-- **Caption:** The one thing you can't get more of is time.
-
-  This workshop takes you from knowing you want to make compost to save your soil, to knowing how to grow the biology that generates soil fertility through thermophilic compost and liquids, to actually making them so you can continue on your own when you get home.
-
-  Learning this alone could take years. If you want to be an agent of action now, this workshop is designed to get you up to speed fast and able to reproduce these results wherever in the world you work or live.
-
-  Coimbatore, this October. Link in bio.
-
-### india-post-4
-- **Eyebrow:** INPUTS
-- **Headline:** Chemical inputs are expensive and they damage the soil you depend on.
-- **Support:** Ten days in India. Link in bio.
-- **Caption:** Chemical inputs are expensive and they damage the soil you depend on.
-
-  Biological and organic-based inputs can be expensive too, and many lack the biology needed to make a real difference, which leaves you tethered to an external source for imported amendments.
-
-  Learning to create your own biological amendments from materials readily available and local to you is the best path to nutrient-rich living soil, and it can substantially decrease the cost of growing crops and managing land.
-
-  Ten days in India. Link in bio.
-
-### india-post-5
-- **Eyebrow:** THE SETTING
-- **Headline:** Your people are here.
-- **Support:** October dates on the school site. Link in bio.
-- **Caption:** The field work happens on the Save Soil farm, a Conscious Planet initiative, and the workshop is hosted by the Isha Foundation at their Yoga Center in Coimbatore, Tamil Nadu.
-
-  Learn alongside farmers, composters, gardeners, land managers, and regenerative agriculture practitioners who share a commitment to healthier soils, healthier plants, and more resilient ecosystems.
-
-  Your people are here.
-
-  October dates on the school site. Link in bio.
-
-### india-post-6
-- **Eyebrow:** FOR CURRENT STUDENTS
-- **Headline:** Months or years of independent practice, compressed.
-- **Support:** Link in bio.
-- **Caption:** For those pursuing Soil Food Web certification, the Accelerator Workshop offers an opportunity to satisfy the learning objectives for the BioComplete™ Compost Production and Biological Liquid Amendments courses.
-
-  Over ten highly supported days you will build and manage biologically complete compost piles, monitor conditions and make timely adjustments, produce and apply compost extracts, teas and protozoan infusions, assess samples using microscopy with beginner support available, extract and observe nematodes, and troubleshoot with direct guidance from mentors.
-
-  Months or years of independent practice, compressed.
+  Join us in Coimbatore India 19-30th October, 2026.
 
   Link in bio.
+
+### india-post-2
+- **Eyebrow:** ACCELERATOR WORKSHOP · INDIA 2026
+- **Headline:** Join us in Coimbatore India 19-30th October, 2026
+- **Support:** Designed for students who learn best by doing.
+- **Caption:** Designed for students who learn best by doing, this immersive 10-day experience provides a different, but equivalent, pathway through the Soil Food Web Complete Practicum, combining expert instruction with real-world application.
+
+  Accelerate your learning through an intensive, hands-on workshop at Save Soil Farm. Your experience includes accommodation and meals at the Isha Yoga Center, where the surroundings support wellness, mindfulness, and connection throughout your stay.
+
+  Deepen your skills, build lasting relationships, and learn in a destination unlike any other.
+
+  Link in bio.
+
+### india-post-3
+- **Eyebrow:** WHY ATTEND THIS WORKSHOP?
+- **Headline:** Save Time and Enhance Experience
+- **Support:** What often takes students 18 to 24 months, in a focused, supportive environment.
+- **Caption:** Our accelerator workshops are the fastest way to progress through the BioComplete™ Compost Production and Biological Liquid Amendments sections of our Advanced Programs.
+
+  What often takes students 18 to 24 months, building multiple compost piles alone, you can now achieve in a focused, supportive environment.
+
+  Our experienced instructors bring a rich mix of expertise, spanning large-scale farming, composting, agronomy, biology, permaculture, and more. You will receive in-depth support and practical answers throughout the workshop.
+
+  Coimbatore, 19 to 30 October. Link in bio.
+
+### india-post-4
+- **Eyebrow:** WHERE YOU WILL LEARN AND PRACTICE
+- **Headline:** A Save Soil Model Farm
+- **Support:** Sadhguru's Save Soil Regenerative Revolution Farm, Coimbatore.
+- **Caption:** You will spend your evenings at the Isha Yoga Center, but your days will be spent creating biological inoculants and learning the Soil Food Web Methodology at Sadhguru's Save Soil Regenerative Revolution Farm.
+
+  Established by Sadhguru in 2007 as part of Isha's commitment to environmental restoration, the Regenerative Revolution Farm works to improve soil fertility while enhancing the economic well-being of farmers throughout Tamil Nadu and Puducherry.
+
+  Located approximately 3 km from the Isha Yoga Center, the farm will serve as our outdoor classroom for the Accelerator Workshop. Daily shuttle transportation will be provided.
+
+  Link in bio.
+
+### india-post-5
+- **Eyebrow:** ENROLLMENT INCLUDES
+- **Headline:** 13 nights of accommodations and meals from the Isha Yoga Center
+- **Support:** 10 days of intensive classroom sessions, hands-on training and fieldwork.
+- **Caption:** Enrollment includes:
+
+  10 days of intensive classroom sessions and hands-on Soil Food Web training and fieldwork.
+
+  13 nights of accommodations and meals from the Isha Yoga Center.
+
+  Hands-on experience applying Soil Food Web Methodology on the renowned Save Soil working farm.
+
+  Certificate of Attendance for the Workshop.
+
+  Access to course materials for review after workshop completion.
+
+  Two weeks of live access to Soil Food Web school mentors, executives, and curriculum creators, with one-on-one and group Q&A.
+
+  Link in bio.
+
+### india-post-6
+- **Eyebrow:** ACCELERATOR WORKSHOP · INDIA 2026
+- **Headline:** Enrollment is filling up!
+- **Support:** Save Your Seat, Don't Delay!
+- **Caption:** Enrollment is filling up! If you are eager to accelerate your Soil Food Web Consultant education, or simply want to have the experience of a lifetime, don't delay!
+
+  Receive gold-standard Soil Food Web education and gain professional experience on-site in a place designed for holistic wellness and a deep realization of what the Earth needs now.
+
+  Coimbatore, 19 to 30 October 2026. Link in bio.
 
 ---
 
