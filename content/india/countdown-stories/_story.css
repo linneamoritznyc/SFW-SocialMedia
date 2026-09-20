@@ -88,11 +88,16 @@ body { display:flex; align-items:flex-start; justify-content:flex-start; }
    across the top rather than half the frame, and the cream panel runs to the
    bottom edge. Type stops at 1420, leaving the bottom 500px for the
    countdown sticker. Colours and roles follow the page itself: near black
-   headline, Harvest Gold on "don't delay", Ink body, bold call to action. */
+   headline, Harvest Gold on "don't delay", Ink body, bold call to action.
+   The support paragraph sits at 46px, the same size the other stories use,
+   so it reads at arm's length. The photograph band pays for the extra height:
+   it was 690 and is now 570, and the -signup.jpg crops were recut to match
+   by content/india/countdown-stories/recrop-signup.py. The type is never cut
+   to fit. */
 .signup { width:1080px; height:1920px; background:var(--cream); }
-.signup .photo { left:0; right:0; top:0; height:690px; }
-.signup .band  { left:0; right:0; top:690px; bottom:0; background:var(--cream); }
-.signup .copy  { left:70px; right:70px; top:748px; }
+.signup .photo { left:0; right:0; top:0; height:570px; }
+.signup .band  { left:0; right:0; top:570px; bottom:0; background:var(--cream); }
+.signup .copy  { left:70px; right:70px; top:628px; }
 .signup .eyebrow {
   font-family:var(--display); font-weight:600; font-size:30px;
   letter-spacing:.16em; text-transform:uppercase; color:var(--green);
@@ -111,7 +116,7 @@ body { display:flex; align-items:flex-start; justify-content:flex-start; }
 }
 .signup .lede b { color:var(--gold); font-weight:700; }
 .signup .support {
-  font-family:var(--sans); font-size:36px; line-height:1.4; color:var(--ink);
+  font-family:var(--sans); font-size:46px; line-height:1.36; color:var(--ink);
   margin-top:26px;
 }
 .signup .cta {
