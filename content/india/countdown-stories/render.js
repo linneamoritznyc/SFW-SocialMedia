@@ -74,7 +74,7 @@ const GUIDES = `
 
     /* Geometry check: every drawn element against every reserved rectangle. */
     const boxes = await page.evaluate(() => {
-      const sel = '.lockup, .step, .kicker, .eyebrow, h1, .sub, .partner, .card, .credit,\n                   .shape, .panel, .plate, .strip, .strip div, .week, .week b, .week p, .rule';
+      const sel = '.mark, .kicker, .eyebrow, h1, .sub, .partner, .card,\n                   .panel, .plate, .strip, .strip div, .week, .week b, .week p, .rule';
       return [...document.querySelectorAll(sel)].map((el) => {
         const r = el.getBoundingClientRect();
         return { what: (el.className || el.tagName).toString().split(' ')[0],
@@ -84,13 +84,20 @@ const GUIDES = `
       });
     });
 
+    // the mark is a no-go box of its own: nothing may run into the logo
+    const mark = boxes.find((b) => b.what === 'mark');
+    const zones = mark
+      ? [...RESERVED, { name: 'the mark', x: mark.x, y: mark.y, w: mark.w, h: mark.h }]
+      : RESERVED;
+
     const hits = [];
     for (const b of boxes) {
+      if (b.what === 'mark') continue;
       if (b.w === 0 || b.h === 0) continue;
       if (b.x < 0 || b.y < 0 || b.x + b.w > W || b.y + b.h > H) {
         hits.push(`${b.what} runs off the frame (${b.x},${b.y} ${b.w}x${b.h})`);
       }
-      for (const z of RESERVED) {
+      for (const z of zones) {
         if (b.x < z.x + z.w && b.x + b.w > z.x && b.y < z.y + z.h && b.y + b.h > z.y) {
           hits.push(`${b.what} "${b.text}" overlaps ${z.name} (${b.x},${b.y} ${b.w}x${b.h})`);
         }

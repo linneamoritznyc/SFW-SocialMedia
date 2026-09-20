@@ -24,6 +24,9 @@ node content/india/countdown-stories/render.js
 
 ## The run
 
+Every frame carries the wordmark on a cream rectangle at the top, and the
+Velliangiri Hills photograph from the lower half down to the bottom edge.
+
 | | Frame | Carries | Stickers to add |
 | :-- | :-- | :-- | :-- |
 | 1 | **Closing** | Last hours to enroll / Enrollment closes tonight, in gold, and the standing facts | countdown **and** link |
@@ -38,7 +41,7 @@ only one that does not point at the workshop page: it is for the people these
 dates do not fit. Post it after the deadline passes, or alongside frame 4 if
 you want it in the same run.
 
-Every frame repeats three standing facts as a strip, so anyone who joins the
+Frames 1 and 3 repeat the standing facts as a strip, so anyone who joins the
 run halfway still gets where, when and how long: Coimbatore, India · Oct 19 to
 30 · 10 days. The partner line runs along the bottom of all five: *with the
 Isha Foundation and the Conscious Planet Save Soil movement*.
@@ -83,11 +86,15 @@ nothing else changes.
 
 Every frame works with no photograph, which is why they can post today.
 
-To add one: uncomment the `.photo` block at the top of a story file, point it at
-a file in `assets/india-free-images/`, uncomment the `.credit` line at the
-bottom and put the photographer's name in it, add the row to
-`assets/india-free-images/CREDITS.md`, then re-run `render.js`. A dark green
-wash sits over the picture so the type keeps its contrast.
+All five use `navi-EkQEfFhmhrg-unsplash.jpg`, the Velliangiri Hills at
+Coimbatore. To swap it, point the `.photo` block at another file in
+`assets/india-free-images/`, add that file's row to `CREDITS.md`, then re-run
+`render.js`. The scrim over the picture is near solid where the words are and
+opens up below them, which is where the stickers go.
+
+No photographer credit is printed on the frames. Unsplash asks for a credit
+rather than requiring one, and the decision here is not to carry one. The
+credit still belongs in `CREDITS.md`.
 
 Upload pictures here, in the browser:
 <https://github.com/linneamoritznyc/SFW-SocialMedia/upload/claude/upbeat-babbage-ggergv/assets/india-free-images>
@@ -103,7 +110,8 @@ Only the facts supplied for this deadline: the name in full, the place, the
 dates, the ten days, the two weeks' content, payment plans, local pricing for
 India residents, and the interest list. No price, no attendance number, no
 claim about results. The section labels (Why attend, What you will learn, More
-info) and the field labels (Where, When, How long) are structure, not claims.
+info) in the file names and the field labels (Where, When, How long) are
+structure, not claims.
 
 The hours remaining are not written on any frame, on purpose. The countdown
 sticker carries that and stays right as the hours pass; typed-in text does not.

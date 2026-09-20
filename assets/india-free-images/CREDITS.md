@@ -13,8 +13,10 @@ as required.
 
 **`navi-EkQEfFhmhrg-unsplash.jpg`** The Velliangiri Hills at Coimbatore, Tamil
 Nadu, under morning mist. The right range: the Isha Yoga Center sits at the
-foot of these hills. Used as a lower band on stories 1 and 2, with the
-photographer's name in the frame.
+foot of these hills. Runs across the lower half of all five
+stories. No credit is printed on the frames: Unsplash asks for one rather than
+requiring it, and the decision on this set is to keep the frames clean. The
+credit lives here.
 
 ⚑ **The copy in this folder is a 1949 x 1303 crop taken from a screenshot of
 the Unsplash page, not the original download.** The agent could not reach
@@ -38,5 +40,4 @@ and it can go on story 5.
 3. `Unsplash URL` the photo page, `https://unsplash.com/photos/...`, not the
    direct image file and not a search result.
 
-Then put `Photo: [Photographer] / Unsplash` in the `.credit` line of any story
-that uses the file.
+That row is the record. Nothing is printed on the frames.
