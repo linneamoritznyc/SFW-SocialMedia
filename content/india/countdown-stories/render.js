@@ -1,4 +1,4 @@
-/* Render the five India countdown stories to 1080 x 1920 PNGs, and check that
+/* Render the India countdown stories to 1080 x 1920 PNGs, and check that
  * nothing is drawn where a sticker or the Instagram interface goes.
  *
  *   node content/india/countdown-stories/render.js
@@ -18,7 +18,8 @@ const fs = require('fs');
 
 const HERE = __dirname;
 const REPO = path.resolve(HERE, '..', '..', '..');
-const STORIES = ['a-deadline', 'b-hands', 'c-weeks', 'd-payment', 'e-next'];
+const STORIES = ['a-deadline', 'b-hands', 'c-weeks', 'd-payment', 'e-next',
+                 'f-extended', 'g-stillopen'];
 const W = 1080, H = 1920;
 
 /* The reserved rectangles, in the same numbers as _story.css. */
@@ -73,7 +74,7 @@ const GUIDES = `
 
     /* Geometry check: every drawn element against every reserved rectangle. */
     const boxes = await page.evaluate(() => {
-      const sel = '.mark, h1, .support, .partner, .credit, .card, .week, .week b,\n                   .week-rule';
+      const sel = '.mark, .eyebrow, h1, .body p, .cta, .partner, .credit, .card';
       return [...document.querySelectorAll(sel)].map((el) => {
         const r = el.getBoundingClientRect();
         return { what: (el.className || el.tagName).toString().split(' ')[0],
@@ -115,6 +116,7 @@ const GUIDES = `
 
   await browser.close();
   server.close();
-  console.log(problems ? `\n${problems} problem(s). Fix before posting.` : '\nAll five clear.');
+  console.log(problems ? `\n${problems} problem(s). Fix before posting.`
+                       : `\nAll ${STORIES.length} clear.`);
   process.exit(problems ? 1 : 0);
 })();

@@ -54,8 +54,12 @@ CROPS = {
     #    read beside the cream card rather than behind it.
     'ranjini-hemanth-KljpahUzp9U-unsplash.jpg': (2400,    0, 4650, 4000),
     # E. Sunset with a wide open sky. The horizon sits low, which leaves the
-    #    middle of the frame empty for the centred type.
+    #    middle of the frame empty for the type.
     'gowtham-agm-WUmWuxVdC1g-unsplash.jpg':     ( 235,    0, 2766, 4500),
+    # F and G are the two extended-deadline frames, alternates of A. They get
+    # their own pictures so a viewer who saw A does not think nothing changed.
+    'remi-clinton-E5egsk4eUQ0-unsplash.jpg':    (1800,    0, 4050, 4000),
+    'div-1UFPvT_Qrt4-unsplash.jpg':             (1400,    0, 2676, 2268),
 }
 for name, box in CROPS.items():
     im = Image.open(os.path.join(SRC, name))

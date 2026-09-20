@@ -24,7 +24,13 @@ node    content/india/countdown-stories/render.js    # the ten PNGs
 
 ---
 
-## The five
+## The set
+
+Every frame carries the same four things: the eyebrow naming the workshop,
+the headline, the facts on their own lines, and the partner credit. Body text
+is 32 to 34px and the partner line is 26px, because at 1080 wide the frame is
+about 400 physical pixels across and anything smaller cannot be read in the
+hand.
 
 | | Layout | Says | Colour family | Photograph |
 | :-- | :-- | :-- | :-- | :-- |
@@ -32,9 +38,18 @@ node    content/india/countdown-stories/render.js    # the ten PNGs
 | **B** | headline bottom left, photo open at the top | Learn with your hands in the pile / Coimbatore, India · Oct 19 to 30 | Food Web Green scrim, cream type, **Natural Tan** support | Nitish Surelia, the peak under cloud |
 | **C** | two stacked week lines, thin cream rule between | Week 1 and Week 2 | deep green scrim, cream type, **Light Green** labels | Cymatics, light through storm cloud |
 | **D** | cream card at bottom left, 55% of the width | Payment plans available / India residents: email us for local pricing | cream card, Soil Brown type, **Education Blue** pricing line | Ranjini Hemanth, the terraces |
-| **E** | type centred and small under an open sky | Can't make these dates? / Join the list for future workshops | Natural Tan scrim, Soil Brown type, **Food Web Green** call to action | Gowtham AGM, sunset |
+| **F** | extended deadline, alternate for A | Enrollment extended | Soil Brown scrim, cream type, **Harvest Gold** headline | Remi Clinton, misty farmland |
+| **G** | extended deadline, alternate for A | Still time to enroll | Soil Brown scrim, cream type, **Harvest Gold** headline | Div, sunrise over the ridge |
+| **E** | type left, under an open sky | Can't make these dates? / Join the list for future workshops | Natural Tan scrim, Soil Brown type, **Food Web Green** call to action | Gowtham AGM, sunset |
 
-A to D link to `school.soilfoodweb.com/courses/india-workshop-2026`. E links to
+**F and G are extended-deadline alternates for A**, for when the closing time
+moves. They carry A's colour family, including Harvest Gold, because they are
+the same frame with a new deadline, so never post one alongside A. Neither
+prints a date: the countdown sticker carries the new closing time and stays
+right as the hours pass. To print the date instead, replace the line marked
+`data-field="note"` and re-run `render.js`.
+
+A to D, F and G link to `school.soilfoodweb.com/courses/india-workshop-2026`. E links to
 `school.soilfoodweb.com/pages/workshop-interest` and is the only frame that
 does not point at the workshop page: it is for the people these dates do not
 fit.
