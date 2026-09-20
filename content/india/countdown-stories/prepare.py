@@ -38,35 +38,26 @@ for tone, rgb in KNOCKOUTS.items():
 
 # --- the crops --------------------------------------------------------------
 CROPS = {
-    # A. The Velliangiri Hills. Taken right of centre, where the far ridge and
-    #    the bank of mist sit high in the frame and the forested ridge runs in
-    #    along the bottom, under the type.
-    'navi-EkQEfFhmhrg-unsplash.jpg':            (1900,    0, 4150, 4000),
-    # B. The mountain under cloud. Sky trimmed off the top so the peak rides
-    #    up into the clear part of the frame, well above where the scrim comes
-    #    in and well above the headline.
-    'nitish-surelia-OWyHIv86QSY-unsplash.jpg':  ( 486,  520, 2231, 3623),
-    # C. Light breaking through storm cloud over the plain. The darkest
-    #    picture in the set and the one with the most structure in its top
-    #    half, which is the half this frame leaves uncovered.
-    'cymatics-in-pz73YMEi21I-unsplash.jpg':     (1150,    0, 2416, 2250),
-    # D. The terraces. Taken right of centre so the cut banks and the rows
-    #    read beside the cream card rather than behind it.
-    'ranjini-hemanth-KljpahUzp9U-unsplash.jpg': (2400,    0, 4650, 4000),
-    # E. Sunset with a wide open sky. The horizon sits low, which leaves the
-    #    middle of the frame empty for the type.
-    'gowtham-agm-WUmWuxVdC1g-unsplash.jpg':     ( 235,    0, 2766, 4500),
-    # F and G are the two extended-deadline frames, alternates of A. They get
-    # their own pictures so a viewer who saw A does not think nothing changed.
-    'remi-clinton-E5egsk4eUQ0-unsplash.jpg':    (1800,    0, 4050, 4000),
-    'div-1UFPvT_Qrt4-unsplash.jpg':             (1400,    0, 2676, 2268),
+    # The photograph is now the top 45 percent of the frame, 1080 x 864, so
+    # the crop is a 1.25:1 window rather than a 9:16 slice. Each box is
+    # (left, top, right, bottom) in the source file's own pixels, chosen so
+    # the subject sits in the frame and the top left stays dark enough for a
+    # cream logo.
+    'navi-EkQEfFhmhrg-unsplash.jpg':            ( 500,    0, 5500, 4000),
+    'nitish-surelia-OWyHIv86QSY-unsplash.jpg':  (   0,  900, 2717, 3074),
+    'cymatics-in-pz73YMEi21I-unsplash.jpg':     ( 600,    0, 3413, 2250),
+    'ranjini-hemanth-KljpahUzp9U-unsplash.jpg': ( 500,    0, 5500, 4000),
+    'gowtham-agm-WUmWuxVdC1g-unsplash.jpg':     (   0,  800, 3000, 3200),
+    'remi-clinton-E5egsk4eUQ0-unsplash.jpg':    ( 500,    0, 5500, 4000),
+    'div-1UFPvT_Qrt4-unsplash.jpg':             ( 600,    0, 3435, 2268),
 }
+OUT_W, OUT_H = 1080, 864
 for name, box in CROPS.items():
     im = Image.open(os.path.join(SRC, name))
     w, h = box[2]-box[0], box[3]-box[1]
-    assert abs(w/h - 1080/1920) < 0.02, (name, w, h, w/h)
-    out = im.crop(box).resize((1080, 1920), Image.LANCZOS)
-    dst = os.path.join(OUT, name.replace('-unsplash.jpg', '-1080x1920.jpg'))
+    assert abs(w/h - OUT_W/OUT_H) < 0.02, (name, w, h, w/h)
+    out = im.crop(box).resize((OUT_W, OUT_H), Image.LANCZOS)
+    dst = os.path.join(OUT, name.replace('-unsplash.jpg', '-%sx%s.jpg' % (OUT_W, OUT_H)))
     out.save(dst, quality=90, subsampling=1, optimize=True)
-    print('%-46s %s -> 1080x1920  %s KB' % (os.path.basename(dst), (w, h),
-                                            round(os.path.getsize(dst)/1024)))
+    print('%-44s %s -> %sx%s  %s KB' % (os.path.basename(dst), (w, h), OUT_W, OUT_H,
+                                        round(os.path.getsize(dst)/1024)))
