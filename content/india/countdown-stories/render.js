@@ -74,7 +74,7 @@ const GUIDES = `
 
     /* Geometry check: every drawn element against every reserved rectangle. */
     const boxes = await page.evaluate(() => {
-      const sel = '.lockup, .step, .kicker, .eyebrow, h1, .sub, .partner, .card, .credit,\n                   .shape, .plate, .strip, .strip div, .week, .week b, .week p, .rule';
+      const sel = '.lockup, .step, .kicker, .eyebrow, h1, .sub, .partner, .card, .credit,\n                   .shape, .panel, .plate, .strip, .strip div, .week, .week b, .week p, .rule';
       return [...document.querySelectorAll(sel)].map((el) => {
         const r = el.getBoundingClientRect();
         return { what: (el.className || el.tagName).toString().split(' ')[0],
