@@ -68,47 +68,10 @@ This is the single thing here that turns a good post into an apology.
 
 ## Post 1: the invitation
 
-Five slides, 1080 x 1350. `post1-slide-1.html` to `post1-slide-5.html`.
-
-| Slide | What is on it |
-| :-- | :-- |
-| 1 | The collage, cropped to 4:5, faces low. Headline and the partner line |
-| 2 | The workshop. The only card with real details |
-| 3 | The lecture. Placeholder until confirmed |
-| 4 | The panel and the seminar. Placeholder until confirmed |
-| 5 | Photograph, and the open question |
-
-### Caption
-
-> We are coming to India in October.
->
-> Four events across the country: a lecture, a panel, a seminar, and a workshop, with people who have spent their careers on natural farming and soil policy. Delegates are coming from organizations leading that work globally.
->
-> India has more Soil Food Web practitioners than we have events to hold, and most of them have never met each other. That is the actual reason for this trip. The talks are the excuse. The room is the point.
->
-> If you are going, say so in the comments and tell us where you are coming from. We would like to know who will be there before we arrive.
->
-> #SoilFoodWeb #LivingSoil #SoilHealth #NaturalFarming #SaveSoil #RegenerativeAgriculture #SoilBiology
-
-Seven hashtags. One call to action.
-
-**One line to check before posting.** "Delegates are coming from organizations
-leading that work globally" is a claim about who is attending. If the delegate
-list is not confirmed, cut the sentence. It costs nothing and it is the kind of
-line that gets quoted back.
-
-### The Save Soil line
-
-Tag Isha Outreach and say what the partnership is, in one line, in the first
-comment or in the caption:
-
-> Co-hosted with Isha Outreach, whose Conscious Planet: Save Soil campaign is
-> where a lot of you are arriving from. You already know soil matters. We are the
-> ones with the microscope.
-
-That is the bridge, and it is why the Save Soil audience is worth writing for
-separately. They have the conviction. What they have not been shown is that
-biology is measurable.
+Rebuilt 21 September 2026 as a six-slide carousel in `content/india/carousel/`.
+The five slides that used to live here (`post1-slide-1.html` to
+`post1-slide-5.html`) are gone. The caption, with the photo credits, is in
+`content/india/carousel/caption.md`.
 
 ---
 
