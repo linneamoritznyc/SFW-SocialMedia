@@ -49,10 +49,10 @@ def slide(panels, notes, photo=None):
     lg = box(s, MSO_SHAPE.OVAL, 80, 1250, 80, 80, CREAM); words(lg, "LOGO", 18, DEEP, HEAD, pad=0)
     ft = s.shapes.add_textbox(Emu(180*PX), Emu(1250*PX), Emu(420*PX), Emu(80*PX)); tf = ft.text_frame
     tf.vertical_anchor = MSO_ANCHOR.MIDDLE; r = tf.paragraphs[0].add_run(); r.text = "Soil Food Web School"
-    r.font.size = Pt(34*0.75); r.font.name = HEAD; r.font.bold = True; r.font.color.rgb = rgb(GLOW)
+    r.font.size = Pt(38*0.75); r.font.name = HEAD; r.font.bold = True; r.font.color.rgb = rgb(GLOW)
     hd = s.shapes.add_textbox(Emu(580*PX), Emu(1250*PX), Emu(420*PX), Emu(80*PX)); tf = hd.text_frame
     tf.vertical_anchor = MSO_ANCHOR.MIDDLE; p = tf.paragraphs[0]; p.alignment = PP_ALIGN.RIGHT
-    r = p.add_run(); r.text = "@soilfoodwebschool"; r.font.size = Pt(30*0.75); r.font.name = BODY; r.font.color.rgb = rgb(CREAM)
+    r = p.add_run(); r.text = "@soilfoodwebschool"; r.font.size = Pt(36*0.75); r.font.name = BODY; r.font.color.rgb = rgb(CREAM)
     s.notes_slide.notes_text_frame.text = notes
     return s
 
