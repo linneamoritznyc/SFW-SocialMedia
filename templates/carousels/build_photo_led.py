@@ -66,8 +66,8 @@ slide([(80, 130, "Fact, one line.", "deep", 52), (230, 190, "What it means, two 
       "Photo: assets/photo/workshop-group-around-compost-pile.jpg. Panels sit in the roof space. Move a panel if it covers faces.",
       ("assets/photo/workshop-group-around-compost-pile.jpg", 0.5, 0.5))
 slide([(90, 190, "Fact, two lines.", "deep", 52), (300, 120, "What it means, one line.", "green", 52)],
-      "Photo: assets/photo/hand-soil-roots-fungi.jpg. Same layout, panels kept to the top third.",
-      ("assets/photo/hand-soil-roots-fungi.jpg", 0.5, 1.0))
+      "Photo: assets/photo/erc-rancho-cacachilas-agro.jpg (crop rows under a wide sky). Panels sit in the sky.",
+      ("assets/photo/erc-rancho-cacachilas-agro.jpg", 0.5, 0.5))
 slide([(50, 190, "One closing call to action, two lines at most.", "deep", 50)],
       "Closing. One call to action only. Photo: assets/photo/wild-ken-hill-img-1502.jpg (Wild Ken Hill, June 2026).",
       ("assets/photo/wild-ken-hill-img-1502.jpg", 0.5, 0.5))
