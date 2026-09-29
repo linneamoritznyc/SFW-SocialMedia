@@ -14,3 +14,17 @@ Photo, diagram and icon boxes are marked `[PHOTO]`, `[DIAGRAM]`, `[ICON]`. Speak
 Rebuild: `pip install python-pptx && python3 build.py`.
 Rules kept: every number needs a source line, no invented facts (placeholders describe the shape, not a claim),
 Harvest Gold `#C9A227` only on the graduate result number and the checklist "Save this" label.
+
+## Dated posts (`posts/`)
+
+One PPTX per post, named `YYYY-MM-DD-day-slug.pptx`. The date and post name are also in each file's title and at the top of every slide's speaker notes.
+Change `START` in `build.py` to move the whole two-week plan, then run `python3 build.py`.
+
+| Date | Post |
+| :-- | :-- |
+| Mon 5 Oct 2026 | Did you know #1 |
+| Wed 7 Oct 2026 | Soil Regenerators in the wild #1 |
+| Fri 9 Oct 2026 | Numbered checklist |
+| Mon 12 Oct 2026 | Field Notes |
+| Wed 14 Oct 2026 | Soil Regenerators in the wild #2 |
+| Fri 16 Oct 2026 | Did you know #2 |

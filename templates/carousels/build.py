@@ -1,3 +1,4 @@
+import os
 """Builds the four carousel templates as PPTX. Run: python3 build.py
 1080 x 1350 (4:5). Colours and fonts from variants/_tokens.css. Every content
 text box carries [COPY: Allison]; fixed labels (series name, handle) do not."""
@@ -111,7 +112,7 @@ def graduate():
     copy(s, 60, 980, 960, 50, "Graduate name", 34, color="green", font=DISPLAY, bold=True)
     text(s, 60, 1040, 960, 50, "@soilfoodwebschool graduate", 34, color="faint", font=DISPLAY, bold=True)
     dots(s, 5, 4)
-    p.save("soil-regenerators-in-the-wild.pptx")
+    return p
 
 # ------------------------------------------------------------------ 2
 def ruled(s, dark=False):
@@ -170,13 +171,13 @@ def fieldnotes():
     copy(s, 130, 620, 850, 400, "One or two lines: their ground, their crop, their years growing. Link to the full report if it exists.", 46, color="moss", font=SERIF, spacing=1.1)
     text(s, 130, 1200, 850, 40, "@soilfoodwebschool", 28, color="faint", font=DISPLAY, bold=True)
     dots(s, 6, 5)
-    p.save("field-notes.pptx")
+    return p
 
 # ------------------------------------------------------------------ 3
-def didyouknow():
+def didyouknow(cover="assets/microscopy/fungal-spores-in-suspension.jpg", cover_note="brightfield soil sample: round spores and short bacterial rods"):
     p = new()
-    s = slide(p, "scope", "Cover. Photo: assets/microscopy/fungal-spores-in-suspension.jpg (brightfield soil sample: round spores and short bacterial rods). Swap to match the fact. Fact must have a named source before posting.")
-    s.shapes.add_picture(crop("assets/microscopy/fungal-spores-in-suspension.jpg", W, 640), 0, 0, Emu(W*PX), Emu(640*PX))
+    s = slide(p, "scope", "Cover. Photo: " + cover + " (" + cover_note + "). Swap to match the fact. Fact must have a named source before posting.")
+    s.shapes.add_picture(crop(cover, W, 640), 0, 0, Emu(W*PX), Emu(640*PX))
     text(s, 60, 670, 700, 40, "DID YOU KNOW", 28, color="glow", font=DISPLAY, bold=True)
     copy(s, 60, 730, 960, 460, "One surprising fact, specific and nerdy. Name the organism or the molecule.", 50, color="white", font=DISPLAY, bold=True, spacing=1.1)
     text(s, 60, 1280, 960, 36, "Swipe for the mechanism", 28, color="glow", font=DISPLAY, bold=True)
@@ -199,7 +200,7 @@ def didyouknow():
     copy(s, 60, 300, 960, 600, "One line. What the reader can now look for or do on their own ground.", 72, color="white", font=DISPLAY, bold=True, spacing=1.1)
     copy(s, 60, 1000, 960, 100, "One call to action only, or none.", 36, color="glow", font=SERIF, italic=True)
     handle(s, "sage"); dots(s, 5, 4, on="glow", off="scope")
-    p.save("did-you-know.pptx")
+    return p
 
 # ------------------------------------------------------------------ 4
 def checklist():
@@ -230,7 +231,35 @@ def checklist():
         text(s, 84, y+34, 72, 72, str(i+1), 36, color="glow", font=DISPLAY, bold=True, align="c", anchor="m")
         copy(s, 190, y, 800, 140, f"Item {i+1}, short form.", 38, color="moss", font=DISPLAY, bold=True, anchor="m")
     handle(s); dots(s, 7, 6)
-    p.save("numbered-checklist.pptx")
+    return p
+
+import datetime
+DOW = "Mon Tue Wed Thu Fri Sat Sun".split()
+
+# Two-week plan, 3 posts a week (Mon / Wed / Fri). Change START to move the whole plan.
+START = datetime.date(2026, 10, 5)
+PLAN = [
+    (0,  "did-you-know",  "Did you know #1", lambda: didyouknow()),
+    (2,  "graduate",      "Soil Regenerators in the wild #1", lambda: graduate()),
+    (4,  "checklist",     "Numbered checklist", lambda: checklist()),
+    (7,  "field-notes",   "Field Notes", lambda: fieldnotes()),
+    (9,  "graduate",      "Soil Regenerators in the wild #2", lambda: graduate()),
+    (11, "did-you-know",  "Did you know #2", lambda: didyouknow("assets/microscopy/sfw-amoeba-still-wide.jpg", "still from the amoeba microscopy loop")),
+]
+
+def date_deck(p, d, name):
+    tag = f"POST: {DOW[d.weekday()]} {d.day} {d.strftime('%b %Y')} | {name}"
+    p.core_properties.title = tag
+    for s in p.slides:
+        tf = s.notes_slide.notes_text_frame
+        tf.text = tag + "\n" + tf.text
+    return tag
 
 if __name__ == "__main__":
-    graduate(); fieldnotes(); didyouknow(); checklist()
+    for fn, out in ((graduate, "soil-regenerators-in-the-wild"), (fieldnotes, "field-notes"), (didyouknow, "did-you-know"), (checklist, "numbered-checklist")):
+        fn().save(out + ".pptx")   # undated master templates
+    os.makedirs("posts", exist_ok=True)
+    for offset, slug, name, make in PLAN:
+        d = START + datetime.timedelta(days=offset)
+        p = make(); date_deck(p, d, name)
+        p.save(f"posts/{d.isoformat()}-{DOW[d.weekday()].lower()}-{slug}.pptx")
