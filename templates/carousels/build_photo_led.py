@@ -1,6 +1,7 @@
 """Photo-led carousel, 1080 x 1350, all native objects. Run: python3 build_photo_led.py
 Full-bleed PHOTO placeholder, rounded text panels, deep green footer bar with LOGO placeholder."""
 import os
+from photos import crop
 from pptx import Presentation
 from pptx.util import Emu, Pt
 from pptx.dml.color import RGBColor
@@ -35,10 +36,14 @@ def panel(s, y, h, t, style="deep", size=54):
     words(r, f"{TAG} {t}", size, col, BODY)
 
 WHITE = "FFFFFF"
-def slide(panels, notes):
+def slide(panels, notes, photo=None):
     s = prs.slides.add_slide(prs.slide_layouts[6])
-    ph = box(s, MSO_SHAPE.RECTANGLE, 0, 0, W, 1230, SAGE)
-    words(ph, "PHOTO", 44, DEEP, HEAD)
+    if photo:
+        rel, fx, fy = photo
+        s.shapes.add_picture(crop(rel, W, 1230, fx, fy), 0, 0, Emu(W*PX), Emu(1230*PX))
+    else:
+        ph = box(s, MSO_SHAPE.RECTANGLE, 0, 0, W, 1230, SAGE)
+        words(ph, "PHOTO", 44, DEEP, HEAD)
     for p in panels: panel(s, *p)
     box(s, MSO_SHAPE.RECTANGLE, 0, 1230, W, 120, DEEP)
     lg = box(s, MSO_SHAPE.OVAL, 80, 1250, 80, 80, CREAM); words(lg, "LOGO", 18, DEEP, HEAD, pad=0)
@@ -52,13 +57,18 @@ def slide(panels, notes):
     return s
 
 slide([(280, 110, "Happy [Occasion]!", "deep", 60), (470, 200, "One short line that celebrates it.", "green", 50)],
-      "Cover. Photo: real SFW photo, people looking away or at the land works best. Keep both panels off faces.")
-slide([(230, 250, "Fact one, two or three lines, plain words.", "deep", 52), (540, 250, "What follows from it, one to three lines.", "green", 52)],
-      "Any fact needs a named source before posting. Do not paste unsourced science claims.")
-slide([(200, 130, "Fact, one line.", "deep", 52), (350, 240, "What it means, two lines.", "green", 52)],
-      "Keep panels above the crowd. Move a panel if it covers faces.")
-slide([(320, 210, "Fact, two lines.", "deep", 52), (560, 130, "What it means, one line.", "green", 52)],
-      "Same layout, panels lower.")
-slide([(170, 230, "One closing call to action, two lines at most.", "deep", 56)],
-      "Closing. One call to action only.")
+      "Cover. Photo: assets/photo/erc-rancho-cacachilas-agro2.jpg. Swap for a photo that fits the occasion.",
+      ("assets/photo/erc-rancho-cacachilas-agro2.jpg", 0.5, 0.5))
+slide([(100, 230, "Fact one, two or three lines, plain words.", "deep", 52), (350, 220, "What follows from it, one to three lines.", "green", 52)],
+      "Photo: assets/photo/wild-ken-hill-img-1494.jpg (Wild Ken Hill, June 2026). Panels sit above the faces. Any fact needs a named source before posting.",
+      ("assets/photo/wild-ken-hill-img-1494.jpg", 0.5, 0.0))
+slide([(80, 130, "Fact, one line.", "deep", 52), (230, 190, "What it means, two lines.", "green", 52)],
+      "Photo: assets/photo/workshop-group-around-compost-pile.jpg. Panels sit in the roof space. Move a panel if it covers faces.",
+      ("assets/photo/workshop-group-around-compost-pile.jpg", 0.5, 0.5))
+slide([(90, 190, "Fact, two lines.", "deep", 52), (300, 120, "What it means, one line.", "green", 52)],
+      "Photo: assets/photo/hand-soil-roots-fungi.jpg. Same layout, panels kept to the top third.",
+      ("assets/photo/hand-soil-roots-fungi.jpg", 0.5, 1.0))
+slide([(50, 190, "One closing call to action, two lines at most.", "deep", 50)],
+      "Closing. One call to action only. Photo: assets/photo/wild-ken-hill-img-1502.jpg (Wild Ken Hill, June 2026).",
+      ("assets/photo/wild-ken-hill-img-1502.jpg", 0.5, 0.5))
 prs.save(os.path.join(os.path.dirname(os.path.abspath(__file__)), "photo-led-carousel.pptx"))

@@ -2,6 +2,7 @@
 1080 x 1350 (4:5). Colours and fonts from variants/_tokens.css. Every content
 text box carries [COPY: Allison]; fixed labels (series name, handle) do not."""
 from pptx import Presentation
+from photos import crop
 from pptx.util import Emu, Pt
 from pptx.dml.color import RGBColor
 from pptx.enum.shapes import MSO_SHAPE
@@ -174,8 +175,8 @@ def fieldnotes():
 # ------------------------------------------------------------------ 3
 def didyouknow():
     p = new()
-    s = slide(p, "scope", "Cover. Fact must have a named source before posting. Nerdy and specific is the goal.")
-    photo(s, 0, 0, W, 640, "Microscope image (assets/microscopy/)", fill="moss")
+    s = slide(p, "scope", "Cover. Photo: assets/microscopy/fungal-spores-in-suspension.jpg (brightfield soil sample: round spores and short bacterial rods). Swap to match the fact. Fact must have a named source before posting.")
+    s.shapes.add_picture(crop("assets/microscopy/fungal-spores-in-suspension.jpg", W, 640), 0, 0, Emu(W*PX), Emu(640*PX))
     text(s, 60, 670, 700, 40, "DID YOU KNOW", 28, color="glow", font=DISPLAY, bold=True)
     copy(s, 60, 730, 960, 460, "One surprising fact, specific and nerdy. Name the organism or the molecule.", 50, color="white", font=DISPLAY, bold=True, spacing=1.1)
     text(s, 60, 1280, 960, 36, "Swipe for the mechanism", 28, color="glow", font=DISPLAY, bold=True)
