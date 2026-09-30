@@ -7,7 +7,7 @@ Every element is a native, editable PowerPoint object; photos and stickers are s
 import os, random, tempfile
 from PIL import Image, ImageFilter
 from pptx.util import Emu
-from lib import (Deck, Tilt, _place, rect, rrect, text, logo, crop, ROOT, PX,
+from lib import (Deck, Tilt, _place, rect, rrect, oval, poly, text, crop, ROOT, PX,
                  DEEP, GREEN, CREAM, GLOW, INK, FAINT, HEAD, BODY, WHITE)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -110,9 +110,9 @@ FOCUS = {"rabbit": (0.5, 0.5), "goat": (0.5, 0.4), "sheep": (0.45, 0.5), "alpaca
          "pig": (0.5, 0.5), "dog": (0.5, 0.5), "cat": (0.5, 0.5), "compost-4": (0.5, 0.5)}
 
 
-def status_pill(s, x, y, light, pt=20):
+def status_pill(s, x, y, light, pt=24):
     _, fill, fg, lab = LIGHTS[light]
-    w = len(lab) * pt * 1.3333 * 0.74 + 40; h = 50
+    w = len(lab) * pt * 1.3333 * 0.74 + 48; h = 60
     rrect(s, x, y, w, h, fill, radius=25)
     text(s, x, y, w, h, lab, pt, fg, HEAD, True, align="c", anchor="m", track=2)
     return h
@@ -124,12 +124,50 @@ def slide(d, note):
     return s
 
 
-def animal_text(s, x, y, w, name, light, body, name_pt=60, body_pt=34, name_lines=1, pill_pt=20):
+def animal_text(s, x, y, w, name, light, body, name_pt=64, body_pt=34, name_lines=1, pill_pt=24):
     # LibreOffice and PowerPoint set Montserrat at about 1.25 x the point size in px per line
     text(s, x, y, w, name_lines * name_pt * 1.3333 * 1.25, name, name_pt, DEEP, HEAD, True, spacing=1.05)
     y += name_lines * name_pt * 1.3333 * 1.2 + 10
     y += status_pill(s, x, y, light, pill_pt) + 22
-    text(s, x, y, w, 1300 - y, body, body_pt, INK, BODY, spacing=1.3)
+    text(s, x, y, w, 1200 - y, body, body_pt, INK, BODY, spacing=1.3)
+
+
+LOGO = "assets/logo/sfw-foundation-wordmark-240.png"   # the only logo file in the repo (240 x 208)
+
+
+def sfw_logo(s, x, y, w=200):
+    s.shapes.add_picture(os.path.join(ROOT, LOGO), Emu(int(x * PX)), Emu(int(y * PX)), Emu(int(w * PX)), Emu(int(w * 208 / 240 * PX)))
+
+
+def mark(s, light, cx, cy, d):
+    """Checkmark on the green dot, exclamation mark on the red one (drawn over the paper dot)."""
+    k = d / 140
+    if light == "green":
+        poly(s, [(cx-38*k, cy+2*k), (cx-24*k, cy-12*k), (cx-8*k, cy+4*k), (cx+30*k, cy-34*k),
+                 (cx+44*k, cy-20*k), (cx-8*k, cy+32*k)], CREAM)
+    elif light == "red":
+        text(s, cx - d/2, cy - d/2, d, d, "!", 78 * k, CREAM, HEAD, True, align="c", anchor="m", spacing=1.0)
+
+
+def dot(s, light, cx, cy, d, deg=0):
+    piece(s, LIGHTS[light][0], cx, cy, d, deg); mark(s, light, cx, cy, d)
+
+
+C_TO_F = {55: 131, 68: 154}   # 55 C = 131 F, 68 C = 154.4 F
+HOT = "🌡️ Hot pile: 55 to 68°C (131 to 154°F)"
+TEMPS = {"green": "🌡️ Cold pile is fine. Hot pile: 55 to 68°C (131 to 154°F)",
+         "yellow": HOT,
+         "pig": "🌡️ At least 55°C (131°F), up to 68°C (154°F)",
+         "red": "🌡️ Not for food compost at any temperature"}
+TEMP_NOTE = (" Temperature line: 55 to 68°C from the takeaway; Fahrenheit converted (55°C = 131°F, 68°C = 154°F). "
+             "'Cold pile is fine' for green manures [VERIFY with Wes].")
+
+
+def temp_label(s, t, y=1212):
+    w = min(920, len(t) * 26 * 1.3333 * 0.46 + 80); tl = Tilt(80 + w/2, y + 34, -1)
+    rect(s, 80, y, w, 68, PAPER, tl=tl, shadow=True)
+    text(s, 110, y, w - 40, 68, t, 26, DEEP, BODY, True, anchor="m", tl=tl)
+    tape(s, 90, y + 8, 90, 32, -40)
 
 
 # ================================================================ slides
@@ -139,16 +177,16 @@ def build():
 
     # 1 cover: type only, collage pieces
     s = slide(d, "Cover. Sunday, October 4. World Animal Day: Whose poop goes in the compost? "
-                 "CTA: none. Link: none. Idea: Stina (SLU). " + SOURCE_NOTE)
-    piece(s, CUT + "dried-flowers-1-1.png", 150, 1150, 300, -18)
-    piece(s, CUT + "dried-flowers-2-1.png", 985, 330, 180, 22)
-    text(s, 80, 140, 800, 40, "WORLD ANIMAL DAY", 22, GREEN, HEAD, True, track=2)
-    text(s, 80, 200, 840, 440, "Whose poop goes in your compost?", 84, DEEP, HEAD, True, spacing=1.05)
-    text(s, 80, 680, 700, 110, "Happy World Animal Day, aka Animal Poop Day. 💩", 34, INK, BODY, spacing=1.3)
-    piece(s, CUT + "poop-sticker-1.png", 560, 1010, 470, -6)
+                 "CTA: none. Link: none. Idea: Stina (SLU). 12 slides. " + SOURCE_NOTE)
+    piece(s, CUT + "dried-flowers-1-1.png", 150, 1160, 300, -18)
+    piece(s, CUT + "dried-flowers-2-1.png", 985, 360, 170, 22)
+    sfw_logo(s, 80, 80, 210)
+    text(s, 80, 290, 900, 80, "World Animal Day", 52, GREEN, HEAD, True)
+    text(s, 80, 395, 840, 420, "Whose poop goes in your compost?", 80, DEEP, HEAD, True, spacing=1.05)
+    text(s, 80, 815, 680, 110, "Happy World Animal Day, aka Animal Poop Day. 💩", 34, INK, BODY, spacing=1.3)
+    piece(s, CUT + "poop-sticker-1.png", 560, 1110, 380, -6)
     for i, k in enumerate(("green", "yellow", "red")):
-        piece(s, LIGHTS[k][0], 890, 800 + i * 120, 100, 8 * i)
-    logo(s, outline=DEEP)
+        dot(s, k, 900, 900 + i * 115, 100, 8 * i)
 
     # 2 the rule: type only
     s = slide(d, "The rule. Plant-eaters vs meat-eaters. Legend for the traffic-light dots. " + SOURCE_NOTE)
@@ -158,75 +196,91 @@ def build():
     rect(s, 80, 820, 120, 5, GREEN)
     for i, k in enumerate(("green", "yellow", "red")):
         y = 865 + i * 125
-        piece(s, LIGHTS[k][0], 130, y + 45, 95, 10 * i - 8)
+        dot(s, k, 130, y + 45, 95, 10 * i - 8)
         text(s, 210, y, 640, 90, LIGHTS[k][3].capitalize(), 34, DEEP, HEAD, True, anchor="m", spacing=1.05)
     piece(s, CUT + "poop-sticker-1.png", 940, 1230, 180, 10)
 
-    # 3-8 one animal (or two) per slide
-    def one(key, name, light, body, extra=None, note=""):
-        s = slide(d, f"{name}. {cred_note(key)} {note}{SOURCE_NOTE}")
-        x, y, fw, fh = polaroid(s, key, 170, 110, 680, -2)
+    # 3-10 one animal (or two) per slide
+    def one(key, name, light, body, extra=None, note="", temp=None):
+        s = slide(d, f"{name}. {cred_note(key)} {note}{SOURCE_NOTE}{TEMP_NOTE}")
+        x, y, fw, fh = polaroid(s, key, 220, 95, 580, -2)
         tape(s, x + 40, y + 10, deg=-35); tape(s, x + fw - 40, y + 10, deg=35)
-        piece(s, LIGHTS[light][0], x + fw - 20, y + 80, 160, 12)
+        dot(s, light, x + fw - 20, y + 80, 150, 12)
         if extra: extra(s, x, y, fw, fh)
-        animal_text(s, 90, 925, 900, name, light, body, 56, 32)
+        animal_text(s, 90, 785, 900, name, light, body, 64, 34)
+        temp_label(s, TEMPS[temp or light])
         return s
 
-    def two(keys, name, light, body, note="", name_pt=56, name_lines=1):
-        s = slide(d, f"{name}. {cred_note(*keys)} {note}{SOURCE_NOTE}")
+    def two(keys, name, light, body, note="", name_pt=64, name_lines=1):
+        s = slide(d, f"{name}. {cred_note(*keys)} {note}{SOURCE_NOTE}{TEMP_NOTE}")
         x1, y1, fw1, fh1 = polaroid(s, keys[0], 70, 170, 470, -4, 15)
         x2, y2, fw2, fh2 = polaroid(s, keys[1], 530, 120, 470, 3, 15)
         tape(s, x1 + 60, y1 + 10, deg=-30); tape(s, x2 + fw2 - 60, y2 + 10, deg=30)
-        piece(s, LIGHTS[light][0], x2 + fw2 - 30, y2 + fh2 - 10, 150, 12)
+        dot(s, light, x2 + fw2 - 30, y2 + fh2 - 10, 140, 12)
         piece(s, CUT + "dried-flowers-1-1.png", 90, 700, 160, -30)
-        animal_text(s, 90, 800, 900, name, light, body, name_pt, 32, name_lines)
+        animal_text(s, 90, 780, 900, name, light, body, name_pt, 34, name_lines)
+        temp_label(s, TEMPS[light])
         return s
 
     def dried(s, x, y, fw, fh): piece(s, CUT + "dried-flowers-1-1.png", x - 10, y + fh - 60, 190, -28)
-    def cowpat(s, x, y, fw, fh): piece(s, CUT + "cow-poop-sticker-1.png", x + fw - 40, y + fh - 90, 210, -8)
+    def cowflowers(s, x, y, fw, fh):
+        piece(s, CUT + "dried-flowers-1-1.png", x + fw - 10, y + fh - 90, 200, 24)
+        piece(s, CUT + "dried-flowers-2-1.png", x - 5, y + fh - 80, 160, -22)
     def flower2(s, x, y, fw, fh): piece(s, CUT + "dried-flowers-2-1.png", x - 5, y + fh - 90, 180, -20)
 
+    CN = "carbon-to-nitrogen ratio (C:N)"
     one("rabbit", "Rabbit", "green", "Small dry pellets, rich in nitrogen, low odor. The easiest manure there is.", dried)
-    two(("goat", "sheep"), "Goat and sheep", "green", "Dry pellets, C:N around 16:1. Mix with bedding and compost.")
+    two(("goat", "sheep"), "Goat and sheep", "green", f"Dry pellets, {CN} around 16:1. Mix with bedding and compost.")
     two(("alpaca", "guinea-pig"), "Alpaca, llama and guinea pig", "green",
         "Low-odor pellets. Guinea pig bedding composts right along with them.",
-        note="No llama photo; the alpaca stands in for alpaca and llama. ", name_pt=52, name_lines=2)
+        note="No llama photo; the alpaca stands in for alpaca and llama. ", name_pt=56, name_lines=2)
     one("chicken", "Chicken", "yellow",
-        "The hottest manure: C:N around 7:1, very high in nitrogen. Add lots of woody carbon or ammonia escapes.", flower2)
-    one("cow", "Cow", "yellow", "C:N around 19:1, very wet. Add woody material and let it breathe.", cowpat)
-    one("horse", "Horse", "yellow", "C:N around 25:1 with bedding, drier. Weed seeds survive unless the pile gets hot.", dried)
+        f"The hottest manure: {CN} around 7:1, very high in nitrogen. Add lots of woody carbon or ammonia escapes.", flower2)
+    one("cow", "Cow", "yellow", f"{CN[0].upper() + CN[1:]} around 19:1, very wet. Add woody material and let it breathe.", cowflowers)
+    one("horse", "Horse", "yellow",
+        f"{CN[0].upper() + CN[1:]} around 25:1 with bedding, drier. Weed seeds survive unless the pile gets hot.", dried)
+    one("pig", "Pig", "yellow",
+        f"{CN[0].upper() + CN[1:]} around 14:1. Pigs share parasites and bacteria with people, so the pile must reach 55°C.",
+        flower2, temp="pig")
+    two(("dog", "cat"), "Dog and cat", "red",
+        "Dog poop can carry roundworm and cat poop can carry Toxoplasma. Keep both out of any compost for food.")
 
-    # 9 pig (yellow) + dog and cat (red)
-    s = slide(d, f"Pig, then dog and cat. {cred_note('pig', 'dog', 'cat')} {SOURCE_NOTE}")
-    x, y, fw, fh = polaroid(s, "pig", 70, 90, 400, -3, 15)
-    tape(s, x + 50, y + 8, deg=-30)
-    piece(s, LIGHTS["yellow"][0], x + fw - 10, y + 50, 120, 10)
-    animal_text(s, 540, 130, 470, "Pig", "yellow",
-                "C:N around 14:1. Pigs share parasites and bacteria with people, so the pile must reach 55°C.", 52, 28)
-    rect(s, 80, 675, 920, 3, DEEP, alpha=25)
-    xd, yd, fwd, fhd = polaroid(s, "dog", 560, 720, 225, -4, 11)
-    xc, yc, fwc, fhc = polaroid(s, "cat", 790, 745, 225, 4, 11)
-    tape(s, xd + 30, yd + 6, 110, 36, -30)
-    piece(s, LIGHTS["red"][0], xc + fwc - 40, yc - 10, 100, -10)
-    animal_text(s, 80, 730, 450, "Dog and cat", "red",
-                "Dog poop can carry roundworm and cat poop can carry Toxoplasma. Keep both out of any compost for food.", 52, 28,
-                pill_pt=16)
-    piece(s, CUT + "dried-flowers-2-1.png", 960, 1200, 150, 18)
+    # 11 how hot is hot: thermometer in Celsius and Fahrenheit
+    s = slide(d, "Temperatures in Celsius and Fahrenheit. 55 to 68°C from the post; EPA line from 40 CFR Part 503, "
+                 "Appendix B (process to further reduce pathogens) [VERIFY with Wes]. " + SOURCE_NOTE)
+    text(s, 80, 130, 960, 110, "How hot is hot?", 72, DEEP, HEAD, True)
+    ty = lambda c: 1100 - c * 9.6          # 0 to 80 °C on the tube
+    rrect(s, 150, ty(80) - 20, 90, ty(0) - ty(80) + 40, PAPER, radius=45, line=DEEP, lw=3)
+    rect(s, 150 + 25, ty(68), 40, ty(0) - ty(68) + 10, "D9A521")
+    oval(s, 120, ty(0) - 20, 150, 150, "D9A521", line=DEEP, lw=3)
+    rect(s, 110, ty(68), 170, ty(55) - ty(68), "D9A521", alpha=30)
+    for c in (68, 55):
+        rect(s, 240, ty(c) - 2, 50, 4, DEEP)
+        text(s, 305, ty(c) - 32, 400, 64, f"{c}°C  ({C_TO_F[c]}°F)", 40, DEEP, HEAD, True, anchor="m")
+    text(s, 305, ty(55) + 45, 735, 130, "Every 🟡 manure goes into this window before it goes near food crops.",
+         32, INK, BODY, spacing=1.2)
+    text(s, 305, ty(55) + 205, 735, 230, "US EPA rule: at least 55°C (131°F) for 3 days in a covered or aerated pile, "
+         "or for 15 days with 5 turns in a windrow.", 32, INK, BODY, spacing=1.2)
+    dot(s, "green", 350, 1085, 70); text(s, 400, 1050, 660, 70, "Cold pile is fine.", 30, DEEP, BODY, True, anchor="m")
+    dot(s, "red", 350, 1170, 70); text(s, 400, 1135, 660, 70, "Not for food compost at any temperature.", 30, DEEP, BODY, True, anchor="m")
+    piece(s, CUT + "dried-flowers-2-1.png", 985, 430, 130, 20)
+    text(s, 80, 1265, 760, 40, "Sources: US EPA 40 CFR Part 503; Rynk et al., On-Farm Composting Handbook (NRAES-54), 1992.",
+         15, FAINT, BODY)
 
-    # 10 takeaway: type, one small compost print
+    # 12 takeaway: type, one small compost print
     s = slide(d, "Takeaway. " + cred_note("compost-4") + " " + SOURCE_NOTE)
-    text(s, 80, 150, 800, 40, "THE TAKEAWAY", 22, GREEN, HEAD, True, track=2)
-    text(s, 80, 210, 920, 470, "Any 🟡 manure needs a thermal pile balanced to roughly 25 to 30:1 and held at "
-         "55 to 68°C before it goes near food crops.", 48, DEEP, HEAD, True, spacing=1.15)
-    x, y, fw, fh = polaroid(s, "compost-4", 110, 740, 340, -5, 13)
+    text(s, 80, 130, 920, 110, "The takeaway", 76, DEEP, HEAD, True)
+    text(s, 80, 270, 920, 470, "Any 🟡 manure needs a thermal pile balanced to roughly 25 to 30:1 carbon to nitrogen and "
+         "held at 55 to 68°C (131 to 154°F) before it goes near food crops.", 44, INK, BODY, spacing=1.25)
+    x, y, fw, fh = polaroid(s, "compost-4", 110, 790, 330, -5, 13)
     tape(s, x + fw / 2, y + 4, 130, 40, -8)
-    piece(s, CUT + "dried-flowers-1-1.png", 560, 930, 230, 14)
-    piece(s, CUT + "poop-sticker-1.png", 760, 1000, 180, -8)
+    piece(s, CUT + "dried-flowers-1-1.png", 560, 940, 210, 14)
+    piece(s, CUT + "poop-sticker-1.png", 690, 1150, 140, -8)
+    sfw_logo(s, 810, 1040, 190)
     text(s, 80, 1250, 760, 60, "Sources: Rynk et al., On-Farm Composting Handbook (NRAES-54), 1992; "
          "US EPA 40 CFR Part 503; CDC fact sheets on toxocariasis and toxoplasmosis.", 15, FAINT, BODY, spacing=1.2)
-    logo(s, outline=DEEP)
 
-    d.finish(OUT)
+    d.finish(OUT, counters=False)   # no slide numbers on posts
     print("wrote", OUT)
 
 
