@@ -72,21 +72,32 @@ def option_a():
     save(d, "01-10-2026-thu-li-boubacar-option-a-green.pptx")
 
 
-def option_b():
-    """Education Blue: photo on the left with a curved right edge, the quote large in serif on the right."""
-    d = Deck(W, H, name="01-10-2026-thu-li-boubacar-option-b-blue")
-    s = d.slide("3780B8", "Option B, blue." + NOTE + "Photo: assets/photo/boubacar/vegetable-beds-by-building.jpeg. " + SOURCES,
-                counter=False)
-    grad_rect(s, 0, 0, W, H, "3780B8", "1F4E73")
+def editorial(name, label, c1, c2, edge, soft):
+    """Option B layout (photo left with a curved edge, quote in large serif) in a given colour."""
+    d = Deck(W, H, name=name)
+    s = d.slide(c1, label + NOTE + "Photo: assets/photo/boubacar/vegetable-beds-by-building.jpeg. " + SOURCES, counter=False)
+    grad_rect(s, 0, 0, W, H, c1, c2)
     photo(s, B + "vegetable-beds-by-building.jpeg", 0, 0, 520, H, 0.6, 0.3)
-    curve_edge(s, 520, "2E6A9C", "right", -60)
-    eyebrow(s, 560, 70, "Happy International Coffee Day", "DCEBF7")
-    rect(s, 560, 108, 60, 3, "DCEBF7")
+    curve_edge(s, 520, edge, "right", -60)
+    eyebrow(s, 560, 70, "Happy International Coffee Day", soft)
+    rect(s, 560, 108, 60, 3, soft)
     text(s, 560, 140, 590, 260, QUOTE, 34, CREAM, SERIF, False, italic=True, spacing=1.15)
     text(s, 560, 430, 580, 44, "Boubacar Tidiane Diallo", 28, CREAM, HEAD, True)
-    text(s, 560, 474, 580, 40, "Gnaly Coffee & AgroÉcole Bio, Guinea-Conakry", 22, "DCEBF7", SERIF, False)
+    text(s, 560, 474, 580, 40, "Gnaly Coffee & AgroÉcole Bio, Guinea-Conakry", 22, soft, SERIF, False)
     logo(s, W - 40 - 80, H - 40 - 72, 80, white=True)
-    save(d, "01-10-2026-thu-li-boubacar-option-b-blue.pptx")
+    save(d, name + ".pptx")
+
+
+def option_b():
+    editorial("01-10-2026-thu-li-boubacar-option-b-blue", "Option B, blue.", "3780B8", "1F4E73", "2E6A9C", "DCEBF7")
+
+
+def option_b_green():
+    editorial("01-10-2026-thu-li-boubacar-option-b-green", "Option B layout, green.", "156826", "22371F", "1A5A25", GLOW)
+
+
+def option_b_brown():
+    editorial("01-10-2026-thu-li-boubacar-option-b-brown", "Option B layout, soil brown.", "5A3B39", "3A2524", "4E3331", "E8CDB8")
 
 
 def option_c():
@@ -109,4 +120,4 @@ def option_c():
 
 
 if __name__ == "__main__":
-    option_a(); option_b(); option_c()
+    option_a(); option_b(); option_c(); option_b_green(); option_b_brown()
