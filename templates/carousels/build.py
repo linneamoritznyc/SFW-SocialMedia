@@ -3,7 +3,7 @@ import os
 1080 x 1350 (4:5). Colours and fonts from variants/_tokens.css. Every content
 text box carries [COPY: Allison]; fixed labels (series name, handle) do not."""
 from pptx import Presentation
-from photos import crop
+from photos import crop, sticker
 from pptx.util import Emu, Pt
 from pptx.dml.color import RGBColor
 from pptx.enum.shapes import MSO_SHAPE
@@ -74,6 +74,13 @@ def dots(s, n, i, on="green", off="sage", y=1290):
     for k in range(n):
         rect(s, 1020 - (n-k)*30, y+8, 16, 16, fill=on if k == i else off, shape=MSO_SHAPE.OVAL)
 
+def stick(s, rel, x, y, w, rot=0):
+    p = sticker("assets/microscopy/" + rel, w)
+    from PIL import Image as _I
+    iw, ih = _I.open(p).size
+    pic = s.shapes.add_picture(p, Emu(x*PX), Emu(y*PX), Emu(iw*PX), Emu(ih*PX)); pic.rotation = rot
+    return pic
+
 def source(s, y=1200, color="faint", x=60, w=960):
     copy(s, x, y, w, 60, "Source: who, where, year.", 26, color=color)
 
@@ -132,6 +139,7 @@ def fieldnotes():
     text(s, 130, 60, 850, 40, "FIELD NOTES", 30, color="green", font=DISPLAY, bold=True)
     copy(s, 130, 400, 850, 300, "Trial name, as the graduate titled it", 66, color="moss", font=DISPLAY, bold=True, spacing=1.05)
     copy(s, 130, 780, 850, 130, "Place\nSeason and year", 46, color="green", font=SERIF, italic=True)
+    stick(s, "cutout-6.png", 600, 900, 380, -8)
     dots(s, 6, 0)
 
     def page(n, label, hint, size=64, note=""):
@@ -182,6 +190,7 @@ def didyouknow(cover="assets/microscopy/fungal-spores-in-suspension.jpg", cover_
     s.shapes.add_picture(crop(cover, W, 640), 0, 0, Emu(W*PX), Emu(640*PX))
     text(s, 60, 670, 960, 40, "DID YOU KNOW", 28, color="glow", font=DISPLAY, bold=True)
     copy(s, 60, 730, 960, 460, "One surprising fact. Name the organism.", 50, color="white", font=DISPLAY, bold=True, spacing=1.1)
+    stick(s, "cutout-2.png", 700, 470, 340, 8)
     text(s, 60, 1280, 960, 36, "Swipe for the mechanism", 28, color="glow", font=DISPLAY, bold=True)
     dots(s, 5, 0, on="glow", off="moss")
 
@@ -195,12 +204,14 @@ def didyouknow(cover="assets/microscopy/fungal-spores-in-suspension.jpg", cover_
         text(s, 90, 130, 900, 640, "[DIAGRAM: mechanism, step %d]\nLabel parts in plain words." % (i+1), 32, color="olive" if False else "faint", font=DISPLAY, bold=True, align="c", anchor="m")
         copy(s, 60, 830, 960, 330, hint, 54, color="moss", font=SERIF, spacing=1.1)
         source(s, 1190)
+        stick(s, ["cutout-1.png","cutout-3.png","cutout-5.png"][i], 690, 560, 330, [-6, 7, -8][i])
         handle(s); dots(s, 5, i+1)
 
     s = slide(p, "moss", "Close. One line, tied to the reader's own ground.")
     text(s, 60, 60, 960, 40, "WHY THIS MATTERS FOR YOUR SOIL", 30, color="glow", font=DISPLAY, bold=True)
     copy(s, 60, 300, 960, 600, "One line for their own soil.", 72, color="white", font=DISPLAY, bold=True, spacing=1.1)
     copy(s, 60, 1000, 960, 100, "One call to action, or none.", 36, color="glow", font=SERIF, italic=True)
+    stick(s, "cutout-7.png", 600, 880, 420, -6)
     handle(s, "sage"); dots(s, 5, 4, on="glow", off="scope")
     return p
 
@@ -212,6 +223,7 @@ def checklist():
     text(s, 60, 60, 210, 64, "Save this", 32, color="moss", font=DISPLAY, bold=True, align="c", anchor="m")
     copy(s, 60, 300, 960, 700, "[Number] things to check before [task]", 100, color="white", font=DISPLAY, bold=True, spacing=1.05)
     copy(s, 60, 1080, 960, 100, "Who this is for, and when.", 38, color="glow", font=SERIF, italic=True)
+    stick(s, "cutout-4.png", 690, 90, 320, 9)
     handle(s, "sage"); dots(s, 7, 0, on="glow", off="scope")
 
     for i in range(5):
