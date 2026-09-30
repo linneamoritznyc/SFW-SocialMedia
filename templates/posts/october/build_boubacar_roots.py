@@ -117,7 +117,6 @@ def build():
     framed(s, B + "young-tree-with-pineapples.jpg", 610, 110, 390, 300, 0.5, 0.55, "E4E6CF")
     framed(s, B + "man-by-water-tanks.jpeg", 610, 470, 390, 320, 0.4, 0.5, "E4E6CF")
     band(s, "green", 880, "Fouta Djallon, Guinea-Conakry", 38, "Gnaly Coffee & AgroÉcole Bio", 48)
-    logo_for(s, "green")
 
     # 3 the question, brown
     s = slide(d, "brown", "Quote." + NOTE + " Photo: vegetable-beds-by-building.jpeg.")
@@ -137,7 +136,6 @@ def build():
     framed(s, B + "still-biochar-charcoal-16s.png", 590, 100, 410, 330, 0.5, 0.5, "E4E6CF")
     framed(s, B + "barrel-brew-under-shelter.jpeg", 590, 490, 410, 350, 0.5, 0.35, "E4E6CF")
     band(s, "green", 930, "“I apply compost regularly around young trees and whenever I add new mulch.”", 40)
-    logo_for(s, "green")
 
     # 6 what he grows together, brown
     s = slide(d, "brown", "Crops." + NOTE + " Photos: planting-seedling-in-agroforest.jpeg, banana-bunch.jpg.")
@@ -180,6 +178,11 @@ def build():
     text(s, 0, 1175, W, 90, "Subscribe on YouTube: @boubacartidianediallo", 30, "22371F", SANS, True, align="c", anchor="m")
     logo(s, W - 60 - 110, 40, 110, white=True)
 
+    # Stephanie: logo on the first and last slide, soilfoodweb.com small on the rest
+    foot = {"gold": "1E1412", "green": "F4F1EA", "brown": "F4F1EA"}
+    order = ["gold", "green", "brown", "gold", "green", "brown", "gold", "green", "brown", "gold", "green"]
+    for i, sl in enumerate(list(d.prs.slides)[1:-1], 1):
+        text(sl, 0, H - 48, W, 36, "soilfoodweb.com", 18, foot[order[i]], SANS, False, align="c", anchor="m")
     save(d, "01-10-2026-thu-ig-soil-regenerators-boubacar-roots.pptx")
 
 

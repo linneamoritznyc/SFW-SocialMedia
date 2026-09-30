@@ -132,7 +132,7 @@ def instagram():
     paper(s, "citrus-orange", 985, 810, 140, -8)
     paper(s, "pineapple", 985, 1230, 150, 10)
     paper(s, "cocoa-beans", 150, 1250, 190, -6)
-    paper(s, "coffee-cup-paper", 560, 1265, 150, 4)
+    paper(s, "coffee-cup-paper", 780, 1255, 140, 4)
 
     # 7 harvest (new)
     s = cream(d, "Photo wall: assets/photo/boubacar/buckets-of-tubers.jpg, young-tree-yellow-new-leaves.jpg, "
@@ -187,6 +187,9 @@ def instagram():
     paper(s, "coffee-beans-paper", 930, 1000, 170, 20)
     sb.guinea_flag(s, 960, 700, 130, 6)
     logo(s, 1080 - 50 - 110, 50, 110, white=False)
+    # Stephanie: logo on the first and last slide, soilfoodweb.com small on the rest
+    for sl in list(d.prs.slides)[1:-1]:
+        text(sl, 0, 1350 - 44, 1080, 34, "soilfoodweb.com", 17, DEEP, HEAD, True, align="c", anchor="m")
     save(d, "01-10-2026-thu-ig-soil-regenerators-boubacar.pptx")
 
 
