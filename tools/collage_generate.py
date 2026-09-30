@@ -57,6 +57,21 @@ PIECES = {
     "eggshells": "broken eggshells, several curved shell fragments",
     "cotton-brief": "a plain folded cotton brief (underwear)",
     "raindrop-soil": "a single raindrop falling onto a small patch of soil",
+    "poop-sticker": "a cute cartoon poop swirl sticker, three stacked soft kraft-brown paper coils with a pointed tip, small happy face drawn in graphite",
+    "cow-poop-sticker": "a cute cow pat sticker, a flat round layered kraft-brown paper cow dung patty, wobbly concentric rings, small happy face drawn in graphite",
+    "dot-green": "one flat round paper dot cut from Food Web Green #156826 colored paper, slightly uneven hand-cut circle, colored pencil texture",
+    "dot-yellow": "one flat round paper dot cut from mustard yellow #D9A521 colored paper, slightly uneven hand-cut circle, colored pencil texture",
+    "dot-red": "one flat round paper dot cut from brick red #B5382B colored paper, slightly uneven hand-cut circle, colored pencil texture",
+    "dried-flowers-1": "a small bundle of pressed dried wildflowers and grasses, dried yarrow, oat stems and seed heads in faded ochre and straw colors",
+    "dried-flowers-2": "a single pressed dried flower sprig, dried tansy with small button flowers and a few feathery leaves, faded ochre and olive",
+    "hay-tuft": "a loose tuft of golden dry hay and straw stems",
+    "feather": "a single soft speckled hen feather, brown and cream",
+}
+
+# Colour exceptions to STYLE's "no red" rule (the user allowed a flat red paper dot only).
+STYLE_OVERRIDES = {
+    "dot-red": ("no pink, no magenta, no red", "no pink, no magenta, no other colors; the dot itself is brick red"),
+    "dot-yellow": ("one Food Web Green #156826 accent, ", ""),
 }
 
 
@@ -83,7 +98,10 @@ def log_cost(name, version, ok):
 
 def generate(name, version):
     out = ORIG / f"{name}-{version}.png"
-    prompt = f"{PIECES[name]}. {STYLE}"
+    style = STYLE
+    if name in STYLE_OVERRIDES:
+        style = style.replace(*STYLE_OVERRIDES[name])
+    prompt = f"{PIECES[name]}. {style}"
     last_err = None
     for attempt in (1, 2):  # one retry at most
         if total_cost() >= STOP_AT:
@@ -132,3 +150,4 @@ if __name__ == "__main__":
         if p:
             cutout(p)
             print(f"done {p.name}  running est total ${total_cost():.2f}")
+        time.sleep(12)  # free Replicate account: one request at a time, about 6 a minute

@@ -8,4 +8,15 @@ Estimated cost log (estimate, not billing data). Stop at $9.00.
 2026-09-30 13:29 fungal-hyphae-1 ok est $0.09
 2026-09-30 13:30 amoeba-1 FAILED est $0.00
 2026-09-30 13:30 amoeba-1 FAILED est $0.00
-TOTAL $0.27
+2026-09-30 14:23 poop-sticker-1 ok est $0.09
+2026-09-30 14:25 cow-poop-sticker-1 ok est $0.09
+2026-09-30 14:27 dot-green-1 ok est $0.09
+2026-09-30 14:29 dot-yellow-1 ok est $0.09
+2026-09-30 14:30 dot-red-1 ok est $0.09
+2026-09-30 14:32 dried-flowers-1-1 ok est $0.09
+2026-09-30 14:33 dried-flowers-2-1 ok est $0.09
+2026-09-30 14:34 hay-tuft-1 FAILED est $0.00
+2026-09-30 14:34 hay-tuft-1 FAILED est $0.00
+2026-09-30 14:34 feather-1 FAILED est $0.00
+2026-09-30 14:34 feather-1 FAILED est $0.00
+TOTAL $0.90
