@@ -8,7 +8,7 @@ import os
 from pptx.util import Emu
 from lib import Deck, rect, rrect, text, crop, _place, ROOT, PX, DEEP, GREEN, CREAM, GLOW, INK, FAINT, GOLD, HEAD, BODY
 import scrapbook as sb
-from build_oct_01_10 import cream, block, n_lines, lh, logo, logo_br, text_width, save, CUT, paper as _paper
+from build_oct_01_10 import GRAIN, cream, block, n_lines, lh, logo, logo_br, text_width, save, CUT, paper as _paper
 
 B = "assets/photo/boubacar/"
 CUTS = " Cut-paper pieces are objects only (flux-2-pro); nothing generated shows Boubacar or his farm."
@@ -191,13 +191,25 @@ def instagram():
 
 
 def linkedin():
+    """Cover image for the LinkedIn post: scrapbook page, one taped photo, cut-paper crops, flag and logo."""
     d = Deck(1200, 627, name="01-10-2026-thu-li-boubacar")
-    s = d.slide(CREAM, "LinkedIn image. " + SOURCES + " Photo: assets/photo/boubacar/boubacar-portrait-bananas.jpg, cropped to landscape. The mulched-field photo was the first "
-                       "choice, but it is portrait and any landscape crop cut off his head. No text on the photo.",
+    s = d.slide(CREAM, "LinkedIn cover image. " + SOURCES + " Photo: assets/photo/boubacar/boubacar-portrait-bananas.jpg. "
+                       "Words are the same as the Instagram cover. Guinea flag drawn as shapes; crops are cut-paper pieces." + CUTS,
                 counter=False)
-    p = crop(B + "boubacar-portrait-bananas.jpg", 1200, 627, 0.5, 0.52)
-    s.shapes.add_picture(p, 0, 0, Emu(1200 * PX), Emu(627 * PX))
-    logo(s, 1200 - 30 - 90, 627 - 30 - 81, 90, white=False)
+    grain = crop(GRAIN, 1200, 627, 0.5, 0.5)
+    s.shapes.add_picture(grain, 0, 0, Emu(1200 * PX), Emu(627 * PX))
+    print_(s, B + "boubacar-portrait-bananas.jpg", 90, 70, 400, 480, 0.5, 0.32)
+    rrect(s, 560, 90, 470, 60, DEEP, radius=30)
+    text(s, 560, 90, 470, 60, "Soil Regenerators in the wild", 22, GLOW, HEAD, True, align="c", anchor="m")
+    text(s, 560, 180, 620, 180, "Boubacar Tidiane\nDiallo, Guinea", 46, DEEP, HEAD, True, spacing=1.05, anchor="t")
+    sb.guinea_flag(s, 640, 440, 110, -6)
+    paper(s, "coffee-cherries-branch", 1120, 110, 150, 14)
+    paper(s, "coffee-cup-paper", 800, 470, 150, 4)
+    paper(s, "cocoa-beans", 960, 490, 150, -10)
+    paper(s, "pineapple", 70, 520, 120, -10)
+    paper(s, "tithonia-flower", 520, 520, 120, 12)
+    paper(s, "leaf-sprig-paper", 80, 90, 120, -24)
+    logo(s, 1200 - 30 - 100, 627 - 30 - 90, 100, white=False)
     save(d, "01-10-2026-thu-li-boubacar.pptx")
 
 
