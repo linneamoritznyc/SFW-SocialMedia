@@ -66,6 +66,11 @@ PIECES = {
     "dried-flowers-2": "a single pressed dried flower sprig, dried tansy with small button flowers and a few feathery leaves, faded ochre and olive",
     "hay-tuft": "a loose tuft of golden dry hay and straw stems",
     "feather": "a single soft speckled hen feather, brown and cream",
+    "coffee-cup-spilled-grounds": "a cute cream coffee cup tipped on its side with dark brown coffee grounds spilling out in a little heap beside it",
+    "field-cross-section": "a cross-section slice of a farm field like a slice of layered cake: short green cover crop plants on top, below them a thick layer of dark brown soil with pale plant roots and fine white branching fungal threads",
+    "bird-beetle-wildflower": "a small brown songbird perched on a wildflower stem with yellow and blue flowers, and a small dark ground beetle at the foot of the stem, grouped together",
+    "leaf-frame": "a square frame border made of overlapping cut-paper leaves, ferns and small sprigs in greens, kraft brown and slate blue, arranged around the edges, with a large empty plain cream center",
+    "seedling-tray": "a small wooden seedling tray holding six little pots of seedlings: lettuce, basil, a small tomato plant and tiny flower seedlings",
 }
 
 # Colour exceptions to STYLE's "no red" rule (the user allowed a flat red paper dot only).
@@ -125,7 +130,8 @@ def generate(name, version):
         except Exception as e:  # noqa: BLE001
             last_err = e
             log_cost(name, version, False)
-            time.sleep(3)
+            # free account: 6 predictions a minute, burst of 1; a throttle (429) needs a real pause
+            time.sleep(30 if "429" in str(e) else 3)
     print(f"FAILED {name}-{version}: {type(last_err).__name__}: {str(last_err)[:200]}")
     return None
 
@@ -150,4 +156,4 @@ if __name__ == "__main__":
         if p:
             cutout(p)
             print(f"done {p.name}  running est total ${total_cost():.2f}")
-        time.sleep(12)  # free Replicate account: one request at a time, about 6 a minute
+        time.sleep(25)  # free Replicate account: one request at a time, about 6 a minute
