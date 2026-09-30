@@ -24,8 +24,8 @@ def card(d, photo_src, name, role, fy=0.3, note=""):
     s._deck.meta[-1]['dark'] = True
     for cx, cy, ln_, ang in [(1085, -15, 330, 112), (1085, -15, 360, 132), (1085, -15, 300, 152), (1085, 120, 230, 158)]:
         leaf(s, cx, cy, ln_, ang)
-    rrect(s, -60, -60, 460, 260, "3A3A3A", alpha=72, radius=40)       # logo panel, kept small so it stays off the face
-    logo(s, x=60, y=50, size=100); rect(s, 190, 55, 2, 90, CREAM); logo(s, x=230, y=50, size=100)
+    rrect(s, -60, -60, 400, 240, "3A3A3A", alpha=72, radius=40)       # logo panel, kept small so it stays off the face
+    logo(s, x=50, y=40, size=110)
     for y in (770, 772, 1005, 1007): pass
     rect(s, 0, 1010, 1080, 340, DEEP)
     rect(s, 0, 940, 1080, 230, DEEP, alpha=78)

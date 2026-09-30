@@ -209,11 +209,19 @@ def photo(s, x, y, w, h, src, note="", radius=0, kind=None, fx=0.5, fy=0.5, deck
     REGISTRY.append((s._deck.name, slide_no(s), src))
     return r
 
-def logo(s, x=None, y=None, size=90, outline=CREAM):
-    w = s._deck.w; h = s._deck.h
-    x = w - 80 - size if x is None else x; y = h - 80 - size if y is None else y
-    oval(s, x, y, size, size, None, line=outline, lw=2)
-    text(s, x, y, size, size, "LOGO", 16 if size < 80 else 18, outline, HEAD, True, align="c", anchor="m")
+LOGO_W = os.path.join(ROOT, "assets", "logo", "foundation-logo-white.png")
+LOGO_C = os.path.join(ROOT, "assets", "logo", "foundation-logo-color.png")
+LOGO_AR = 743 / 668
+
+def logo(s, x=None, y=None, size=90, outline=CREAM, tl=None, cx=None):
+    """Soil Food Web Foundation logo: white version on dark backgrounds (outline==CREAM), colour version on light ones.
+    size = logo height in px. cx centres it on that x."""
+    w = s._deck.w; h = s._deck.h; pw = size * LOGO_AR
+    if cx is not None: x = cx - pw / 2
+    x = w - 80 - pw if x is None else x; y = h - 80 - size if y is None else y
+    pic = s.shapes.add_picture(LOGO_W if outline == CREAM else LOGO_C, 0, 0, Emu(int(pw * PX)), Emu(int(size * PX)))
+    _place(pic, x, y, pw, size, tl)
+    return pic
 
 def logo_for(s, dark=True, **kw): logo(s, outline=CREAM if dark else DEEP, **kw)
 
@@ -417,7 +425,8 @@ def t4a(d, photo_src, name, role, note="", tid="4A"):
     rect(s, cx0 + 60 - 10, cy0 + 60 - 10, 400, 400, CREAM, line=DEEP, lw=2, tl=tl)
     photo_tilt(s, cx0 + 60, cy0 + 60, 380, photo_src, tl)
     scallop(s, cx0 + 880 - 60 - 90, cy0 + 60 + 90, 90, tl)
-    text(s, cx0 + 880 - 60 - 180, cy0 + 60 + 65, 180, 50, "LOGO", 18, GREEN, HEAD, True, align="c", tl=tl)
+    bx_, by_ = cx0 + 880 - 60 - 90, cy0 + 60 + 90
+    pic = s.shapes.add_picture(LOGO_C, 0, 0, Emu(int(110 * PX)), Emu(int(110 / LOGO_AR * PX))); _place(pic, bx_ - 55, by_ - 55 / LOGO_AR, 110, 110 / LOGO_AR, tl)
     rows = [("BASED IN", ""), ("TEACHING SINCE", ""), ("ASK ME ABOUT", ""), ("FAVORITE ORGANISM", "")]
     for i, (lab, _) in enumerate(rows):
         y = cy0 + 60 + 400 + 20 + i * 100
@@ -532,8 +541,8 @@ def t7(d, photo_src, headline, line, note="", tid="7"):
     rect(s, 0, 0, 1080, 1920, DEEP, alpha=50)
     sz = fit(headline, 880, [72, 66, 60], 5, True); h = th(headline, sz, 880, True, 1.1)
     text(s, 100, 420, 880, h + 10, headline, sz, CREAM, HEAD, True, align="c", spacing=1.1)
-    text(s, 100, 420 + h + 40, 880, 150, line, 44, GLOW, BODY, align="c", spacing=1.3)
-    logo(s, x=495, y=1500)
+    text(s, 100, 420 + h + 90, 880, 150, line, 44, GLOW, BODY, align="c", spacing=1.3)
+    logo(s, cx=540, y=1500)
     return s
 
 # ================================================================ TEMPLATE 8: Donate
@@ -550,12 +559,12 @@ def t8_donate(d, line, note="", tid="8"):
 def t9(d, photo_src, note="", tid="9"):
     s = d.slide(DEEP, note, counter=False, tid=tid)
     photo(s, 0, 0, d.w, d.h, photo_src)
-    logo(s, x=d.w - 50 - 70, y=d.h - 50 - 70, size=70)
+    logo(s, x=d.w - 50 - 70 * LOGO_AR, y=d.h - 50 - 70, size=70)
     return s
 
 def t9_wes(d, left, right, note="", tid="9"):
     s = d.slide(DEEP, note, counter=False, tid=tid)
     photo(s, 0, 0, 540, 1080, left); photo(s, 540, 0, 540, 1080, right)
     pill(s, 35, 800, "Conventional field", 26, CREAM, DEEP, alpha=90, w=470, h=110); pill(s, 575, 800, "Biologically active compost", 26, CREAM, DEEP, alpha=90, w=470, h=110)
-    logo(s, x=1080 - 50 - 70, y=1080 - 50 - 70, size=70)
+    logo(s, x=1080 - 50 - 70 * LOGO_AR, y=1080 - 50 - 70, size=70)
     return s
