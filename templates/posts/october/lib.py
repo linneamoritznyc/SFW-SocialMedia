@@ -14,7 +14,7 @@ from photos import crop, ROOT   # noqa: E402
 
 PX = 9525
 A = "http://schemas.openxmlformats.org/drawingml/2006/main"
-DEEP, GREEN, CREAM, GLOW, LIGHT, BROWN, INK, GOLD = "22371F", "156826", "F4F1EA", "DBE6A7", "59A66C", "4F3433", "333130", "C9A227"
+DEEP, GREEN, CREAM, GLOW, LIGHT, BROWN, INK, GOLD = "1E3F1D", "31662F", "F3F1EA", "B1BCB1", "B1BCB1", "4C3634", "333130", "D39C48"
 PHBG, STRIPE, WHITE, FAINT = "C9C4B8", "E8E2D4", "FFFFFF", "6A665C"
 HEAD, BODY, TAG = "Montserrat", "Source Sans 3", "[COPY: Allison]"
 REGISTRY = []   # every PHOTO placeholder: (file, slide number, label)
@@ -231,7 +231,7 @@ def series_pill(s, y=80):
 def quote_mark(s, x, y, color, alpha, pt=260):
     text(s, x, y, 300, pt*1.333, "“", pt, color, HEAD, True, alpha=alpha, spacing=0.9)
 
-def check(s, cx, cy, d, color=LIGHT):
+def check(s, cx, cy, d, color=GREEN):
     oval(s, cx-d/2, cy-d/2, d, d, color)
     k = d/140
     poly(s, [(cx-38*k, cy+2*k), (cx-24*k, cy-12*k), (cx-8*k, cy+4*k), (cx+30*k, cy-34*k), (cx+44*k, cy-20*k), (cx-8*k, cy+32*k)], CREAM)

@@ -11,8 +11,8 @@ from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
 
 PX = 9525
 W, H = 1080, 1350
-C = dict(cream="F4F1EA", panel="E6EADC", green="156826", moss="22371F", glow="DBE6A7",
-         sage="A7B097", gold="C9A227", ink="333130", faint="6A665C", white="FFFFFF", scope="3C3841")
+C = dict(cream="F3F1EA", panel="E6EADC", green="31662F", moss="1E3F1D", glow="B1BCB1",
+         sage="B1BCB1", gold="D39C48", ink="333130", faint="6A665C", white="FFFFFF", scope="3C3841")
 DISPLAY, SERIF, SANS = "Montserrat", "EB Garamond", "Source Sans 3"
 TAG = "[COPY: Allison]"
 
