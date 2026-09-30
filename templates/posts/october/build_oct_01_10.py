@@ -170,6 +170,7 @@ def save(d, fname):
 
 # ================================================================ 1. Coffee myth (Thu 1 Oct), template 2
 def coffee():
+    DRAFT = " Draft livelier copy (not in use, awaiting approval): "
     """Cute science scrapbook: taped prints, drawn stickers, cream paper."""
     import scrapbook as sb
     d = Deck(name="01-10-2026-thu-ig-coffee-myth")
@@ -194,13 +195,13 @@ def coffee():
         yy = 905 + i * 115
         text(s, 120, yy, 900, 110, ln, 70, CREAM, HEAD, True, anchor="m", spacing=1.0, tl=tl)
         rect(s, 106, yy + 55, text_width(ln, 70) + 28, 16, GLOW, tl=tl)
-    text(s, 80, 1215, 780, 100, "Happy International Coffee Day ☕ Let's spill the beans.", 30, DEEP, BODY, True, anchor="m", spacing=1.1)
+    s.notes_slide.notes_text_frame.text += DRAFT + "Happy International Coffee Day ☕ Let's spill the beans."
     logo_br(s, False, 110)
 
     # 2 neutral pH
     s = cream(d, "pH strip: universal indicator colours, 0 to 14. Lemon marks the acid end; the cup sits near neutral, as the slide says." + stickers)
-    yb = head_body(s, "Plot twist: your coffee took the acid with it.",
-                   "Brewing pulls most of the acids into your cup. The spent grounds left behind sit close to neutral pH.", hpt=62)
+    s.notes_slide.notes_text_frame.text += DRAFT + "Plot twist: your coffee took the acid with it. Brewing pulls most of the acids into your cup. The spent grounds left behind sit close to neutral pH."
+    yb = head_body(s, "Brewing extracts most of the acids.", "Spent grounds sit close to neutral pH.", hpt=62, bpt=44)
     sy = yb + 250
     cw = sb.ph_strip(s, 90, sy, 900)
     sb.lemon(s, 90 + 2.5 * cw, sy - 120, 70, -10); sb.pointer(s, 90 + 2.5 * cw, sy - 40)
@@ -210,19 +211,20 @@ def coffee():
 
     # 3 caffeine and chlorogenic acids
     s = cream(d, "Photo: " + unsplash_credit("seedlings-sprouting-in-soil.jpg") + stickers)
-    head_body(s, "So what's the catch? Caffeine. 😬",
-              "Leftover caffeine and chlorogenic acids are allelopathic: plant-speak for chemicals that stop seeds sprouting and roots growing.")
-    x, y, fw, fh = sb.polaroid(s, "assets/photo/seedlings-sprouting-in-soil.jpg", 90, 640, 460, -4, cr("seedlings-sprouting-in-soil.jpg"))
+    s.notes_slide.notes_text_frame.text += DRAFT + "So what's the catch? Caffeine. 😬 Leftover caffeine and chlorogenic acids are allelopathic: plant-speak for chemicals that stop seeds sprouting and roots growing."
+    head_body(s, "The real issue: residual caffeine and chlorogenic acids.", "Both are allelopathic. They inhibit germination and root growth.",
+              hpt=58, bpt=44)
+    x, y, fw, fh = sb.polaroid(s, "assets/photo/seedlings-sprouting-in-soil.jpg", 90, 700, 440, -4, cr("seedlings-sprouting-in-soil.jpg"))
     sb.tape(s, x + 60, y + 8, deg=-30)
     sb.seedling(s, 800, 1080, 300, sad=True)
     sb.beans(s, 690, 1180, 150, 15)
-    sb.cup(s, 900, 760, 150, 8, happy=False)
+    sb.cup(s, 950, 660, 140, 8, happy=False)
 
     # 4 fresh grounds in trials
     s = cream(d, "Photo: assets/photo/garden-vegetable-beds.jpg (Foundation library)." + stickers)
-    head_body(s, "Sprinkled straight on the garden?",
-              "In trials, fresh grounds spread on beds actually slowed plant growth. 🥀")
-    x, y, fw, fh = sb.polaroid(s, "assets/photo/garden-vegetable-beds.jpg", 330, 560, 520, 3, "Foundation library")
+    s.notes_slide.notes_text_frame.text += DRAFT + "Sprinkled straight on the garden? In trials, fresh grounds spread on beds actually slowed plant growth. 🥀"
+    block(s, 80, 110, 920, "Fresh grounds spread on beds have reduced plant growth in trials.", 58, DEEP, HEAD, True, 1.08)
+    x, y, fw, fh = sb.polaroid(s, "assets/photo/garden-vegetable-beds.jpg", 330, 620, 500, 3, "Foundation library")
     sb.tape(s, x + fw - 60, y + 10, deg=30); sb.tape(s, x + 60, y + 10, deg=-30)
     sb.seedling(s, 190, 1010, 240, sad=True, deg=-4)
     sb.beans(s, 200, 1180, 170, -12)
@@ -236,14 +238,14 @@ def coffee():
     sb.tape(s, x + fw / 2, y + 6, 160, 46, 4)
     sb.bacterium(s, 820, 200, 220, -18); sb.bacterium(s, 880, 440, 190, 12, "D6E3A8"); sb.bacterium(s, 760, 640, 170, -6, "C9DDB6")
     sb.beans(s, 990, 590, 110, 20)
-    head_body(s, "Enter the compost crew. 🦠",
-              "Composting breaks caffeine down. Some soil bacteria eat it for breakfast, lunch and dinner: Pseudomonas putida CBB5 uses caffeine as its only carbon and nitrogen source.",
-              y=770, hpt=60, bpt=36)
+    s.notes_slide.notes_text_frame.text += DRAFT + "Enter the compost crew. 🦠 Composting breaks caffeine down. Some soil bacteria eat it for breakfast, lunch and dinner: Pseudomonas putida CBB5 uses caffeine as its only carbon and nitrogen source."
+    head_body(s, "Composting breaks them down.",
+              "Some soil bacteria, like Pseudomonas putida CBB5, use caffeine as their only carbon and nitrogen source.", y=790, hpt=62, bpt=42)
 
     # 6 compost them hot
     s = cream(d, "Photo: assets/photo/hand-of-compost.jpg (Foundation library). Thermometer marks 55°C, from the slide text." + stickers)
-    head_body(s, "The fix: compost them first. 🔥",
-              "Grounds are a nitrogen-rich green. Mix them with woody browns like leaves or wood chips, and keep the pile hot: 55°C (131°F) or more.")
+    s.notes_slide.notes_text_frame.text += DRAFT + "The fix: compost them first. 🔥 Grounds are a nitrogen-rich green. Mix them with woody browns like leaves or wood chips, and keep the pile hot: 55°C (131°F) or more."
+    head_body(s, "Grounds are a green, nitrogen-rich input.", "Mix with woody browns and compost them hot, at 55°C or more.", hpt=62, bpt=44)
     x, y, fw, fh = sb.polaroid(s, "assets/photo/hand-of-compost.jpg", 90, 700, 460, -4, "Foundation library")
     sb.tape(s, x + 70, y + 8, deg=-30)
     my = sb.thermometer(s, 690, 700, 520, 55)
@@ -260,7 +262,7 @@ def coffee():
               "US EPA, 40 CFR Part 503: https://www.ecfr.gov/current/title-40/chapter-I/subchapter-O/part-503"):
         n = n_lines(t, 22, 820 * 0.97, BODY, False)
         text(s, 120, yy, 840, n * lh(22, 1.25) + 10, t, 22, INK, BODY, False, spacing=1.25, tl=tl); yy += n * lh(22, 1.25) + 60
-    text(s, 80, 965, 920, 70, "Save this for your next coffee run. ☕", 36, DEEP, HEAD, True, anchor="m")
+    s.notes_slide.notes_text_frame.text += DRAFT + "Save this for your next coffee run. ☕"
     sb.lemon(s, 330, 1160, 80, -12); sb.cup(s, 570, 1170, 170, 4); sb.bacterium(s, 790, 1150, 170, -10)
     sb.cutout(s, CUT + "dried-flowers-2-1.png", 120, 1210, 170, -25)
     logo_br(s, False, 110)
@@ -289,61 +291,105 @@ def field(s, x, y, w, h):
 
 
 def farms():
+    import scrapbook as sb
     d = Deck(name="02-10-2026-fri-ig-1000-farms-study")
-    s = dark(d, "Template 2A. " + STUDY_SRC + " Collage: field cross-section. Stand-in from existing cutouts (ferns over a soil band with the fungal-hyphae cutout) until field-cross-section is generated [COLLAGE NEEDED].")
-    rect(s, 0, 0, 1080, 640, CREAM)
-    s.shapes.add_picture(os.path.join(ROOT, GRAIN), 0, 0, Emu(1080 * PX), Emu(640 * PX))
-    field(s, 90, 30, 900, 590)
-    rect(s, 0, 640, 1080, 8, GLOW)
-    block(s, 80, 700, 920, "“A new study of working farms: the most regenerative farms stored 39% more carbon in their soil.”",
+    STK = " Stickers are drawn PowerPoint shapes (grouped, editable)."
+
+    # 1 headline on a dark note, field collage above
+    s = cream(d, "Template 2A, scrapbook. " + STUDY_SRC + " Field collage: stand-in from existing cutouts (ferns over torn-paper soil with the "
+                 "fungal-hyphae cutout) until field-cross-section is generated [COLLAGE NEEDED]." + STK)
+    tl = sb.note(s, 110, 70, 860, 560, sb.PAPER, 2)
+    field(s, 150, 110, 780, 480)
+    sb.seedling(s, 170, 640, 170, deg=-6)
+    tl = sb.note(s, 60, 690, 960, 520, DEEP, -1.5)
+    block(s, 110, 745, 860, "“A new study of working farms: the most regenerative farms stored 39% more carbon in their soil.”",
           52, CREAM, HEAD, True, 1.12)
-    source_line(s, STUDY_LINE, True)
-    logo_br(s, True)
-
-    def plain(t, pt=62, note=""):
-        s = cream(d, note)
-        centered(s, t, pt)
-        source_line(s, STUDY_LINE)
-        return s
-
-    def big(num, rest, note=""):
-        s = cream(d, "Template 5 big number. " + note)
-        text(s, 40, 330, 1000, 300, num, 220, GREEN, HEAD, True, align="c", anchor="m", spacing=1.0)
-        block(s, 100, 680, 880, rest, 54, DEEP, HEAD, True, 1.12, align="c")
-        source_line(s, STUDY_LINE)
-        return s
-
-    plain("The 1000 Farms Initiative, led by Ecdysis Foundation, measured farms across North America, from the most conventional to the most regenerative.", 54)
-    big("39%", "more total soil carbon on the most regenerative farms.")
-    big("77%", "more total fungi in regenerative soils.")
-    bird = CUT + "bird-beetle-wildflower-1.png"; have = os.path.exists(os.path.join(ROOT, bird))
-    s = cream(d, "Collage: bird-beetle-wildflower." + ("" if have else " Not generated (Replicate throttled): type-only [COLLAGE NEEDED: bird, beetle and wildflower]."))
-    t5 = "More life everywhere: soil microbes, insects, plants and birds. The more biodiversity, the more carbon stored."
-    if have: block(s, 80, 150, 920, t5, 48, DEEP, HEAD, True, 1.15)
-    else: centered(s, t5, 58)
-    if have: fitpiece(s, bird, 200, 620, 680, 580, 3)
+    sb.beetle(s, 980, 700, 110, 25)
     source_line(s, STUDY_LINE)
-    plain("Regenerative yields matched national averages, and net profit per acre was similar.")
-    plain("One practice alone changed nothing. Farms using a single regenerative practice looked like conventional farms. The whole system matters.", 54)
+    logo_br(s, False, 100)
 
-    s = dark(d, "Closing. Paper title: not reachable from this session (doi.org and the journal were blocked); "
-                "fill in the exact title from the DOI page [PAPER TITLE NEEDED].")
-    y = block(s, 80, 260, 920, "Read the paper: Lundgren et al., Environmental Research: Food Systems, 2026.", 60, CREAM, HEAD, True, 1.12) + 60
-    rect(s, 80, y, 140, 8, GLOW); y += 50
-    text(s, 80, y, 920, 40, "[PAPER TITLE NEEDED]", 24, RED, BODY, True); y += 60
-    text(s, 80, y, 920, 40, "Environmental Research: Food Systems", 24, GLOW, BODY); y += 50
-    text(s, 80, y, 920, 40, "https://doi.org/10.1088/2976-601X/ae8f4e", 24, GLOW, BODY)
-    source_line(s, STUDY_LINE, True)
-    logo_br(s, True)
+    # 2 who measured
+    s = cream(d, "Photo: assets/photo/erc-rancho-cacachilas-agro.jpg (Foundation library)." + STK)
+    head_body(s, "The 1000 Farms Initiative, led by Ecdysis Foundation,",
+              "measured farms across North America, from the most conventional to the most regenerative.", hpt=58, bpt=42)
+    x, y, fw, fh = sb.polaroid(s, "assets/photo/erc-rancho-cacachilas-agro.jpg", 260, 600, 520, -3, "Foundation library")
+    sb.tape(s, x + 60, y + 8, deg=-30); sb.tape(s, x + fw - 60, y + 8, deg=30)
+    sb.magnifier(s, 890, 800, 90)
+    sb.seedling(s, 150, 1170, 200, deg=-4)
+    source_line(s, STUDY_LINE)
+
+    # 3 and 4 big numbers
+    def big(num, rest, note, stickers):
+        s = cream(d, "Template 5 big number, scrapbook. " + note + STK)
+        tl = sb.note(s, 110, 170, 860, 640, sb.PAPER, -2)
+        text(s, 110, 230, 860, 300, num, 220, GREEN, HEAD, True, align="c", anchor="m", spacing=1.0, tl=tl)
+        block(s, 170, 540, 740, rest, 50, DEEP, HEAD, True, 1.12, align="c")
+        stickers(s)
+        source_line(s, STUDY_LINE)
+    big("39%", "more total soil carbon on the most regenerative farms.", "Photo: assets/photo/hand-soil-roots-fungi.jpg (Foundation library).",
+        lambda s: (sb.polaroid(s, "assets/photo/hand-soil-roots-fungi.jpg", 90, 850, 330, -5, "Foundation library", 13),
+                   sb.seedling(s, 620, 1180, 230), sb.mushroom(s, 860, 1180, 200, 6)))
+    big("77%", "more total fungi in regenerative soils.", "Cutout: fungal-hyphae-1 (cut paper).",
+        lambda s: (sb.cutout(s, CUT + "fungal-hyphae-1.png", 300, 1050, 420, 80), sb.mushroom(s, 700, 1190, 230, -4),
+                   sb.mushroom(s, 900, 1180, 170, 8, cap="C9A227")))
+
+    # 5 more life everywhere
+    s = cream(d, "Stickers: bacteria, beetle, wildflowers and a bird, one for each group in the sentence." + STK)
+    head_body(s, "More life everywhere: soil microbes, insects, plants and birds.", "The more biodiversity, the more carbon stored.",
+              hpt=58, bpt=44)
+    sb.bird(s, 780, 690, 260, -4)
+    sb.flower(s, 560, 800, 60); sb.flower(s, 700, 900, 48, 10, petal="9DB8D9"); sb.flower(s, 880, 870, 55, -8)
+    sb.beetle(s, 330, 1010, 150, -20)
+    sb.bacterium(s, 170, 780, 170, -12); sb.bacterium(s, 260, 1210, 150, 18, "D6E3A8")
+    sb.seedling(s, 620, 1230, 200); sb.mushroom(s, 850, 1230, 170, 6)
+    source_line(s, STUDY_LINE)
+
+    # 6 yields and profit
+    s = cream(d, "Photo: assets/photo/erc-rancho-cacachilas-agro8.jpg (Foundation library)." + STK)
+    head_body(s, "Regenerative yields matched national averages,", "and net profit per acre was similar.", hpt=60, bpt=46)
+    x, y, fw, fh = sb.polaroid(s, "assets/photo/erc-rancho-cacachilas-agro8.jpg", 90, 560, 500, -4, "Foundation library")
+    sb.tape(s, x + fw / 2, y + 6, 160, 44, 4)
+    sb.coins(s, 820, 820, 190, -6); sb.coins(s, 900, 1030, 150, 8)
+    sb.seedling(s, 740, 1230, 220)
+    source_line(s, STUDY_LINE)
+
+    # 7 the whole system
+    s = cream(d, "One lonely seedling on the left, the whole system (fungi, bacteria, beetle, flowers) on the right." + STK)
+    head_body(s, "One practice alone changed nothing.",
+              "Farms using a single regenerative practice looked like conventional farms. The whole system matters.", hpt=60, bpt=44)
+    tl = sb.note(s, 70, 700, 330, 460, sb.PAPER, -3)
+    sb.seedling(s, 235, 1060, 220, sad=True)
+    tl = sb.note(s, 450, 660, 560, 520, sb.PAPER, 2)
+    sb.cutout(s, CUT + "fungal-hyphae-1.png", 730, 1030, 300, 90)
+    sb.seedling(s, 640, 1010, 190); sb.flower(s, 860, 830, 50); sb.mushroom(s, 900, 1110, 150)
+    sb.bacterium(s, 600, 780, 130, -10); sb.beetle(s, 760, 800, 90, 20)
+    source_line(s, STUDY_LINE)
+
+    # 8 read the paper
+    s = cream(d, "Closing. Paper title: not reachable from this session (doi.org and the journal were blocked); "
+                 "fill in the exact title from the DOI page [PAPER TITLE NEEDED]." + STK)
+    tl = sb.note(s, 60, 120, 960, 780, DEEP, -1)
+    y = block(s, 110, 180, 860, "Read the paper: Lundgren et al., Environmental Research: Food Systems, 2026.", 58, CREAM, HEAD, True, 1.12) + 50
+    rect(s, 110, y, 140, 8, GLOW); y += 40
+    text(s, 110, y, 860, 40, "[PAPER TITLE NEEDED]", 24, "E36B5E", BODY, True); y += 55
+    text(s, 110, y, 860, 40, "Environmental Research: Food Systems", 24, GLOW, BODY); y += 50
+    text(s, 110, y, 860, 40, "https://doi.org/10.1088/2976-601X/ae8f4e", 24, GLOW, BODY)
+    sb.paper_doc(s, 300, 1090, 200, -8); sb.magnifier(s, 420, 1060, 80)
+    sb.cutout(s, CUT + "dried-flowers-1-1.png", 700, 1120, 200, 18)
+    source_line(s, STUDY_LINE)
+    logo_br(s, False, 110)
     save(d, "02-10-2026-fri-ig-1000-farms-study.pptx")
 
 
 def farms_li():
+    import scrapbook as sb
     d = Deck(1200, 627, name="02-10-2026-fri-li-1000-farms-study")
-    s = d.slide(DEEP, "LinkedIn image. " + STUDY_SRC + " Right half: the slide 1 collage on Food Web Green so the white logo reads.",
+    s = d.slide(DEEP, "LinkedIn image. " + STUDY_SRC + " Right half: the slide 1 field collage on a taped paper card, on Food Web Green.",
                 counter=False)
     rect(s, 600, 0, 600, 627, GREEN)
-    field(s, 630, 40, 540, 460)
+    sb.note(s, 640, 40, 520, 450, sb.PAPER, 2)
+    field(s, 670, 70, 460, 390)
+    sb.seedling(s, 690, 560, 110, deg=-6); sb.beetle(s, 1080, 470, 70, 25)
     text(s, 50, 150, 520, 2 * lh(64, 1.05) + 10, "39% more soil carbon", 64, CREAM, HEAD, True, spacing=1.05)
     text(s, 50, 150 + 2 * lh(64, 1.05) + 20, 500, 90, "on the most regenerative farms, 1000 Farms Initiative, 2026", 24, GLOW, BODY, spacing=1.2)
     logo_br(s, True, 90, 1200, 627, 30)
@@ -427,60 +473,92 @@ def card(d, name, role, advice, photo, focus, facts):
     return s
 
 
+CARD_STICKERS = {  # one sticker per card, loosely tied to what the mentor teaches
+    "Dr. Carla Portugal": "seedling", "Wesley Sanders": "microscope", "Gerald Ramirez": "cup", "Nick Padwick": "mushroom",
+}
+
+
+def card_extras(s, name, i):
+    """Washi tape on the card corners and one sticker hanging off the card edge."""
+    import scrapbook as sb
+    sb.tape(s, 150, 80, 170, 50, -32); sb.tape(s, 950, 125, 170, 50, 36)
+    kind = CARD_STICKERS.get(name, ("bacterium", "flower", "beetle", "dried")[i % 4])
+    if kind == "seedling": sb.seedling(s, 980, 1290, 160, deg=8)
+    elif kind == "microscope": sb.microscope(s, 985, 1305, 170, 6)
+    elif kind == "cup": sb.cup(s, 985, 1260, 150, 8)
+    elif kind == "mushroom": sb.mushroom(s, 990, 1300, 150, 6)
+    elif kind == "bacterium": sb.bacterium(s, 975, 1270, 150, -20)
+    elif kind == "flower": sb.flower(s, 990, 1230, 45, 10)
+    elif kind == "beetle": sb.beetle(s, 990, 1270, 100, 30)
+    else: sb.cutout(s, CUT + "dried-flowers-2-1.png", 1000, 1250, 150, 24)
+
+
 def teachers():
+    import scrapbook as sb
     d = Deck(name="05-10-2026-mon-ig-teachers-day")
     src = "Source: mentor roster from Linnea, September 2026, and mentor bios on https://soilfoodweb.com. "
-    s = dark(d, "Opening slide. " + src + "Leaf frame built from existing cutouts (ferns, leaf sprigs, dried flowers).")
+    s = dark(d, "Opening slide. " + src + "Leaf frame built from existing cutouts; stickers are drawn shapes.")
     leaf_frame(s)
-    block(s, 230, 470, 620, "Happy World Teachers' Day. Our mentors' best advice, in one line each.", 50, CREAM, HEAD, True, 1.12, align="c")
+    tl = sb.note(s, 210, 400, 660, 470, sb.PAPER, -2)
+    block(s, 240, 470, 600, "Happy World Teachers' Day. Our mentors' best advice, in one line each.", 48, DEEP, HEAD, True, 1.12, align="c")
+    sb.microscope(s, 760, 930, 150, 6); sb.seedling(s, 330, 930, 140, deg=-6)
     logo_br(s, True)
-    for m in MENTORS:
-        card(d, *m)
-    s = dark(d, "Closing slide. Leaf frame built from existing cutouts.")
+    for i, m in enumerate(MENTORS):
+        s = card(d, *m)
+        card_extras(s, m[0], i)
+    s = dark(d, "Closing slide. Leaf frame built from existing cutouts; stickers are drawn shapes.")
     leaf_frame(s, flip=True)
-    block(s, 230, 520, 620, "Thank you to every mentor who teaches our students to see soil.", 50, CREAM, HEAD, True, 1.12, align="c")
+    tl = sb.note(s, 210, 450, 660, 450, sb.PAPER, 2)
+    block(s, 240, 530, 600, "Thank you to every mentor who teaches our students to see soil.", 48, DEEP, HEAD, True, 1.12, align="c")
+    sb.flower(s, 330, 930, 45, -8); sb.bacterium(s, 760, 950, 140, -12)
     logo_br(s, True)
     save(d, "05-10-2026-mon-ig-teachers-day.pptx")
 
 
 # ================================================================ 6. World Habitat Day story (Mon 5 Oct), template 7
 def habitat():
+    import scrapbook as sb
     d = Deck(1080, 1920, name="05-10-2026-mon-ig-story-habitat-day")
-    s = dark(d, "Story. Source: Anthony, Bender and van der Heijden, PNAS, 2023, https://doi.org/10.1073/pnas.2304663120. "
-                "Microscopy: assets/microscopy/testate-amoeba-encysting-40x-joy-kaluf.jpg (Joy Kaluf, per the file name). "
-                "Leave y 1100 to 1450 empty for the poll sticker.")
-    photo_box(s, "assets/microscopy/testate-amoeba-encysting-40x-joy-kaluf.jpg", 0, 0, 1080, 1920, 0.45, 0.5)
-    rect(s, 0, 0, 1080, 1920, DEEP, alpha=50)
-    y = block(s, 100, 600, 880, "The biggest habitat on Earth is under your feet.", 72, CREAM, HEAD, True, 1.1, align="c")
-    block(s, 100, y + 40, 880, "More than half of all species live in soil.", 44, GLOW, BODY, False, 1.2, align="c")
-    logo(s, (1080 - 180) / 2, 1500, 180, white=True)
+    s = cream(d, "Story, scrapbook. Source: Anthony, Bender and van der Heijden, PNAS, 2023, https://doi.org/10.1073/pnas.2304663120. "
+                 "Microscopy print: assets/microscopy/testate-amoeba-encysting-40x-joy-kaluf.jpg (Joy Kaluf, per the file name). "
+                 "Leave y 1100 to 1450 empty for the poll sticker. Stickers are drawn shapes plus the nematode and fungal-hyphae cutouts.",
+              1080, 1920)
+    x, y, fw, fh = sb.polaroid(s, "assets/microscopy/testate-amoeba-encysting-40x-joy-kaluf.jpg", 250, 150, 560, -3, "Photo: Joy Kaluf", 15)
+    sb.tape(s, x + fw / 2, y + 6, 170, 46, 4)
+    sb.cutout(s, CUT + "nematode-1.png", 130, 330, 200, -30)
+    sb.bacterium(s, 950, 300, 170, -15); sb.beetle(s, 960, 560, 110, 20)
+    y = block(s, 100, 780, 880, "The biggest habitat on Earth is under your feet.", 70, DEEP, HEAD, True, 1.08, align="c")
+    block(s, 100, y + 30, 880, "More than half of all species live in soil.", 44, INK, BODY, False, 1.2, align="c")
+    sb.cutout(s, CUT + "fungal-hyphae-1.png", 180, 1720, 300, 100)
+    sb.seedling(s, 850, 1780, 200); sb.mushroom(s, 560, 1790, 170, -4); sb.flower(s, 330, 1650, 45, 8)
+    logo(s, (1080 - 180) / 2, 1500, 180, white=False)
     save(d, "05-10-2026-mon-ig-story-habitat-day.pptx")
 
 
 # ================================================================ 7 to 10. Meet our mentors (single image, reused layout)
-LEAF_CORNER = CUT + "leaf-frame-corner-1.png"
-
-
-def make_leaf_corner():
-    """Top-left corner of the post 5 leaf frame, saved as its own cutout for the mentor posts."""
-    src = os.path.join(ROOT, LEAF_FRAME); out = os.path.join(ROOT, LEAF_CORNER)
-    if os.path.exists(src) and not os.path.exists(out):
-        im = Image.open(src).convert("RGBA"); w, h = im.size
-        im.crop((0, 0, int(w * 0.45), int(h * 0.45))).save(out)
-
-
-def mentor(d, photo, name, role, focus=(0.5, 0.3), note="", corner="br"):
-    s = dark(d, note)
-    photo_box(s, photo, 0, 0, 1080, 878, *focus)           # top 65%
+def mentor(d, photo, name, role, focus=(0.5, 0.3), note="", corner="br", sticker="seedling"):
+    """Scrapbook: the photo as a big taped print on the top 65%, a Deep Green panel below with the name."""
+    import scrapbook as sb
+    s = cream(d, note + " Stickers are drawn shapes.")
+    tl = Tilt(540, 450, -2)
+    rect(s, 50, 40, 980, 820, sb.PAPER, tl=tl, shadow=True)
+    if photo: pp = crop(photo, 940, 780, *focus); sh = s.shapes.add_picture(pp, 0, 0, Emu(1), Emu(1)); _place(sh, 70, 60, 940, 780, tl)
+    else:
+        rect(s, 70, 60, 940, 780, CREAM, tl=tl, pattern=STRIPE)
+        logo(s, 540 - 210, 450 - 190, 420, white=False)
+    sb.tape(s, 120, 60, 180, 52, -30); sb.tape(s, 960, 60, 180, 52, 30)
     rect(s, 0, 878, 1080, 472, DEEP)
     sprig = CUT + "dried-flowers-2-1.png"            # the same sprig used in the post 5 leaf frame
-    if corner == "br": piece(s, sprig, 985, 790, 190, 28)
-    else: piece(s, sprig, 95, 110, 190, -28)
+    if corner == "br": piece(s, sprig, 985, 810, 190, 28)
+    else: piece(s, sprig, 95, 130, 190, -28)
+    {"seedling": lambda: sb.seedling(s, 930, 1160, 190), "microscope": lambda: sb.microscope(s, 930, 1175, 200, 4),
+     "cup": lambda: sb.cup(s, 900, 1080, 170, 6), "mushroom": lambda: sb.mushroom(s, 930, 1160, 190, 6),
+     "flower": lambda: sb.flower(s, 920, 1000, 55, 8)}[sticker]()
     rrect(s, 80, 920, 330, 60, GLOW, radius=30)
     text(s, 80, 920, 330, 60, "Meet our mentors", 24, DEEP, HEAD, True, align="c", anchor="m")
-    npt = fit(name, 800, [60, 54, 50], 1, True)
-    text(s, 80, 1010, 900, 90, name, npt, CREAM, HEAD, True, anchor="m")
-    text(s, 80, 1105, 800, 50, role, 30, GLOW, BODY)
+    npt = fit(name, 760, [60, 54, 50], 1, True)
+    text(s, 80, 1010, 800, 90, name, npt, CREAM, HEAD, True, anchor="m")
+    text(s, 80, 1105, 760, 50, role, 30, GLOW, BODY)
     logo_br(s, True)
     return s
 
@@ -489,7 +567,8 @@ def carla():
     d = Deck(name="06-10-2026-tue-ig-mentor-carla-portugal")
     mentor(d, MENT + "carla-portugal.jpg", "Dr. Carla Portugal", "Science Lead & Mentor", (0.5, 0.2),
            "First 'Meet our mentors' post; posts 8 to 10 reuse this layout. No photo of Carla at a microscope in the library; "
-           "this is her headshot (499 px, upscaled: ask for a larger file or a microscope photo) [PHOTO NEEDED: higher resolution].")
+           "this is her headshot (499 px, upscaled: ask for a larger file or a microscope photo) [PHOTO NEEDED: higher resolution].",
+           sticker="seedling")
     save(d, "06-10-2026-tue-ig-mentor-carla-portugal.pptx")
 
 
@@ -498,7 +577,7 @@ def nick():
     mentor(d, MENT + "Nick.png", "Nick Padwick", "AP Mentor", (0.5, 0.1),
            "Photo: assets/mentors-teachers-day/Nick.png (Nick in a field with a spade). No photo with his windrows or compost turner "
            "in the library; the Drive photo from Wild Soils, Nov 2024, is the same small group shot as assets/photo/carla-nicks-son-nick-eri-wild-soils-event-11-2024.jpg.",
-           corner="tl")
+           corner="tl", sticker="mushroom")
     save(d, "07-10-2026-wed-ig-mentor-nick-padwick.pptx")
 
 
@@ -507,7 +586,7 @@ def wes():
     mentor(d, MENT + "wes-sander.jpg", "Wesley Sanders", "AP Mentor", (0.5, 0.38),
            "Photo: assets/mentors-teachers-day/wes-sander.jpg (headshot outdoors). No photo of Wes at his microscope and no soil comparison "
            "video of his in assets/video/, so no still was used [PHOTO NEEDED: Wes at his microscope]. "
-           "Name as given in the brief; the website and earlier posts spell it 'Wes Sander' [VERIFY].")
+           "Name as given in the brief; the website and earlier posts spell it 'Wes Sander' [VERIFY].", sticker="microscope")
     save(d, "08-10-2026-thu-ig-mentor-wesley-sanders.pptx")
 
 
@@ -515,24 +594,31 @@ def gerald_caterina():
     d = Deck(name="09-10-2026-fri-ig-mentors-gerald-caterina")
     mentor(d, MENT + "gerald-teaching.jpg", "Gerald Ramirez", "AP Mentor", (0.22, 0.4),
            "Photo: assets/mentors-teachers-day/gerald-teaching.jpg (Gerald teaching a workshop). Confirm it is the Costa Rica workshop, "
-           "March 2025, demonstrating liquid amendments [VERIFY]. Earlier posts spell his name Ramírez [VERIFY].")
-    mentor(d, None, "Dr. Caterina Capri", "Advanced Programs Instructor", note="[PHOTO NEEDED: Caterina headshot from Allison]", corner="tl")
+           "March 2025, demonstrating liquid amendments [VERIFY]. Earlier posts spell his name Ramírez [VERIFY].", sticker="cup")
+    mentor(d, None, "Dr. Caterina Capri", "Advanced Programs Instructor", note="[PHOTO NEEDED: Caterina headshot from Allison]",
+           corner="tl", sticker="flower")
     save(d, "09-10-2026-fri-ig-mentors-gerald-caterina.pptx")
 
 
 # ================================================================ 11. Soil Regenerators in the wild: Lisa Price (Sat 10 Oct), template 1
 def lisa():
+    import scrapbook as sb
     d = Deck(name="10-10-2026-sat-ig-soil-regenerators-lisa-price")
-    s = dark(d, "Template 1A. [PHOTO NEEDED: Lisa with her seedlings] Seedling-tray collage not generated (Replicate throttled) [COLLAGE NEEDED: seedling tray].")
-    logo_box(s, 0, 0, 1080, 1350)
-    gradient(s, 0, 743, 1080, 607, DEEP, 0, 92)
-    rrect(s, 80, 80, 620, 70, DEEP, alpha=85, radius=35)
-    text(s, 80, 80, 620, 70, "Soil Regenerators in the wild", 26, GLOW, HEAD, True, align="c", anchor="m")
-    piece(s, CUT + "seedling-tray-1.png", 900, 330, 300, 8)
-    rect(s, 80, 1056, 120, 4, LIGHT)
-    npt = max(p for p in (64, 60, 56, 52) if text_width("Lisa Price, Australia", p) <= 800 or p == 52)
-    text(s, 80, 1090, 900, 100, "Lisa Price, Australia", npt, CREAM, HEAD, True, anchor="m")
-    logo_br(s, True)
+    s = cream(d, "Template 1A, scrapbook. [PHOTO NEEDED: Lisa with her seedlings] Photo box holds the colour logo until then. "
+                 "Seedling tray (vegetable, herb and flower seedlings in little pots) is a drawn sticker.")
+    tl = Tilt(540, 560, 2)
+    rect(s, 90, 150, 900, 820, sb.PAPER, tl=tl, shadow=True)
+    rect(s, 115, 175, 850, 700, CREAM, tl=tl, pattern=STRIPE)
+    logo(s, 540 - 200, 525 - 180, 400, white=False)
+    sb.tape(s, 150, 160, 180, 52, -30); sb.tape(s, 930, 160, 180, 52, 30)
+    rrect(s, 80, 60, 620, 70, DEEP, radius=35)
+    text(s, 80, 60, 620, 70, "Soil Regenerators in the wild", 26, GLOW, HEAD, True, align="c", anchor="m")
+    sb.seedling_tray(s, 800, 1010, 380, -4)
+    tl = sb.note(s, 60, 1080, 960, 200, DEEP, -1)
+    npt = max(p for p in (64, 60, 56, 52) if text_width("Lisa Price, Australia", p) <= 780 or p == 52)
+    text(s, 110, 1130, 800, 100, "Lisa Price, Australia", npt, CREAM, HEAD, True, anchor="m", tl=tl)
+    logo(s, 900, 1150, 80, white=True)
+    sb.cutout(s, CUT + "dried-flowers-1-1.png", 120, 1040, 190, -25)
     save(d, "10-10-2026-sat-ig-soil-regenerators-lisa-price.pptx")
 
 

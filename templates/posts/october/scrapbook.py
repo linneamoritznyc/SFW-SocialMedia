@@ -180,3 +180,127 @@ def thermometer(s, x, y, h, mark=55, top=80, color="D9A521"):
     oval(s, x + tube_w / 2 - bulb / 2, y + h - bulb, bulb, bulb, color, line=DEEP, lw=3)
     rect(s, x + tube_w + 4, ty(mark) - 2, 36, 5, DEEP)
     return ty(mark)
+
+
+def mushroom(s, cx, cy, h, deg=0, cap="B98A5E"):
+    """cy is the ground line."""
+    g, G = group(s)
+    shape(G, MSO_SHAPE.ROUNDED_RECTANGLE, cx - h * 0.14, cy - h * 0.55, h * 0.28, h * 0.55, PAPER, shadow=True)
+    shape(G, MSO_SHAPE.CHORD, cx - h * 0.45, cy - h * 0.95, h * 0.9, h * 0.8, cap, 0)
+    for dx, dy in ((-0.2, -0.78), (0.12, -0.84), (0.25, -0.7)):
+        oval(G, cx + dx * h - h * 0.05, cy + dy * h - h * 0.04, h * 0.1, h * 0.08, PAPER)
+    face(G, cx, cy - h * 0.3, h / 300)
+    g.rotation = deg
+    return g
+
+
+def beetle(s, cx, cy, L, deg=0, fill="2F4A3A"):
+    g, G = group(s)
+    for side in (-1, 1):                                   # legs
+        for k in (-1, 0, 1):
+            rect(G, cx + side * L * 0.28 - (L * 0.18 if side < 0 else 0), cy + k * L * 0.18 - 2, L * 0.18, 4, DEEP,
+                 tl=Tilt(cx + side * L * 0.3, cy + k * L * 0.18, side * k * 25))
+    shape(G, MSO_SHAPE.OVAL, cx - L * 0.14, cy - L * 0.62, L * 0.28, L * 0.24, DEEP)                 # head
+    shape(G, MSO_SHAPE.OVAL, cx - L * 0.3, cy - L * 0.45, L * 0.6, L * 0.85, fill, shadow=True)    # shell
+    rect(G, cx - 2, cy - L * 0.42, 4, L * 0.8, WHITE)
+    for dx, dy in ((-0.14, -0.15), (0.14, -0.05), (-0.12, 0.15), (0.12, 0.22)):
+        oval(G, cx + dx * L - L * 0.04, cy + dy * L - L * 0.04, L * 0.08, L * 0.08, GLOW)
+    g.rotation = deg
+    return g
+
+
+def bird(s, cx, cy, L, deg=0, fill="8C6A4E"):
+    g, G = group(s)
+    shape(G, MSO_SHAPE.ISOSCELES_TRIANGLE, cx - L * 0.62, cy - L * 0.12, L * 0.3, L * 0.22, fill, -90)   # tail
+    shape(G, MSO_SHAPE.OVAL, cx - L * 0.45, cy - L * 0.28, L * 0.8, L * 0.56, fill, shadow=True)       # body
+    oval(G, cx - L * 0.2, cy - L * 0.02, L * 0.42, L * 0.22, "E8D9C0")                                 # breast
+    shape(G, MSO_SHAPE.OVAL, cx - L * 0.28, cy - L * 0.2, L * 0.4, L * 0.24, "6E523B", -15)            # wing
+    shape(G, MSO_SHAPE.OVAL, cx + L * 0.12, cy - L * 0.52, L * 0.36, L * 0.36, fill)                   # head
+    shape(G, MSO_SHAPE.ISOSCELES_TRIANGLE, cx + L * 0.44, cy - L * 0.4, L * 0.16, L * 0.1, "E0A83A", 90, line=None)
+    oval(G, cx + L * 0.3, cy - L * 0.42, L * 0.06, L * 0.06, BROWN)
+    for dx in (-0.08, 0.08):
+        rect(G, cx + dx * L, cy + L * 0.25, 4, L * 0.16, "E0A83A")
+    g.rotation = deg
+    return g
+
+
+def flower(s, cx, cy, r, deg=0, petal="F2CF5B", centre="8C6A4E", stem=True):
+    g, G = group(s)
+    if stem:
+        rect(G, cx - 3, cy, 6, r * 2.6, "7FA05A")
+        shape(G, MSO_SHAPE.OVAL, cx + 2, cy + r * 1.3, r * 0.9, r * 0.4, LEAF, -30)
+    for k in range(6):
+        a = math.radians(60 * k)
+        px_, py_ = cx + math.cos(a) * r * 0.62, cy + math.sin(a) * r * 0.62
+        shape(G, MSO_SHAPE.OVAL, px_ - r * 0.42, py_ - r * 0.28, r * 0.84, r * 0.56, petal, 60 * k, lw=4)
+    shape(G, MSO_SHAPE.OVAL, cx - r * 0.38, cy - r * 0.38, r * 0.76, r * 0.76, centre, lw=4)
+    g.rotation = deg
+    return g
+
+
+def coins(s, cx, cy, w, deg=0):
+    g, G = group(s)
+    for i in range(4):
+        shape(G, MSO_SHAPE.OVAL, cx - w / 2, cy - i * w * 0.14, w, w * 0.32, "D9A521", lw=4, shadow=(i == 0))
+    oval(G, cx - w * 0.3, cy - 3 * w * 0.14 + w * 0.05, w * 0.6, w * 0.2, "E9C45A")
+    g.rotation = deg
+    return g
+
+
+def paper_doc(s, cx, cy, w, deg=0):
+    g, G = group(s)
+    h = w * 1.3
+    shape(G, MSO_SHAPE.RECTANGLE, cx - w / 2, cy - h / 2, w, h, WHITE, line="D8D2C4", lw=3, shadow=True)
+    rect(G, cx - w * 0.36, cy - h * 0.38, w * 0.72, h * 0.07, GREEN)
+    for i in range(6):
+        rect(G, cx - w * 0.36, cy - h * 0.2 + i * h * 0.1, w * (0.72 if i % 3 != 2 else 0.5), 5, "B8B2A4")
+    g.rotation = deg
+    return g
+
+
+def magnifier(s, cx, cy, r, deg=-35):
+    g, G = group(s)
+    rect(G, cx - r * 0.12, cy + r * 0.9, r * 0.24, r * 1.1, BROWN, line=WHITE, lw=OUT)
+    shape(G, MSO_SHAPE.DONUT, cx - r, cy - r, 2 * r, 2 * r, DEEP, shadow=True)
+    oval(G, cx - r * 0.78, cy - r * 0.78, r * 1.56, r * 1.56, "DDEBF2")
+    oval(G, cx - r * 0.5, cy - r * 0.55, r * 0.35, r * 0.2, WHITE)
+    g.rotation = deg
+    return g
+
+
+def microscope(s, cx, cy, h, deg=0, body="3E6B5A"):
+    """cy is the base line."""
+    g, G = group(s)
+    shape(G, MSO_SHAPE.ROUNDED_RECTANGLE, cx - h * 0.35, cy - h * 0.1, h * 0.7, h * 0.1, body, shadow=True)       # base
+    shape(G, MSO_SHAPE.ROUNDED_RECTANGLE, cx + h * 0.05, cy - h * 0.72, h * 0.14, h * 0.64, body)                 # arm
+    rect(G, cx - h * 0.28, cy - h * 0.38, h * 0.5, h * 0.05, DEEP)                                               # stage
+    shape(G, MSO_SHAPE.ROUNDED_RECTANGLE, cx - h * 0.2, cy - h * 0.95, h * 0.16, h * 0.5, "D9D2C3", -18)          # tube
+    shape(G, MSO_SHAPE.ROUNDED_RECTANGLE, cx - h * 0.27, cy - h * 1.04, h * 0.2, h * 0.1, body, -18)             # eyepiece
+    oval(G, cx + h * 0.02, cy - h * 0.62, h * 0.14, h * 0.14, "E0A83A")                                          # knob
+    g.rotation = deg
+    return g
+
+
+def pot(G, cx, cy, w, plant="happy"):
+    """Terracotta pot with a seedling, drawn into group G. cy is the pot bottom."""
+    h = w * 0.8
+    shape(G, MSO_SHAPE.TRAPEZOID, cx - w / 2, cy - h, w, h, "C06A3E", 180, lw=4)
+    rect(G, cx - w * 0.58, cy - h - h * 0.14, w * 1.16, h * 0.2, "A8552F", line=WHITE, lw=4)
+    rect(G, cx - 3, cy - h - w * 0.55, 6, w * 0.45, "7FA05A")
+    for side in (-1, 1):
+        shape(G, MSO_SHAPE.OVAL, cx + side * w * 0.12 - w * 0.2, cy - h - w * 0.62, w * 0.4, w * 0.22,
+              {"herb": "4E8F4F", "flower": "7FA05A"}.get(plant, LEAF), side * 30, lw=3)
+    if plant == "flower":
+        flower(G, cx, cy - h - w * 0.62, w * 0.14, stem=False)
+
+
+def seedling_tray(s, cx, cy, w, deg=0):
+    """Wooden tray of little pots: vegetable, herb and flower seedlings."""
+    g, G = group(s)
+    for i, kind in enumerate(("happy", "herb", "flower", "happy")):
+        pot(G, cx - w * 0.36 + i * w * 0.24, cy - w * 0.04, w * 0.19, kind)
+    shape(G, MSO_SHAPE.RECTANGLE, cx - w / 2, cy - w * 0.08, w, w * 0.16, "B98A5E", shadow=True)
+    for k in range(3):
+        rect(G, cx - w / 2 + 10, cy - w * 0.05 + k * w * 0.04, w - 20, 3, "8C6A4E")
+    g.rotation = deg
+    return g
