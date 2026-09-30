@@ -33,4 +33,11 @@ Estimated cost log (estimate, not billing data). Stop at $9.00.
 2026-09-30 15:55 coffee-cup-spilled-grounds-1 FAILED est $0.00
 2026-09-30 16:21 microscope-paper-1 FAILED est $0.00
 2026-09-30 16:21 microscope-paper-1 FAILED est $0.00
-TOTAL $0.90
+2026-09-30 16:28 leaf-frame-1 ok est $0.09
+2026-09-30 16:32 microscope-paper-1 ok est $0.09
+2026-09-30 16:34 leaf-sprig-paper-1 ok est $0.09
+2026-09-30 16:36 cute-bacterium-1 ok est $0.09
+2026-09-30 16:37 earthworm-paper-1 ok est $0.09
+2026-09-30 16:39 happy-seedling-1 ok est $0.09
+2026-09-30 16:41 mushroom-paper-1 ok est $0.09
+TOTAL $1.53

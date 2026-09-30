@@ -495,7 +495,7 @@ def card_extras(s, name, i, has_photo):
     import scrapbook as sb
     sb.tape(s, 150, 80, 170, 50, -32); sb.tape(s, 930, 80, 170, 50, 32)
     kind = CARD_STICKERS.get(name, ROTATION[i % len(ROTATION)])
-    paper(s, kind, 960, 1240, 190, 8, lambda: sb.seedling(s, 980, 1290, 160, deg=8))
+    paper(s, kind, 985, 945, 170, 8, lambda: sb.seedling(s, 985, 1000, 150, deg=8))
     if not has_photo:
         paper(s, "leaf-sprig-paper", 860, 560, 170, 28, lambda: sb.cutout(s, CUT + "dried-flowers-2-1.png", 880, 560, 150, 24))
 
@@ -508,10 +508,10 @@ def teachers():
     s = dark(d, "Opening slide. " + src + "Cut-paper pieces from tools/collage_generate.py (flux-2-pro).")
     if frame: sb.cutout(s, CUT + "leaf-frame-1.png", 540, 690, 1060)
     else: leaf_frame(s)
-    tl = sb.note(s, 190, 380, 700, 560, sb.PAPER, 0)
-    block(s, 230, 450, 620, "Happy World Teachers' Day. Our mentors' best advice, in one line each.", 50, DEEP, HEAD, True, 1.12, align="c")
-    paper(s, "microscope-paper", 800, 1000, 230, 6, lambda: sb.microscope(s, 800, 1060, 170, 6))
-    paper(s, "earthworm-paper", 300, 1010, 200, -8, lambda: sb.seedling(s, 290, 1040, 150, deg=-6))
+    tl = sb.note(s, 170, 340, 740, 640, sb.PAPER, 0)
+    block(s, 220, 410, 620, "Happy World Teachers' Day. Our mentors' best advice, in one line each.", 50, DEEP, HEAD, True, 1.12, align="c")
+    paper(s, "microscope-paper", 830, 1080, 220, 6, lambda: sb.microscope(s, 800, 1060, 170, 6))
+    paper(s, "earthworm-paper", 260, 1080, 190, -8, lambda: sb.seedling(s, 290, 1040, 150, deg=-6))
     logo_br(s, True)
     for i, m in enumerate(MENTORS):
         s = card(d, *m)
