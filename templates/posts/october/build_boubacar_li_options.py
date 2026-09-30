@@ -178,5 +178,35 @@ def option_e():
     save(d, "01-10-2026-thu-li-boubacar-option-e-gold-roots.pptx")
 
 
+def option_e_green():
+    """Freestyle, after the Eric Feiler welcome card: warm gold with a pale root network, logo top left, black rule,
+    big Roboto name, a cream band in Times New Roman, and Boubacar cut out on the right with a soft cream glow."""
+    from PIL import Image as PImage
+    d = Deck(W, H, name="01-10-2026-thu-li-boubacar-option-e-green-roots")
+    s = d.slide("31662F", "Option E, green roots (style of the SFW 'Welcome Eric Feiler' card). Fonts: Roboto and Times New Roman, as on "
+                "that card. Photo: assets/photo/boubacar/boubacar-portrait-bananas.jpg in an arch frame. Root network: assets/collage/root-network-green.png, drawn by code. " + SOURCES,
+                counter=False)
+    rect(s, 0, 0, W, H, "31662F")
+    s.shapes.add_picture(os.path.join(ROOT, "assets/collage/root-network-green.png"), 0, 0, Emu(W * PX), Emu(H * PX))
+    rect(s, 0, 430, 860, 130, "F6E3C2", alpha=78)
+    # sharp photo in an arch frame (the cutouts were too soft or looked odd)
+    from pptx.enum.shapes import MSO_SHAPE
+    fx, fy, fw, fh = 830, 40, 330, 560
+    arch = rect(s, fx - 12, fy - 12, fw + 24, fh + 24, "F6E3C2", kind=MSO_SHAPE.ROUND_2_SAME_RECTANGLE, shadow=True)
+    arch.adjustments[0] = 0.5
+    pic = photo(s, B + "boubacar-portrait-bananas-closer.jpg", fx, fy, fw, fh, 0.5, 0.3)
+    pic.auto_shape_type = MSO_SHAPE.ROUND_2_SAME_RECTANGLE
+    g = pic._element.spPr.find("{%s}prstGeom" % A); av = g.find("{%s}avLst" % A)
+    if av is None: av = etree.SubElement(g, "{%s}avLst" % A)
+    etree.SubElement(av, "{%s}gd" % A, name="adj1", fmla="val 50000")
+    logo(s, 40, 30, 150, white=True)
+    rect(s, 90, 190, 330, 6, "F4F1EA")
+    text(s, 90, 208, 700, 40, "Happy International Coffee Day", 24, "DBE6A7", "Roboto", False)
+    text(s, 86, 250, 760, 170, "Boubacar Tidiane\nDiallo", 58, "F4F1EA", "Roboto", False, spacing=0.95)
+    text(s, 90, 446, 740, 110, "Gnaly Coffee & AgroÉcole Bio\nFouta Djallon, Guinea-Conakry", 28, "22371F", "Times New Roman", False,
+         spacing=1.15)
+    save(d, "01-10-2026-thu-li-boubacar-option-e-green-roots.pptx")
+
+
 if __name__ == "__main__":
-    option_a(); option_b(); option_c(); option_b_green(); option_b_brown(); option_d(); option_e()
+    option_a(); option_b(); option_c(); option_b_green(); option_b_brown(); option_d(); option_e(); option_e_green()
