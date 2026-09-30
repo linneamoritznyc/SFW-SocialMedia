@@ -4,10 +4,10 @@ EB Garamond for the quieter lines, photos cut with a soft curve. No stickers.
 
 python3 build_boubacar_li_options.py  ->  01-10-2026-thu-li-boubacar-option-{a-green,b-blue,c-soil}.pptx
 """
-import math
+import math, os
 from lxml import etree
 from pptx.util import Emu
-from lib import Deck, rect, text, crop, poly, _place, PX, CREAM, GLOW, HEAD
+from lib import Deck, rect, text, crop, poly, _place, PX, ROOT, CREAM, GLOW, HEAD
 from build_oct_01_10 import logo, save, text_width
 from build_boubacar import B, SOURCES
 
@@ -146,5 +146,37 @@ def option_d():
     save(d, "01-10-2026-thu-li-boubacar-option-d-journal.pptx")
 
 
+
+
+def option_e():
+    """Freestyle, after the Eric Feiler welcome card: warm gold with a pale root network, logo top left, black rule,
+    big Roboto name, a cream band in Times New Roman, and Boubacar cut out on the right with a soft cream glow."""
+    from PIL import Image as PImage
+    d = Deck(W, H, name="01-10-2026-thu-li-boubacar-option-e-gold-roots")
+    s = d.slide("D9A13E", "Option E, gold roots (style of the SFW 'Welcome Eric Feiler' card). Fonts: Roboto and Times New Roman, as on "
+                "that card. Cutout: assets/photo/boubacar/boubacar-portrait-cutout.png, his own photo with the background removed "
+                "locally (rembg); nothing generated. Root network: assets/collage/root-network-gold.png, drawn by code. " + SOURCES,
+                counter=False)
+    rect(s, 0, 0, W, H, "D9A13E")
+    s.shapes.add_picture(os.path.join(ROOT, "assets/collage/root-network-gold.png"), 0, 0, Emu(W * PX), Emu(H * PX))
+    rect(s, 0, 430, 860, 130, "F6E3C2", alpha=78)
+    # cutout: scaled so his waist sits at the bottom edge
+    cw, ch = PImage.open(os.path.join(ROOT, B + "boubacar-portrait-cutout.png")).size
+    h = 1180; w = h * cw / ch; x = 1200 - w + 20; y = 20
+    gw, gh = PImage.open(os.path.join(ROOT, B + "boubacar-portrait-cutout-glow.png")).size
+    k = h / ch
+    s.shapes.add_picture(os.path.join(ROOT, B + "boubacar-portrait-cutout-glow.png"), Emu(int((x - 40 * k) * PX)), Emu(int((y - 40 * k) * PX)),
+                         Emu(int(gw * k * PX)), Emu(int(gh * k * PX)))
+    s.shapes.add_picture(os.path.join(ROOT, B + "boubacar-portrait-cutout.png"), Emu(int(x * PX)), Emu(int(y * PX)),
+                         Emu(int(w * PX)), Emu(int(h * PX)))
+    logo(s, 40, 30, 150, white=False)
+    rect(s, 90, 190, 330, 6, "1E1412")
+    text(s, 90, 208, 700, 40, "Happy International Coffee Day", 24, "1E1412", "Roboto", False)
+    text(s, 86, 250, 760, 170, "Boubacar Tidiane\nDiallo", 58, "1E1412", "Roboto", False, spacing=0.95)
+    text(s, 90, 446, 740, 110, "Gnaly Coffee & AgroÉcole Bio\nFouta Djallon, Guinea-Conakry", 28, "1E1412", "Times New Roman", False,
+         spacing=1.15)
+    save(d, "01-10-2026-thu-li-boubacar-option-e-gold-roots.pptx")
+
+
 if __name__ == "__main__":
-    option_a(); option_b(); option_c(); option_b_green(); option_b_brown(); option_d()
+    option_a(); option_b(); option_c(); option_b_green(); option_b_brown(); option_d(); option_e()
