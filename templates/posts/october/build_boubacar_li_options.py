@@ -119,5 +119,32 @@ def option_c():
     save(d, "01-10-2026-thu-li-boubacar-option-c-soil.pptx")
 
 
+
+
+def option_d():
+    """Freestyle: cream field-journal page. Big serif pull quote from his email, two photos stacked on a Deep Green
+    column, thin gold rules, one cut-paper coffee branch as the only ornament."""
+    from build_oct_01_10 import GRAIN, CUT
+    import scrapbook as sb
+    d = Deck(W, H, name="01-10-2026-thu-li-boubacar-option-d-journal")
+    s = d.slide(CREAM, "Option D, freestyle field journal." + NOTE + "Quote from Boubacar's email to Allison, 30 Sep 2026. Photos: "
+                "planting-seedling-in-agroforest.jpeg and boubacar-hand-compost-worm.jpg. " + SOURCES, counter=False)
+    s.shapes.add_picture(crop(GRAIN, W, H), 0, 0, Emu(W * PX), Emu(H * PX))
+    rect(s, 760, 0, 440, H, "22371F")
+    photo(s, B + "planting-seedling-in-agroforest.jpeg", 800, 40, 360, 330, 0.45, 0.45)
+    photo(s, B + "boubacar-hand-compost-worm.jpg", 800, 390, 360, 197, 0.4, 0.55)
+    eyebrow(s, 70, 64, "Happy International Coffee Day", "156826")
+    rect(s, 70, 102, 60, 3, "C9A227")
+    text(s, 62, 118, 120, 150, "“", 140, "C9A227", SERIF, False, spacing=0.8)
+    text(s, 70, 200, 640, 200, "I now believe that agriculture is biology, not chemical fertilizer.”", 42, "22371F", SERIF, False,
+         italic=True, spacing=1.1)
+    rect(s, 70, 450, 640, 1.5, "C9A227")
+    text(s, 70, 470, 640, 40, "Boubacar Tidiane Diallo", 26, "22371F", HEAD, True)
+    text(s, 70, 508, 680, 34, "Gnaly Coffee & AgroÉcole Bio, Fouta Djallon, Guinea-Conakry", 18, "4F3433", SERIF, False)
+    sb.cutout(s, CUT + "coffee-cherries-branch-1.png", 700, 120, 120, 20)
+    logo(s, 650, H - 24 - 60, 66, white=False)
+    save(d, "01-10-2026-thu-li-boubacar-option-d-journal.pptx")
+
+
 if __name__ == "__main__":
-    option_a(); option_b(); option_c(); option_b_green(); option_b_brown()
+    option_a(); option_b(); option_c(); option_b_green(); option_b_brown(); option_d()
