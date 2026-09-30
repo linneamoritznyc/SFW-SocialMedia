@@ -78,12 +78,12 @@ def instagram():
     paper(s, "leaf-sprig-paper", 130, 260, 190, -20)
 
     # 2 Gnaly (new): the farm
-    s = cream(d, "Photo wall: assets/photo/boubacar/farm-overview-with-tanks.jpeg, vegetable-beds-by-building.jpeg, "
+    s = cream(d, "Photo wall: assets/photo/boubacar/farm-overview-with-tanks.jpeg, man-by-water-tanks.jpeg, "
                  "young-tree-with-pineapples.jpg (WhatsApp, 17 Aug 2026, and Allison, Sep 2026). Caption: farm name and region from "
                  "his email signature (30 Sep 2026)." + CUTS)
     print_(s, B + "farm-overview-with-tanks.jpeg", 90, 110, 440, 560, 0.5, 0.5)
     print_(s, B + "young-tree-with-pineapples.jpg", 580, 110, 410, 330, 0.5, 0.55)
-    print_(s, B + "vegetable-beds-by-building.jpeg", 580, 500, 410, 420, 0.5, 0.6)
+    print_(s, B + "man-by-water-tanks.jpeg", 580, 500, 410, 420, 0.4, 0.5)
     sb.guinea_flag(s, 250, 800, 170, -6)
     paper(s, "pineapple", 440, 830, 140, 8)
     caption(s, "Gnaly Coffee & AgroÉcole Bio, Fouta Djallon, Guinea", 1000, 170)
@@ -91,11 +91,11 @@ def instagram():
     paper(s, "banana-bunch", 470, 1030, 170, -8)
 
     # 3 quote (was 2): his face with coffee seedlings
-    s = cream(d, "Quote slide. Photo: assets/photo/boubacar/boubacar-raincoat-seedlings-cropped-2x.jpg, cropped from the phone "
-                 "screenshot of his Facebook post of 17 July 2024 and upscaled 2x. [PHOTO NEEDED: the original file from Boubacar]." + CUTS)
+    s = cream(d, "Quote slide. Photo: assets/photo/boubacar/vegetable-beds-by-building.jpeg (Boubacar in his vegetable beds, WhatsApp, "
+                 "17 Aug 2026), cropped to remove a blurred fingertip at the bottom." + CUTS)
     quote_marks(s, 60, 40, 260)
     y = block(s, 90, 250, 900, "“Today, I ask a different question: What does the soil food web need to thrive?”", 56, DEEP, HEAD, True, 1.1)
-    print_(s, B + "boubacar-raincoat-seedlings-cropped-2x.jpg", 250, y + 70, 580, 1260 - (y + 70), 0.5, 0.2)
+    print_(s, B + "vegetable-beds-by-building.jpeg", 250, y + 70, 580, 1260 - (y + 70), 0.6, 0.25)
     paper(s, "happy-seedling", 120, 1180, 170, -6)
     paper(s, "mushroom-paper", 970, 1190, 160, -4)
     paper(s, "coffee-cherries-branch", 960, y + 140, 200, 20)
@@ -122,9 +122,9 @@ def instagram():
     paper(s, "leaf-sprig-paper", 1000, 960, 150, 20)
 
     # 6 what he grows together
-    s = cream(d, "Photo slide. Main: assets/photo/boubacar/agroforestry-understory.jpg. Inset: assets/photo/boubacar/banana-bunch.jpg. "
+    s = cream(d, "Photo slide. Main: assets/photo/boubacar/planting-seedling-in-agroforest.jpeg (planting a coffee seedling, WhatsApp, 17 Aug 2026). Inset: assets/photo/boubacar/banana-bunch.jpg. "
                  "Stickers: coffee, cacao, cocoa beans, orange, pineapple." + CUTS)
-    print_(s, B + "agroforestry-understory.jpg", 110, 110, 540, 700, 0.5, 0.45)
+    print_(s, B + "planting-seedling-in-agroforest.jpeg", 110, 110, 540, 700, 0.45, 0.45)
     print_(s, B + "banana-bunch.jpg", 720, 390, 270, 360, 0.5, 0.35)
     paper(s, "coffee-cherries-branch", 860, 200, 260, 8)
     paper(s, "cacao-pod", 95, 800, 130, -15)
