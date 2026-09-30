@@ -52,4 +52,15 @@ Estimated cost log (estimate, not billing data). Stop at $9.00.
 2026-09-30 17:16 cocoa-beans-1 ok est $0.09
 2026-09-30 17:18 coffee-beans-paper-1 ok est $0.09
 2026-09-30 17:19 tithonia-flower-1 ok est $0.09
-TOTAL $2.61
+2026-09-30 19:51 line-coffee-branch-1 ok est $0.09
+2026-09-30 19:52 line-cacao-pod-1 ok est $0.09
+2026-09-30 19:52 line-banana-plant-1 ok est $0.09
+2026-09-30 19:53 line-pineapple-plant-1 ok est $0.09
+2026-09-30 19:54 line-earthworm-1 ok est $0.09
+2026-09-30 19:54 line-mushroom-cluster-1 ok est $0.09
+2026-09-30 19:55 line-seedling-roots-1 ok est $0.09
+2026-09-30 19:56 line-compost-pile-1 ok est $0.09
+2026-09-30 19:57 line-orange-branch-1 ok est $0.09
+2026-09-30 19:57 line-tithonia-1 ok est $0.09
+2026-09-30 19:58 line-millipede-1 ok est $0.09
+TOTAL $3.60

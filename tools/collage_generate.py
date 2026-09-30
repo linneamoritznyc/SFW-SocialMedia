@@ -36,6 +36,26 @@ STYLE = (
     "no text, no signature, no initials, no labels, no frame, no cast shadow, no torn or deckled paper edge."
 )
 
+LINE_STYLE = (
+    "realistic botanical line drawing, fine black ink pen on plain white paper, scientific illustration style, "
+    "clean confident contour lines with light hatching for shading, no color, no fill, no gray wash, "
+    "single subject centered and alone, plain white background, no text, no signature, no frame, no border."
+)
+
+LINE_PIECES = {
+    "coffee-branch": "a coffee plant branch with glossy leaves and clusters of coffee cherries",
+    "cacao-pod": "a cacao pod hanging from a short stem with two leaves",
+    "banana-plant": "a young banana plant with broad leaves",
+    "pineapple-plant": "a pineapple growing on its plant with spiky leaves",
+    "earthworm": "an earthworm curved in an S shape, showing its segments",
+    "mushroom-cluster": "a small cluster of three wild mushrooms",
+    "seedling-roots": "a young seedling with two leaves and its fine roots spreading below",
+    "compost-pile": "a compost pile with a shovel and a garden fork leaning against it",
+    "orange-branch": "a citrus branch with leaves and one orange",
+    "tithonia": "a Mexican sunflower (Tithonia) flower with leaves on a stem",
+    "millipede": "a millipede curled on a fallen leaf",
+}
+
 PIECES = {
     "nematode": "a bacterial-feeding nematode, a smooth tapered thread-like worm body, blunt head, pointed tail",
     "fungal-hyphae": "branching fungal hyphae, thin branching threads forming a network",
@@ -119,7 +139,9 @@ def log_cost(name, version, ok):
     return total
 
 
-def generate(name, version):
+def generate(name, version, line=False):
+    if line:
+        return generate_line(name, version)
     out = ORIG / f"{name}-{version}.png"
     style = STYLE
     if name in STYLE_OVERRIDES:
@@ -154,6 +176,39 @@ def generate(name, version):
     return None
 
 
+def generate_line(name, version):
+    """Line art: no style reference (it is cut paper), plain prompt. Saved to originals/line-<name>-<v>.png."""
+    out = ORIG / f"line-{name}-{version}.png"
+    prompt = f"{LINE_PIECES[name]}. {LINE_STYLE}"
+    last_err = None
+    for attempt in (1, 2):
+        if total_cost() >= STOP_AT:
+            sys.exit(f"Stopping: estimated total reached ${STOP_AT:.2f}")
+        try:
+            output = replicate.run(MODEL, input={"prompt": prompt, "aspect_ratio": "1:1", "resolution": "4 MP", "output_format": "png"})
+            first = output[0] if isinstance(output, (list, tuple)) else output
+            out.write_bytes(first.read())
+            log_cost("line-" + name, version, True)
+            return out
+        except Exception as e:  # noqa: BLE001
+            last_err = e
+            log_cost("line-" + name, version, False)
+            time.sleep(30 if "429" in str(e) else 3)
+    print(f"FAILED line-{name}-{version}: {type(last_err).__name__}: {str(last_err)[:200]}")
+    return None
+
+
+def line_cutout(path, color=(0x22, 0x37, 0x1F)):
+    """Dark ink becomes opaque Deep Green, white paper becomes transparent."""
+    from PIL import Image, ImageOps
+    CUT.mkdir(parents=True, exist_ok=True)
+    g = ImageOps.autocontrast(Image.open(path).convert("L"), cutoff=1)
+    a = g.point(lambda v: 0 if v > 235 else min(255, int((235 - v) * 1.35)))
+    im = Image.new("RGBA", g.size, color + (0,)); im.putalpha(a)
+    im = im.crop(a.point(lambda v: 255 if v > 40 else 0).getbbox())
+    im.save(CUT / path.name)
+
+
 def cutout(path):
     from PIL import Image
     from rembg import remove
@@ -167,11 +222,12 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("names", nargs="+")
     ap.add_argument("--version", type=int, default=1)
+    ap.add_argument("--line", action="store_true", help="realistic line drawing, no style reference")
     args = ap.parse_args()
     ORIG.mkdir(parents=True, exist_ok=True)
     for n in args.names:
-        p = generate(n, args.version)
+        p = generate(n, args.version, args.line)
         if p:
-            cutout(p)
+            line_cutout(p) if args.line else cutout(p)
             print(f"done {p.name}  running est total ${total_cost():.2f}")
         time.sleep(25)  # free Replicate account: one request at a time, about 6 a minute
