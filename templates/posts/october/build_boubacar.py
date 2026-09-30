@@ -66,9 +66,9 @@ def instagram():
                  "shirt is Boubacar [VERIFY]." + CUTS)
     quote_marks(s, 60, 40, 260)
     y = block(s, 90, 250, 900, "“Today, I ask a different question: What does the soil food web need to thrive?”", 56, DEEP, HEAD, True, 1.1)
-    print_(s, B + "boubacar-field-mulch.jpg", 250, y + 70, 580, 1250 - (y + 70), 0.5, 0.62)
-    paper(s, "earthworm-paper", 150, 1180, 200, 6)
-    paper(s, "mushroom-paper", 950, 1180, 170, -4)
+    print_(s, B + "boubacar-field-mulch.jpg", 170, y + 70, 740, 1260 - (y + 70), 0.5, 0.6)
+    paper(s, "happy-seedling", 95, 1200, 160, -6)
+    paper(s, "mushroom-paper", 985, 1200, 160, -4)
 
     # 3 how he feeds his soil
     s = cream(d, "Photo slide. Main: assets/photo/boubacar/boubacar-compost-pile.jpeg (WhatsApp, 17 Aug 2026). Inset: "
@@ -98,7 +98,7 @@ def instagram():
     print_(s, B + "millipede-leaf-litter.jpg", 110, 110, 540, 700, 0.5, 0.35)
     print_(s, B + "boubacar-hand-compost-worm.jpg", 720, 330, 270, 400, 0.4, 0.5)
     paper(s, "mushroom-paper", 860, 190, 170, 8)
-    paper(s, "earthworm-paper", 700, 830, 170, -6)
+    paper(s, "happy-seedling", 690, 830, 150, -6)
     text_box(s, "What he's seeing:", "more earthworms, more mushrooms, active decomposition, and better soil structure.", 900, 360)
 
     # 6 quote and follow
