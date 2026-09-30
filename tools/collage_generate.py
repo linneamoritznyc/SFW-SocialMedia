@@ -70,6 +70,10 @@ PIECES = {
     "field-cross-section": "a cross-section slice of a farm field like a slice of layered cake: short green cover crop plants on top, below them a thick layer of dark brown soil with pale plant roots and fine white branching fungal threads",
     "bird-beetle-wildflower": "a small brown songbird perched on a wildflower stem with yellow and blue flowers, and a small dark ground beetle at the foot of the stem, grouped together",
     "leaf-frame": "a square frame border made of overlapping cut-paper leaves, ferns and small sprigs in greens, kraft brown and slate blue, arranged around the edges, with a large empty plain cream center",
+    "lemon-half": "a cute halved lemon, bright yellow cut-paper lemon half showing its segments, with a small leaf",
+    "coffee-beans": "a small cute pile of three roasted coffee beans, dark brown cut paper with a center line on each bean",
+    "sad-seedling": "a tiny droopy seedling sprouting from a small mound of soil, two drooping seed leaves, slightly wilted",
+    "happy-seedling": "a tiny happy seedling sprouting from a small mound of dark soil, two perky round seed leaves",
     "seedling-tray": "a small wooden seedling tray holding six little pots of seedlings: lettuce, basil, a small tomato plant and tiny flower seedlings",
 }
 

@@ -132,6 +132,19 @@ def block(s, x, y, w, t, pt, color=DEEP, font=HEAD, bold=True, spacing=1.15, ali
     return y + h
 
 
+def centered(s, t, pt, color=DEEP, rule=GREEN, cy=675):
+    """Big statement set around the vertical middle, with a short rule above it."""
+    top = cy - n_lines(t, pt, 920 * 0.97) * lh(pt, 1.12) / 2
+    if rule: rect(s, 80, top - 60, 140, 10, rule)
+    return block(s, 80, top, 920, t, pt, color, HEAD, True, 1.12)
+
+
+def head_body(s, head, body, y=110, hpt=66, bpt=38, w=920, x=80):
+    """Punchy headline in Montserrat, then a body line in Source Sans. Returns the bottom y."""
+    y = block(s, x, y, w, head, hpt, DEEP, HEAD, True, 1.08) + 26
+    return block(s, x, y, w, body, bpt, INK, BODY, False, 1.25)
+
+
 def source_line(s, t, dark_bg=False, W=1080, H=1350, right_gap=200):
     text(s, 80, H - 95, W - 80 - right_gap, 40, t, 18, GLOW if dark_bg else FAINT, BODY, alpha=85 if dark_bg else None)
 
@@ -157,53 +170,99 @@ def save(d, fname):
 
 # ================================================================ 1. Coffee myth (Thu 1 Oct), template 2
 def coffee():
+    """Cute science scrapbook: taped prints, drawn stickers, cream paper."""
+    import scrapbook as sb
     d = Deck(name="01-10-2026-thu-ig-coffee-myth")
     src = ("Sources: Hardgrove and Livesley, Urban Forestry and Urban Greening, 2016, https://doi.org/10.1016/j.ufug.2016.02.015; "
            "Summers et al., Journal of Bacteriology, 2012, https://doi.org/10.1128/JB.06637-11; "
            "US EPA, 40 CFR Part 503, https://www.ecfr.gov/current/title-40/chapter-I/subchapter-O/part-503.")
-    s = dark(d, "Template 2A myth. " + src + " Photo: " + unsplash_credit("coffee-grounds-close-up.jpg"))
-    photo_box(s, "assets/photo/coffee-grounds-close-up.jpg", 0, 0, 1080, 600, 0.5, 0.5)
-    rect(s, 0, 600, 1080, 8, GLOW)
-    text(s, 80, 740, 920, 90, "Myth:", 64, GLOW, HEAD, True, anchor="m")
-    lines = ["“Coffee grounds", "acidify your soil.”"]
-    for i, ln in enumerate(lines):          # one box per line, each with a thick Glow strikethrough through its middle
-        y = 840 + i * 118
-        text(s, 80, y, 960, 110, ln, 72, CREAM, HEAD, True, anchor="m", spacing=1.0)
-        rect(s, 66, y + 55, text_width(ln, 72) + 28, 16, GLOW)
-    logo_br(s, True)
+    cr = lambda f: "Photo: " + unsplash_credit(f).split(" (")[0].replace("Photo by ", "")
+    stickers = " Stickers (lemon, cup, beans, seedlings, bacteria, pH strip, thermometer) are drawn PowerPoint shapes, grouped and editable."
 
-    def plain(t, pt=66, note=""):
-        s = cream(d, note)
-        top = 675 - n_lines(t, pt, 920 * 0.97) * lh(pt, 1.12) / 2
-        rect(s, 80, top - 60, 140, 10, GREEN)
-        block(s, 80, top, 920, t, pt, DEEP, HEAD, True, 1.12)
-        return s
-    plain("Brewing extracts most of the acids. Spent grounds sit close to neutral pH.")
-    plain("The real issue: residual caffeine and chlorogenic acids. Both are allelopathic. They inhibit germination and root growth.", 58)
-    plain("Fresh grounds spread on beds have reduced plant growth in trials.")
+    # 1 myth
+    s = cream(d, "Myth slide. " + src + " Photos: " + unsplash_credit("coffee-cup-leaves-top-view.jpg") + " "
+              + unsplash_credit("coffee-grounds-close-up.jpg") + stickers)
+    x, y, fw, fh = sb.polaroid(s, "assets/photo/coffee-cup-leaves-top-view.jpg", 70, 90, 470, -5, cr("coffee-cup-leaves-top-view.jpg"))
+    sb.tape(s, x + fw / 2, y + 8, 160, 46, -6)
+    x2, y2, fw2, fh2 = sb.polaroid(s, "assets/photo/coffee-grounds-close-up.jpg", 560, 150, 410, 4, cr("coffee-grounds-close-up.jpg"))
+    sb.tape(s, x2 + fw2 - 50, y2 + 10, 140, 44, 32)
+    sb.lemon(s, 960, 130, 85, 12)
+    sb.beans(s, 520, 690, 170, -10)
+    tl = sb.note(s, 70, 770, 940, 430, DEEP, -1.5)
+    text(s, 120, 810, 840, 90, "Myth:", 60, GLOW, HEAD, True, anchor="m", tl=tl)
+    for i, ln in enumerate(["“Coffee grounds", "acidify your soil.”"]):
+        yy = 905 + i * 115
+        text(s, 120, yy, 900, 110, ln, 70, CREAM, HEAD, True, anchor="m", spacing=1.0, tl=tl)
+        rect(s, 106, yy + 55, text_width(ln, 70) + 28, 16, GLOW, tl=tl)
+    text(s, 80, 1215, 780, 100, "Happy International Coffee Day ☕ Let's spill the beans.", 30, DEEP, BODY, True, anchor="m", spacing=1.1)
+    logo_br(s, False, 110)
 
-    s = cream(d, "Microscopy: assets/microscopy/sfw-amoeba-still-square.jpg. The library has no bacteria-only image; "
-                 "this Foundation still shows an amoeba (a bacteria feeder). Swap in a bacteria micrograph if Wes has one [IMAGE NEEDED].")
-    photo_box(s, "assets/microscopy/sfw-amoeba-still-square.jpg", 80, 80, 920, 600, 0.5, 0.5, radius=28)
-    block(s, 80, 740, 920, "Composting breaks them down. Some soil bacteria, like Pseudomonas putida CBB5, use caffeine as their only carbon and nitrogen source.",
-          46, DEEP, HEAD, True, 1.15)
+    # 2 neutral pH
+    s = cream(d, "pH strip: universal indicator colours, 0 to 14. Lemon marks the acid end; the cup sits near neutral, as the slide says." + stickers)
+    yb = head_body(s, "Plot twist: your coffee took the acid with it.",
+                   "Brewing pulls most of the acids into your cup. The spent grounds left behind sit close to neutral pH.", hpt=62)
+    sy = yb + 250
+    cw = sb.ph_strip(s, 90, sy, 900)
+    sb.lemon(s, 90 + 2.5 * cw, sy - 120, 70, -10); sb.pointer(s, 90 + 2.5 * cw, sy - 40)
+    sb.cup(s, 90 + 6.5 * cw, sy - 130, 160); sb.pointer(s, 90 + 6.5 * cw, sy - 40)
+    sb.beans(s, 250, 1150, 180, 8)
+    sb.cutout(s, CUT + "dried-flowers-2-1.png", 940, 1230, 170, 22)
 
-    cup = CUT + "coffee-cup-spilled-grounds-1.png"; have = os.path.exists(os.path.join(ROOT, cup))
-    s = cream(d, "Collage: coffee-cup-spilled-grounds." + ("" if have else " Not generated (Replicate throttled): type-only [COLLAGE NEEDED: coffee cup with spilled grounds]."))
-    t6 = "Grounds are a green, nitrogen-rich input. Mix with woody browns and compost them hot, at 55°C or more."
-    pt6 = 50 if have else 62
-    top6 = 150 if have else 675 - n_lines(t6, pt6, 920 * 0.97) * lh(pt6, 1.12) / 2
-    if not have: rect(s, 80, top6 - 60, 140, 10, GREEN)
-    block(s, 80, top6, 920, t6, pt6, DEEP, HEAD, True, 1.12)
-    if have: fitpiece(s, cup, 190, 640, 700, 620, -4)
+    # 3 caffeine and chlorogenic acids
+    s = cream(d, "Photo: " + unsplash_credit("seedlings-sprouting-in-soil.jpg") + stickers)
+    head_body(s, "So what's the catch? Caffeine. 😬",
+              "Leftover caffeine and chlorogenic acids are allelopathic: plant-speak for chemicals that stop seeds sprouting and roots growing.")
+    x, y, fw, fh = sb.polaroid(s, "assets/photo/seedlings-sprouting-in-soil.jpg", 90, 640, 460, -4, cr("seedlings-sprouting-in-soil.jpg"))
+    sb.tape(s, x + 60, y + 8, deg=-30)
+    sb.seedling(s, 800, 1080, 300, sad=True)
+    sb.beans(s, 690, 1180, 150, 15)
+    sb.cup(s, 900, 760, 150, 8, happy=False)
 
+    # 4 fresh grounds in trials
+    s = cream(d, "Photo: assets/photo/garden-vegetable-beds.jpg (Foundation library)." + stickers)
+    head_body(s, "Sprinkled straight on the garden?",
+              "In trials, fresh grounds spread on beds actually slowed plant growth. 🥀")
+    x, y, fw, fh = sb.polaroid(s, "assets/photo/garden-vegetable-beds.jpg", 330, 560, 520, 3, "Foundation library")
+    sb.tape(s, x + fw - 60, y + 10, deg=30); sb.tape(s, x + 60, y + 10, deg=-30)
+    sb.seedling(s, 190, 1010, 240, sad=True, deg=-4)
+    sb.beans(s, 200, 1180, 170, -12)
+    sb.cup(s, 900, 1200, 140, -8, happy=False)
+
+    # 5 bacteria that eat caffeine
+    s = cream(d, "Microscopy: assets/microscopy/sfw-amoeba-still-square.jpg (Foundation). The library has no bacteria-only image; "
+                 "this still shows an amoeba, a bacteria feeder. Swap in a bacteria micrograph if Wes has one [IMAGE NEEDED]. "
+                 "The drawn bacteria are rods with a flagellum, like Pseudomonas." + stickers)
+    x, y, fw, fh = sb.polaroid(s, "assets/microscopy/sfw-amoeba-still-square.jpg", 80, 80, 520, -3, "Soil Food Web Foundation")
+    sb.tape(s, x + fw / 2, y + 6, 160, 46, 4)
+    sb.bacterium(s, 820, 200, 220, -18); sb.bacterium(s, 880, 440, 190, 12, "D6E3A8"); sb.bacterium(s, 760, 640, 170, -6, "C9DDB6")
+    sb.beans(s, 990, 590, 110, 20)
+    head_body(s, "Enter the compost crew. 🦠",
+              "Composting breaks caffeine down. Some soil bacteria eat it for breakfast, lunch and dinner: Pseudomonas putida CBB5 uses caffeine as its only carbon and nitrogen source.",
+              y=770, hpt=60, bpt=36)
+
+    # 6 compost them hot
+    s = cream(d, "Photo: assets/photo/hand-of-compost.jpg (Foundation library). Thermometer marks 55°C, from the slide text." + stickers)
+    head_body(s, "The fix: compost them first. 🔥",
+              "Grounds are a nitrogen-rich green. Mix them with woody browns like leaves or wood chips, and keep the pile hot: 55°C (131°F) or more.")
+    x, y, fw, fh = sb.polaroid(s, "assets/photo/hand-of-compost.jpg", 90, 700, 460, -4, "Foundation library")
+    sb.tape(s, x + 70, y + 8, deg=-30)
+    my = sb.thermometer(s, 690, 700, 520, 55)
+    text(s, 780, my - 32, 260, 64, "55°C", 44, DEEP, HEAD, True, anchor="m")
+    sb.cup(s, 920, 1230, 150, 6)
+
+    # 7 sources
     s = cream(d, "Sources slide.")
-    text(s, 80, 150, 920, 110, "Sources.", 72, DEEP, HEAD, True)
-    y = 330
+    tl = sb.note(s, 70, 150, 940, 760, sb.PAPER, -1)
+    text(s, 120, 200, 840, 100, "Sources.", 64, DEEP, HEAD, True, anchor="m", tl=tl)
+    yy = 330
     for t in ("Hardgrove and Livesley, Urban Forestry and Urban Greening, 2016: https://doi.org/10.1016/j.ufug.2016.02.015",
               "Summers et al., Journal of Bacteriology, 2012: https://doi.org/10.1128/JB.06637-11",
               "US EPA, 40 CFR Part 503: https://www.ecfr.gov/current/title-40/chapter-I/subchapter-O/part-503"):
-        block(s, 80, y, 880, t, 22, INK, BODY, False, 1.25); y += 140
+        n = n_lines(t, 22, 820 * 0.97, BODY, False)
+        text(s, 120, yy, 840, n * lh(22, 1.25) + 10, t, 22, INK, BODY, False, spacing=1.25, tl=tl); yy += n * lh(22, 1.25) + 60
+    text(s, 80, 965, 920, 70, "Save this for your next coffee run. ☕", 36, DEEP, HEAD, True, anchor="m")
+    sb.lemon(s, 330, 1160, 80, -12); sb.cup(s, 570, 1170, 170, 4); sb.bacterium(s, 790, 1150, 170, -10)
+    sb.cutout(s, CUT + "dried-flowers-2-1.png", 120, 1210, 170, -25)
     logo_br(s, False, 110)
     save(d, "01-10-2026-thu-ig-coffee-myth.pptx")
 
@@ -221,7 +280,9 @@ def field(s, x, y, w, h):
     ferns above for the cover crop, the fungal-hyphae cutout below for fungal threads and roots."""
     if os.path.exists(os.path.join(ROOT, FIELD)):
         return fitpiece(s, FIELD, x, y, w, h)
-    rect(s, x + w * 0.05, y + h * 0.42, w * 0.9, h * 0.52, "4F3433")          # soil band, Soil Brown
+    iw, ih = Image.open(trimmed("assets/collage/cut-brown-brush.png")).size       # torn-paper soil layer
+    soil = s.shapes.add_picture(trimmed("assets/collage/cut-brown-brush.png"), 0, 0, Emu(1), Emu(1))
+    _place(soil, x + w * 0.04, y + h * 0.4, w * 0.92, h * 0.56)
     piece(s, "assets/collage/fern-green.png", x + w * 0.32, y + h * 0.3, w * 0.5, -8)
     piece(s, "assets/collage/fern-sage.png", x + w * 0.7, y + h * 0.3, w * 0.45, 190)
     piece(s, CUT + "fungal-hyphae-1.png", x + w * 0.5, y + h * 0.68, w * 0.55, 90)
@@ -239,9 +300,9 @@ def farms():
     source_line(s, STUDY_LINE, True)
     logo_br(s, True)
 
-    def plain(t, pt=50, note=""):
+    def plain(t, pt=62, note=""):
         s = cream(d, note)
-        block(s, 80, 330, 920, t, pt, DEEP, HEAD, True, 1.15)
+        centered(s, t, pt)
         source_line(s, STUDY_LINE)
         return s
 
@@ -252,22 +313,23 @@ def farms():
         source_line(s, STUDY_LINE)
         return s
 
-    plain("The 1000 Farms Initiative, led by Ecdysis Foundation, measured farms across North America, from the most conventional to the most regenerative.", 46)
+    plain("The 1000 Farms Initiative, led by Ecdysis Foundation, measured farms across North America, from the most conventional to the most regenerative.", 54)
     big("39%", "more total soil carbon on the most regenerative farms.")
     big("77%", "more total fungi in regenerative soils.")
     bird = CUT + "bird-beetle-wildflower-1.png"; have = os.path.exists(os.path.join(ROOT, bird))
     s = cream(d, "Collage: bird-beetle-wildflower." + ("" if have else " Not generated (Replicate throttled): type-only [COLLAGE NEEDED: bird, beetle and wildflower]."))
-    block(s, 80, 150 if have else 330, 920, "More life everywhere: soil microbes, insects, plants and birds. The more biodiversity, the more carbon stored.",
-          48, DEEP, HEAD, True, 1.15)
+    t5 = "More life everywhere: soil microbes, insects, plants and birds. The more biodiversity, the more carbon stored."
+    if have: block(s, 80, 150, 920, t5, 48, DEEP, HEAD, True, 1.15)
+    else: centered(s, t5, 58)
     if have: fitpiece(s, bird, 200, 620, 680, 580, 3)
     source_line(s, STUDY_LINE)
     plain("Regenerative yields matched national averages, and net profit per acre was similar.")
-    plain("One practice alone changed nothing. Farms using a single regenerative practice looked like conventional farms. The whole system matters.", 46)
+    plain("One practice alone changed nothing. Farms using a single regenerative practice looked like conventional farms. The whole system matters.", 54)
 
     s = dark(d, "Closing. Paper title: not reachable from this session (doi.org and the journal were blocked); "
                 "fill in the exact title from the DOI page [PAPER TITLE NEEDED].")
-    block(s, 80, 300, 920, "Read the paper: Lundgren et al., Environmental Research: Food Systems, 2026.", 56, CREAM, HEAD, True, 1.12)
-    y = 700
+    y = block(s, 80, 260, 920, "Read the paper: Lundgren et al., Environmental Research: Food Systems, 2026.", 60, CREAM, HEAD, True, 1.12) + 60
+    rect(s, 80, y, 140, 8, GLOW); y += 50
     text(s, 80, y, 920, 40, "[PAPER TITLE NEEDED]", 24, RED, BODY, True); y += 60
     text(s, 80, y, 920, 40, "Environmental Research: Food Systems", 24, GLOW, BODY); y += 50
     text(s, 80, y, 920, 40, "https://doi.org/10.1088/2976-601X/ae8f4e", 24, GLOW, BODY)
@@ -312,7 +374,7 @@ MENTORS = [
      ["Costa Rica", "[VERIFY]", "Agronomist, University of Costa Rica", "[VERIFY]"]),
     ("Elena Kalli", "AP Admin", None, None, None, ["[VERIFY]"] * 4),
     ("Ib Borup Pederson", "AP Mentor", None, None, None, ["[VERIFY]"] * 4),
-    ("Nick Padwick", "AP Mentor", "“I make 750 tons of compost a year. Biology works at any scale.”", MENT + "Nick.png", (0.5, 0.12),
+    ("Nick Padwick", "AP Mentor", "“I make 750 tons of compost a year. Biology works at any scale.”", MENT + "nick-padwick.jpg", (0.5, 0.3),
      ["West Norfolk, England", "[VERIFY]", "Farmers Weekly Farm Manager and Farmer of the Year, 2009",
       "Managing Ken Hill Estate, home of Wild Ken Hill"]),
     ("Delvin Solkinson", "Permaculture Lead Teacher", None, None, None, ["[VERIFY]"] * 4),
@@ -347,19 +409,19 @@ def card(d, name, role, advice, photo, focus, facts):
     X, Y, W, H = 90, 55, 900, 1240            # card master: every card uses exactly these numbers
     rrect(g, X, Y, W, H, CREAM, radius=28, shadow=True)
     if photo:
-        photo_box(g, photo, X + 36, Y + 36, W - 72, 560, *focus, radius=24)
+        photo_box(g, photo, X + 36, Y + 36, W - 72, 520, *focus, radius=24)
     else:
-        logo_box(g, X + 36, Y + 36, W - 72, 560, radius=24)
+        logo_box(g, X + 36, Y + 36, W - 72, 520, radius=24)
     npt = fit(name, W - 72, [56, 52, 48], 1, True)
-    text(g, X + 36, Y + 612, W - 72, 80, name, npt, DEEP, HEAD, True, anchor="m")
-    text(g, X + 36, Y + 695, W - 72, 40, role, 26, GREEN, BODY, True)
+    text(g, X + 36, Y + 570, W - 72, 80, name, npt, DEEP, HEAD, True, anchor="m")
+    text(g, X + 36, Y + 652, W - 72, 40, role, 26, GREEN, BODY, True)
     adv = advice or "[ADVICE LINE NEEDED]"
-    text(g, X + 36, Y + 752, W - 72, 230, adv, 34, DEEP if advice else RED, HEAD, True, spacing=1.12)
+    text(g, X + 36, Y + 705, W - 72, 260, adv, 34, DEEP if advice else RED, HEAD, True, spacing=1.12)
     labels = ("BASED IN", "TEACHING SINCE", "BACKGROUND", "KNOWN FOR")
     for i, (lab, val) in enumerate(zip(labels, facts)):
-        cx = X + 36 + (i % 2) * 380; cy = Y + 990 + (i // 2) * 115
+        cx = X + 36 + (i % 2) * 380; cy = Y + 985 + (i // 2) * 118
         text(g, cx, cy, 350, 26, lab, 15, GREEN, HEAD, True, track=2)
-        text(g, cx, cy + 26, 350, 86, val, 18, INK, BODY, spacing=1.1)
+        text(g, cx, cy + 26, 350, 90, val, 19, INK, BODY, spacing=1.05)
     logo(g, X + W - 36 - 90, Y + H - 36 - 81, 90, white=False)
     grp.rotation = 3
     return s
@@ -468,7 +530,8 @@ def lisa():
     text(s, 80, 80, 620, 70, "Soil Regenerators in the wild", 26, GLOW, HEAD, True, align="c", anchor="m")
     piece(s, CUT + "seedling-tray-1.png", 900, 330, 300, 8)
     rect(s, 80, 1056, 120, 4, LIGHT)
-    text(s, 80, 1090, 820, 100, "Lisa Price, Australia", 64, CREAM, HEAD, True, anchor="m")
+    npt = max(p for p in (64, 60, 56, 52) if text_width("Lisa Price, Australia", p) <= 800 or p == 52)
+    text(s, 80, 1090, 900, 100, "Lisa Price, Australia", npt, CREAM, HEAD, True, anchor="m")
     logo_br(s, True)
     save(d, "10-10-2026-sat-ig-soil-regenerators-lisa-price.pptx")
 
