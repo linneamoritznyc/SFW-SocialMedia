@@ -74,6 +74,10 @@ PIECES = {
     "coffee-beans": "a small cute pile of three roasted coffee beans, dark brown cut paper with a center line on each bean",
     "sad-seedling": "a tiny droopy seedling sprouting from a small mound of soil, two drooping seed leaves, slightly wilted",
     "happy-seedling": "a tiny happy seedling sprouting from a small mound of dark soil, two perky round seed leaves",
+    "microscope-paper": "a cute vintage laboratory microscope, simple chunky shapes, sage green and cream paper with graphite details",
+    "leaf-sprig-paper": "a single cut-paper sprig of three rounded green leaves on a thin stem",
+    "cute-bacterium": "a cute rod-shaped soil bacterium with a tiny smiling face and one wavy tail, pale green cut paper",
+    "earthworm-paper": "a cute curled earthworm with a tiny smiling face, soft kraft pink-brown cut paper",
     "seedling-tray": "a small wooden seedling tray holding six little pots of seedlings: lettuce, basil, a small tomato plant and tiny flower seedlings",
 }
 
