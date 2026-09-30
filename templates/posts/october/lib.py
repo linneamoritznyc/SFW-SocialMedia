@@ -194,7 +194,12 @@ def photo(s, x, y, w, h, src, note="", radius=0, kind=None, fx=0.5, fy=0.5, deck
     if src and src.startswith("assets/"):
         p = crop(src, int(w), int(h), fx, fy)
         pic = s.shapes.add_picture(p, Emu(int(x*PX)), Emu(int(y*PX)), Emu(int(w*PX)), Emu(int(h*PX)))
-        if kind == "oval": pic.auto_shape_type = MSO_SHAPE.OVAL
+        if kind == "top":
+            pic.auto_shape_type = MSO_SHAPE.ROUND_2_SAME_RECTANGLE
+            av = pic._element.spPr.find("{%s}prstGeom" % A).find("{%s}avLst" % A)
+            if av is None: av = etree.SubElement(pic._element.spPr.find("{%s}prstGeom" % A), "{%s}avLst" % A)
+            etree.SubElement(av, "{%s}gd" % A, name="adj1", fmla="val 4500"); etree.SubElement(av, "{%s}gd" % A, name="adj2", fmla="val 0")
+        elif kind == "oval": pic.auto_shape_type = MSO_SHAPE.OVAL
         elif radius:
             pic.auto_shape_type = MSO_SHAPE.ROUNDED_RECTANGLE
             av = pic._element.spPr.find("{%s}prstGeom" % A).find("{%s}avLst" % A)
@@ -202,7 +207,7 @@ def photo(s, x, y, w, h, src, note="", radius=0, kind=None, fx=0.5, fy=0.5, deck
             etree.SubElement(av, "{%s}gd" % A, name="adj", fmla="val %d" % int(min(50000, radius/min(w, h)*100000)))
         if w * h > 0.6 * s._deck.w * s._deck.h: s._deck.meta[slide_no(s) - 1]["dark"] = True
         return pic
-    k = MSO_SHAPE.OVAL if kind == "oval" else (MSO_SHAPE.ROUNDED_RECTANGLE if radius else MSO_SHAPE.RECTANGLE)
+    k = MSO_SHAPE.OVAL if kind == "oval" else (MSO_SHAPE.ROUND_2_SAME_RECTANGLE if kind == "top" else (MSO_SHAPE.ROUNDED_RECTANGLE if radius else MSO_SHAPE.RECTANGLE))
     r = rect(s, x, y, w, h, PHBG, kind=k, radius=radius or None)
     small = min(w, h) < 300
     text(s, x + 16, y, w - 32, h, f"PHOTO: {src}", 20 if not small else 16, "4A463F", BODY, True, align="c", anchor="m")
@@ -417,28 +422,56 @@ def scallop(s, cx, cy, R, tl):
 def ribbon(s, x, y, w, h, fill, tl, notch=30):
     return poly(s, [(x, y), (x + w, y), (x + w - notch, y + h/2), (x + w, y + h), (x, y + h), (x + notch, y + h/2)], fill, tl=tl)
 
-def t4a(d, photo_src, name, role, note="", tid="4A"):
-    s = d.slide(DEEP, note, counter=True, tid=tid)
-    tl = Tilt(540, 675, 3)
-    cx0, cy0 = 100, 85
-    rrect(s, cx0, cy0, 880, 1180, CREAM, radius=28, tl=tl, shadow=True, pattern=STRIPE)
-    rect(s, cx0 + 60 - 10, cy0 + 60 - 10, 400, 400, CREAM, line=DEEP, lw=2, tl=tl)
-    photo_tilt(s, cx0 + 60, cy0 + 60, 380, photo_src, tl)
-    scallop(s, cx0 + 880 - 60 - 90, cy0 + 60 + 90, 90, tl)
-    bx_, by_ = cx0 + 880 - 60 - 90, cy0 + 60 + 90
-    pic = s.shapes.add_picture(LOGO_C, 0, 0, Emu(int(110 * PX)), Emu(int(110 / LOGO_AR * PX))); _place(pic, bx_ - 55, by_ - 55 / LOGO_AR, 110, 110 / LOGO_AR, tl)
-    rows = [("BASED IN", ""), ("TEACHING SINCE", ""), ("ASK ME ABOUT", ""), ("FAVORITE ORGANISM", "")]
-    for i, (lab, _) in enumerate(rows):
-        y = cy0 + 60 + 400 + 20 + i * 100
-        text(s, cx0 + 60, y, 760, 30, lab, 20, GREEN, HEAD, True, track=2, tl=tl)
-        text(s, cx0 + 60, y + 30, 760, 44, TAG, 30, INK, BODY, tl=tl)
-    ribbon(s, cx0 + 60, 1000, 760, 110, GREEN, tl)
-    nsz = fit(name.upper(), 620, [50, 46, 42, 38], 1, True)
-    text(s, cx0 + 60 + 40, 1000, 680, 110, name.upper(), nsz, CREAM, HEAD, True, align="c", anchor="m", tl=tl)
-    ribbon(s, cx0 + 60 + 60, 1000 + 70 + 30, 640, 80, DEEP, tl)
-    text(s, cx0 + 60 + 60 + 40, 1100, 560, 80, role, 28, GLOW, BODY, align="c", anchor="m", tl=tl)
-    rect(s, cx0, 85 + 1180 - 44, 880, 44, BROWN, tl=tl)
-    text(s, cx0, 85 + 1180 - 44, 880, 44, "soilfoodweb.com", 18, CREAM, BODY, align="c", anchor="m", tl=tl)
+COLLAGE = os.path.join(ROOT, "assets", "collage")
+
+def collage(s, name, x, y, w=None, h=None, rot=0):
+    """Hand-cut paper piece from assets/collage/ (keeps aspect ratio; give w or h)."""
+    from PIL import Image as _I
+    p = os.path.join(COLLAGE, name); iw, ih = _I.open(p).size
+    if w: h = w * ih / iw
+    else: w = h * iw / ih
+    pic = s.shapes.add_picture(p, Emu(int(x * PX)), Emu(int(y * PX)), Emu(int(w * PX)), Emu(int(h * PX))); pic.rotation = rot
+    return pic
+
+def sticker_pic(s, rel, x, y, w, rot=0):
+    from photos import sticker
+    from PIL import Image as _I
+    p = sticker("assets/microscopy/" + rel, int(w))
+    iw, ih = _I.open(p).size
+    pic = s.shapes.add_picture(p, Emu(int(x * PX)), Emu(int(y * PX)), Emu(iw * PX), Emu(ih * PX)); pic.rotation = rot
+    return pic
+
+def t4a(d, photo_src, name, role, based="", since="", kn_label="KNOWN FOR", kn="", background="", advice="", fy=0.3, note="", tid="4A"):
+    """Straight trading card. Photo across the top of the card, name, role, advice quote (largest text), 2 x 2 facts, colour logo bottom right.
+    The photo height flexes between 480 and 600 px so long bios never overflow."""
+    s = d.slide(DEEP, note, counter=False, tid=tid)
+    X, Y, W_, H_ = 70, 40, 940, 1270
+    collage(s, "fern-sage.png", -170, 930, w=520, rot=-18); collage(s, "leaf-sprig-tan.png", 930, 20, h=520, rot=14)
+    collage(s, "cut-blue-lines.png", 905, 1010, w=230, rot=8); collage(s, "cut-green-scribble.png", -70, 40, w=180, rot=-10)
+    rrect(s, X, Y, W_, H_, CREAM, radius=28, shadow=True)
+    IN = 40; iw = W_ - 2 * IN
+    nsz = fit(name, iw, [56, 52, 48, 44], 1, True)
+    aq = advice; asz = fit(aq, iw, [34, 32, 30], 4, True); ah = th(aq, asz, iw, True, 1.15)
+    colw = 340
+    def cell_h(v, sz=22): return 21 + 8 + th(v, sz, colw, False, 1.15)
+    r1 = max(cell_h(based), cell_h(since)); r2 = max(cell_h(background), cell_h(kn))
+    grid_h = r1 + 18 + r2
+    below = 14 + 75 + 8 + 35 + 22 + ah + 26 + grid_h + 30          # everything under the photo
+    ph = max(480, min(600, H_ - below - 10))
+    photo(s, X, Y, W_, ph, photo_src, kind="top", fy=fy)
+    y = Y + ph + 20
+    text(s, X + IN, y, iw, 80, name, nsz, DEEP, HEAD, True, spacing=1.0); y += 75 + 8
+    text(s, X + IN, y, iw, 40, role, 26, GREEN, BODY, spacing=1.1); y += 35 + 22
+    text(s, X + IN, y, iw, ah + 6, aq, asz, DEEP, HEAD, True, spacing=1.15); y += ah + 26
+    def cell(x, yy, lab, val):
+        text(s, x, yy, colw, 24, lab, 16, GREEN, HEAD, True, track=1.5)
+        text(s, x, yy + 29, colw, cell_h(val) , val, 22, INK, BODY, spacing=1.15)
+    x1, x2 = X + IN, X + IN + colw + 30
+    cell(x1, y, "BASED IN", based); cell(x2, y, "TEACHING SINCE", since); y += r1 + 18
+    cell(x1, y, "BACKGROUND", background); cell(x2, y, kn_label, kn)
+    lw = 90; lh = lw / LOGO_AR
+    pic = s.shapes.add_picture(LOGO_C, 0, 0, Emu(int(lw * PX)), Emu(int(lh * PX)))
+    _place(pic, X + W_ - IN - lw, Y + H_ - 30 - lh, lw, lh, None)
     return s
 
 def photo_tilt(s, x, y, size, src, tl):
@@ -452,11 +485,10 @@ def photo_tilt(s, x, y, size, src, tl):
 
 def t4b(d, headline, note="", tid="4B"):
     s = d.slide(DEEP, note, tid=tid)
-    sz = fit(headline, 880, [64, 60, 56], 4, True)
-    text(s, 80, 250, 880, th(headline, sz, 880, True, 1.1) + 10, headline, sz, CREAM, HEAD, True, spacing=1.1)
-    for dx, deg in ((-140, -6), (0, 0), (140, 6)):
-        cx, cy = 440 + dx, 1000
-        rrect(s, cx - 260, cy - 350, 520, 700, CREAM, radius=28, tl=Tilt(cx, cy, deg), shadow=True, pattern=STRIPE)
+    collage(s, "stones-stack.png", 590, 150, h=1120)
+    collage(s, "fern-green.png", -120, 1000, w=760, rot=-8)
+    sz = fit(headline, 520, [64, 58, 52, 48], 6, True)
+    text(s, 80, 250, 520, th(headline, sz, 520, True, 1.1) + 10, headline, sz, CREAM, HEAD, True, spacing=1.1)
     return s
 
 def t4c(d, photo_src, name, role, lab="MEET OUR MENTORS", quote=None, duo=None, note="", tid="4C", role2=None, name2=None):

@@ -25,10 +25,9 @@ def spores(s, pts):
 
 def card(d, photo_src, quote, name, role, note=""):
     s = d.slide(CREAM, note, counter=False, tid="Quote card")
-    spores(s, [(80, 80, 60), (170, 50, 50), (60, 190, 46), (250, 120, 44), (130, 150, 40), (900, 70, 46)])
-    wave(s, 470, 1080, 800, 60, 1230, "C9D3BC")
-    ms = [(560, 210, 70), (640, 300, 90), (720, 240, 70), (800, 330, 100), (880, 260, 80), (960, 190, 66), (1030, 280, 84), (600, 150, 56), (760, 160, 60), (930, 130, 52)]
-    for cx, h, cw in ms: mushroom(s, cx, 1225, h, cw)
+    collage(s, 'cut-green-scribble.png', -40, -30, w=220, rot=-8); collage(s, 'cut-blue-lines.png', 880, -20, w=200, rot=10)
+    collage(s, "cut-sage-dots.png", 610, 770, w=230, rot=-6); collage(s, "stones-stack.png", 880, 720, h=470)
+    collage(s, "fern-green.png", 560, 1010, w=470, rot=-4)
     photo(s, 0, 300, 560, 930, photo_src, note=note)
     text(s, 610, 150, 400, 52, "“", 60, GREEN, HEAD, True, alpha=40)
     sz = fit(quote, 400, [40, 36, 32], 9, True); h = th(quote, sz, 400, True, 1.2)

@@ -37,8 +37,8 @@ def card(d, photo_src, name, role, fy=0.3, note=""):
     return s
 
 d = Deck(1080, 1350, "banner-cards")
-for n, r, f in (("Dr. Carla Portugal", "Science Leader", "assets/mentors-teachers-day/carla-portugal.jpg"), ("Nick Padwick", "Farmer, Norfolk", "assets/mentors-teachers-day/nick-padwick.jpg"),
-                ("Wes Sander", "Microscopy", "assets/mentors-teachers-day/wes-sander.jpg"), ("Gerald Ramírez", "Compost extracts and teas", "assets/mentors-teachers-day/gerald-ramirez.jpg"),
-                ("Dr. Caterina Capri", "Advanced Programs", "Dr. Caterina Capri, portrait")):
+for n, r, f in (("Dr. Carla Portugal", "Instructor, Mentor and Researcher", "assets/mentors-teachers-day/carla-portugal.jpg"), ("Nick Padwick", "Farmer, Consultant and Mentor", "assets/mentors-teachers-day/nick-padwick.jpg"),
+                ("Wes Sander", "Consultant and Mentor", "assets/mentors-teachers-day/wes-sander.jpg"), ("Gerald Ramírez", "Instructor and Mentor", "assets/mentors-teachers-day/gerald-ramirez.jpg"),
+                ("Dr. Caterina Capri", "Advanced Programs Instructor", "Dr. Caterina Capri, portrait")):
     card(d, f, n, r, note="Banner-card alternative for the Teachers' Day mentors. Replace the two LOGO circles with the School logo and the second mark.")
 d.finish("2026-10-05-mon-ig-teachers-day-banner-cards-alt.pptx", counters=False)

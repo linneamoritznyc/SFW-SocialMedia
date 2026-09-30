@@ -15,8 +15,24 @@ TREE = "assets/photo/erc-rancho-cacachilas-agro2.jpg"
 WORM = "assets/photo/hand-wet-dirt-worm.jpg"
 C = TAG
 
-MENTORS = [("Dr. Carla Portugal", "Science Leader"), ("Nick Padwick", "Farmer, Norfolk"), ("Wes Sander", "Microscopy"),
-           ("Gerald Ramírez", "Compost extracts and teas"), ("Dr. Caterina Capri", "Advanced Programs")]
+MENTORS = [
+    dict(name="Dr. Carla Portugal", role="Instructor, Mentor and Researcher", based="Brazil [confirm]", since="2019", kn_label="SPEAKS", kn="Portuguese, English, Spanish",
+         background="PhD in Environmental Sciences, 20 years of environmental and farm consulting",
+         advice="\u201CBare soil erodes. Living roots and cover hold the aggregates together.\u201D", fy=0.22),
+    dict(name="Nick Padwick", role="Farmer, Consultant and Mentor", based="West Norfolk, England", since="[confirm]", kn_label="KNOWN FOR", kn="Managing Ken Hill Estate, home of Wild Ken Hill",
+         background="Farmers Weekly Farm Manager and Farmer of the Year, 2009",
+         advice="\u201CI make 750 tons of compost a year. Biology works at any scale.\u201D", fy=0.05),
+    dict(name="Wes Sander", role="Consultant and Mentor", based="Sierra Nevada foothills, California", since="2020", kn_label="KNOWN FOR", kn="Foothill Biological Soil Health Services",
+         background="10 years as an agricultural journalist, then 10 years managing a farm",
+         advice="\u201CCompost can look finished and still lack the biology you need. Check it under the microscope before you apply it.\u201D", fy=0.38),
+    dict(name="Gerald Ram\u00EDrez", role="Instructor and Mentor", based="Costa Rica", since="[confirm]", kn_label="KNOWN FOR", kn="Teaching the CLP and CTP courses",
+         background="Agronomist, University of Costa Rica",
+         advice="\u201CExtracts pull organisms off the compost into solution, so you can apply biology across a whole field.\u201D", fy=0.30),
+    dict(name="Dr. Caterina Capri", role="Advanced Programs Instructor", based="[confirm]", since="[confirm]", kn_label="KNOWN FOR",
+         kn="Research on how living cover crops build soil biology, co-written with Dr. Elaine Ingham and Dr. Carla Portugal",
+         background="[need her bio from Allison or the website]",
+         advice="\u201CCover crops feed the rhizosphere with root exudates while they protect the surface.\u201D", fy=0.30),
+]
 
 def deck(name, w=1080, h=1350): return Deck(w, h, name)
 
@@ -34,7 +50,7 @@ def masters():
     t3a(d, f"{C} Headline.", ["item 1", "item 2", "item 3", "item 4"]); t3b(d, f"{C} Item name", f"{C} One or two lines.", ("check",), "item")
     t3b(d, f"{C} Item name", f"{C} One or two lines.", ("warn",), "item"); t3c(d, "HOW", [f"{C} Step one", f"{C} Step two", f"{C} Step three"]); d.finish(out + "3-checklist-yes-no.pptx")
     d = deck("4-mentor")
-    t4a(d, "Mentor photo", "Mentor Name", "Role"); t4b(d, f"{C} Headline."); t4c(d, "Mentor photo", "Mentor Name", "Role")
+    t4a(d, "Mentor photo", "Mentor Name", "Role", "Place", "Year", "KNOWN FOR", "What they are known for", "Background in one or two lines", "\u201CTheir advice, in their words.\u201D"); t4b(d, f"{C} Headline."); t4c(d, "Mentor photo", "Mentor Name", "Role")
     t4c(d, None, "Mentor One", "Role", duo=["Mentor one", "Mentor two"], name2="Mentor Two", role2="Role")
     t4c(d, "Mentor photo", "Mentor Name", "Role", quote=f"{C} Quote.”"); d.finish(out + "4-mentor.pptx")
     d = deck("5-big-number"); t5(d, "000", f"{C} units", f"{C} One line of context."); t5(d, None, None, "", bars=[("120", "Year one", 480, GREEN), ("135+", "Year two", 540, DEEP)]); d.finish(out + "5-big-number.pptx")
@@ -76,15 +92,17 @@ def underwear(d):
 
 def cards(d):
     t4b(d, "Happy World Teachers' Day. Collect them all.")
-    for n, r in MENTORS: t4a(d, f"{n}, square headshot", n, r)
+    for m in MENTORS:
+        t4a(d, f"{m['name']}, square headshot", m["name"], m["role"], m["based"], m["since"], m["kn_label"], m["kn"], m["background"], m["advice"], m["fy"],
+            note="Every advice line is written as the mentor's own words: get each one confirmed by the mentor before posting. Items marked [confirm] need checking.")
     t4b(d, "Thank you to every mentor who teaches our students to see soil.")
 
 def habitat(d): t7(d, AMOEBA, "The biggest habitat on Earth is under your feet.", "More than half of all species live in soil.", note="Leave y=1100 to 1450 empty for the poll sticker.")
 
-def carla(d): t4c(d, "Carla at a microscope", "Dr. Carla Portugal", "Science Leader", quote="The mentors, especially Carla Portugal.”")
+def carla(d): t4c(d, "Carla at a microscope", "Dr. Carla Portugal", "Instructor, Mentor and Researcher", quote="The mentors, especially Carla Portugal.”")
 
 def nick(d):
-    t4c(d, "assets/mentors-teachers-day/nick-speaking.jpg", "Nick Padwick", "Norfolk, England", note="Photo: Nick speaking (brief asked for Nick with compost windrows: swap if you have it).")
+    t4c(d, "assets/mentors-teachers-day/nick-speaking.jpg", "Nick Padwick", "West Norfolk, England", note="Photo: Nick speaking (brief asked for Nick with compost windrows: swap if you have it).")
     t5(d, "750", "tons of compost a year", "40 years of farming in the UK, Italy, Spain and Argentina.")
 
 def wes_reel(d):
