@@ -1,6 +1,6 @@
 # Boubacar: photos
 
-Drop Boubacar's own photos in `photos/` and videos in `videos/`.
+Drop Boubacar's own photos in `photos/`.
 
 Used by the 1 October posts (`2026-10-01-thu-ig-boubacar`, `2026-10-01-thu-li-boubacar`) and the story slide on other posts.
 
