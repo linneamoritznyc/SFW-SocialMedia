@@ -60,13 +60,8 @@ def slide(d, theme, note):
 
 
 def arch(s, rel, x, y, w, h, fx=0.5, fy=0.5, frame="F6E3C2"):
-    fr = rect(s, x - 12, y - 12, w + 24, h + 24, frame, kind=MSO_SHAPE.ROUND_2_SAME_RECTANGLE, shadow=True)
-    fr.adjustments[0] = 0.5
-    p = s.shapes.add_picture(crop(rel, int(w), int(h), fx, fy), Emu(int(x * PX)), Emu(int(y * PX)), Emu(int(w * PX)), Emu(int(h * PX)))
-    p.auto_shape_type = MSO_SHAPE.ROUND_2_SAME_RECTANGLE
-    g = p._element.spPr.find("{%s}prstGeom" % A); av = g.find("{%s}avLst" % A)
-    if av is None: av = etree.SubElement(g, "{%s}avLst" % A)
-    etree.SubElement(av, "{%s}gd" % A, name="adj1", fmla="val 50000")
+    """Main photo: a straight rectangle with a cream frame (arches removed on request)."""
+    framed(s, rel, x, y, w, h, fx, fy, frame)
 
 
 def framed(s, rel, x, y, w, h, fx=0.5, fy=0.5, frame="F6E3C2"):
