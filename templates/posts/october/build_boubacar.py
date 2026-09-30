@@ -189,7 +189,7 @@ def instagram():
     logo(s, 1080 - 50 - 110, 50, 110, white=False)
     # Stephanie: logo on the first and last slide, soilfoodweb.com small on the rest
     for sl in list(d.prs.slides)[1:-1]:
-        text(sl, 0, 1350 - 44, 1080, 34, "soilfoodweb.com", 17, DEEP, HEAD, True, align="c", anchor="m")
+        text(sl, 0, 1350 - 52, 1080, 42, "soilfoodweb.com", 24, DEEP, HEAD, True, align="c", anchor="m")
     save(d, "01-10-2026-thu-ig-soil-regenerators-boubacar.pptx")
 
 

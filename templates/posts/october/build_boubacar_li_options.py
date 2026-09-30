@@ -153,8 +153,7 @@ def option_e():
     big Roboto name, a cream band in Times New Roman, and Boubacar cut out on the right with a soft cream glow."""
     from PIL import Image as PImage
     d = Deck(W, H, name="01-10-2026-thu-li-boubacar-option-e-gold-roots")
-    s = d.slide("D9A13E", "Option E, gold roots (style of the SFW 'Welcome Eric Feiler' card). Fonts: Roboto and Times New Roman, as on "
-                "that card. Photo: assets/photo/boubacar/boubacar-portrait-bananas.jpg in an arch frame. Root network: assets/collage/root-network-gold.png, drawn by code. " + SOURCES,
+    s = d.slide("D9A13E", "Option E, gold roots (style of the SFW 'Welcome Eric Feiler' card). Fonts: Montserrat and EB Garamond (brand). Photo: assets/photo/boubacar/boubacar-portrait-bananas.jpg in an arch frame. Root network: assets/collage/root-network-gold.png, drawn by code. " + SOURCES,
                 counter=False)
     rect(s, 0, 0, W, H, "D9A13E")
     s.shapes.add_picture(os.path.join(ROOT, "assets/collage/root-network-gold.png"), 0, 0, Emu(W * PX), Emu(H * PX))
@@ -171,9 +170,9 @@ def option_e():
     etree.SubElement(av, "{%s}gd" % A, name="adj1", fmla="val 50000")
     logo(s, 40, 30, 150, white=False)
     rect(s, 90, 190, 330, 6, "1E1412")
-    text(s, 90, 208, 700, 40, "Happy International Coffee Day", 24, "1E1412", "Roboto", False)
-    text(s, 86, 250, 760, 170, "Boubacar Tidiane\nDiallo", 58, "1E1412", "Roboto", False, spacing=0.95)
-    text(s, 90, 446, 740, 110, "Gnaly Coffee & AgroÉcole Bio\nFouta Djallon, Guinea-Conakry", 28, "1E1412", "Times New Roman", False,
+    text(s, 90, 208, 700, 40, "Happy International Coffee Day", 24, "1E1412", "Montserrat", False)
+    text(s, 86, 250, 760, 170, "Boubacar Tidiane\nDiallo", 52, "1E1412", "Montserrat", False, spacing=0.95)
+    text(s, 90, 446, 740, 110, "Gnaly Coffee & AgroÉcole Bio\nFouta Djallon, Guinea-Conakry", 28, "1E1412", "EB Garamond", False,
          spacing=1.15)
     save(d, "01-10-2026-thu-li-boubacar-option-e-gold-roots.pptx")
 
@@ -183,8 +182,7 @@ def option_e_green():
     big Roboto name, a cream band in Times New Roman, and Boubacar cut out on the right with a soft cream glow."""
     from PIL import Image as PImage
     d = Deck(W, H, name="01-10-2026-thu-li-boubacar-option-e-green-roots")
-    s = d.slide("31662F", "Option E, green roots (style of the SFW 'Welcome Eric Feiler' card). Fonts: Roboto and Times New Roman, as on "
-                "that card. Photo: assets/photo/boubacar/boubacar-portrait-bananas.jpg in an arch frame. Root network: assets/collage/root-network-green.png, drawn by code. " + SOURCES,
+    s = d.slide("31662F", "Option E, green roots (style of the SFW 'Welcome Eric Feiler' card). Fonts: Montserrat and EB Garamond (brand). Photo: assets/photo/boubacar/boubacar-portrait-bananas.jpg in an arch frame. Root network: assets/collage/root-network-green.png, drawn by code. " + SOURCES,
                 counter=False)
     rect(s, 0, 0, W, H, "31662F")
     s.shapes.add_picture(os.path.join(ROOT, "assets/collage/root-network-green.png"), 0, 0, Emu(W * PX), Emu(H * PX))
@@ -201,9 +199,9 @@ def option_e_green():
     etree.SubElement(av, "{%s}gd" % A, name="adj1", fmla="val 50000")
     logo(s, 40, 30, 150, white=True)
     rect(s, 90, 190, 330, 6, "F4F1EA")
-    text(s, 90, 208, 700, 40, "Happy International Coffee Day", 24, "DBE6A7", "Roboto", False)
-    text(s, 86, 250, 760, 170, "Boubacar Tidiane\nDiallo", 58, "F4F1EA", "Roboto", False, spacing=0.95)
-    text(s, 90, 446, 740, 110, "Gnaly Coffee & AgroÉcole Bio\nFouta Djallon, Guinea-Conakry", 28, "22371F", "Times New Roman", False,
+    text(s, 90, 208, 700, 40, "Happy International Coffee Day", 24, "DBE6A7", "Montserrat", False)
+    text(s, 86, 250, 760, 170, "Boubacar Tidiane\nDiallo", 52, "F4F1EA", "Montserrat", False, spacing=0.95)
+    text(s, 90, 446, 740, 110, "Gnaly Coffee & AgroÉcole Bio\nFouta Djallon, Guinea-Conakry", 28, "22371F", "EB Garamond", False,
          spacing=1.15)
     save(d, "01-10-2026-thu-li-boubacar-option-e-green-roots.pptx")
 
