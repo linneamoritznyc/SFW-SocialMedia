@@ -84,6 +84,10 @@ PIECES = {
     "banana-bunch": "a small bunch of green and yellow bananas",
     "citrus-orange": "a whole orange with one leaf and a halved orange showing its segments",
     "pineapple": "a small cute pineapple with a spiky green crown",
+    "coffee-cup-paper": "a cute cream coffee cup of black coffee on a saucer, with a tiny smiling face and a little curl of steam",
+    "cocoa-beans": "three dried cocoa beans and one cacao pod split open showing pale beans inside",
+    "coffee-beans-paper": "a small cute pile of roasted coffee beans, dark brown with a center line on each bean",
+    "tithonia-flower": "a single Mexican sunflower (Tithonia) bloom, bright orange petals, with two green leaves on a stem",
     "seedling-tray": "a small wooden seedling tray holding six little pots of seedlings: lettuce, basil, a small tomato plant and tiny flower seedlings",
 }
 

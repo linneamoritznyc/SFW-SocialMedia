@@ -304,3 +304,14 @@ def seedling_tray(s, cx, cy, w, deg=0):
         rect(G, cx - w / 2 + 10, cy - w * 0.05 + k * w * 0.04, w - 20, 3, "8C6A4E")
     g.rotation = deg
     return g
+
+
+def guinea_flag(s, cx, cy, w, deg=0):
+    """Flag of Guinea: vertical red, yellow and green bands (3:2), as a die-cut sticker."""
+    g, G = group(s)
+    h = w * 2 / 3
+    shape(G, MSO_SHAPE.RECTANGLE, cx - w / 2, cy - h / 2, w, h, WHITE, lw=OUT, shadow=True)
+    for i, c in enumerate(("CE1126", "FCD116", "009460")):
+        rect(G, cx - w / 2 + i * w / 3, cy - h / 2, w / 3 + (1 if i < 2 else 0), h, c)
+    g.rotation = deg
+    return g

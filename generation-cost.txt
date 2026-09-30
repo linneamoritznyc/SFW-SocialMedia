@@ -48,4 +48,8 @@ Estimated cost log (estimate, not billing data). Stop at $9.00.
 2026-09-30 17:05 field-cross-section-1 ok est $0.09
 2026-09-30 17:07 bird-beetle-wildflower-1 ok est $0.09
 2026-09-30 17:08 seedling-tray-1 ok est $0.09
-TOTAL $2.25
+2026-09-30 17:14 coffee-cup-paper-1 ok est $0.09
+2026-09-30 17:16 cocoa-beans-1 ok est $0.09
+2026-09-30 17:18 coffee-beans-paper-1 ok est $0.09
+2026-09-30 17:19 tithonia-flower-1 ok est $0.09
+TOTAL $2.61
