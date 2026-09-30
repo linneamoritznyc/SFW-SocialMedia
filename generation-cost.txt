@@ -45,4 +45,7 @@ Estimated cost log (estimate, not billing data). Stop at $9.00.
 2026-09-30 16:52 banana-bunch-1 ok est $0.09
 2026-09-30 16:54 citrus-orange-1 ok est $0.09
 2026-09-30 16:56 pineapple-1 ok est $0.09
-TOTAL $1.98
+2026-09-30 17:05 field-cross-section-1 ok est $0.09
+2026-09-30 17:07 bird-beetle-wildflower-1 ok est $0.09
+2026-09-30 17:08 seedling-tray-1 ok est $0.09
+TOTAL $2.25
