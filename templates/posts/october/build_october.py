@@ -93,7 +93,7 @@ def wes_reel(d):
 
 def gc(d):
     t4c(d, None, "Gerald Ramirez", "Compost extracts and teas", duo=["Gerald Ramirez, portrait", "Dr. Caterina Capri, portrait"], name2="Dr. Caterina Capri", role2="Advanced Programs")
-    t2b(d, None, "Gerald teaches liquid amendments: compost extracts and teas that carry living biology from compost out to the field.", extra=[f"{C} Step 1", f"{C} Step 2", f"{C} Step 3"])
+    t2b(d, None, "Gerald teaches liquid amendments: compost extracts and teas that carry living biology from compost out to the field.", extra=[f"{C} Step 1", f"{C} Step 2", f"{C} Step 3"], img="assets/mentors-teachers-day/gerald-teaching.jpg", note="Small image: Gerald teaching (other people in frame: check consent).")
     t2b(d, None, "Caterina co-wrote research on how living cover crops protect soil, control weeds and build biological diversity.")
 
 def lisa(d):

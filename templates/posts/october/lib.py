@@ -330,7 +330,7 @@ def t2b(d, num, line, img=None, extra=None, note="", tid="2B"):
         y = (330 if num is None else 420) + h + 40
         for e in extra: text(s, 100, y, 880, 60, e, 34, INK, BODY, spacing=1.3); y += 70
     if img is not None:
-        photo(s, 600, 870, 400, 400, img, radius=24)
+        photo(s, 600, 870, 400, 400, img, radius=24, fx=0.42)
     return s
 
 def t2c(d, q, note="", tid="2C"):
