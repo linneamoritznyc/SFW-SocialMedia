@@ -420,7 +420,7 @@ MENTORS = [
      ["Costa Rica", "[VERIFY]", "Agronomist, University of Costa Rica", "[VERIFY]"]),
     ("Elena Kalli", "AP Admin", None, None, None, ["[VERIFY]"] * 4),
     ("Ib Borup Pederson", "AP Mentor", None, None, None, ["[VERIFY]"] * 4),
-    ("Nick Padwick", "AP Mentor", "“I make 750 tons of compost a year. Biology works at any scale.”", MENT + "nick-padwick.jpg", (0.5, 0.3),
+    ("Nick Padwick", "AP Mentor", "“I make 750 tons of compost a year. Biology works at any scale.”", MENT + "Nick.png", (0.5, 0.06),
      ["West Norfolk, England", "[VERIFY]", "Farmers Weekly Farm Manager and Farmer of the Year, 2009",
       "Managing Ken Hill Estate, home of Wild Ken Hill"]),
     ("Delvin Solkinson", "Permaculture Lead Teacher", None, None, None, ["[VERIFY]"] * 4),
@@ -469,7 +469,7 @@ def card(d, name, role, advice, photo, focus, facts):
         text(g, cx, cy, 350, 26, lab, 15, GREEN, HEAD, True, track=2)
         text(g, cx, cy + 26, 350, 90, val, 19, INK, BODY, spacing=1.05)
     logo(g, X + W - 36 - 90, Y + H - 36 - 81, 90, white=False)
-    grp.rotation = 3
+    grp.rotation = 0   # cards are never tilted
     return s
 
 
@@ -499,18 +499,18 @@ def teachers():
     src = "Source: mentor roster from Linnea, September 2026, and mentor bios on https://soilfoodweb.com. "
     s = dark(d, "Opening slide. " + src + "Leaf frame built from existing cutouts; stickers are drawn shapes.")
     leaf_frame(s)
-    tl = sb.note(s, 210, 400, 660, 470, sb.PAPER, -2)
-    block(s, 240, 470, 600, "Happy World Teachers' Day. Our mentors' best advice, in one line each.", 48, DEEP, HEAD, True, 1.12, align="c")
-    sb.microscope(s, 760, 930, 150, 6); sb.seedling(s, 330, 930, 140, deg=-6)
+    tl = sb.note(s, 170, 330, 740, 620, sb.PAPER, 0)
+    block(s, 210, 400, 660, "Happy World Teachers' Day. Our mentors' best advice, in one line each.", 50, DEEP, HEAD, True, 1.12, align="c")
+    sb.microscope(s, 800, 1060, 170, 6); sb.seedling(s, 290, 1040, 150, deg=-6)
     logo_br(s, True)
     for i, m in enumerate(MENTORS):
         s = card(d, *m)
         card_extras(s, m[0], i)
     s = dark(d, "Closing slide. Leaf frame built from existing cutouts; stickers are drawn shapes.")
     leaf_frame(s, flip=True)
-    tl = sb.note(s, 210, 450, 660, 450, sb.PAPER, 2)
-    block(s, 240, 530, 600, "Thank you to every mentor who teaches our students to see soil.", 48, DEEP, HEAD, True, 1.12, align="c")
-    sb.flower(s, 330, 930, 45, -8); sb.bacterium(s, 760, 950, 140, -12)
+    tl = sb.note(s, 170, 360, 740, 580, sb.PAPER, 0)
+    block(s, 210, 430, 660, "Thank you to every mentor who teaches our students to see soil.", 50, DEEP, HEAD, True, 1.12, align="c")
+    sb.flower(s, 300, 1000, 45, -8); sb.bacterium(s, 790, 1020, 150, -12)
     logo_br(s, True)
     save(d, "05-10-2026-mon-ig-teachers-day.pptx")
 
