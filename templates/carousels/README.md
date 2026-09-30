@@ -17,12 +17,13 @@ Harvest Gold `#C9A227` only on the graduate result number and the checklist "Sav
 
 ## Dated posts (`posts/`)
 
-One PPTX per post, named `YYYY-MM-DD-day-slug.pptx`. The date and post name are also in each file's title and at the top of every slide's speaker notes.
+One PPTX per post, named `DD-MM-YYYY-day-slug.pptx` (day first, so the earliest date in a month sorts to the top; it does not sort across months). The date and post name are also in each file's title and at the top of every slide's speaker notes.
 Change `START` in `build.py` to move the whole two-week plan, then run `python3 build.py`.
 
 | Date | Post |
 | :-- | :-- |
-| Mon 5 Oct 2026 | Did you know #1 |
+| Mon 5 Oct 2026 | World Teachers' Day: five mentors (`build_week1.py`) |
+| Tue 6 Oct 2026 | Dr. Carla Portugal (`build_week1.py`) |
 | Wed 7 Oct 2026 | Soil Regenerators in the wild #1 |
 | Fri 9 Oct 2026 | Numbered checklist |
 | Mon 12 Oct 2026 | Field Notes |

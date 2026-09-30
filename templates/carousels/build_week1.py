@@ -89,7 +89,5 @@ def carla():
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     os.makedirs("posts", exist_ok=True)
-    for f in ("posts/2026-10-05-mon-did-you-know.pptx",):
-        if os.path.exists(f): os.remove(f)
-    a = five_mentors(); B.date_deck(a, __import__("datetime").date(2026,10,5), "World Teachers' Day: five mentors, five tips"); a.save("posts/2026-10-05-mon-teachers-day-five-mentors.pptx")
-    c = carla(); B.date_deck(c, __import__("datetime").date(2026,10,6), "Mentor week: Dr. Carla Portugal"); c.save("posts/2026-10-06-tue-carla-portugal.pptx")
+    a = five_mentors(); B.date_deck(a, __import__("datetime").date(2026,10,5), "World Teachers' Day: five mentors, five tips"); a.save("posts/05-10-2026-mon-teachers-day-five-mentors.pptx")
+    c = carla(); B.date_deck(c, __import__("datetime").date(2026,10,6), "Mentor week: Dr. Carla Portugal"); c.save("posts/06-10-2026-tue-carla-portugal.pptx")

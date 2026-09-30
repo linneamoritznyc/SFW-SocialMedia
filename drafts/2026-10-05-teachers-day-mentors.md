@@ -1,6 +1,6 @@
 # Week 1, 5 to 11 October: World Teachers' Day and mentor week
 
-Slides: `templates/carousels/posts/2026-10-05-mon-teachers-day-five-mentors.pptx` and `2026-10-06-tue-carla-portugal.pptx`.
+Slides: `templates/carousels/posts/05-10-2026-mon-teachers-day-five-mentors.pptx` and `06-10-2026-tue-carla-portugal.pptx`.
 
 ## Monday 5 October, Instagram, carousel of 7. Five mentors, five tips
 

@@ -253,7 +253,6 @@ DOW = "Mon Tue Wed Thu Fri Sat Sun".split()
 # Two-week plan, 3 posts a week (Mon / Wed / Fri). Change START to move the whole plan.
 START = datetime.date(2026, 10, 5)
 PLAN = [
-    (0,  "did-you-know",  "Did you know #1", lambda: didyouknow()),
     (2,  "graduate",      "Soil Regenerators in the wild #1", lambda: graduate()),
     (4,  "checklist",     "Numbered checklist", lambda: checklist()),
     (7,  "field-notes",   "Field Notes", lambda: fieldnotes()),
@@ -262,7 +261,7 @@ PLAN = [
 ]
 
 def date_deck(p, d, name):
-    tag = f"POST: {DOW[d.weekday()]} {d.day} {d.strftime('%b %Y')} | {name}"
+    tag = f"POST: {d:%d-%m-%Y} {DOW[d.weekday()]} | {name}"
     p.core_properties.title = tag
     for s in p.slides:
         tf = s.notes_slide.notes_text_frame
@@ -273,7 +272,8 @@ if __name__ == "__main__":
     for fn, out in ((graduate, "soil-regenerators-in-the-wild"), (fieldnotes, "field-notes"), (didyouknow, "did-you-know"), (checklist, "numbered-checklist")):
         fn().save(out + ".pptx")   # undated master templates
     os.makedirs("posts", exist_ok=True)
+    for old in __import__("glob").glob("posts/*.pptx"): os.remove(old)   # dated files are rebuilt from PLAN
     for offset, slug, name, make in PLAN:
         d = START + datetime.timedelta(days=offset)
         p = make(); date_deck(p, d, name)
-        p.save(f"posts/{d.isoformat()}-{DOW[d.weekday()].lower()}-{slug}.pptx")
+        p.save(f"posts/{d:%d-%m-%Y}-{DOW[d.weekday()].lower()}-{slug}.pptx")
