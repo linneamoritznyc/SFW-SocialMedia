@@ -173,7 +173,23 @@ def counter(s, i, n, dark, W=1080):
          CREAM if dark else INK, BODY, align="r", alpha=60)
 
 # ---------------------------------------------------------------- photos and marks
+MENTOR_DIR = os.path.join(ROOT, "assets", "mentors-teachers-day")
+MENTOR_KEYS = [("carla", "carla-portugal"), ("nick padwick", "nick-padwick"), ("wes sander", "wes-sander"),
+               ("gerald", "gerald-ramirez"), ("caterina", "caterina-capri")]
+
+def mentor_photo(label):
+    """A portrait label such as 'Dr. Carla Portugal, square headshot' -> file in assets/mentors-teachers-day/, if uploaded."""
+    l = label.lower()
+    if "portrait" not in l and "headshot" not in l: return None
+    for key, slug in MENTOR_KEYS:
+        if key in l:
+            for ext in ("jpg", "jpeg", "png"):
+                f = os.path.join(MENTOR_DIR, f"{slug}.{ext}")
+                if os.path.exists(f): return os.path.relpath(f, ROOT)
+    return None
+
 def photo(s, x, y, w, h, src, note="", radius=0, kind=None, fx=0.5, fy=0.5, deckname=""):
+    src = mentor_photo(src) or src
     """src: repo path (str starting 'assets/') -> cropped picture; otherwise a PHOTO placeholder label."""
     if src and src.startswith("assets/"):
         p = crop(src, int(w), int(h), fx, fy)
@@ -417,6 +433,7 @@ def t4a(d, photo_src, name, role, note="", tid="4A"):
     return s
 
 def photo_tilt(s, x, y, size, src, tl):
+    src = mentor_photo(src) or src
     if src and src.startswith("assets/"):
         p = crop(src, size, size)
         pic = s.shapes.add_picture(p, 0, 0, Emu(size*PX), Emu(size*PX)); _place(pic, x, y, size, size, tl); return
