@@ -84,7 +84,7 @@ def habitat(d): t7(d, AMOEBA, "The biggest habitat on Earth is under your feet."
 def carla(d): t4c(d, "Carla at a microscope", "Dr. Carla Portugal", "Science Leader", quote="The mentors, especially Carla Portugal.”")
 
 def nick(d):
-    t4c(d, "Nick with compost windrows", "Nick Padwick", "Norfolk, England")
+    t4c(d, "assets/mentors-teachers-day/nick-speaking.jpg", "Nick Padwick", "Norfolk, England", note="Photo: Nick speaking (brief asked for Nick with compost windrows: swap if you have it).")
     t5(d, "750", "tons of compost a year", "40 years of farming in the UK, Italy, Spain and Argentina.")
 
 def wes_reel(d):
