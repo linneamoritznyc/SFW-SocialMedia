@@ -78,6 +78,7 @@ PIECES = {
     "leaf-sprig-paper": "a single cut-paper sprig of three rounded green leaves on a thin stem",
     "cute-bacterium": "a cute rod-shaped soil bacterium with a tiny smiling face and one wavy tail, pale green cut paper",
     "earthworm-paper": "a cute curled earthworm with a tiny smiling face, soft kraft pink-brown cut paper",
+    "mushroom-paper": "a cute small brown mushroom with a round cap dotted with cream spots and a tiny smiling face",
     "seedling-tray": "a small wooden seedling tray holding six little pots of seedlings: lettuce, basil, a small tomato plant and tiny flower seedlings",
 }
 

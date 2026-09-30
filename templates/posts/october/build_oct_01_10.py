@@ -473,44 +473,56 @@ def card(d, name, role, advice, photo, focus, facts):
     return s
 
 
-CARD_STICKERS = {  # one sticker per card, loosely tied to what the mentor teaches
-    "Dr. Carla Portugal": "seedling", "Wesley Sanders": "microscope", "Gerald Ramirez": "cup", "Nick Padwick": "mushroom",
-}
-
-
-def card_extras(s, name, i):
-    """Washi tape on the card corners and one sticker hanging off the card edge."""
+def paper(s, name, cx, cy, w, deg=0, fallback=None):
+    """Cut-paper piece from assets/collage/cutouts/<name>-1.png; the drawn sticker if it was never generated."""
     import scrapbook as sb
-    sb.tape(s, 150, 80, 170, 50, -32); sb.tape(s, 950, 125, 170, 50, 36)
-    kind = CARD_STICKERS.get(name, ("bacterium", "flower", "beetle", "dried")[i % 4])
-    if kind == "seedling": sb.seedling(s, 980, 1290, 160, deg=8)
-    elif kind == "microscope": sb.microscope(s, 985, 1305, 170, 6)
-    elif kind == "cup": sb.cup(s, 985, 1260, 150, 8)
-    elif kind == "mushroom": sb.mushroom(s, 990, 1300, 150, 6)
-    elif kind == "bacterium": sb.bacterium(s, 975, 1270, 150, -20)
-    elif kind == "flower": sb.flower(s, 990, 1230, 45, 10)
-    elif kind == "beetle": sb.beetle(s, 990, 1270, 100, 30)
-    else: sb.cutout(s, CUT + "dried-flowers-2-1.png", 1000, 1250, 150, 24)
+    rel = CUT + name + "-1.png"
+    if os.path.exists(os.path.join(ROOT, rel)):
+        return sb.cutout(s, rel, cx, cy, w, deg)
+    MISSING.add(rel)
+    if fallback: return fallback()
+
+
+CARD_STICKERS = {  # one cut-paper piece per card, loosely tied to what the mentor teaches
+    "Dr. Carla Portugal": "happy-seedling", "Wesley Sanders": "microscope-paper", "Gerald Ramirez": "cute-bacterium",
+    "Nick Padwick": "mushroom-paper", "Loida Vasquez": "earthworm-paper", "Delvin Solkinson": "leaf-sprig-paper",
+}
+ROTATION = ["cute-bacterium", "leaf-sprig-paper", "earthworm-paper", "mushroom-paper", "happy-seedling"]
+
+
+def card_extras(s, name, i, has_photo):
+    """Washi tape on the card corners, one cut-paper piece on the card edge, a leaf sprig on empty photo boxes."""
+    import scrapbook as sb
+    sb.tape(s, 150, 80, 170, 50, -32); sb.tape(s, 930, 80, 170, 50, 32)
+    kind = CARD_STICKERS.get(name, ROTATION[i % len(ROTATION)])
+    paper(s, kind, 960, 1240, 190, 8, lambda: sb.seedling(s, 980, 1290, 160, deg=8))
+    if not has_photo:
+        paper(s, "leaf-sprig-paper", 860, 560, 170, 28, lambda: sb.cutout(s, CUT + "dried-flowers-2-1.png", 880, 560, 150, 24))
 
 
 def teachers():
     import scrapbook as sb
     d = Deck(name="05-10-2026-mon-ig-teachers-day")
     src = "Source: mentor roster from Linnea, September 2026, and mentor bios on https://soilfoodweb.com. "
-    s = dark(d, "Opening slide. " + src + "Leaf frame built from existing cutouts; stickers are drawn shapes.")
-    leaf_frame(s)
-    tl = sb.note(s, 170, 330, 740, 620, sb.PAPER, 0)
-    block(s, 210, 400, 660, "Happy World Teachers' Day. Our mentors' best advice, in one line each.", 50, DEEP, HEAD, True, 1.12, align="c")
-    sb.microscope(s, 800, 1060, 170, 6); sb.seedling(s, 290, 1040, 150, deg=-6)
+    frame = os.path.exists(os.path.join(ROOT, CUT + "leaf-frame-1.png"))
+    s = dark(d, "Opening slide. " + src + "Cut-paper pieces from tools/collage_generate.py (flux-2-pro).")
+    if frame: sb.cutout(s, CUT + "leaf-frame-1.png", 540, 690, 1060)
+    else: leaf_frame(s)
+    tl = sb.note(s, 190, 380, 700, 560, sb.PAPER, 0)
+    block(s, 230, 450, 620, "Happy World Teachers' Day. Our mentors' best advice, in one line each.", 50, DEEP, HEAD, True, 1.12, align="c")
+    paper(s, "microscope-paper", 800, 1000, 230, 6, lambda: sb.microscope(s, 800, 1060, 170, 6))
+    paper(s, "earthworm-paper", 300, 1010, 200, -8, lambda: sb.seedling(s, 290, 1040, 150, deg=-6))
     logo_br(s, True)
     for i, m in enumerate(MENTORS):
         s = card(d, *m)
-        card_extras(s, m[0], i)
-    s = dark(d, "Closing slide. Leaf frame built from existing cutouts; stickers are drawn shapes.")
-    leaf_frame(s, flip=True)
-    tl = sb.note(s, 170, 360, 740, 580, sb.PAPER, 0)
-    block(s, 210, 430, 660, "Thank you to every mentor who teaches our students to see soil.", 50, DEEP, HEAD, True, 1.12, align="c")
-    sb.flower(s, 300, 1000, 45, -8); sb.bacterium(s, 790, 1020, 150, -12)
+        card_extras(s, m[0], i, m[3] is not None)
+    s = dark(d, "Closing slide. Cut-paper pieces from tools/collage_generate.py (flux-2-pro).")
+    if frame: sb.cutout(s, CUT + "leaf-frame-1.png", 540, 690, 1060, 180)
+    else: leaf_frame(s, flip=True)
+    tl = sb.note(s, 190, 400, 700, 540, sb.PAPER, 0)
+    block(s, 230, 480, 620, "Thank you to every mentor who teaches our students to see soil.", 50, DEEP, HEAD, True, 1.12, align="c")
+    paper(s, "happy-seedling", 300, 1010, 190, -6, lambda: sb.flower(s, 300, 1000, 45, -8))
+    paper(s, "cute-bacterium", 790, 1010, 210, -10, lambda: sb.bacterium(s, 790, 1020, 150, -12))
     logo_br(s, True)
     save(d, "05-10-2026-mon-ig-teachers-day.pptx")
 
