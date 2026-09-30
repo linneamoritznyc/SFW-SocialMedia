@@ -12,7 +12,7 @@ Link: tag all five. [VERIFY handles]
 2. Dr. Carla Portugal, Science Leader. "[PLACEHOLDER tip]"
 3. Nick Padwick, farmer, Norfolk. "[PLACEHOLDER tip]"
 4. Wes Sander, microscopy. "[PLACEHOLDER tip]"
-5. Gerald Ramirez, compost extracts and teas. "[PLACEHOLDER tip]"
+5. Gerald Ramírez, compost extracts and teas. "[PLACEHOLDER tip]"
 6. Dr. Caterina Capri, Advanced Programs. "[PLACEHOLDER tip]"
 7. Thank you to every mentor. 💚 (mentor and student at a microscope)
 
@@ -24,7 +24,7 @@ We asked five of them one question: what is the one thing you wish every new stu
 🔬 Dr. Carla Portugal
 🚜 Nick Padwick
 🦠 Wes Sander
-💧 Gerald Ramirez
+💧 Gerald Ramírez
 🌾 Dr. Caterina Capri
 
 To every mentor who has sat with a student at a microscope or stood with them beside a compost pile: thank you. 💚

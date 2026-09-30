@@ -31,7 +31,7 @@ MENTORS = [
     ("Dr. Carla Portugal", "Science Leader", "carla-portugal"),
     ("Nick Padwick", "Farmer, Norfolk", "nick-padwick"),
     ("Wes Sander", "Microscopy", "wes-sander"),
-    ("Gerald Ramirez", "Compost extracts and teas", "gerald-ramirez"),
+    ("Gerald Ramírez", "Compost extracts and teas", "gerald-ramirez"),
     ("Dr. Caterina Capri", "Advanced Programs", "caterina-capri"),
 ]
 

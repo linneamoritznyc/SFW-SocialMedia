@@ -16,7 +16,7 @@ WORM = "assets/photo/hand-wet-dirt-worm.jpg"
 C = TAG
 
 MENTORS = [("Dr. Carla Portugal", "Science Leader"), ("Nick Padwick", "Farmer, Norfolk"), ("Wes Sander", "Microscopy"),
-           ("Gerald Ramirez", "Compost extracts and teas"), ("Dr. Caterina Capri", "Advanced Programs")]
+           ("Gerald Ramírez", "Compost extracts and teas"), ("Dr. Caterina Capri", "Advanced Programs")]
 
 def deck(name, w=1080, h=1350): return Deck(w, h, name)
 
@@ -92,7 +92,7 @@ def wes_reel(d):
     for l in ("Soil from a conventional field.", "Biologically active compost.", "Same microscope. Same magnification.", "Meet Wes Sander, our microscopy mentor."): t6b(d, l)
 
 def gc(d):
-    t4c(d, None, "Gerald Ramirez", "Compost extracts and teas", duo=["Gerald Ramirez, portrait", "Dr. Caterina Capri, portrait"], name2="Dr. Caterina Capri", role2="Advanced Programs")
+    t4c(d, None, "Gerald Ramírez", "Compost extracts and teas", duo=["Gerald Ramírez, portrait", "Dr. Caterina Capri, portrait"], name2="Dr. Caterina Capri", role2="Advanced Programs")
     t2b(d, None, "Gerald teaches liquid amendments: compost extracts and teas that carry living biology from compost out to the field.", extra=[f"{C} Step 1", f"{C} Step 2", f"{C} Step 3"], img="assets/mentors-teachers-day/gerald-teaching.jpg", note="Small image: Gerald teaching (other people in frame: check consent).")
     t2b(d, None, "Caterina co-wrote research on how living cover crops protect soil, control weeds and build biological diversity.")
 

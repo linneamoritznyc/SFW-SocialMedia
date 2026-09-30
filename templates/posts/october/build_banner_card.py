@@ -1,4 +1,4 @@
-"""Mentor banner cards (the look of the Gerald Ramirez instructor post): full-bleed photo, dark green name band with
+"""Mentor banner cards (the look of the Gerald Ramírez instructor post): full-bleed photo, dark green name band with
 thin rules, line-drawn leaves top right, logo panel top left. Run: python3 build_banner_card.py"""
 import math, os
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
