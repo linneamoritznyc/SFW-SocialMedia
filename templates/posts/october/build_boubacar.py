@@ -50,13 +50,18 @@ HIS = (" New slide: the caption is Boubacar's own words, quoted from his email t
        "Include it in the text he approves.")
 
 
-def caption(s, t, y=None, h=None, pt=32):
+GARA = "EB Garamond"   # brand serif: his own words, in italic
+
+
+def caption(s, t, y=None, h=None, pt=38):
     """His words on a straight paper strip, sized to the measured text and ending 50 px above the bottom edge."""
-    n = n_lines(t, pt, 880 * 0.95)
+    f, it = (GARA, True) if t.startswith("“") else (HEAD, False)   # his words in Garamond italic, labels in Montserrat
+    if f == HEAD: pt = 30
+    n = n_lines(t, pt, 880 * 0.95, f, f == HEAD)
     h = n * lh(pt, 1.12) + 60
     y = 1300 - h
     rect(s, 60, y, 960, h, sb.PAPER, shadow=True)
-    text(s, 100, y + 30, 880, h - 60, t, pt, DEEP, HEAD, True, anchor="m", spacing=1.12)
+    text(s, 100, y + 30, 880, h - 60, t, pt, DEEP, f, f == HEAD, italic=it, anchor="m", spacing=1.12)
 
 
 def instagram():
@@ -94,7 +99,7 @@ def instagram():
     s = cream(d, "Quote slide. Photo: assets/photo/boubacar/vegetable-beds-by-building.jpeg (Boubacar in his vegetable beds, WhatsApp, "
                  "17 Aug 2026), cropped to remove a blurred fingertip at the bottom." + CUTS)
     quote_marks(s, 60, 40, 260)
-    y = block(s, 90, 250, 900, "“Today, I ask a different question: What does the soil food web need to thrive?”", 56, DEEP, HEAD, True, 1.1)
+    y = block(s, 90, 250, 900, "“Today, I ask a different question: What does the soil food web need to thrive?”", 62, DEEP, GARA, False, 1.1)
     print_(s, B + "vegetable-beds-by-building.jpeg", 250, y + 70, 580, 1260 - (y + 70), 0.6, 0.25)
     paper(s, "happy-seedling", 120, 1180, 170, -6)
     paper(s, "mushroom-paper", 970, 1190, 160, -4)
@@ -179,7 +184,7 @@ def instagram():
     s = cream(d, "Quote slide. Photo: assets/photo/boubacar/young-coffee-plant.jpg." + CUTS)
     quote_marks(s, 60, 30, 240)
     y = block(s, 90, 230, 900, "“My dream is to restore degraded land in the Fouta Djallon and help my community learn living-soil practices.”",
-              50, DEEP, HEAD, True, 1.1)
+              56, DEEP, GARA, False, 1.1)
     print_(s, B + "young-coffee-plant.jpg", 290, y + 60, 500, 1150 - (y + 60), 0.5, 0.5)
     rrect(s, 60, 1190, 960, 76, GREEN, radius=38)
     text(s, 60, 1190, 960, 76, "Subscribe on YouTube: @boubacartidianediallo", 26, CREAM, HEAD, True, align="c", anchor="m")

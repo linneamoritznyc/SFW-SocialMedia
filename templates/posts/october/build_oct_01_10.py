@@ -104,7 +104,8 @@ def lh(pt, spacing=1.2):
 
 from PIL import ImageFont
 FONTS = {(HEAD, True): "Montserrat-Bold.ttf", (HEAD, False): "Montserrat-Regular.ttf",
-         (BODY, True): "SourceSans3-Bold.ttf", (BODY, False): "SourceSans3-Regular.ttf"}
+         (BODY, True): "SourceSans3-Bold.ttf", (BODY, False): "SourceSans3-Regular.ttf",
+         ("EB Garamond", False): "EBGaramond-Italic.ttf", ("EB Garamond", True): "EBGaramond-Italic.ttf"}
 
 
 def text_width(t, pt, font=HEAD, bold=True):
@@ -124,11 +125,12 @@ def n_lines(t, pt, w, font=HEAD, bold=True):
     return n
 
 
-def block(s, x, y, w, t, pt, color=DEEP, font=HEAD, bold=True, spacing=1.15, align="l"):
-    """Text box sized from the measured number of lines; returns the bottom y."""
+def block(s, x, y, w, t, pt, color=DEEP, font=HEAD, bold=True, spacing=1.15, align="l", italic=None):
+    """Text box sized from the measured number of lines; returns the bottom y. EB Garamond is set in italic."""
     n = n_lines(t, pt, w * 0.97, font, bold)
     h = n * lh(pt, spacing)
-    text(s, x, y, w, h + 10, t, pt, color, font, bold, align=align, spacing=spacing)
+    if italic is None: italic = font == "EB Garamond"
+    text(s, x, y, w, h + 10, t, pt, color, font, bold, italic=italic, align=align, spacing=spacing)
     return y + h
 
 

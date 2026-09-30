@@ -11,3 +11,14 @@ Decisions made while building (change them in `lib.py`):
 - Reel caption cards (6B) have no page background. Cream text is invisible on a white page: remove the page background in Canva or export PNG with transparent background.
 - Numbers on big-number slides carry a "Source: [COPY: Allison]" line.
 - Card texture uses PowerPoint's diagonal pattern fill, not exact 2 px / 18 px lines.
+
+## Brand fonts (the three starred fonts in Canva)
+- **Montserrat**: headings, labels, names, series and date pills, the soilfoodweb.com line.
+- **Source Sans 3**: body text and descriptive lines ("How he feeds his soil: living groundcover, ...").
+- **EB Garamond, italic**: the human voice. Quotes from graduates and mentors (Soil Regenerators in the wild), Field Notes observations, pull quotes.
+- No other fonts. Emoji show in the system emoji font.
+
+## Logo and website
+- Logo on the first and last slide of a carousel.
+- soilfoodweb.com, small and centred at the bottom, on every other slide (Stephanie, 30 Sep 2026).
+- No slide numbers.

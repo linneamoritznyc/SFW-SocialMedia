@@ -15,7 +15,7 @@ from build_boubacar import B, SOURCES
 
 A = "http://schemas.openxmlformats.org/drawingml/2006/main"
 W, H = 1080, 1350
-SANS, SERIF = "Montserrat", "EB Garamond"   # starred brand fonts in Canva
+SANS, SERIF, BODYF = "Montserrat", "EB Garamond", "Source Sans 3"   # brand fonts: headings, human voice, body
 THEMES = {  # ground, roots, headline, accent (eyebrow + rule), band, band text, logo white?
     "gold": ("D9A13E", "root-network-gold-portrait.png", "1E1412", "1E1412", "F6E3C2", "1E1412", False),
     "green": ("31662F", "root-network-green-portrait.png", "F4F1EA", "DBE6A7", "E4E6CF", "22371F", True),
@@ -25,7 +25,7 @@ _F = {}
 
 
 def width(t, pt, font):
-    path = {SANS: "~/.fonts/Montserrat-Regular.ttf", SERIF: "~/.fonts/EBGaramond-Regular.ttf"}[font]
+    path = {SANS: "~/.fonts/Montserrat-Regular.ttf", SERIF: "~/.fonts/EBGaramond-Italic.ttf", BODYF: "~/.fonts/SourceSans3-Regular.ttf"}[font]
     key = (font, pt)
     if key not in _F: _F[key] = ImageFont.truetype(os.path.expanduser(path), int(pt * 1.3333))
     return _F[key].getlength(t)
@@ -76,24 +76,27 @@ def eyebrow(s, theme, y, t, x=80):
 
 
 def band(s, theme, y, t, pt=30, head=None, hpt=40):
-    """Cream band across the slide: optional Roboto headline, then Times New Roman text. Sized to the text."""
+    """Cream band: optional Montserrat headline, then text (Garamond italic for his quotes, Source Sans 3 otherwise)."""
     _, _, _, _, bg, fg, _ = THEMES[theme]
     tw = 900
     hh = lines(head, hpt, tw * 0.97, SANS) * lh(hpt, 1.05) + 14 if head else 0
-    th = lines(t, pt, tw * 0.97, SERIF) * lh(pt, 1.15)
+    f = SERIF if t.startswith("“") else BODYF          # his words in Garamond italic, our description in Source Sans 3
+    th = lines(t, pt, tw * 0.97, f) * lh(pt, 1.15)
     h = hh + th + 70
     rect(s, 0, y, W, h, bg, alpha=88)
     yy = y + 35
     if head:
         text(s, 90, yy, tw, hh, head, hpt, fg, SANS, True, spacing=1.05); yy += hh
-    text(s, 90, yy, tw, th + 10, t, pt, fg, SERIF, False, spacing=1.15)
+    text(s, 90, yy, tw, th + 10, t, pt, fg, f, False, italic=(f == SERIF), spacing=1.15)
     return y + h
 
 
 def quote(s, theme, t, y=150, pt=50):
     _, _, head, acc, *_ = THEMES[theme]
     text(s, 70, y - 110, 200, 200, "“", 150, acc, SERIF, False, spacing=0.8)
-    return block(s, 90, y + 40, 900, t, pt, head, SERIF, 1.12)
+    h = lines(t, pt, 900 * 0.97, SERIF) * lh(pt, 1.12)
+    text(s, 90, y + 40, 900, h + 12, t, pt, head, SERIF, False, italic=True, spacing=1.12)
+    return y + 40 + h
 
 
 def logo_for(s, theme, x=W - 60 - 130, y=H - 50 - 117, w=130):
@@ -102,7 +105,7 @@ def logo_for(s, theme, x=W - 60 - 130, y=H - 50 - 117, w=130):
 
 def build():
     d = Deck(name="01-10-2026-thu-ig-soil-regenerators-boubacar-roots")
-    NOTE = " Root-network style (as the LinkedIn option E card). Fonts: Montserrat and EB Garamond (brand). Same words as the scrapbook version."
+    NOTE = " Root-network style (as the LinkedIn option E card). Fonts: Montserrat headings, Source Sans 3 text, EB Garamond italic for his words (brand). Same words as the scrapbook version."
 
     # 1 cover, gold
     s = slide(d, "gold", "Cover." + NOTE + " " + SOURCES + " Photo: boubacar-portrait-bananas-closer.jpg.")
