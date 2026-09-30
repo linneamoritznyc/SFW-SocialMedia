@@ -1,0 +1,134 @@
+"""Generate cut-paper collage illustrations with Replicate (flux-2-pro) and cut out backgrounds locally with rembg.
+
+Usage: python tools/collage_generate.py nematode fungal-hyphae amoeba --version 1
+The token is read from REPLICATE_API_TOKEN (.env via python-dotenv, or the environment). It is never printed.
+"""
+import argparse
+import datetime
+import sys
+import time
+from pathlib import Path
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
+import replicate  # noqa: E402  (after load_dotenv so the token is in the environment)
+
+ROOT = Path(__file__).resolve().parent.parent
+ORIG = ROOT / "assets/collage/originals"
+CUT = ROOT / "assets/collage/cutouts"
+COST_FILE = ROOT / "generation-cost.txt"
+REFERENCE = ROOT / "style-reference.png"
+
+MODEL = "black-forest-labs/flux-2-pro"
+STOP_AT = 9.00
+# Estimate only: replicate.com pricing page was unreachable. Assumed $0.015 per output MP
+# plus $0.015 per input MP, at 4 MP out and a ~2 MP reference. Verify against Replicate billing.
+EST_PER_IMAGE = 0.09
+
+STYLE = (
+    "cut paper collage, kraft paper, graphite rubbing texture, colored pencil strokes, "
+    "hand-cut uneven edges, overlapping paper layers, muted kraft brown, slate blue and graphite gray, "
+    "one Food Web Green #156826 accent, cream paper background, scanned artwork. "
+    "Use the reference image only for its cut-paper technique and texture, not its subjects or colors: "
+    "no pink, no magenta, no red. Single subject centered and alone on a plain flat cream paper background, "
+    "no text, no signature, no initials, no labels, no frame, no cast shadow, no torn or deckled paper edge."
+)
+
+PIECES = {
+    "nematode": "a bacterial-feeding nematode, a smooth tapered thread-like worm body, blunt head, pointed tail",
+    "fungal-hyphae": "branching fungal hyphae, thin branching threads forming a network",
+    "amoeba": "a naked amoeba, a soft irregular blob with rounded pseudopod lobes and a visible nucleus",
+    "ciliate": "a ciliate protozoan, an oval cell covered in fine hairs (cilia)",
+    "flagellate": "a flagellate protozoan, a small cell with one long whip-like tail (flagellum)",
+    "vampire-amoeba": "a vampire amoeba, a small amoeba with a fine feeding probe piercing a fungal thread",
+    "root-hairs": "fine root hairs, a root tip with many delicate hair-like extensions",
+    "root-system": "a plant root system, a main root with branching lateral roots",
+    "earthworm": "an earthworm, segmented pink-brown body with a clitellum band",
+    "springtail": "a springtail, a tiny soil insect with a folded tail-like furcula and short antennae",
+    "leaf-1": "a single simple oval leaf with a central vein",
+    "leaf-2": "a single lobed oak-type leaf",
+    "leaf-3": "a single long narrow grass-blade or willow-type leaf",
+    "fallen-leaves": "a pile of fallen autumn leaves",
+    "compost-pile": "a compost pile, a mound of mixed organic matter with a few leaves and food scraps",
+    "microscope": "a laboratory microscope",
+    "coffee-cup": "a coffee cup with coffee grounds spilling beside it",
+    "eggshells": "broken eggshells, several curved shell fragments",
+    "cotton-brief": "a plain folded cotton brief (underwear)",
+    "raindrop-soil": "a single raindrop falling onto a small patch of soil",
+}
+
+
+def total_cost():
+    if not COST_FILE.exists():
+        return 0.0
+    total = 0.0
+    for line in COST_FILE.read_text().splitlines():
+        if line.startswith("TOTAL"):
+            total = float(line.split("$")[1])
+    return total
+
+
+def log_cost(name, version, ok):
+    total = total_cost() + (EST_PER_IMAGE if ok else 0.0)
+    lines = [l for l in COST_FILE.read_text().splitlines() if not l.startswith("TOTAL")] if COST_FILE.exists() else [
+        "Estimated cost log (estimate, not billing data). Stop at $9.00.",
+    ]
+    lines.append(f"{datetime.datetime.utcnow():%Y-%m-%d %H:%M} {name}-{version} {'ok' if ok else 'FAILED'} est ${EST_PER_IMAGE if ok else 0:.2f}")
+    lines.append(f"TOTAL ${total:.2f}")
+    COST_FILE.write_text("\n".join(lines) + "\n")
+    return total
+
+
+def generate(name, version):
+    out = ORIG / f"{name}-{version}.png"
+    prompt = f"{PIECES[name]}. {STYLE}"
+    last_err = None
+    for attempt in (1, 2):  # one retry at most
+        if total_cost() >= STOP_AT:
+            sys.exit(f"Stopping: estimated total reached ${STOP_AT:.2f}")
+        try:
+            with open(REFERENCE, "rb") as ref:
+                output = replicate.run(
+                    MODEL,
+                    input={
+                        "prompt": prompt,
+                        "input_images": [ref],
+                        "aspect_ratio": "1:1",
+                        "resolution": "4 MP",
+                        "output_format": "png",
+                    },
+                )
+            first = output[0] if isinstance(output, (list, tuple)) else output
+            out.write_bytes(first.read())
+            log_cost(name, version, True)
+            return out
+        except Exception as e:  # noqa: BLE001
+            last_err = e
+            log_cost(name, version, False)
+            time.sleep(3)
+    print(f"FAILED {name}-{version}: {type(last_err).__name__}: {str(last_err)[:200]}")
+    return None
+
+
+def cutout(path):
+    from PIL import Image
+    from rembg import remove
+
+    CUT.mkdir(parents=True, exist_ok=True)
+    img = Image.open(path).convert("RGB")
+    remove(img).save(CUT / path.name)
+
+
+if __name__ == "__main__":
+    ap = argparse.ArgumentParser()
+    ap.add_argument("names", nargs="+")
+    ap.add_argument("--version", type=int, default=1)
+    args = ap.parse_args()
+    ORIG.mkdir(parents=True, exist_ok=True)
+    for n in args.names:
+        p = generate(n, args.version)
+        if p:
+            cutout(p)
+            print(f"done {p.name}  running est total ${total_cost():.2f}")

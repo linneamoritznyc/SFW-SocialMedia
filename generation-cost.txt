@@ -1,0 +1,7 @@
+Estimated cost log (estimate, not billing data). Stop at $9.00.
+2026-09-30 13:06 nematode-1 ok est $0.09
+2026-09-30 13:08 fungal-hyphae-1 FAILED est $0.00
+2026-09-30 13:08 fungal-hyphae-1 FAILED est $0.00
+2026-09-30 13:08 amoeba-1 FAILED est $0.00
+2026-09-30 13:08 amoeba-1 FAILED est $0.00
+TOTAL $0.09
