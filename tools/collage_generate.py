@@ -79,6 +79,11 @@ PIECES = {
     "cute-bacterium": "a cute rod-shaped soil bacterium with a tiny smiling face and one wavy tail, pale green cut paper",
     "earthworm-paper": "a cute curled earthworm with a tiny smiling face, soft kraft pink-brown cut paper",
     "mushroom-paper": "a cute small brown mushroom with a round cap dotted with cream spots and a tiny smiling face",
+    "coffee-cherries-branch": "a coffee plant branch with glossy dark green leaves and clusters of ripe red and green coffee cherries",
+    "cacao-pod": "a single ripe cacao pod, ribbed and oval, ochre yellow with a short stem",
+    "banana-bunch": "a small bunch of green and yellow bananas",
+    "citrus-orange": "a whole orange with one leaf and a halved orange showing its segments",
+    "pineapple": "a small cute pineapple with a spiky green crown",
     "seedling-tray": "a small wooden seedling tray holding six little pots of seedlings: lettuce, basil, a small tomato plant and tiny flower seedlings",
 }
 
