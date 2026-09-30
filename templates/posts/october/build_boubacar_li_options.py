@@ -154,21 +154,21 @@ def option_e():
     from PIL import Image as PImage
     d = Deck(W, H, name="01-10-2026-thu-li-boubacar-option-e-gold-roots")
     s = d.slide("D9A13E", "Option E, gold roots (style of the SFW 'Welcome Eric Feiler' card). Fonts: Roboto and Times New Roman, as on "
-                "that card. Cutout: assets/photo/boubacar/boubacar-vegetable-beds-cutout.png, his own photo (vegetable beds) with the background removed "
-                "locally (rembg); nothing generated. Root network: assets/collage/root-network-gold.png, drawn by code. " + SOURCES,
+                "that card. Photo: assets/photo/boubacar/boubacar-portrait-bananas.jpg in an arch frame. Root network: assets/collage/root-network-gold.png, drawn by code. " + SOURCES,
                 counter=False)
     rect(s, 0, 0, W, H, "D9A13E")
     s.shapes.add_picture(os.path.join(ROOT, "assets/collage/root-network-gold.png"), 0, 0, Emu(W * PX), Emu(H * PX))
     rect(s, 0, 430, 860, 130, "F6E3C2", alpha=78)
-    # cutout: scaled so his waist sits at the bottom edge
-    cw, ch = PImage.open(os.path.join(ROOT, B + "boubacar-vegetable-beds-cutout.png")).size
-    h = 900; w = h * cw / ch; x = 1200 - w - 70; y = 24
-    gw, gh = PImage.open(os.path.join(ROOT, B + "boubacar-vegetable-beds-cutout-glow.png")).size
-    k = h / ch
-    s.shapes.add_picture(os.path.join(ROOT, B + "boubacar-vegetable-beds-cutout-glow.png"), Emu(int((x - 40 * k) * PX)), Emu(int((y - 40 * k) * PX)),
-                         Emu(int(gw * k * PX)), Emu(int(gh * k * PX)))
-    s.shapes.add_picture(os.path.join(ROOT, B + "boubacar-vegetable-beds-cutout.png"), Emu(int(x * PX)), Emu(int(y * PX)),
-                         Emu(int(w * PX)), Emu(int(h * PX)))
+    # sharp photo in an arch frame (the cutouts were too soft or looked odd)
+    from pptx.enum.shapes import MSO_SHAPE
+    fx, fy, fw, fh = 830, 40, 330, 560
+    arch = rect(s, fx - 12, fy - 12, fw + 24, fh + 24, "F6E3C2", kind=MSO_SHAPE.ROUND_2_SAME_RECTANGLE, shadow=True)
+    arch.adjustments[0] = 0.5
+    pic = photo(s, B + "boubacar-portrait-bananas-closer.jpg", fx, fy, fw, fh, 0.5, 0.3)
+    pic.auto_shape_type = MSO_SHAPE.ROUND_2_SAME_RECTANGLE
+    g = pic._element.spPr.find("{%s}prstGeom" % A); av = g.find("{%s}avLst" % A)
+    if av is None: av = etree.SubElement(g, "{%s}avLst" % A)
+    etree.SubElement(av, "{%s}gd" % A, name="adj1", fmla="val 50000")
     logo(s, 40, 30, 150, white=False)
     rect(s, 90, 190, 330, 6, "1E1412")
     text(s, 90, 208, 700, 40, "Happy International Coffee Day", 24, "1E1412", "Roboto", False)
