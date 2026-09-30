@@ -1,4 +1,4 @@
-"""Soil Regenerators in the wild: Boubacar Tidiane Diallo, Guinea (Thu 1 Oct 2026). Instagram carousel and LinkedIn image.
+"""Soil Regenerators in the wild: Boubacar Tidiane Diallo, Guinea-Conakry (Thu 1 Oct 2026). Instagram carousel and LinkedIn image.
 
 python3 build_boubacar.py
 Scrapbook style on cream paper: straight taped prints of Boubacar's own photos, cut-paper pieces (objects only, never his
@@ -39,7 +39,7 @@ def quote_marks(s, x, y, pt=300):
     text(s, x, y, 400, pt * 1.1, "“", pt, GOLD, HEAD, True, spacing=0.8)
 
 
-SOURCES = ("Instagram collab: @tidia.diallo.1. Sources: Impact story sheet, Boubacar Tidiane Diallo: "
+SOURCES = ("Call to action: his YouTube channel (his Instagram @tidia.diallo.1 is private). Sources: Impact story sheet, Boubacar Tidiane Diallo: "
            "https://docs.google.com/spreadsheets/d/10UHLwzJLBQAsmJqmg4hiCQRjBKXPAx7UnOudU-Vsg5U/edit; Email from Boubacar to Allison, "
            "30 September 2026; Instagram: https://www.instagram.com/tidia.diallo.1/; YouTube: https://www.youtube.com/@boubacartidianediallo; "
            "Facebook: https://www.facebook.com/btidja; Photos: sent by Boubacar to Stephanie on WhatsApp, 17 August 2026, and to Allison, "
@@ -70,7 +70,7 @@ def instagram():
     text(s, 60, 60, 700, 72, "Happy International Coffee Day", 28, GLOW, HEAD, True, align="c", anchor="m")
     rect(s, 60, 1030, 960, 250, DEEP, shadow=True)
     sb.tape(s, 110, 1030, 170, 50, -28); sb.tape(s, 970, 1030, 170, 50, 28)
-    text(s, 110, 1070, 760, 180, "Boubacar Tidiane Diallo, Guinea", 60, CREAM, HEAD, True, spacing=1.05, anchor="m")
+    text(s, 110, 1070, 770, 180, "Boubacar Tidiane\nDiallo, Guinea-Conakry", 46, CREAM, HEAD, True, spacing=1.05, anchor="m")
     logo(s, 900, 1170, 90, white=True)
     sb.guinea_flag(s, 930, 200, 190, 8)
     paper(s, "coffee-cherries-branch", 930, 880, 290, -10)
@@ -86,7 +86,7 @@ def instagram():
     print_(s, B + "man-by-water-tanks.jpeg", 580, 500, 410, 420, 0.4, 0.5)
     sb.guinea_flag(s, 250, 800, 170, -6)
     paper(s, "pineapple", 440, 830, 140, 8)
-    caption(s, "Gnaly Coffee & AgroÉcole Bio, Fouta Djallon, Guinea", 1000, 170)
+    caption(s, "Gnaly Coffee & AgroÉcole Bio, Fouta Djallon, Guinea-Conakry", 1000, 170)
     paper(s, "coffee-beans-paper", 960, 1030, 160, 10)
     paper(s, "banana-bunch", 470, 1030, 170, -8)
 
@@ -181,8 +181,8 @@ def instagram():
     y = block(s, 90, 230, 900, "“My dream is to restore degraded land in the Fouta Djallon and help my community learn living-soil practices.”",
               50, DEEP, HEAD, True, 1.1)
     print_(s, B + "young-coffee-plant.jpg", 290, y + 60, 500, 1150 - (y + 60), 0.5, 0.5)
-    rrect(s, 190, 1190, 700, 76, GREEN, radius=38)
-    text(s, 190, 1190, 700, 76, "Follow him: @tidia.diallo.1", 30, CREAM, HEAD, True, align="c", anchor="m")
+    rrect(s, 60, 1190, 960, 76, GREEN, radius=38)
+    text(s, 60, 1190, 960, 76, "Subscribe on YouTube: @boubacartidianediallo", 26, CREAM, HEAD, True, align="c", anchor="m")
     paper(s, "coffee-cup-paper", 150, 1000, 200, -6)
     paper(s, "coffee-beans-paper", 930, 1000, 170, 20)
     sb.guinea_flag(s, 960, 700, 130, 6)
@@ -201,9 +201,9 @@ def linkedin():
     print_(s, B + "boubacar-portrait-bananas.jpg", 90, 70, 400, 480, 0.5, 0.32)
     rrect(s, 560, 90, 520, 60, DEEP, radius=30)
     text(s, 560, 90, 520, 60, "Happy International Coffee Day", 22, GLOW, HEAD, True, align="c", anchor="m")
-    text(s, 560, 180, 620, 180, "Boubacar Tidiane\nDiallo, Guinea", 46, DEEP, HEAD, True, spacing=1.05, anchor="t")
+    text(s, 560, 190, 620, 180, "Boubacar Tidiane\nDiallo, Guinea-Conakry", 38, DEEP, HEAD, True, spacing=1.05, anchor="t")
     sb.guinea_flag(s, 640, 440, 110, -6)
-    paper(s, "coffee-cherries-branch", 1130, 340, 130, 14)
+    paper(s, "coffee-cherries-branch", 1120, 420, 130, 14)
     paper(s, "coffee-cup-paper", 800, 470, 150, 4)
     paper(s, "cocoa-beans", 960, 490, 150, -10)
     paper(s, "pineapple", 70, 520, 120, -10)
