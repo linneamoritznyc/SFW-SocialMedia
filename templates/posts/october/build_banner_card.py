@@ -20,17 +20,20 @@ def leaf(s, cx, cy, length, ang, width=0.30, color=WHITE):
 
 def card(d, photo_src, name, role, fy=0.3, note=""):
     s = d.slide(DEEP, note, counter=False, tid="Banner card")
-    photo(s, 0, 0, 1080, 1350, photo_src, fy=fy)
+    photo(s, 0, 0, 1080, 1010, photo_src, fy=fy)
+    s._deck.meta[-1]['dark'] = True
     for cx, cy, ln_, ang in [(1085, -15, 330, 112), (1085, -15, 360, 132), (1085, -15, 300, 152), (1085, 120, 230, 158)]:
         leaf(s, cx, cy, ln_, ang)
-    rrect(s, -60, -60, 620, 320, "3A3A3A", alpha=72, radius=40)       # logo panel
-    logo(s, x=70, y=60, size=130); rect(s, 270, 70, 2, 120, CREAM); logo(s, x=320, y=60, size=130)
+    rrect(s, -60, -60, 460, 260, "3A3A3A", alpha=72, radius=40)       # logo panel, kept small so it stays off the face
+    logo(s, x=60, y=50, size=100); rect(s, 190, 55, 2, 90, CREAM); logo(s, x=230, y=50, size=100)
     for y in (770, 772, 1005, 1007): pass
-    rect(s, 0, 800, 1080, 230, DEEP, alpha=72)
-    rect(s, 0, 796, 1080, 4, LIGHT); rect(s, 0, 812, 1080, 2, LIGHT); rect(s, 0, 1030, 1080, 4, LIGHT)
+    rect(s, 0, 1010, 1080, 340, DEEP)
+    rect(s, 0, 940, 1080, 230, DEEP, alpha=78)
+    rect(s, 0, 936, 1080, 4, LIGHT); rect(s, 0, 950, 1080, 2, LIGHT); rect(s, 0, 1170, 1080, 4, LIGHT)
     sz = fit(name, 900, [64, 58, 52], 1, True)
-    text(s, 80, 830, 900, 110, name, sz, WHITE, HEAD, True, anchor="m")
-    text(s, 80, 935, 900, 70, role.upper(), 36, WHITE, BODY, anchor="m", track=1)
+    text(s, 80, 965, 900, 110, name, sz, WHITE, HEAD, True, anchor="m")
+    text(s, 80, 1070, 900, 70, role.upper(), 36, WHITE, BODY, anchor="m", track=1)
+    text(s, 80, 1235, 920, 50, "@soilfoodwebschool", 30, CREAM, BODY)
     return s
 
 d = Deck(1080, 1350, "banner-cards")
