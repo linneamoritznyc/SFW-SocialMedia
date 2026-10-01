@@ -131,6 +131,7 @@ def build():
     s = slide(d, 3, "The question." + N + " Photo: vegetable-beds-by-building.jpeg.")
     main(s, "brown", B + "vegetable-beds-by-building.jpeg", 0.6, 0.25)
     quote_mark(s, "brown")
+    logo(s, COL_X + 20, PHOTO_Y + PHOTO_H - 290, 240, white=M("brown") in ("green", "brown"))   # fills the empty column
     card(s, "brown", "“Today, I ask a different question: What does the soil food web need to thrive?”", "So he changed the question:", voice=True)
     s.notes_slide.notes_text_frame.text += " NEW COPY for approval (narrative hook): based on his email and the approved caption draft. Lead-in 'So he changed the question' is new; the quote is his."
     footer(s, "brown")
