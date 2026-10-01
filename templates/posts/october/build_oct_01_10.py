@@ -385,19 +385,9 @@ def farms():
 
 
 def farms_li():
-    import scrapbook as sb
-    d = Deck(1200, 627, name="02-10-2026-fri-li-1000-farms-study")
-    s = d.slide(DEEP, "LinkedIn image. " + STUDY_SRC + " Right half: the slide 1 field collage on a taped paper card (not tilted), "
-                      "on Food Web Green.", counter=False)
-    rect(s, 600, 0, 600, 627, GREEN)
-    sb.note(s, 650, 60, 500, 430, sb.PAPER, 0)
-    field(s, 670, 80, 460, 390)
-    sb.seedling(s, 690, 570, 110, deg=-6)
-    hh = 2 * lh(64, 1.05); sh = 2 * lh(24, 1.25); top = (627 - (hh + 24 + sh)) / 2
-    text(s, 60, top, 520, hh + 10, "39% more\nsoil carbon", 64, CREAM, HEAD, True, spacing=1.05)
-    text(s, 60, top + hh + 24, 520, sh + 10, "on the most regenerative farms,\n1000 Farms Initiative, 2026", 24, GLOW, BODY, spacing=1.25)
-    logo_br(s, True, 90, 1200, 627, 30)
-    save(d, "02-10-2026-fri-li-1000-farms-study.pptx")
+    """The LinkedIn image now lives in build_farms_panorama.py (clean marketing style, no scrapbook)."""
+    from build_farms_panorama import li
+    li()
 
 
 # ================================================================ 5. World Teachers' Day trading cards (Mon 5 Oct)
