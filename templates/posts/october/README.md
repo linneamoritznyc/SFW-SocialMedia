@@ -34,3 +34,5 @@ One extra-wide background cut into equal 1080 x 1350 slices, so the design flows
 ## Never use (Linnea, 1 Oct 2026)
 - The soil cross-section look: cream top half, flat brown soil bottom half with a cartoon grass fringe and the text in the dark band.
   Rejected outright; the files were removed.
+- The "Bridges" look: flat cream with big colour circles on the seams, half-photos split across seams, a wavy brown line.
+  Rejected outright; the files were removed.
