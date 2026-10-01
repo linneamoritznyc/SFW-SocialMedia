@@ -30,3 +30,7 @@ One extra-wide background cut into equal 1080 x 1350 slices, so the design flows
 - Layout: one fixed grid on every slide (same photo area, same text card size and position, same footer), so only the
   content changes as you swipe (Stephanie, 30 Sep 2026).
 - Example: `build_boubacar_panorama.py`.
+
+## Never use (Linnea, 1 Oct 2026)
+- The soil cross-section look: cream top half, flat brown soil bottom half with a cartoon grass fringe and the text in the dark band.
+  Rejected outright; the files were removed.
