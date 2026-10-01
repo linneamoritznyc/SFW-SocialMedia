@@ -13,7 +13,7 @@ FINE, MAIN = (250, 232, 196, 125), (252, 238, 210, 165)
 
 
 def make(out, order, seed=42, clear=()):
-    """clear: (slide_number, x0, y0, x1, y1) boxes where no hyphae are drawn, e.g. behind a logo."""
+    """clear: (slide_number, x0, y0, x1, y1) keep-out boxes (e.g. a logo). Hyphae are routed around them, never faded."""
     n = len(order); W, H = n * SW, SH
     grad = Image.new("RGB", (W, 1)); px = grad.load(); cent = [SW * i + SW / 2 for i in range(n)]
     for x in range(W):
@@ -27,6 +27,11 @@ def make(out, order, seed=42, clear=()):
     bg = grad.resize((W, H)).convert("RGBA")
     net = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(net); random.seed(seed)
 
+    zones = [((n_ - 1) * SW + x0, y0, (n_ - 1) * SW + x1, y1) for n_, x0, y0, x1, y1 in clear]
+
+    def blocked(x, y, m=0):
+        return any(zx0 - m <= x <= zx1 + m and zy0 - m <= y <= zy1 + m for zx0, zy0, zx1, zy1 in zones)
+
     def seg(x, y, nx, ny, w, col):
         d.line([(x, y), (nx, ny)], fill=col, width=max(1, int(w))); r = w / 2; d.ellipse([nx - r, ny - r, nx + r, ny + r], fill=col)
 
@@ -34,7 +39,9 @@ def make(out, order, seed=42, clear=()):
         if depth == 0 or w < 1.1: return
         for _ in range(random.randint(4, 9)):
             a += random.uniform(-0.28, 0.28); L = random.uniform(14, 26)
-            nx, ny = x + math.cos(a) * L, y + math.sin(a) * L; seg(x, y, nx, ny, w, col); x, y = nx, ny; w *= 0.965
+            nx, ny = x + math.cos(a) * L, y + math.sin(a) * L
+            if blocked(nx, ny, 12): return
+            seg(x, y, nx, ny, w, col); x, y = nx, ny; w *= 0.965
         for _ in range(random.choice((2, 2, 3))):
             branch(x, y, a + random.uniform(-1.05, 1.05), w * random.uniform(0.5, 0.78), depth - 1, col)
 
@@ -47,16 +54,16 @@ def make(out, order, seed=42, clear=()):
             if y < 120: a = abs(a) * 0.6
             if y > H - 120: a = -abs(a) * 0.6
             L = random.uniform(18, 30); nx, ny = x + math.cos(a) * L, y + math.sin(a) * L
+            for zx0, zy0, zx1, zy1 in zones:          # route around a logo: bend above or below it
+                if zx0 - 160 <= nx <= zx1 + 20 and zy0 - 40 <= ny <= zy1 + 40:
+                    up = (zy0 - 50) if (ny - zy0) < (zy1 - ny) and zy0 > 110 else (zy1 + 50)
+                    if up < 110: up = zy1 + 50
+                    a = math.atan2(up - y, 60); a = max(-1.1, min(1.1, a))
+                    nx, ny = x + math.cos(a) * L, y + math.sin(a) * L
             seg(x, y, nx, ny, w, MAIN); x, y = nx, ny; w = 22 + 4 * math.sin(x / 400)
-            if random.random() < 0.06:
+            if random.random() < 0.06 and not blocked(x, y, 80):
                 branch(x, y, a + random.choice((-1, 1)) * random.uniform(0.6, 1.4), w * 0.55, 6, MAIN)
     net = net.filter(ImageFilter.GaussianBlur(1.1))
-    if clear:                                     # keep these areas plain: soft-edged hole in the hyphae layer
-        hole = Image.new("L", (W, H), 255); hd = ImageDraw.Draw(hole)
-        for n_, x0, y0, x1, y1 in clear:
-            o = (n_ - 1) * SW; hd.ellipse([o + x0, y0, o + x1, y1], fill=0)
-        hole = hole.filter(ImageFilter.GaussianBlur(45))   # wide, soft fade so no edge shows
-        r, g_, b, a_ = net.split(); net = Image.merge("RGBA", (r, g_, b, Image.composite(a_, hole, hole)))
     bg.alpha_composite(net); bg = bg.convert("RGB")
     os.makedirs(out, exist_ok=True)
     bg.save(os.path.join(out, "panorama-full.jpg"), quality=90)
