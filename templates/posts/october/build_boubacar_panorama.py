@@ -111,18 +111,22 @@ def build():
     main(s, "gold", B + "boubacar-portrait-bananas-closer.jpg", 0.5, 0.35)
     logo(s, COL_X + 20, PHOTO_Y + 10, 240, white=False)
     text(s, COL_X, PHOTO_Y + 300, COL_W, 300, "Happy\nInternational\nCoffee Day", 28, "1E1412", HEADF, True, spacing=1.15)
-    card(s, "gold", "Guinea-Conakry", "Boubacar Tidiane Diallo", voice=True)
+    card(s, "gold", "Boubacar Tidiane Diallo, Guinea-Conakry", "Meet Boubacar. He grows coffee by feeding the soil, not just the plants.")
+    s.notes_slide.notes_text_frame.text += " NEW COPY for approval (narrative hook): based on his email and the approved caption draft. Hook paraphrases his line 'Instead of simply feeding plants, I am learning to feed the soil ecosystem that supports the plants.'"
 
     s = slide(d, 2, "Gnaly." + N + " Photos: farm-overview-with-tanks.jpeg, young-tree-with-pineapples.jpg, man-by-water-tanks.jpeg.")
     main(s, "green", B + "farm-overview-with-tanks.jpeg", 0.5, 0.5)
     col2(s, "green", B + "young-tree-with-pineapples.jpg", B + "man-by-water-tanks.jpeg", (0.5, 0.55), (0.35, 0.5))
-    card(s, "green", "Fouta Djallon, Guinea-Conakry", "Gnaly Coffee & AgroÉcole Bio")
+    card(s, "green", "The soil at Gnaly Coffee & AgroÉcole Bio, in the Fouta Djallon highlands of Guinea-Conakry, had been degraded "
+                     "and poorly managed for years.", "When he started, the land was worn out.")
+    s.notes_slide.notes_text_frame.text += " NEW COPY for approval (narrative hook): based on his email and the approved caption draft. From the caption: 'When he started, the soil had been degraded and poorly managed for years.'"
     footer(s, "green")
 
     s = slide(d, 3, "The question." + N + " Photo: vegetable-beds-by-building.jpeg.")
     main(s, "brown", B + "vegetable-beds-by-building.jpeg", 0.6, 0.25)
     quote_mark(s, "brown")
-    card(s, "brown", "“Today, I ask a different question: What does the soil food web need to thrive?”", voice=True)
+    card(s, "brown", "“Today, I ask a different question: What does the soil food web need to thrive?”", "So he changed the question:", voice=True)
+    s.notes_slide.notes_text_frame.text += " NEW COPY for approval (narrative hook): based on his email and the approved caption draft. Lead-in 'So he changed the question' is new; the quote is his."
     footer(s, "brown")
 
     s = slide(d, 4, "Feeding the soil." + N + " Photos: boubacar-compost-pile.jpeg; still-biochar-kiln-smoke-73s.png "
