@@ -135,3 +135,30 @@ def build():
 
 if __name__ == "__main__":
     build()
+
+
+def linkedin():
+    """LinkedIn image (1200 x 627) in the same photo-strip style: tinted sharp backdrop, white-framed photos, cream band."""
+    W, H, BAND = 1200, 627, 440
+    bg = Image.new("RGB", (W, H), tuple(int(CREAM[i:i + 2], 16) for i in (0, 2, 4)))
+    for k, name in enumerate(["young-tree-with-pineapples.jpg", "agroforestry-understory.jpg"]):
+        p = ImageOps.exif_transpose(Image.open(os.path.join(ROOT, B + name))).convert("RGB")
+        p = ImageOps.fit(p, (W // 2 + 1, BAND), Image.LANCZOS)
+        bg.paste(Image.blend(p, Image.new("RGB", p.size, DEEP), 0.62), (k * W // 2, 0))
+    path = os.path.join(OUT_DIR, "linkedin-backdrop.jpg"); bg.save(path, quality=92)
+    d = Deck(W, H, name="01-10-2026-thu-li-boubacar-strip")
+    s = d.slide(None, "LinkedIn image, photo-strip style (matches the Instagram carousel). " + SOURCES +
+                " Photos: boubacar-portrait-bananas-closer.jpg, vegetable-beds-by-building.jpeg, young-coffee-plant.jpg.", counter=False)
+    place(s, path, 0, 0, W, H)
+    framed(s, B + "boubacar-portrait-bananas-closer.jpg", 60, 40, 280, 370, 0.5, 0.33)
+    framed(s, B + "vegetable-beds-by-building.jpeg", 375, 95, 230, 290, 0.6, 0.25)
+    framed(s, B + "young-coffee-plant.jpg", 640, 60, 230, 300, 0.5, 0.5)
+    logo(s, W - 50 - 170, 60, 170, white=True)
+    text(s, 60, BAND + 22, 1000, 34, "HAPPY INTERNATIONAL COFFEE DAY", 18, GREEN, HEADF, True, track=3)
+    text(s, 60, BAND + 60, 1080, 64, "Boubacar Tidiane Diallo", 42, BLACK, HEADF, True)
+    text(s, 60, BAND + 125, 1080, 40, "Gnaly Coffee & AgroÉcole Bio, Fouta Djallon, Guinea-Conakry", 24, BLACK, BODYF, False)
+    save(d, "01-10-2026-thu-li-boubacar-strip.pptx")
+
+
+if __name__ == "__main__":
+    linkedin()
