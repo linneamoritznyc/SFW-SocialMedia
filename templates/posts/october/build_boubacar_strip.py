@@ -21,10 +21,10 @@ MAIN = (90, 90, 470, 640)           # framed main photo: x, y, w, h (same on eve
 SEAM = (330, 420, 330)              # seam photo: width, height, top y (centred on the seam)
 TEXT = (80, 905, 920, 330)          # text block in the cream band
 
-BACKDROP = ["agroforestry-understory.jpg", "farm-overview-with-tanks.jpeg", "vegetable-beds-by-building.jpeg",
-            "boubacar-compost-pile.jpeg", "carrying-mulch.jpg", "planting-seedling-in-agroforest.jpeg", "buckets-of-tubers.jpg",
-            "millipede-leaf-litter.jpg", "yellow-caterpillar-on-stem.jpg", "group-of-five-farmers.jpeg", "young-coffee-plant.jpg",
-            "agroforestry-understory.jpg"]
+BACKDROP = [  # only the large originals (1536 x 2048 or more), so the strip stays sharp
+    "agroforestry-understory.jpg", "young-tree-with-pineapples.jpg", "banana-bunch.jpg", "boubacar-portrait-bananas.jpg",
+    "young-tree-yellow-new-leaves.jpg", "buckets-of-tubers.jpg", "young-coffee-plant.jpg", "millipede-leaf-litter.jpg",
+    "agroforestry-understory.jpg", "yellow-caterpillar-on-stem.jpg", "young-tree-with-pineapples.jpg", "young-coffee-plant.jpg"]
 
 
 def strip():
@@ -34,8 +34,8 @@ def strip():
     for k, name in enumerate(BACKDROP):
         x0 = -SW // 2 + k * SW
         p = ImageOps.exif_transpose(Image.open(os.path.join(ROOT, B + name))).convert("RGB")
-        p = ImageOps.fit(p, (SW, STRIP_H), Image.LANCZOS, centering=(0.5, 0.5)).filter(ImageFilter.GaussianBlur(4))
-        p = Image.blend(p, Image.new("RGB", p.size, DEEP), 0.72)          # flat tint, the same everywhere
+        p = ImageOps.fit(p, (SW, STRIP_H), Image.LANCZOS, centering=(0.5, 0.5))
+        p = Image.blend(p, Image.new("RGB", p.size, DEEP), 0.62)          # flat tint, the same everywhere
         im.paste(p, (x0, 0))
     os.makedirs(OUT_DIR, exist_ok=True); im.save(os.path.join(OUT_DIR, "panorama-full.jpg"), quality=90)
     for i in range(N):
