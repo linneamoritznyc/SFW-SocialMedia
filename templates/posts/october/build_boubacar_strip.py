@@ -13,7 +13,7 @@ from build_oct_01_10 import logo, save
 from build_boubacar import B, SOURCES
 from build_boubacar_panorama import nlines, lh, HEADF, BODYF, VOICE
 
-N, SW, SH = 11, 1080, 1350
+N, SW, SH = 10, 1080, 1350
 STRIP_H = 860                       # photo strip y 0..860, cream band 860..1350
 DEEP, CREAM, GREEN, BLACK, BROWN = (0x22, 0x37, 0x1F), "F3F1EA", "31662F", "111111", "4C3634"
 OUT_DIR = os.path.join(ROOT, "assets/collage/boubacar-strip")
@@ -24,7 +24,7 @@ TEXT = (80, 905, 920, 330)          # text block in the cream band
 BACKDROP = [  # only the large originals (1536 x 2048 or more), so the strip stays sharp
     "agroforestry-understory.jpg", "young-tree-with-pineapples.jpg", "banana-bunch.jpg", "boubacar-portrait-bananas.jpg",
     "young-tree-yellow-new-leaves.jpg", "buckets-of-tubers.jpg", "young-coffee-plant.jpg", "millipede-leaf-litter.jpg",
-    "agroforestry-understory.jpg", "yellow-caterpillar-on-stem.jpg", "young-tree-with-pineapples.jpg", "young-coffee-plant.jpg"]
+    "agroforestry-understory.jpg", "young-tree-with-pineapples.jpg", "young-coffee-plant.jpg"]
 
 
 def strip():
@@ -91,9 +91,6 @@ SLIDES = [  # main photo, focus, heading, body, voice, seam photo to the NEXT sl
      "and local organic materials.”", True, "boubacar-hand-compost-worm.jpg", (0.4, 0.5)),
     ("millipede-leaf-litter.jpg", (0.5, 0.35), "What he's seeing:",
      "more earthworms, more mushrooms, active decomposition, and better soil structure.", False, "caterpillar-on-leaf.jpg", (0.5, 0.35)),
-    ("yellow-caterpillar-on-stem.jpg", (0.35, 0.4), None,
-     "“I can already see signs of healthier soil in the field, including more earthworms, mushrooms, and active decomposition.”",
-     True, "two-men-at-shade-house.jpeg", (0.5, 0.35)),
     ("group-of-five-farmers.jpeg", (0.42, 0.5), None,
      "“Your training changed the way I see agriculture. I now believe that agriculture is biology, not chemical fertilizer.”", True,
      "young-tree-yellow-new-leaves.jpg", (0.5, 0.45)),
@@ -106,7 +103,7 @@ def build():
     strip()
     d = Deck(name="01-10-2026-thu-ig-soil-regenerators-boubacar-strip")
     sw, sh, sy = SEAM
-    SPLIT = {1, 4, 7, 10}             # only these seams carry a split photo; elsewhere the second photo sits whole on its slide
+    SPLIT = {1, 4, 7, 9}             # only these seams carry a split photo; elsewhere the second photo sits whole on its slide
     halves = [seam_halves(B + sl[5], *sl[6]) if sl[5] and i in SPLIT else None for i, sl in enumerate(SLIDES, 1)]
     for i, (photo, focus, head, body, voice, sphoto, _) in enumerate(SLIDES, 1):
         note = ("Photo-strip seamless carousel (after the Will Khoury reference). Backdrop assets/collage/boubacar-strip/ "
