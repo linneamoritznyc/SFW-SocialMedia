@@ -154,9 +154,9 @@ def linkedin():
     framed(s, B + "vegetable-beds-by-building.jpeg", 375, 95, 230, 290, 0.6, 0.25)
     framed(s, B + "young-coffee-plant.jpg", 640, 60, 230, 300, 0.5, 0.5)
     logo(s, W - 50 - 170, 60, 170, white=True)
-    text(s, 60, BAND + 22, 1000, 34, "HAPPY INTERNATIONAL COFFEE DAY", 18, GREEN, HEADF, True, track=3)
-    text(s, 60, BAND + 60, 1080, 64, "Boubacar Tidiane Diallo", 42, BLACK, HEADF, True)
-    text(s, 60, BAND + 125, 1080, 40, "Gnaly Coffee & AgroÉcole Bio, Fouta Djallon, Guinea-Conakry", 24, BLACK, BODYF, False)
+    text(s, 60, BAND + 28, 1000, 30, "HAPPY INTERNATIONAL COFFEE DAY", 18, GREEN, HEADF, True, track=3)
+    text(s, 60, BAND + 48, 1080, 56, "Boubacar Tidiane Diallo", 42, BLACK, HEADF, True)
+    text(s, 60, BAND + 116, 1080, 36, "Gnaly Coffee & AgroÉcole Bio, Fouta Djallon, Guinea-Conakry", 24, BLACK, BODYF, False)
     save(d, "01-10-2026-thu-li-boubacar-strip.pptx")
 
 
