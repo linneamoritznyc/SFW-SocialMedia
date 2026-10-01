@@ -106,7 +106,8 @@ def build():
     strip()
     d = Deck(name="01-10-2026-thu-ig-soil-regenerators-boubacar-strip")
     sw, sh, sy = SEAM
-    halves = [seam_halves(B + sl[5], *sl[6]) if sl[5] else None for sl in SLIDES]
+    SPLIT = {1, 4, 7, 10}             # only these seams carry a split photo; elsewhere the second photo sits whole on its slide
+    halves = [seam_halves(B + sl[5], *sl[6]) if sl[5] and i in SPLIT else None for i, sl in enumerate(SLIDES, 1)]
     for i, (photo, focus, head, body, voice, sphoto, _) in enumerate(SLIDES, 1):
         note = ("Photo-strip seamless carousel (after the Will Khoury reference). Backdrop assets/collage/boubacar-strip/ "
                 f"(his photos, flat Deep Green tint). Main photo: {photo}." + (f" Seam photo to next slide: {sphoto}." if sphoto else "")
@@ -118,6 +119,8 @@ def build():
         if halves[i - 1]:
             rect(s, SW - sw // 2, sy - 8, sw // 2 + 8, sh + 16, "FFFFFF", shadow=True); place(s, halves[i - 1][0], SW - sw // 2, sy, sw // 2, sh)
         framed(s, B + photo, *MAIN, *focus)
+        if sphoto and i not in SPLIT and not (i == 1 or i == N):     # second photo whole, in the right column
+            framed(s, B + sphoto, 640, 300 if (i - 1) not in SPLIT else 380, 350, 340, *SLIDES[i - 1][6])
         words(s, body, head, voice)
         if i == 1:
             logo(s, 615, 100, 200, white=True)
