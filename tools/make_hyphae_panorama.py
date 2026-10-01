@@ -12,7 +12,8 @@ C = {"gold": (0xD9, 0xA1, 0x3E), "green": (0x31, 0x66, 0x2F), "brown": (0x4C, 0x
 FINE, MAIN = (250, 232, 196, 125), (252, 238, 210, 165)
 
 
-def make(out, order, seed=42):
+def make(out, order, seed=42, clear=()):
+    """clear: (slide_number, x0, y0, x1, y1) boxes where no hyphae are drawn, e.g. behind a logo."""
     n = len(order); W, H = n * SW, SH
     grad = Image.new("RGB", (W, 1)); px = grad.load(); cent = [SW * i + SW / 2 for i in range(n)]
     for x in range(W):
@@ -49,7 +50,14 @@ def make(out, order, seed=42):
             seg(x, y, nx, ny, w, MAIN); x, y = nx, ny; w = 22 + 4 * math.sin(x / 400)
             if random.random() < 0.06:
                 branch(x, y, a + random.choice((-1, 1)) * random.uniform(0.6, 1.4), w * 0.55, 6, MAIN)
-    bg.alpha_composite(net.filter(ImageFilter.GaussianBlur(1.1))); bg = bg.convert("RGB")
+    net = net.filter(ImageFilter.GaussianBlur(1.1))
+    if clear:                                     # keep these areas plain: soft-edged hole in the hyphae layer
+        hole = Image.new("L", (W, H), 255); hd = ImageDraw.Draw(hole)
+        for n_, x0, y0, x1, y1 in clear:
+            o = (n_ - 1) * SW; hd.ellipse([o + x0, y0, o + x1, y1], fill=0)
+        hole = hole.filter(ImageFilter.GaussianBlur(45))   # wide, soft fade so no edge shows
+        r, g_, b, a_ = net.split(); net = Image.merge("RGBA", (r, g_, b, Image.composite(a_, hole, hole)))
+    bg.alpha_composite(net); bg = bg.convert("RGB")
     os.makedirs(out, exist_ok=True)
     bg.save(os.path.join(out, "panorama-full.jpg"), quality=90)
     for i in range(n):
@@ -57,4 +65,10 @@ def make(out, order, seed=42):
 
 
 if __name__ == "__main__":
-    make(sys.argv[1], sys.argv[2:])
+    # optional --clear 1:740,60,1000,340 3:... (slide:x0,y0,x1,y1)
+    args, clear = sys.argv[2:], []
+    if "--clear" in args:
+        i = args.index("--clear"); boxes = args[i + 1:]; args = args[:i]
+        for b in boxes:
+            n_, xy = b.split(":"); clear.append((int(n_), *map(int, xy.split(","))))
+    make(sys.argv[1], args, clear=clear)
