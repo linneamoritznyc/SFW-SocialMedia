@@ -17,11 +17,16 @@ from build_boubacar import B, SOURCES
 
 W, H = 1080, 1350
 HEADF, BODYF, VOICE = "Montserrat", "Source Sans 3", "EB Garamond"
-PANO = "assets/collage/boubacar-panorama/slide-{:02d}.jpg"
+import sys
+BRAND = "brand" in sys.argv      # exact brand palette, no gold: green, brown, tan (docs/brand-colors.md)
+PANO = "assets/collage/boubacar-panorama" + ("-brand" if BRAND else "") + "/slide-{:02d}.jpg"
+MAP = {"gold": "green", "green": "brown", "brown": "tan"} if BRAND else {}
+OUT = "01-10-2026-thu-ig-soil-regenerators-boubacar-panorama" + ("-brand-colours" if BRAND else "")
 ORDER = ["gold", "green", "brown", "gold", "green", "brown", "gold", "green", "brown", "gold", "green"]
-CARD = {"gold": ("F6E3C2", "1E1412"), "green": ("E4E6CF", "22371F"), "brown": ("F1E4D6", "3A2524")}
-FRAME = {"gold": "F6E3C2", "green": "E4E6CF", "brown": "F1E4D6"}
-FOOT = {"gold": "1E1412", "green": "F4F1EA", "brown": "F4F1EA"}
+CARD = {"gold": ("F6E3C2", "1E1412"), "green": ("E4E6CF", "22371F"), "brown": ("F1E4D6", "3A2524"), "tan": ("F3F1EA", "4C3634")}
+FRAME = {"gold": "F6E3C2", "green": "E4E6CF", "brown": "F1E4D6", "tan": "F3F1EA"}
+FOOT = {"gold": "1E1412", "green": "F4F1EA", "brown": "F4F1EA", "tan": "4C3634"}
+M = lambda t: MAP.get(t, t)
 
 # ---- the grid (identical on every slide) ----
 PHOTO_Y, PHOTO_H = 80, 720                   # photo area: y 80 to 800
@@ -60,6 +65,7 @@ def slide(d, i, note):
 
 
 def pic(s, theme, rel, x, y, w, h, fx=0.5, fy=0.5):
+    theme = M(theme)
     rect(s, x - 10, y - 10, w + 20, h + 20, FRAME[theme], shadow=True)
     s.shapes.add_picture(crop(rel, int(w), int(h), fx, fy), Emu(int(x * PX)), Emu(int(y * PX)), Emu(int(w * PX)), Emu(int(h * PX)))
 
@@ -80,7 +86,7 @@ def col2(s, theme, a, b, fa=(0.5, 0.5), fb=(0.5, 0.5)):
 
 def card(s, theme, body, head=None, voice=False):
     """Fixed-size card. Sizes step down until the text fits; the text is centred vertically in the card."""
-    bg, fg = CARD[theme]
+    bg, fg = CARD[M(theme)]
     rect(s, CARD_X, CARD_Y, CARD_W, CARD_H, bg, alpha=94, shadow=True)
     inner_w, inner_h = CARD_W - 2 * PAD, CARD_H - 2 * PAD + 10
     bfont = VOICE if voice else BODYF
@@ -95,22 +101,22 @@ def card(s, theme, body, head=None, voice=False):
 
 
 def quote_mark(s, theme, x=COL_X + 10, y=PHOTO_Y - 30, pt=260):
-    text(s, x, y, COL_W, 300, "“", pt, "F6E3C2" if theme != "gold" else "1E1412", VOICE, False, spacing=0.8)
+    text(s, x, y, COL_W, 300, "“", pt, FOOT[M(theme)] if M(theme) in ("gold", "tan") else "F6E3C2", VOICE, False, spacing=0.8)
 
 
 def footer(s, theme, t="soilfoodweb.com"):
-    text(s, 0, H - 92, W, 50, t, 24, FOOT[theme], HEADF, True, align="c", anchor="m")
+    text(s, 0, H - 92, W, 50, t, 24, FOOT[M(theme)], HEADF, True, align="c", anchor="m")
 
 
 def build():
-    d = Deck(name="01-10-2026-thu-ig-soil-regenerators-boubacar-panorama")
+    d = Deck(name=OUT)
     N = (" Grid and continuous hyphae panorama after Stephanie's feedback. Background: assets/collage/boubacar-panorama/ "
          "(tools/make_hyphae_panorama.py, drawn by code). His quotes from his email to Allison, 30 Sep 2026.")
 
     s = slide(d, 1, "Cover." + N + " " + SOURCES + " Photo: boubacar-portrait-bananas-closer.jpg.")
     main(s, "gold", B + "boubacar-portrait-bananas-closer.jpg", 0.5, 0.35)
-    logo(s, COL_X + 20, PHOTO_Y + 10, 240, white=False)
-    text(s, COL_X, PHOTO_Y + 300, COL_W, 300, "Happy\nInternational\nCoffee Day", 28, "1E1412", HEADF, True, spacing=1.15)
+    logo(s, COL_X + 20, PHOTO_Y + 10, 240, white=M("gold") in ("green", "brown"))
+    text(s, COL_X, PHOTO_Y + 300, COL_W, 300, "Happy\nInternational\nCoffee Day", 28, FOOT[M("gold")], HEADF, True, spacing=1.15)
     card(s, "gold", "Guinea-Conakry\nGraduated from the Soil Food Web School in July 2026", "Boubacar Tidiane Diallo")
     s.notes_slide.notes_text_frame.text += " Graduation line from Linnea (1 Oct 2026): confirm the exact course or program and the date [VERIFY]."
 
@@ -179,12 +185,12 @@ def build():
     s = slide(d, 11, "The dream and the call to action (YouTube)." + N + " Photo: young-coffee-plant.jpg.")
     main(s, "green", B + "young-coffee-plant.jpg", 0.5, 0.5)
     quote_mark(s, "green")
-    logo(s, COL_X + 20, PHOTO_Y + PHOTO_H - 216, 240, white=True)
+    logo(s, COL_X + 20, PHOTO_Y + PHOTO_H - 216, 240, white=M("green") in ("green", "brown"))
     card(s, "green", "“My dream is to restore degraded land in the Fouta Djallon and help my community learn living-soil practices.”",
          voice=True)
     footer(s, "green", "Subscribe on YouTube: @boubacartidianediallo")
 
-    save(d, "01-10-2026-thu-ig-soil-regenerators-boubacar-panorama.pptx")
+    save(d, OUT + ".pptx")
 
 
 if __name__ == "__main__":
