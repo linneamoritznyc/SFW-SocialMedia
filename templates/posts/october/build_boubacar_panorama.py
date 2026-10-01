@@ -111,8 +111,8 @@ def build():
     main(s, "gold", B + "boubacar-portrait-bananas-closer.jpg", 0.5, 0.35)
     logo(s, COL_X + 20, PHOTO_Y + 10, 240, white=False)
     text(s, COL_X, PHOTO_Y + 300, COL_W, 300, "Happy\nInternational\nCoffee Day", 28, "1E1412", HEADF, True, spacing=1.15)
-    card(s, "gold", "Boubacar Tidiane Diallo, Guinea-Conakry", "Meet Boubacar. He grows coffee by feeding the soil, not just the plants.")
-    s.notes_slide.notes_text_frame.text += " NEW COPY for approval (narrative hook): based on his email and the approved caption draft. Hook paraphrases his line 'Instead of simply feeding plants, I am learning to feed the soil ecosystem that supports the plants.'"
+    card(s, "gold", "Guinea-Conakry\nGraduated from the Soil Food Web School in July 2026", "Boubacar Tidiane Diallo")
+    s.notes_slide.notes_text_frame.text += " Graduation line from Linnea (1 Oct 2026): confirm the exact course or program and the date [VERIFY]."
 
     s = slide(d, 2, "Gnaly." + N + " Photos: farm-overview-with-tanks.jpeg, young-tree-with-pineapples.jpg, man-by-water-tanks.jpeg.")
     main(s, "green", B + "farm-overview-with-tanks.jpeg", 0.5, 0.5)
