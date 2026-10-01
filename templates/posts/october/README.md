@@ -36,3 +36,9 @@ One extra-wide background cut into equal 1080 x 1350 slices, so the design flows
   Rejected outright; the files were removed.
 - The "Bridges" look: flat cream with big colour circles on the seams, half-photos split across seams, a wavy brown line.
   Rejected outright; the files were removed.
+- Gold, yellow or orange backgrounds with a hyphae pattern on them (the old orange coffee blog banner).
+  Stephanie, 1 Oct 2026: "This orange with a hyphae background is ugly... let's not repeat it." No gold or orange
+  hyphae panoramas or backgrounds, in any format.
+- Scrapbook / bulletin-board styling (tape, cartoon stickers, tilted paper notes) for articles, studies and news.
+  Those posts use the clean marketing style instead: full-bleed photos, Deep Green, big type (example:
+  `build_farms_panorama.py`).
