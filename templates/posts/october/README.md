@@ -22,3 +22,11 @@ Decisions made while building (change them in `lib.py`):
 - Logo on the first and last slide of a carousel.
 - soilfoodweb.com, small and centred at the bottom, on every other slide (Stephanie, 30 Sep 2026).
 - No slide numbers.
+
+## Seamless carousel (also called panoramic or split carousel)
+One extra-wide background cut into equal 1080 x 1350 slices, so the design flows across the edges when you swipe.
+- Background: `python3 tools/make_hyphae_panorama.py <out-dir> gold green brown ...` (one colour per slide). Hyphae cross every
+  seam; each slide keeps its own colour in the middle and blends into the next one at the edge.
+- Layout: one fixed grid on every slide (same photo area, same text card size and position, same footer), so only the
+  content changes as you swipe (Stephanie, 30 Sep 2026).
+- Example: `build_boubacar_panorama.py`.
