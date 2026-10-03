@@ -135,6 +135,41 @@ PIECES.update({
     "flagellate-ciliate": "two cute single-celled soil protozoa face to face: a small oval flagellate with one long whip tail, and a larger oval ciliate covered in fine hairs",
 })
 
+
+# Soil food web creature set (Oct 2026): cute but anatomically right, googly eyes, small tan paper backing
+CREATURE_STYLE_SWAP = ("no torn or deckled paper edge", "mounted on a small tan kraft paper backing with a softly torn edge")
+CREATURES = {
+    "critter-bacillus": "a rod-shaped bacterium (bacillus), a small smooth capsule shape with two googly eyes and a few thin wavy flagella",
+    "critter-cocci": "a little cluster of four round cocci bacteria touching each other, each with tiny googly eyes",
+    "critter-spiral-bacterium": "a spiral corkscrew-shaped bacterium with one googly eye at the front end",
+    "critter-biofilm": "a group of small rod and round bacteria stuck together in a blob of sticky glossy clear paper glue, each with tiny googly eyes",
+    "critter-actinobacteria": "actinobacteria: very thin branching threads like a delicate fan, with two tiny googly eyes at one thread tip",
+    "critter-hypha": "a long fungal hypha thread with visible cross-walls (septa) and side branches, two googly eyes at the growing tip",
+    "critter-mycorrhiza": "mycorrhizal fungal threads wrapping around a pale root hair, one thread tip with googly eyes waving",
+    "critter-spore": "a round fungal spore like a small seed ball with one big googly eye",
+    "critter-mushroom": "a small mushroom with a brown cap on a pale stem, two googly eyes on the stem",
+    "critter-naked-amoeba": "a naked amoeba, a soft translucent blob mid-stretch with bulging lobed pseudopods and a visible nucleus, two googly eyes",
+    "critter-testate-amoeba": "a testate amoeba: a soft blob peeking out of the opening of a small vase-shaped shell, two googly eyes",
+    "critter-paramecium": "a paramecium, a slipper-shaped ciliate covered in short fine cilia hairs, two googly eyes",
+    "critter-vorticella": "a vorticella, a bell-shaped ciliate with a ring of cilia at its rim, on a long thin coiled stalk, two googly eyes",
+    "critter-nematode-bacterial": "a bacterial-feeding nematode, a smooth tapered worm with a smooth open tube-shaped mouth, two googly eyes",
+    "critter-nematode-fungal": "a fungal-feeding nematode, a slim tapered worm with a thin needle-like stylet sticking out of its mouth, two googly eyes",
+    "critter-nematode-predatory": "a predatory nematode, a tapered worm with a wide open mouth showing small teeth, two googly eyes",
+    "critter-nematode-root": "a root-feeding nematode with a strong stylet pushed into a pale root, looking guilty with sideways googly eyes",
+    "critter-springtail": "a springtail (collembola), a short soft body with long antennae and a folded spring tail (furcula) tucked underneath, two googly eyes",
+    "critter-oribatid-mite": "an oribatid mite, a round armored shiny dark brown body on eight short legs, two googly eyes",
+    "critter-predatory-mite": "a predatory mite with long legs and a pointed front, pale orange-brown, two googly eyes",
+    "critter-pseudoscorpion": "a pseudoscorpion, a tiny flat body with big pincers held forward, no tail, two googly eyes",
+    "critter-tardigrade": "a tardigrade (water bear), a chubby segmented body on eight stubby legs with little claws, two googly eyes",
+    "critter-rotifer": "a rotifer with a wheel of cilia spinning at its head and a tapered body with a forked foot, two googly eyes",
+    "critter-earthworm": "an earthworm with clear segments and a visible thick saddle band (clitellum), two googly eyes",
+    "critter-potworm": "a small white pot worm (enchytraeid), slim and segmented, two googly eyes",
+    "critter-woodlouse": "a woodlouse with segmented gray armored plates and short antennae, two googly eyes",
+    "critter-centipede": "a centipede, a long flat segmented body with one pair of legs on each segment, two googly eyes",
+    "critter-root-tip": "a plant root tip with fine root hairs, small clear drops of exudate leaking out, two googly eyes on the root cap",
+}
+PIECES.update(CREATURES)
+
 # Colour exceptions to STYLE's "no red" rule (the user allowed a flat red paper dot only).
 STYLE_OVERRIDES = {
     "dot-red": ("no pink, no magenta, no red", "no pink, no magenta, no other colors; the dot itself is brick red"),
@@ -170,6 +205,8 @@ def generate(name, version, line=False):
     style = STYLE
     if name in STYLE_OVERRIDES:
         style = style.replace(*STYLE_OVERRIDES[name])
+    if name in CREATURES:
+        style = style.replace(*CREATURE_STYLE_SWAP)
     prompt = f"{PIECES[name]}. {style}"
     last_err = None
     for attempt in (1, 2):  # one retry at most
