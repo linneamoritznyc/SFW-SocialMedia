@@ -1,6 +1,7 @@
 """World Animal Day carousel, version 2 (Sunday 4 October 2026, Instagram, 7 slides, 1080 x 1350).
 Styled after the print trifold (Trifold Design/build/): cream panels, Montserrat Bold headings, Source Sans 3 body,
 thin brown rules at low alpha, square photos, small faint captions, logo small in a corner, no decoration.
+Photos: only the first version's (assets/photo/animals/). Icons: assets/icons/ (tools/icon_generate.py, flux-2-pro line icons).
 
 python3 build_world_animal_day_v2.py  ->  04-10-2026-sun-ig-world-animal-day-v2.pptx
 Photos: assets/photo/animals/ (Unsplash, credits.txt). Every element is a separate editable object.
@@ -15,8 +16,10 @@ CW = W - 2 * M                    # column width
 RED = "B23A2E"
 AN = "assets/photo/animals/"
 RULE_ALPHA = 22                   # the trifold's --rule: brown at 22%
+ICON = "assets/icons/icon-{}-{}.png"
 
 SOURCES = ("Sources: Soil Food Web School, Compost Manual: [LINK FROM CARLA]. "
+           "Soil Food Web School, BioComplete Compost, Lecture 4: Thermophilic Composting (Part 2): https://pt.soilfoodweb.com/?p=2067. "
            "Miller et al. (2015). Ascariasis in humans and pigs on small-scale farms, Maine, USA, 2010 to 2013. "
            "Emerging Infectious Diseases, 21(2): https://doi.org/10.3201/eid2102.140048. "
            "USDA NRCS and Fairbanks Soil and Water Conservation District (2005). Composting Dog Waste: "
@@ -60,10 +63,20 @@ def source(s, t):
     text(s, M, H - M - 10, CW - 130, 24, t, 14, INK, BODY, alpha=70)
 
 
-def label(s, y, t, fill, fg):
-    w = len(t) * 18 * 1.3333 * 0.74 + 2 * 18
-    rect(s, M, y, w, 40, fill)
-    text(s, M, y, w, 40, t, 18, fg, HEAD, True, align="c", anchor="m", track=2)
+def icon(s, name, colour, x, y, h):
+    p = os.path.join(ROOT, ICON.format(name, colour))
+    from PIL import Image
+    iw, ih = Image.open(p).size; w = h * iw / ih
+    return s.shapes.add_picture(p, Emu(int(x * PX)), Emu(int(y * PX)), Emu(int(w * PX)), Emu(int(h * PX))), w
+
+
+def label(s, y, t, fill, fg, ico):
+    """Solid label: small line icon, then the text in 18 pt Montserrat Bold caps, tracking 2."""
+    tw = len(t) * 18 * 1.3333 * 0.74
+    w = 16 + 24 + 10 + tw + 16
+    rect(s, M, y, w, 44, fill)
+    icon(s, ico, "cream" if fg == CREAM else "deep", M + 16, y + 10, 24)
+    text(s, M + 50, y, tw + 16, 44, t, 18, fg, HEAD, True, anchor="m", track=2)
 
 
 def head(s, y, t, pt=60, color=DEEP, w=CW):
@@ -92,29 +105,30 @@ def rich(s, x, y, w, h, runs, pt=30, color=INK, spacing=1.3):
 def build():
     d = Deck(name="04-10-2026-sun-ig-world-animal-day-v2")
 
-    # 1 cover: full-bleed barnyard photo, Deep Green overlay at 40% on the bottom half
-    s = d.slide(None, "Cover. Trifold-style v2. " + SOURCES + " " + cred_note("barnyard"), counter=False)
-    pic(s, "barnyard", 0, 0, W, H, 0.5, 0.5)
+    # 1 cover: full-bleed cow photo (its lower half is plain grass, calmer than the horse), Deep Green 40% on the bottom half
+    s = d.slide(None, "Cover. Trifold-style v2. " + SOURCES + " " + cred_note("cow"), counter=False)
+    pic(s, "cow", 0, 0, W, H, 0.5, 0.3)
     rect(s, 0, H / 2, W, H / 2, DEEP, alpha=40)
     text(s, M, 745, CW, 350, "Whose manure belongs in your compost?", 80, CREAM, HEAD, True, spacing=1.02)
     text(s, M, 1115, CW, 50, "Happy World Animal Day, October 4.", 30, CREAM, BODY)
-    caption(s, H - 42, cred_line("barnyard"), CREAM, alpha=75)
+    caption(s, H - 42, cred_line("cow"), CREAM, alpha=75)
     logo(s, W - M - 90, H - M - 90 * 668 / 743, 90, white=True)
 
-    # 2 manure is one ingredient
-    s = d.slide(CREAM, "Three ingredient tiles. " + cred_note("manure", "grass-clippings", "wood-chips"), counter=False)
-    y = head(s, M + 20, "Manure is one\ningredient.", 64) + 16
-    body(s, y, "In a Soil Food Web compost pile, manure is the high-nitrogen part. It goes in with green plant material "
-                 "and woody material. Bedding counts as woody material.", 32, h=240)
-    rule(s, 612)
-    tw = (CW - 2 * 24) / 3; ty = 652
-    for i, (key, cap, fx, fy) in enumerate([("manure", "High nitrogen", 0.6, 0.6), ("grass-clippings", "Green", 0.5, 0.5),
-                                            ("wood-chips", "Woody", 0.5, 0.5)]):
-        x = M + i * (tw + 24)
-        pic(s, key, x, ty, tw, tw, fx, fy)
-        text(s, x, ty + tw + 16, tw, 36, cap, 22, DEEP, HEAD, True)
-    caption(s, ty + tw + 60, cred_line("manure", "grass-clippings", "wood-chips"))
-    source(s, "Soil Food Web School, Compost Manual")
+    # 2 manure: a high-nitrogen feedstock, three icon tiles
+    s = d.slide(CREAM, "Three feedstock tiles with line icons from assets/icons/ (generated with flux-2-pro, no photos on this slide).",
+                counter=False)
+    head(s, M + 20, "Manure: a high-nitrogen feedstock", 64)
+    body(s, 322, "A Soil Food Web thermophilic compost recipe combines three feedstocks: high-nitrogen material such as manure "
+               "(about 10% in summer), green plant material (about 30%) and woody material (about 60%). Bedding, such as straw "
+               "or wood shavings, counts toward the woody share.", 32, h=360)
+    tw = (CW - 2 * 32) / 3; ty = 800; th_ = 230
+    for i, (ico, cap) in enumerate([("manure-fork", "High nitrogen, 10%"), ("leaf", "Green, 30%"), ("wood-log", "Woody, 60%")]):
+        x = M + i * (tw + 32)
+        rect(s, x, ty, tw, th_, None, line=BROWN, lw=2)
+        pc, iw = icon(s, ico, "deep", 0, 0, 130)
+        pc.left = Emu(int((x + (tw - iw) / 2) * PX)); pc.top = Emu(int((ty + (th_ - 130) / 2) * PX))
+        text(s, x - 16, ty + th_ + 16, tw + 32, 36, cap, 22, DEEP, HEAD, True, align="c")
+    source(s, "Soil Food Web School, BioComplete Compost, Lecture 4")
     logo(s, W - M - 90, H - M - 90 * 668 / 743, 90, white=False)
 
     # 3 welcome in the pile: 4 x 2 grid
@@ -127,8 +141,8 @@ def build():
         pic(s, key, M + (i % 4) * (tw + g), M + (i // 4) * (tw + g), tw, tw, *focus[key])
     gy = M + 2 * tw + g
     text(s, M, gy + 12, CW, 48, cred_line(*grid), 14, FAINT, BODY)
-    label(s, gy + 84, "WELCOME IN THE PILE", GREEN, CREAM)
-    y = head(s, gy + 142, "Plant-eaters and poultry") + 12
+    label(s, gy + 84, "GOES IN", GREEN, CREAM, "check-mark")
+    y = head(s, gy + 146, "Plant-eaters and poultry") + 12
     body(s, y, "Rabbit, goat, sheep, alpaca, guinea pig, horse, cow and chicken. Their manure is a great high-nitrogen "
                       "ingredient. Use it fresh, or dry it and store it until you build the pile.", h=260)
     source(s, "Soil Food Web School, Compost Manual")
@@ -136,11 +150,11 @@ def build():
 
     # 4 take extra care: pig
     s = d.slide(CREAM, "Pig. " + cred_note("pig"), counter=False)
-    pic(s, "pig", M, M, CW, 700, 0.55, 0.45)
-    caption(s, M + 712, cred_line("pig"))
-    label(s, 836, "TAKE EXTRA CARE", GOLD, DEEP)
-    head(s, 894, "Pig")
-    body(s, 988, "Pig roundworm can infect people. Pig manure goes into a pile that completes the thermophilic requirements, "
+    pic(s, "pig", M, M, CW, 600, 0.55, 0.45)
+    caption(s, M + 612, cred_line("pig"))
+    label(s, 740, "HOT PILE ONLY", GOLD, DEEP, "flame")
+    y = head(s, 802, "Pig") + 10
+    body(s, y, "Pig roundworm can infect people. Pig manure goes into a pile that completes the thermophilic requirements, "
                  "and raw pig manure stays away from produce.", h=240)
     source(s, "Miller et al. 2015, Emerging Infectious Diseases")
     logo(s, W - M - 90, H - M - 90 * 668 / 743, 90, white=False)
@@ -148,21 +162,23 @@ def build():
     # 5 keep out of food production: dog and cat
     s = d.slide(CREAM, "Dog and cat. " + cred_note("dog", "cat"), counter=False)
     pw = (CW - 16) / 2
-    pic(s, "dog", M, M, pw, 700, 0.5, 0.45)
-    pic(s, "cat", M + pw + 16, M, pw, 700, 0.5, 0.5)
-    caption(s, M + 712, cred_line("dog", "cat"))
-    label(s, 836, "KEEP OUT OF FOOD PRODUCTION", RED, CREAM)
-    head(s, 894, "Dog and cat")
-    body(s, 988, "Dog poop can carry roundworm, and cat poop can carry Toxoplasma. Keep both out of compost for food production.",
-         h=240)
+    pic(s, "dog", M, M, pw, 420, 0.5, 0.45)          # shorter than slide 4's photo: this body runs to eight lines
+    pic(s, "cat", M + pw + 16, M, pw, 420, 0.6, 0.55)
+    caption(s, M + 432, cred_line("dog", "cat"))
+    label(s, 556, "STAYS OUT", RED, CREAM, "crossed-circle")
+    y = head(s, 618, "Dog and cat") + 10
+    body(s, y, "Dog feces can carry roundworm (Toxocara) eggs. If swallowed, the larvae can migrate to the liver, lungs and eyes. "
+               "Cat feces can carry Toxoplasma gondii, which people can also pick up from contaminated soil. USDA advises against "
+               "using dog waste compost on food crops, even after hot composting, and against composting cat waste or litter at all.",
+         h=380)
     source(s, "USDA NRCS 2005; CDC 2025")
     logo(s, W - M - 90, H - M - 90 * 668 / 743, 90, white=False)
 
     # 6 slow or hot
-    s = d.slide(CREAM, "Two panels with a Food Web Green rule on the left edge, then a compost pile photo. "
-                       "No steaming pile or compost thermometer was found on Unsplash; a garden fork in a compost pile is used instead. "
-                       + cred_note("compost-fork"), counter=False)
-    y = head(s, M + 20, "Slow or hot, both work.", 60) + 24
+    s = d.slide(CREAM, "Two panels with a Food Web Green rule on the left edge, then the compost bin photo from the first version. "
+                       "Thermometer icon: assets/icons/icon-compost-thermometer-green.png. " + cred_note("compost-4"), counter=False)
+    y = head(s, M + 20, "Slow or hot, both work.", 64, w=CW - 130) + 24
+    icon(s, "compost-thermometer", "green", W - M - 100, M + 24, 120)
     for lead, rest in [("Cold or static pile: ", "fine for plant-eater and poultry manure, on a longer timeline."),
                        ("Thermophilic pile: ", "above 55°C (131°F) for 3 days at the center. Turn it so every part passes "
                                                "through the hot center.")]:
@@ -171,8 +187,8 @@ def build():
         rect(s, M, y, 4, ph, GREEN)
         rich(s, M + 28, y, CW - 28, ph, [(lead, True), (rest, False)])
         y += ph + 28
-    pic(s, "compost-fork", M, y + 20, CW, 1180 - (y + 20), 0.5, 0.6)
-    caption(s, 1192, cred_line("compost-fork"))
+    pic(s, "compost-4", M, y + 20, CW, 1180 - (y + 20), 0.5, 0.6)
+    caption(s, 1192, cred_line("compost-4"))
     source(s, "Soil Food Web School, Compost Manual")
     logo(s, W - M - 90, H - M - 90 * 668 / 743, 90, white=False)
 

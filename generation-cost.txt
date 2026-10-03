@@ -63,4 +63,16 @@ Estimated cost log (estimate, not billing data). Stop at $9.00.
 2026-09-30 19:57 line-orange-branch-1 ok est $0.09
 2026-09-30 19:57 line-tithonia-1 ok est $0.09
 2026-09-30 19:58 line-millipede-1 ok est $0.09
-TOTAL $3.60
+2026-10-03 14:38 icon-check-mark-1 ok est $0.09
+2026-10-03 14:38 icon-flame-1 ok est $0.09
+2026-10-03 14:38 icon-crossed-circle-1 FAILED est $0.00
+2026-10-03 14:38 icon-manure-fork-1 FAILED est $0.00
+2026-10-03 14:38 icon-leaf-1 FAILED est $0.00
+2026-10-03 14:38 icon-wood-log-1 FAILED est $0.00
+2026-10-03 14:38 icon-compost-thermometer-1 FAILED est $0.00
+2026-10-03 14:39 icon-crossed-circle-1 ok est $0.09
+2026-10-03 14:39 icon-manure-fork-1 ok est $0.09
+2026-10-03 14:39 icon-leaf-1 ok est $0.09
+2026-10-03 14:40 icon-wood-log-1 ok est $0.09
+2026-10-03 14:40 icon-compost-thermometer-1 ok est $0.09
+TOTAL $4.23
