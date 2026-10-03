@@ -4,8 +4,8 @@ Built by `templates/posts/november/build_elaine_series.py` (all 15 posts; the 3 
 `renders/december/`). One folder of slide PNGs per post plus a `-contact.png` sheet.
 
 Reel caption cards (21 Nov oxygen gauge) have no background in the PPTX, so they can be laid over footage;
-their renders here show the cream text on white. Run `python3 build_elaine_series.py reel_oxygen --preview`
-for a Deep Green preview copy in `renders/.tmp/preview/`.
+the renders here come from the Deep Green preview copy (`python3 build_elaine_series.py reel_oxygen --preview`,
+then render `renders/.tmp/preview/november/...`) so the text is readable. The PPTX itself stays transparent.
 
 Placeholders still open (from the library search):
 - Flagellate micrograph (2 Nov slide 5; 23 Nov grid). None in assets/microscopy/.
