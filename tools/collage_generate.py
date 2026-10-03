@@ -137,7 +137,7 @@ PIECES.update({
 
 
 # Soil food web creature set (Oct 2026): cute but anatomically right, googly eyes, small tan paper backing
-CREATURE_STYLE_SWAP = ("no torn or deckled paper edge", "mounted on a small tan kraft paper backing with a softly torn edge")
+CREATURE_STYLE_SWAP = ("no torn or deckled paper edge", "no torn or deckled paper edge, free-standing cut-out creature with no backing card, no paper rectangle behind it, no frame")
 CREATURES = {
     "critter-bacillus": "a rod-shaped bacterium (bacillus), a small smooth capsule shape with two googly eyes and a few thin wavy flagella",
     "critter-cocci": "a little cluster of four round cocci bacteria touching each other, each with tiny googly eyes",
@@ -145,7 +145,7 @@ CREATURES = {
     "critter-biofilm": "a group of small rod and round bacteria stuck together in a blob of sticky glossy clear paper glue, each with tiny googly eyes",
     "critter-actinobacteria": "actinobacteria: very thin branching threads like a delicate fan, with two tiny googly eyes at one thread tip",
     "critter-hypha": "a long fungal hypha thread with visible cross-walls (septa) and side branches, two googly eyes at the growing tip",
-    "critter-mycorrhiza": "mycorrhizal fungal threads wrapping around a pale root hair, one thread tip with googly eyes waving",
+    "critter-mycorrhiza": "a single pale plant root seen close up, underground, with fine white fungal threads wrapped around it like a net; one fungal thread tip lifts up with two googly eyes, waving; no flowers, no leaves, no plant above ground",
     "critter-spore": "a round fungal spore like a small seed ball with one big googly eye",
     "critter-mushroom": "a small mushroom with a brown cap on a pale stem, two googly eyes on the stem",
     "critter-naked-amoeba": "a shell-less amoeba, a soft translucent blob mid-stretch with bulging lobed pseudopods and a visible nucleus, two googly eyes",
