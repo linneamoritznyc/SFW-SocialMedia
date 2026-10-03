@@ -93,4 +93,6 @@ Estimated cost log (estimate, not billing data). Stop at $9.00.
 2026-10-03 17:36 flour-sack-1 ok est $0.09
 2026-10-03 17:38 cupcakes-root-microbes-1 ok est $0.09
 2026-10-03 17:39 flagellate-ciliate-1 ok est $0.09
-TOTAL $5.85
+2026-10-03 18:01 tree-compaction-2 ok est $0.09
+2026-10-03 18:03 biochar-compost-1 ok est $0.09
+TOTAL $6.03
