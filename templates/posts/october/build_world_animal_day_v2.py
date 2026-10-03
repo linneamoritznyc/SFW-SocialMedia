@@ -1,5 +1,5 @@
 """World Animal Day carousel, version 2 (Sunday 4 October 2026, Instagram, 10 slides, 1080 x 1350).
-Bold marketing style (like the 1000 Farms carousel): full-bleed photo on top, Deep Green panel below with cream type,
+Bold marketing style (like the 1000 Farms carousel): full-bleed photo on top, brand green panel below with cream type,
 category labels with line icons, one source line per slide. The brief's copy is used word for word, split over 10 slides.
 Photos: only the first version's (assets/photo/animals/). Icons: assets/icons/ (tools/icon_generate.py, flux-2-pro).
 
@@ -9,7 +9,10 @@ Every element is a separate editable object.
 import os
 from PIL import Image
 from pptx.util import Emu, Pt
-from lib import Deck, rect, text, crop, est_lines, ROOT, PX, DEEP, GREEN, CREAM, GOLD, HEAD, BODY, rgb
+from lib import Deck, rect, text, crop, est_lines, ROOT, PX, HEAD, BODY, rgb
+
+# Brand palette (docs/brand-colors.md, the Canva "2026 SFW Foundation Brand Main colors"); red only for the STAYS OUT label
+BG, CREAM, BROWN, TAN, SAGE, GOLD = "31662F", "F3F1EA", "4C3634", "C09D7F", "B1BCB1", "D39C48"
 from build_oct_01_10 import logo, save
 
 W, H, M = 1080, 1350, 80
@@ -63,7 +66,7 @@ def label(s, y, t, fill, fg, ico):
     tw = len(t) * 18 * 1.3333 * 0.74
     w = 18 + 26 + 12 + tw + 18
     rect(s, M, y, w, 48, fill)
-    icon(s, ico, "cream" if fg == CREAM else "deep", M + 18, y + 11, 26)
+    icon(s, ico, "brandcream" if fg == CREAM else "brown", M + 18, y + 11, 26)
     text(s, M + 56, y, tw + 18, 48, t, 18, fg, HEAD, True, anchor="m", track=2)
 
 
@@ -103,7 +106,7 @@ def credit(s, t, y=PH + 12):
 
 
 def photo_slide(d, note, key, fx=0.5, fy=0.5):
-    s = d.slide(DEEP, note, counter=False)
+    s = d.slide(BG, note, counter=False)
     pic(s, key, 0, 0, W, PH, fx, fy)
     credit(s, cred_line(key))
     return s
@@ -115,15 +118,15 @@ def build():
     # 1 cover
     s = d.slide(None, "Cover. " + SOURCES + " " + cred_note("cow"), counter=False)
     pic(s, "cow", 0, 0, W, H, 0.5, 0.3)
-    rect(s, 0, H / 2, W, H / 2, DEEP, alpha=40)
+    rect(s, 0, H / 2, W, H / 2, BG, alpha=40)
     text(s, M, 735, CW, 350, "Whose manure belongs in your compost?", 80, CREAM, HEAD, True, spacing=1.02)
     text(s, M, 1140, CW, 50, "Happy World Animal Day, October 4.", 30, CREAM, BODY)
     text(s, M, H - 42, CW, 24, cred_line("cow"), 14, CREAM, BODY, alpha=75)
     logo(s, W - M - 90, H - M - 90 * 668 / 743, 90, white=True)
 
     # 2 manure: a high-nitrogen feedstock
-    s = d.slide(DEEP, "Feedstocks, text.", counter=False)
-    icon(s, "manure-fork", "cream", M, 150, 150)
+    s = d.slide(BG, "Feedstocks, text.", counter=False)
+    icon(s, "manure-fork", "brandcream", M, 150, 150)
     y = head(s, 360, "Manure: a high-nitrogen feedstock", 64) + 30
     body(s, y, "A Soil Food Web thermophilic compost recipe combines three feedstocks: high-nitrogen material such as manure "
                "(about 10% in summer), green plant material (about 30%) and woody material (about 60%). Bedding, such as straw "
@@ -131,11 +134,11 @@ def build():
     foot(s, "Soil Food Web School, BioComplete Compost, Lecture 4")
 
     # 3 the recipe as one bar: 10 / 30 / 60
-    s = d.slide(DEEP, "Feedstocks, the recipe as one bar (widths 10, 30, 60 percent). Icons: assets/icons/.", counter=False)
-    parts = [("manure-fork", "High nitrogen, 10%", GOLD, 0.10), ("leaf", "Green, 30%", GREEN, 0.30), ("wood-log", "Woody, 60%", CREAM, 0.60)]
+    s = d.slide(BG, "Feedstocks, the recipe as one bar (widths 10, 30, 60 percent). Icons: assets/icons/.", counter=False)
+    parts = [("manure-fork", "High nitrogen, 10%", TAN, 0.10), ("leaf", "Green, 30%", SAGE, 0.30), ("wood-log", "Woody, 60%", CREAM, 0.60)]
     for i, (ico, cap, col, share) in enumerate(parts):
         y = 170 + i * 300
-        icon(s, ico, "cream", M, y, 110)
+        icon(s, ico, "brandcream", M, y, 110)
         text(s, M + 200, y + 20, CW - 200, 70, cap, 40, CREAM, HEAD, True, anchor="m")
         rect(s, M, y + 150, CW, 34, CREAM, alpha=15)
         rect(s, M, y + 150, CW * share, 34, col)
@@ -145,13 +148,13 @@ def build():
     grid = ["rabbit", "goat", "sheep", "alpaca", "guinea-pig", "horse", "cow", "chicken"]
     focus = {"rabbit": (0.5, 0.45), "goat": (0.55, 0.5), "sheep": (0.35, 0.5), "alpaca": (0.5, 0.3), "guinea-pig": (0.45, 0.5),
              "horse": (0.5, 0.55), "cow": (0.5, 0.4), "chicken": (0.5, 0.5)}
-    s = d.slide(DEEP, "Plant-eaters and poultry. " + cred_note(*grid), counter=False)
+    s = d.slide(BG, "Plant-eaters and poultry. " + cred_note(*grid), counter=False)
     g = 8; tw = (W - 3 * g) / 4
     for i, key in enumerate(grid):
         pic(s, key, (i % 4) * (tw + g), (i // 4) * (tw + g), tw, tw, *focus[key])
     gy = 2 * tw + g
     text(s, M, gy + 12, CW, 48, cred_line(*grid), 14, CREAM, BODY, alpha=70)
-    label(s, gy + 76, "GOES IN", GREEN, CREAM, "check-mark")
+    label(s, gy + 76, "GOES IN", SAGE, BROWN, "check-mark")
     y = head(s, gy + 142, "Plant-eaters and poultry") + 8
     body(s, y, "Rabbit, goat, sheep, alpaca, guinea pig, horse, cow and chicken. Their manure is a great high-nitrogen "
                "ingredient. Use it fresh, or dry it and store it until you build the pile.")
@@ -159,7 +162,7 @@ def build():
 
     # 5 pig
     s = photo_slide(d, "Pig. " + cred_note("pig"), "pig", 0.6, 0.45)
-    label(s, 760, "HOT PILE ONLY", GOLD, DEEP, "flame")
+    label(s, 760, "HOT PILE ONLY", GOLD, BROWN, "flame")
     y = head(s, 826, "Pig") + 8
     body(s, y, "Pig roundworm can infect people. Pig manure goes into a pile that completes the thermophilic requirements, "
                "and raw pig manure stays away from produce.")
@@ -183,25 +186,25 @@ def build():
     # 8 slow or hot: cold pile
     s = photo_slide(d, "Slow or hot, part 1. " + cred_note("compost-2"), "compost-2", 0.5, 0.75)
     y = head(s, 760, "Slow or hot, both work.", 60) + 24
-    rect(s, M, y, 6, 110, GREEN)
+    rect(s, M, y, 6, 110, SAGE)
     rich(s, y, [("Cold or static pile: ", True), ("fine for plant-eater and poultry manure, on a longer timeline.", False)],
          x=M + 30, w=CW - 30)
     foot(s, "Soil Food Web School, Compost Manual")
 
     # 9 slow or hot: thermophilic pile
     s = photo_slide(d, "Slow or hot, part 2. Thermometer icon: assets/icons/. " + cred_note("compost-4"), "compost-4", 0.5, 0.6)
-    icon(s, "compost-thermometer", "cream", W - M - 110, 760, 120)
+    icon(s, "compost-thermometer", "brandcream", W - M - 110, 760, 120)
     y = head(s, 760, "Slow or hot, both work.", 60, w=CW - 140) + 24
-    rect(s, M, y, 6, 160, GREEN)
+    rect(s, M, y, 6, 160, SAGE)
     rich(s, y, [("Thermophilic pile: ", True), ("above 55°C (131°F) for 3 days at the center. Turn it so every part passes "
                                                 "through the hot center.", False)], x=M + 30, w=CW - 30)
     foot(s, "Soil Food Web School, Compost Manual")
 
     # 10 closing
-    s = d.slide(DEEP, "Closing. Course: https://school.soilfoodweb.com/bundles/advanced-biocomplete-compost-production", counter=False)
+    s = d.slide(BG, "Closing. Course: https://school.soilfoodweb.com/bundles/advanced-biocomplete-compost-production", counter=False)
     head(s, 170, "Advanced BioComplete Compost Production", 64)      # renders as four lines, to about y 600
     y = 640
-    rect(s, M, y, 120, 4, GOLD)
+    rect(s, M, y, 120, 4, TAN)
     body(s, y + 40, "Building and assessing three compost piles that meet biological minimums. At the Soil Food Web "
                     "School. Link in bio.", 32)   # course line from docs/copy-deck-v2.md
     lw = 240

@@ -34,7 +34,8 @@ ICONSET = {
     "compost-thermometer": "a long probe compost thermometer with a round dial on top, pushed into a small mound",
 }
 
-COLOURS = {"deep": (0x22, 0x37, 0x1F), "cream": (0xF4, 0xF1, 0xEA), "green": (0x15, 0x68, 0x26)}
+COLOURS = {"deep": (0x22, 0x37, 0x1F), "cream": (0xF4, 0xF1, 0xEA), "green": (0x15, 0x68, 0x26),
+           "brown": (0x4C, 0x36, 0x34), "brandcream": (0xF3, 0xF1, 0xEA)}   # brand palette: docs/brand-colors.md
 
 
 def to_icon(src, name):
