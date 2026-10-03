@@ -148,7 +148,7 @@ CREATURES = {
     "critter-mycorrhiza": "mycorrhizal fungal threads wrapping around a pale root hair, one thread tip with googly eyes waving",
     "critter-spore": "a round fungal spore like a small seed ball with one big googly eye",
     "critter-mushroom": "a small mushroom with a brown cap on a pale stem, two googly eyes on the stem",
-    "critter-naked-amoeba": "a naked amoeba, a soft translucent blob mid-stretch with bulging lobed pseudopods and a visible nucleus, two googly eyes",
+    "critter-naked-amoeba": "a shell-less amoeba, a soft translucent blob mid-stretch with bulging lobed pseudopods and a visible nucleus, two googly eyes",
     "critter-testate-amoeba": "a testate amoeba: a soft blob peeking out of the opening of a small vase-shaped shell, two googly eyes",
     "critter-paramecium": "a paramecium, a slipper-shaped ciliate covered in short fine cilia hairs, two googly eyes",
     "critter-vorticella": "a vorticella, a bell-shaped ciliate with a ring of cilia at its rim, on a long thin coiled stalk, two googly eyes",

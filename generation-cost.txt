@@ -105,4 +105,6 @@ Estimated cost log (estimate, not billing data). Stop at $9.00.
 2026-10-03 18:37 critter-mycorrhiza-1 ok est $0.09
 2026-10-03 18:39 critter-spore-1 ok est $0.09
 2026-10-03 18:40 critter-mushroom-1 ok est $0.09
+2026-10-03 18:42 critter-naked-amoeba-1 FAILED est $0.00
+2026-10-03 18:42 critter-naked-amoeba-1 FAILED est $0.00
 TOTAL $6.93
