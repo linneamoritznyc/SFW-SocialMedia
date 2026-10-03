@@ -96,4 +96,6 @@ Estimated cost log (estimate, not billing data). Stop at $9.00.
 2026-10-03 18:01 tree-compaction-2 ok est $0.09
 2026-10-03 18:03 biochar-compost-1 ok est $0.09
 2026-10-03 18:04 tree-compaction-3 ok est $0.09
-TOTAL $6.12
+2026-10-03 18:27 critter-bacillus-1 ok est $0.09
+2026-10-03 18:30 critter-cocci-1 ok est $0.09
+TOTAL $6.30
