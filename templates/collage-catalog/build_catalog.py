@@ -3,7 +3,7 @@ Not a social post; a library to browse and copy pieces from.
 
 python3 templates/collage-catalog/build_catalog.py  ->  templates/collage-catalog/collage-catalog.pptx
 Pieces come from assets/collage/cutouts/ (background removed). Whole-scene pieces, where background removal loses
-the scene, come from assets/collage/originals/. Images are downscaled to 1200 px so the deck stays small.
+the scene, come from assets/collage/originals/. Images are downscaled to 640 px so the deck stays under GitHub's file size limits.
 Every element is editable: name text box, picture, background.
 """
 import os, sys
@@ -94,9 +94,9 @@ def shrink(rel, cut):
         im = im.convert("RGBA"); im = im.crop(im.split()[3].point(lambda v: 255 if v > 20 else 0).getbbox())
     else:
         im = im.convert("RGB")
-    im.thumbnail((1200, 1200), Image.LANCZOS)
+    im.thumbnail((640, 640), Image.LANCZOS)
     out = os.path.join(TMP, os.path.basename(rel).rsplit(".", 1)[0] + (".png" if cut else ".jpg"))
-    im.save(out, **({} if cut else {"quality": 90}))
+    im.save(out, **({"optimize": True} if cut else {"quality": 88}))
     return out, im.size
 
 
