@@ -85,4 +85,5 @@ Estimated cost log (estimate, not billing data). Stop at $9.00.
 2026-10-03 17:23 city-block-weed-1 ok est $0.09
 2026-10-03 17:25 woodlot-pasture-1 ok est $0.09
 2026-10-03 17:26 periodic-table-1 ok est $0.09
-TOTAL $5.13
+2026-10-03 17:28 dandelion-short-root-1 ok est $0.09
+TOTAL $5.22
