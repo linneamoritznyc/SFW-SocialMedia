@@ -116,7 +116,7 @@ PIECES = {
 PIECES.update({
     "pizza-box-root": "a cute cardboard pizza delivery box, lid slightly open, with a pale plant root poking up out of it",
     "cupcakes-cookies-root": "a long pale plant root lying sideways with small cupcakes and round cookies sitting along it",
-    "tree-compaction": "a soil cross-section: a small tree above the ground; its roots grow down through brown soil and stop at the top edge of a flat gray compacted layer, then bend and grow sideways, horizontally along the top of the gray layer; no roots go into or below the gray layer; a flat blue puddle of water lies on top of the gray layer",
+    "tree-compaction": "a simple side-view soil diagram: a small tree on top; under the ground its root goes straight down only a short way, then splits into long roots that run flat to the left and to the right, like an upside-down letter T, lying along the top of a thick flat gray stripe; the gray stripe is solid and has no roots in it; a small blue puddle sits on the gray stripe next to the roots; brown soil above and below the gray stripe",
     "tree-deep-roots": "a tall soil cross-section: a small tree above the ground with roots reaching deep down through crumbly dark soil full of small crumbs and pores",
     "bacteria-sand-grain": "a large rounded sand grain with several tiny cute rod-shaped bacteria clinging to it with little sticky glue strands",
     "soil-crumb": "a single small round soil crumb made of many tiny bits of sand, silt and clay stuck together",
