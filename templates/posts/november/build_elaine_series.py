@@ -226,7 +226,7 @@ def tree_roots():
     p = Post("04-11-2026-wed-ig-tree-roots-myth")
     S = "Dr. Elaine Ingham, How to Build Great Soil, Part 1, 2:54 and 3:26"
     full = src("2:54", "3:26") + " [VERIFY with Wes] Root depth also varies by species and wind exposure; Wes to confirm the wording on slide 3."
-    IMG = CUT + "tree-compaction-1.png"
+    IMG = "assets/collage/originals/tree-compaction-2.png"
     # 1 myth with a Glow strikethrough
     s = p.slide(DARK, "Template 2 myth-buster, Glow strikethrough. Collage: tree-compaction. " + full)
     myth = "Myth: “Tree roots grow two or three feet down, then sideways.”"
@@ -244,9 +244,11 @@ def tree_roots():
              "Water stops where soil density changes, so it pools on top of the compacted layer.",
              "Oxygen moves through water far slower than through air. That zone goes anaerobic, and anaerobic microbes make "
              "compounds that harm roots."]
+    iw0, ih0 = Image.open(os.path.join(ROOT, IMG)).size if os.path.exists(os.path.join(ROOT, IMG)) else (1, 1)
+    r = min(920 / iw0, 640 / ih0); iw, ih = iw0 * r, ih0 * r
+    ix, iy = 80 + (920 - iw) / 2, 1350 - 160 - 640 + (640 - ih) / 2      # where art() puts the picture
     for (rx, ry, rr), t in zip(rings, lines):
         s = t3(p, t, IMG, "Same collage, highlight ring on the part this slide talks about.", S, img_h=640)
-        ix, iy, iw, ih = 80, 1350 - 160 - 640, 920, 640
         d = rr * ih
         from lib import oval
         oval(s, ix + rx * iw - d / 2, iy + ry * ih - d / 2, d, d, None, line=GREEN, lw=8)
@@ -298,7 +300,7 @@ def minutes_years():
     t3(p, "Some beneficial nematodes reproduce once every two years, and lay one or two eggs.", MIC + "cutout-6.png",
        "Microscopy: assets/microscopy/cutout-6.png (nematode). [VERIFY with Wes] nematode life cycle.", S, img_h=520)
     t3(p, "Kill everything in a soil and the fast ones move in first. Dr. Elaine compared it to gangsters moving into a "
-          "trashed city block.", CUT + "city-block-weed-1.png", "Collage: city-block-weed.", S, img_h=520)
+          "trashed city block.", "assets/collage/originals/city-block-weed-1.png", "Collage: city-block-weed.", S, img_h=520)
     t1b(p, "There is no way to kill just the bad guys.", "Quote at 7:06.", "How to Build Great Soil, Part 1, 7:06", last=False)
     t3(p, "The faster way back: inoculate with biologically complete compost, so the beneficials arrive in numbers.", None,
        "Type only.", S, last=True)
