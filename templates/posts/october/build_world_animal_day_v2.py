@@ -199,9 +199,11 @@ def build():
 
     # 10 closing
     s = d.slide(DEEP, "Closing. Course: https://school.soilfoodweb.com/bundles/advanced-biocomplete-compost-production", counter=False)
-    text(s, M, 200, CW, 320, "Learn to build the pile with us.", 72, CREAM, HEAD, True, spacing=1.05)
-    rect(s, M, 540, 120, 4, GOLD)
-    text(s, M, 580, CW, 120, "Advanced BioComplete Compost Production, at the Soil Food Web School. Link in bio.", 32, CREAM, BODY, spacing=1.3)
+    head(s, 170, "Advanced BioComplete Compost Production", 64)      # renders as four lines, to about y 600
+    y = 640
+    rect(s, M, y, 120, 4, GOLD)
+    body(s, y + 40, "Building and assessing three compost piles that meet biological minimums. At the Soil Food Web "
+                    "School. Link in bio.", 32)   # course line from docs/copy-deck-v2.md
     lw = 240
     logo(s, (W - lw) / 2, 900 + (450 - lw * 668 / 743) / 2, lw, white=True)
     save(d, "04-10-2026-sun-ig-world-animal-day-v2.pptx")
