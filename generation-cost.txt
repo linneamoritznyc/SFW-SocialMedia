@@ -102,4 +102,5 @@ Estimated cost log (estimate, not billing data). Stop at $9.00.
 2026-10-03 18:33 critter-biofilm-1 ok est $0.09
 2026-10-03 18:35 critter-actinobacteria-1 ok est $0.09
 2026-10-03 18:36 critter-hypha-1 ok est $0.09
-TOTAL $6.66
+2026-10-03 18:37 critter-mycorrhiza-1 ok est $0.09
+TOTAL $6.75
