@@ -153,7 +153,7 @@ def t3(p, t, rel=None, note="", source=None, first=False, last=False, step=None,
     s = p.slide(CREAM, "Template 3. " + note)
     y = 150
     if step:
-        text(s, 80, 120, 300, 260, step, 200, GREEN, HEAD, True, spacing=0.9); y = 390
+        text(s, 80, 120, 200, 180, step, 150, GREEN, HEAD, True, spacing=0.9); y = 320
     has_img = rel or photo_rel
     th_ = (p.H - 160 - img_h - 40) - y if has_img else p.H - 260 - y
     words(s, t, 80, y, p.W - 160, th_, INK, anchor="t" if has_img else "m")
@@ -226,7 +226,7 @@ def tree_roots():
     p = Post("04-11-2026-wed-ig-tree-roots-myth")
     S = "Dr. Elaine Ingham, How to Build Great Soil, Part 1, 2:54 and 3:26"
     full = src("2:54", "3:26") + " [VERIFY with Wes] Root depth also varies by species and wind exposure; Wes to confirm the wording on slide 3."
-    IMG = "assets/collage/originals/tree-compaction-2.png"
+    IMG = "assets/collage/originals/tree-compaction-1.png"   # closest of three attempts; roots fan out in the band
     # 1 myth with a Glow strikethrough
     s = p.slide(DARK, "Template 2 myth-buster, Glow strikethrough. Collage: tree-compaction. " + full)
     myth = "Myth: “Tree roots grow two or three feet down, then sideways.”"
@@ -234,11 +234,11 @@ def tree_roots():
     text(s, 80, 170, 920, mh + 20, myth, pt, CREAM, HEAD, True, spacing=1.12)
     lhp = pt * 1.3333 * 1.17 * 1.12                              # Glow strikethrough across every line
     for i in range(nlines(myth, pt, 920, HEAD, True)):
-        rect(s, 76, 170 + i * lhp + lhp * 0.5, 930, 10, GLOW, alpha=90)
-    art(s, IMG, 80, 680, 920, 520)
+        rect(s, 76, 170 + i * lhp + lhp * 0.58, 930, 10, GLOW, alpha=90)
+    art(s, IMG, 80, 640, 920, 560)
     furniture(p, s, True, first=True, source=S)
     # 2 to 5: same picture, a highlight ring moves to the part each slide talks about
-    rings = [(0.5, 0.18, 0.62), (0.5, 0.62, 0.3), (0.62, 0.55, 0.22), (0.5, 0.68, 0.28)]
+    rings = [(0.5, 0.5, 0.42), (0.5, 0.66, 0.26), (0.11, 0.74, 0.22), (0.78, 0.74, 0.24)]
     lines = ["In healthy soil, brassicas, grasses, shrubs and trees root deeper and deeper.",
              "Roots that turn sideways at two or three feet usually hit a compaction layer.",
              "Water stops where soil density changes, so it pools on top of the compacted layer.",
@@ -290,9 +290,9 @@ def minutes_years():
     S = "Dr. Elaine Ingham, How to Build Great Soil, Part 1, 7:06, 7:51 and 8:16"
     full = src("7:06", "7:51", "8:16") + " [VERIFY with Wes] The nematode life cycle on slide 3."
     s = p.slide(DARK, "Template 5 big number, two numbers side by side. " + full)
-    text(s, 80, 400, 440, 200, "20 min", 96, GLOW, HEAD, True, spacing=0.95)
-    text(s, 580, 400, 420, 200, "2 yrs", 96, CREAM, HEAD, True, spacing=0.95)
-    rect(s, 545, 400, 3, 150, SAGE)
+    text(s, 80, 400, 470, 200, "20 min", 84, GLOW, HEAD, True, spacing=0.95)
+    text(s, 600, 400, 400, 200, "2 yrs", 84, CREAM, HEAD, True, spacing=0.95)
+    rect(s, 565, 400, 3, 130, SAGE)
     text(s, 80, 680, 920, 120, "20 minutes vs 2 years.", 52, CREAM, HEAD, True)
     furniture(p, s, True, first=True, source=S)
     t3(p, "Some disease-causing bacteria can double every 20 minutes.", CUT + "cute-bacterium-1.png",
@@ -424,7 +424,7 @@ def reel_oxygen():
             "the library (Wes).")
     s = p.slide(DARK, "Template 6 reel cover. Collage: flagellate-ciliate. " + full)
     text(s, 80, 260, 920, 30, SERIES, 18, GLOW, HEAD, True, track=2)
-    text(s, 80, 320, 920, 200, "The oxygen gauge", 96, CREAM, HEAD, True, spacing=1.0)
+    text(s, 80, 320, 920, 260, "The oxygen gauge", 96, CREAM, HEAD, True, spacing=1.0)
     art(s, CUT + "flagellate-ciliate-1.png", 80, 680, 920, 780)
     logo(s, 1080 - 80 - 110, 1500 - 110 * 668 / 743, 110, white=True)
     for i, t in enumerate(["“Is your compost running out of oxygen?”", "“Flagellates and amoebae: oxygen is fine.”",
