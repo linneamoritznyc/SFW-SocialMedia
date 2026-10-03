@@ -1,15 +1,16 @@
-"""Render a PPTX to renders/october/<name>/slide-NN.png and a contact sheet renders/october/<name>-contact.png.
+"""Render a PPTX to renders/<month>/<name>/slide-NN.png and a contact sheet renders/<month>/<name>-contact.png,
+where <month> is the PPTX's folder name (october, november, december).
 python3 tools/render_deck.py templates/posts/october/<file>.pptx   (needs LibreOffice Impress and PyMuPDF)"""
 import os, subprocess, sys, tempfile
 import fitz
 from PIL import Image
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-OUT = os.path.join(ROOT, "renders", "october")
 
 
 def render(pptx):
     name = os.path.splitext(os.path.basename(pptx))[0]
+    OUT = os.path.join(ROOT, "renders", os.path.basename(os.path.dirname(os.path.abspath(pptx))))
     tmp = tempfile.mkdtemp()
     subprocess.run(["soffice", "--headless", "--convert-to", "pdf", "--outdir", tmp, os.path.abspath(pptx)],
                    check=True, capture_output=True)

@@ -111,6 +111,30 @@ PIECES = {
     "seedling-tray": "a small wooden seedling tray holding six little pots of seedlings: lettuce, basil, a small tomato plant and tiny flower seedlings",
 }
 
+
+# November 2026, Dr. Elaine Ingham "How to Build Great Soil" series (cute cut-paper, with style-reference.png)
+PIECES.update({
+    "pizza-box-root": "a cute cardboard pizza delivery box, lid slightly open, with a pale plant root poking up out of it",
+    "cupcakes-cookies-root": "a long pale plant root lying sideways with small cupcakes and round cookies sitting along it",
+    "tree-compaction": "a soil cross-section: a small tree above the ground; its roots grow down through brown soil and stop at the top edge of a flat gray compacted layer, then bend and grow sideways, horizontally along the top of the gray layer; no roots go into or below the gray layer; a flat blue puddle of water lies on top of the gray layer",
+    "tree-deep-roots": "a tall soil cross-section: a small tree above the ground with roots reaching deep down through crumbly dark soil full of small crumbs and pores",
+    "bacteria-sand-grain": "a large rounded sand grain with several tiny cute rod-shaped bacteria clinging to it with little sticky glue strands",
+    "soil-crumb": "a single small round soil crumb made of many tiny bits of sand, silt and clay stuck together",
+    "fungi-tie-crumbs": "several small soil crumbs tied together by thin white fungal threads wrapped around them like string around parcels",
+    "city-block-weed": "a small city block with two little buildings and a cracked sidewalk, a weed growing up through the crack",
+    "woodlot-pasture": "a small woodlot of trees beside an open green pasture with a fence between them",
+    "periodic-table": "a periodic table chart grid of small blank square tiles, a few tiles in pale lime green, the rest cream, no letters or numbers on the tiles",
+    "dandelion-short-root": "a dandelion plant with a yellow flower and a short taproot",
+    "lettuce-long-root": "a lettuce plant with a long, deep, branching root system",
+    "mixing-bowl-root": "a mixing bowl with a wooden spoon, sitting on top of a pale plant root",
+    "sugar-jars": "four glass jars: white sugar, brown sugar, golden honey and dark molasses",
+    "eggs-milk": "a glass milk bottle and three eggs",
+    "flour-sack": "a small cloth flour sack, slightly open, with a little flour spilling",
+    "cupcakes-root-microbes": "cupcakes and cookies along a pale plant root with tiny cute round microbes gathered around them",
+    "biochar-compost": "a small pile of black biochar charcoal pieces beside a small pile of dark crumbly compost",
+    "flagellate-ciliate": "two cute single-celled soil protozoa face to face: a small oval flagellate with one long whip tail, and a larger oval ciliate covered in fine hairs",
+})
+
 # Colour exceptions to STYLE's "no red" rule (the user allowed a flat red paper dot only).
 STYLE_OVERRIDES = {
     "dot-red": ("no pink, no magenta, no red", "no pink, no magenta, no other colors; the dot itself is brick red"),
