@@ -140,7 +140,7 @@ PIECES.update({
 CREATURE_STYLE_SWAP = ("no torn or deckled paper edge", "no torn or deckled paper edge, free-standing cut-out creature with no backing card, no paper rectangle behind it, no frame")
 CREATURES = {
     "critter-bacillus": "a rod-shaped bacterium (bacillus), a small smooth capsule shape with two googly eyes and a few thin wavy flagella",
-    "critter-cocci": "a little cluster of four round cocci bacteria touching each other, each with tiny googly eyes",
+    "critter-cocci": "four small separate round ball-shaped bacteria (cocci) in a little group, just touching, each one a plain round cut-paper disc with its own two tiny googly eyes; no drawings inside them, no overlapping",
     "critter-spiral-bacterium": "a spiral corkscrew-shaped bacterium with one googly eye at the front end",
     "critter-biofilm": "a group of small rod and round bacteria stuck together in a blob of sticky glossy clear paper glue, each with tiny googly eyes",
     "critter-actinobacteria": "actinobacteria: very thin branching threads like a delicate fan, with two tiny googly eyes at one thread tip",
