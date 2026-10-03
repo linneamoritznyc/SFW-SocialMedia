@@ -299,8 +299,9 @@ def minutes_years():
        "Library cutout: cute-bacterium-1.", S, img_h=480)
     t3(p, "Some beneficial nematodes reproduce once every two years, and lay one or two eggs.", MIC + "cutout-6.png",
        "Microscopy: assets/microscopy/cutout-6.png (nematode). [VERIFY with Wes] nematode life cycle.", S, img_h=520)
-    t3(p, "Kill everything in a soil and the fast ones move in first. Dr. Elaine compared it to gangsters moving into a "
-          "trashed city block.", "assets/collage/originals/city-block-weed-1.png", "Collage: city-block-weed.", S, img_h=520)
+    t3(p, "Kill everything in a soil and the fast ones move in first, like weeds cracking through an empty lot.",
+       "assets/collage/originals/city-block-weed-1.png", "Collage: city-block-weed. Wording changed from the brief: the "
+       "gangster comparison was dropped as not appropriate (Linnea, 3 Oct 2026). Drop it from the caption too.", S, img_h=520)
     t1b(p, "There is no way to kill just the bad guys.", "Quote at 7:06.", "How to Build Great Soil, Part 1, 7:06", last=False)
     t3(p, "The faster way back: inoculate with biologically complete compost, so the beneficials arrive in numbers.", None,
        "Type only.", S, last=True)
