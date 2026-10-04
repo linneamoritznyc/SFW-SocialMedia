@@ -122,4 +122,6 @@ Estimated cost log (estimate, not billing data). Stop at $9.00.
 2026-10-04 10:53 book-rose-running-1 ok est $0.09
 2026-10-04 10:55 book-grandma-worm-1 ok est $0.09
 2026-10-04 10:56 book-pip-flagellate-1 ok est $0.09
-TOTAL $8.28
+2026-10-04 10:58 book-ama-amoeba-1 ok est $0.09
+2026-10-04 10:59 book-lollipop-1 ok est $0.09
+TOTAL $8.46

@@ -22,7 +22,7 @@ COST_FILE = ROOT / "generation-cost.txt"
 REFERENCE = ROOT / "style-reference.png"
 
 MODEL = "black-forest-labs/flux-2-pro"
-STOP_AT = 9.00
+STOP_AT = 10.00   # Linnea, 4 Oct 2026: use the full $10
 # Estimate only: replicate.com pricing page was unreachable. Assumed $0.015 per output MP
 # plus $0.015 per input MP, at 4 MP out and a ~2 MP reference. Verify against Replicate billing.
 EST_PER_IMAGE = 0.09
@@ -210,7 +210,7 @@ def generate(name, version, line=False):
     prompt = f"{PIECES[name]}. {style}"
     last_err = None
     for attempt in (1, 2):  # one retry at most
-        if total_cost() >= STOP_AT:
+        if total_cost() + EST_PER_IMAGE > STOP_AT:
             sys.exit(f"Stopping: estimated total reached ${STOP_AT:.2f}")
         try:
             with open(REFERENCE, "rb") as ref:
@@ -243,7 +243,7 @@ def generate_line(name, version):
     prompt = f"{LINE_PIECES[name]}. {LINE_STYLE}"
     last_err = None
     for attempt in (1, 2):
-        if total_cost() >= STOP_AT:
+        if total_cost() + EST_PER_IMAGE > STOP_AT:
             sys.exit(f"Stopping: estimated total reached ${STOP_AT:.2f}")
         try:
             output = replicate.run(MODEL, input={"prompt": prompt, "aspect_ratio": "1:1", "resolution": "4 MP", "output_format": "png"})

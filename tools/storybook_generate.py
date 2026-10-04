@@ -28,6 +28,12 @@ SCENES = {   # 4:3, kept whole
                         "dripping down from the soil ceiling in shiny drops and puddles; no characters",
     "scene-worm-room": "a cosy living room inside the soil: a small armchair, a round rug, a teapot and teacups on a "
                        "little table, a lamp made from a glowing seed, round soil walls; no characters",
+    "scene-rose-dinner": "inside a small cosy kitchen in the evening: a wooden table with a bowl of soup, a window "
+                         "showing the dark rainy garden outside; a six-year-old girl in a muddy dress with messy brown "
+                         "hair sits at the table looking out of the window, wondering; simple cut-paper face with dot eyes",
+    "scene-bakery": "an underground bakery inside the soil: pale tree roots coming down from the ceiling, and small "
+                    "cupcakes and cookies hanging from the root tips and set out on little shelves, warm brown glow; "
+                    "no characters",
 }
 CHARACTERS = {  # 1:1, cut out
     "rose-lollipop": "a six-year-old girl named Rose in yellow rain boots and a muddy dress, messy brown hair, "
@@ -39,6 +45,7 @@ CHARACTERS = {  # 1:1, cut out
     "pip-flagellate": "a small nervous oval flagellate protozoan with two long whip tails, two googly eyes, cute",
     "ama-amoeba": "a soft shell-less amoeba, a translucent blob with rounded lobes, shy and pretty, two googly eyes",
     "lollipop": "a red strawberry lollipop on a white plastic stick",
+    "ned-nematode": "Ned, a friendly night-watchman nematode, a smooth tapered worm wearing a tiny peaked cap and holding a small glowing lantern, two googly eyes",
 }
 
 
