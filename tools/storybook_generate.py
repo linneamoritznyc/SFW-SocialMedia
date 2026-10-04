@@ -24,13 +24,18 @@ SCENES = {   # 4:3, kept whole
     "scene-town": "an underground town inside the soil, seen as a cross-section: winding tunnels as streets, round soil "
                   "crumbs as little houses with tiny windows and doors, pale tree roots hanging down from the ceiling, "
                   "a soft warm brown glow; no characters",
-    "scene-sugar-rain": "an underground street inside the soil with crumb houses, and sticky pink strawberry syrup "
-                        "dripping down from the soil ceiling in shiny drops and puddles; no characters",
+    "scene-sugar-rain": "an underground street inside the soil with round soil-crumb houses, and pale pink, see-through "
+                        "sugar drops gently dripping from the soil ceiling like soft rain; no characters",
     "scene-worm-room": "a cosy living room inside the soil: a small armchair, a round rug, a teapot and teacups on a "
                        "little table, a lamp made from a glowing seed, round soil walls; no characters",
     "scene-rose-dinner": "inside a small cosy kitchen in the evening: a wooden table with a bowl of soup, a window "
                          "showing the dark rainy garden outside; a six-year-old girl in a muddy dress with messy brown "
                          "hair sits at the table looking out of the window, wondering; simple cut-paper face with dot eyes",
+    "scene-flowers": "a close-up of a few garden flowers and leaves just after rain, raindrops on the petals, "
+                     "soft dark soil below, calm and quiet, lots of empty sky above; no people",
+    "scene-lollipop-soil": "a close-up of soft dark wet garden soil after rain, with one small red strawberry "
+                           "lollipop on a white stick lying half sunk into the soil, a few small leaves; calm, lots of "
+                           "empty space; no people",
     "scene-bakery": "an underground bakery inside the soil: pale tree roots coming down from the ceiling, and small "
                     "cupcakes and cookies hanging from the root tips and set out on little shelves, warm brown glow; "
                     "no characters",
