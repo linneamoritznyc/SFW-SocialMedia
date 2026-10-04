@@ -52,6 +52,15 @@ SCENES = {   # 4:3, kept whole
                             "lots of empty sky; no people",
     "scene-apple-core": "a close-up of soft dark garden soil with one apple core lying half planted in it, a few "
                         "small leaves, evening light; calm, lots of empty space; no people",
+    "scene-town-night": "the underground town inside the soil late at night, cross-section, tunnel streets and round "
+                        "soil-crumb houses with only a few tiny lit windows, very dark and calm, pale roots from the "
+                        "ceiling; sleepy and peaceful; no characters",
+    "scene-rose-bed": "a small cosy bedroom at night: a six-year-old girl with messy brown hair asleep in a little bed "
+                      "under a patchwork quilt, a window showing the dark garden and a few stars; very calm; simple "
+                      "cut-paper face with closed eyes",
+    "scene-apple-below": "underground, seen from below: an apple core resting on the soil above, and pale roots and "
+                         "fine fungal threads slowly reaching up towards it through dark soil, soft brown glow; calm; "
+                         "no characters",
     "scene-bakery": "an underground bakery inside the soil: pale tree roots coming down from the ceiling, and small "
                     "cupcakes and cookies hanging from the root tips and set out on little shelves, warm brown glow; "
                     "no characters",

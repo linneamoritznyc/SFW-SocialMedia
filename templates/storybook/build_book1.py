@@ -1,6 +1,6 @@
 """Under Rose's Garden, Book 1: The Lollipop. First draft of pages 1 to 6, as an editable PowerPoint.
 
-python3 templates/storybook/build_book1.py  ->  templates/storybook/under-roses-garden-book1-pages1-26.pptx
+python3 templates/storybook/build_book1.py  ->  templates/storybook/under-roses-garden-book1-pages1-29.pptx
 
 Print spec (picture book, 10 x 8 in landscape trim): each slide is 10.25 x 8.25 in = trim plus 0.125 in bleed on
 every side. Art runs to the bleed edge; text and page numbers stay 0.5 in inside the trim (IngramSpark margin;
@@ -38,7 +38,8 @@ ART = {
     "house": ORIG + "book-scene-barry-house-1.png", "root-road": ORIG + "book-scene-root-road-1.png",
     "dinner": ORIG + "book-scene-rose-dinner-1.png", "stick": ORIG + "book-scene-stick-street-1.png",
     "morning": ORIG + "book-scene-garden-morning-1.png", "apple": ORIG + "book-scene-apple-core-1.png",
-    "rose-pull": CUT + "book-rose-pulling-stick-1.png", "town": ORIG + "book-scene-town-1.png",
+    "rose-pull": CUT + "book-rose-pulling-stick-1.png", "night": ORIG + "book-scene-town-night-1.png",
+    "bed": ORIG + "book-scene-rose-bed-1.png", "apple-below": ORIG + "book-scene-apple-below-1.png", "town": ORIG + "book-scene-town-1.png",
     "sugar": ORIG + "book-scene-sugar-rain-1.png", "room": ORIG + "book-scene-worm-room-1.png",
     "rose": CUT + "book-rose-lollipop-1.png", "rose-run": CUT + "book-rose-running-1.png",
 "pip": CUT + "book-pip-flagellate-1.png",
@@ -67,7 +68,7 @@ def prep(rel, cut, maxpx):
         r = max(3075 / im.width, 2475 / im.height)
         im = im.resize((round(im.width * r), round(im.height * r)), Image.LANCZOS)
         return_path = os.path.join(TMP, os.path.basename(rel).rsplit(".", 1)[0] + ".jpg")
-        im.save(return_path, quality=80)
+        im.save(return_path, quality=76)
         return return_path, im.size
     im.thumbnail((maxpx, maxpx), Image.LANCZOS)
     out = os.path.join(TMP, os.path.basename(rel).rsplit(".", 1)[0] + (".png" if cut else ".jpg"))
@@ -274,7 +275,20 @@ def build():
     s = new_page(prs, "Page 26. Rose plants an apple core instead: good food for the soil.")
     scene(s, "apple"); line(s, "Then she planted an apple core.\n“Night night, dirt!”", top=False); page_no(s, 26)
 
-    out = os.path.join(HERE, "under-roses-garden-book1-pages1-26.pptx")
+    # Pages 27 to 29: goodnight (Linnea, 4 Oct 2026).
+    s = new_page(prs, "Page 27. The town at night; the Barrys answer Rose's goodnight.")
+    scene(s, "night")
+    for i, (x, y) in enumerate([(300, 740), (480, 770), (660, 740), (840, 770), (1020, 740), (1200, 770)]):
+        put(s, "barry", x, y, 200, flip=bool(i % 2))
+    line(s, "Down below, all the sleepy Barrys said,\n“Night night, Rose.”", top=False); page_no(s, 27)
+
+    s = new_page(prs, "Page 28. Rose asleep. She never knows who answered.")
+    scene(s, "bed"); line(s, "Rose didn't hear them.\nBut she smiled in her sleep."); page_no(s, 28)
+
+    s = new_page(prs, "Page 29. Last page, and a hint of Book 2 (The Apple Core): roots and fungal threads reach for it.")
+    scene(s, "apple-below"); line(s, "And down in the dark, someone smelled apples.", top=False); page_no(s, 29)
+
+    out = os.path.join(HERE, "under-roses-garden-book1-pages1-29.pptx")
     prs.save(out)
     print("wrote", os.path.relpath(out, ROOT))
     if MISSING: print("MISSING ART:", sorted(set(MISSING)))
