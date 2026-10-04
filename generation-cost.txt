@@ -116,4 +116,6 @@ Estimated cost log (estimate, not billing data). Stop at $9.00.
 2026-10-03 18:57 critter-cocci-6 ok est $0.09
 2026-10-04 10:48 book-scene-garden-1 ok est $0.09
 2026-10-04 10:49 book-scene-town-1 ok est $0.09
-TOTAL $7.74
+2026-10-04 10:49 book-scene-sugar-rain-1 ok est $0.09
+2026-10-04 10:50 book-scene-worm-room-1 ok est $0.09
+TOTAL $7.92

@@ -41,6 +41,10 @@ def prep(rel, cut, maxpx):
         im = im.convert("RGBA"); im = im.crop(im.split()[3].point(lambda v: 255 if v > 20 else 0).getbbox())
     else:
         im = im.convert("RGB")
+        # The model signs its scenes with a fake scribble in the bottom-right corner: cover it with the paper
+        # texture from just to the left of it.
+        w, h = im.size; bx0, by0, bx1, by1 = int(w * .79), int(h * .85), int(w * .97), int(h * .98)
+        im.paste(im.crop((bx0 - (bx1 - bx0), by0, bx0, by1)), (bx0, by0))
     im.thumbnail((maxpx, maxpx), Image.LANCZOS)
     out = os.path.join(TMP, os.path.basename(rel).rsplit(".", 1)[0] + (".png" if cut else ".jpg"))
     im.save(out, **({"optimize": True} if cut else {"quality": 88}))
