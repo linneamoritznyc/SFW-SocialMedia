@@ -134,4 +134,8 @@ Estimated cost log (estimate, not billing data). Stop at $9.00.
 2026-10-04 11:12 book-scene-sugar-drop-1 ok est $0.09
 2026-10-04 11:12 book-scene-barry-house-1 ok est $0.09
 2026-10-04 11:13 book-scene-root-road-1 ok est $0.09
-TOTAL $9.36
+2026-10-04 11:54 book-scene-stick-street-1 ok est $0.09
+2026-10-04 11:55 book-scene-garden-morning-1 ok est $0.09
+2026-10-04 11:55 book-scene-apple-core-1 ok est $0.09
+2026-10-04 11:56 book-rose-pulling-stick-1 ok est $0.09
+TOTAL $9.72

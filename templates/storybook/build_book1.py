@@ -1,6 +1,6 @@
 """Under Rose's Garden, Book 1: The Lollipop. First draft of pages 1 to 6, as an editable PowerPoint.
 
-python3 templates/storybook/build_book1.py  ->  templates/storybook/under-roses-garden-book1-pages1-16.pptx
+python3 templates/storybook/build_book1.py  ->  templates/storybook/under-roses-garden-book1-pages1-26.pptx
 
 Print spec (picture book, 10 x 8 in landscape trim): each slide is 10.25 x 8.25 in = trim plus 0.125 in bleed on
 every side. Art runs to the bleed edge; text and page numbers stay 0.5 in inside the trim (IngramSpark margin;
@@ -36,7 +36,9 @@ ART = {
     "garden": ORIG + "book-scene-garden-1.png", "flowers": ORIG + "book-scene-flowers-1.png",
     "lolly-soil": ORIG + "book-scene-lollipop-soil-1.png", "drop": ORIG + "book-scene-sugar-drop-1.png",
     "house": ORIG + "book-scene-barry-house-1.png", "root-road": ORIG + "book-scene-root-road-1.png",
-    "dinner": ORIG + "book-scene-rose-dinner-1.png", "town": ORIG + "book-scene-town-1.png",
+    "dinner": ORIG + "book-scene-rose-dinner-1.png", "stick": ORIG + "book-scene-stick-street-1.png",
+    "morning": ORIG + "book-scene-garden-morning-1.png", "apple": ORIG + "book-scene-apple-core-1.png",
+    "rose-pull": CUT + "book-rose-pulling-stick-1.png", "town": ORIG + "book-scene-town-1.png",
     "sugar": ORIG + "book-scene-sugar-rain-1.png", "room": ORIG + "book-scene-worm-room-1.png",
     "rose": CUT + "book-rose-lollipop-1.png", "rose-run": CUT + "book-rose-running-1.png",
 "pip": CUT + "book-pip-flagellate-1.png",
@@ -65,7 +67,7 @@ def prep(rel, cut, maxpx):
         r = max(3075 / im.width, 2475 / im.height)
         im = im.resize((round(im.width * r), round(im.height * r)), Image.LANCZOS)
         return_path = os.path.join(TMP, os.path.basename(rel).rsplit(".", 1)[0] + ".jpg")
-        im.save(return_path, quality=84)
+        im.save(return_path, quality=80)
         return return_path, im.size
     im.thumbnail((maxpx, maxpx), Image.LANCZOS)
     out = os.path.join(TMP, os.path.basename(rel).rsplit(".", 1)[0] + (".png" if cut else ".jpg"))
@@ -78,7 +80,7 @@ def put(s, key, cx, cy, w, flip=False, deg=0):
     rel = ART[key]
     if not os.path.exists(os.path.join(ROOT, rel)):
         MISSING.append(rel); label(s, cx - w / 2, cy - 40, w, 80, f"[{key}]"); return
-    path, (iw, ih) = prep(rel, True, 1400)
+    path, (iw, ih) = prep(rel, True, 1200)
     cx, cy, w = sx(cx), sy(cy), sx(w)
     h = w * ih / iw
     pic = s.shapes.add_picture(path, Emu(int((cx - w / 2) * PX)), Emu(int((cy - h / 2) * PX)), Emu(int(w * PX)), Emu(int(h * PX)))
@@ -231,7 +233,48 @@ def build():
     s = new_page(prs, "Page 16. The sugar drop again, quiet. Cliffhanger: the lollipop stick is coming (next pages).")
     scene(s, "drop"); line(s, "Then something much bigger began to come down.", top=False); page_no(s, 16)
 
-    out = os.path.join(HERE, "under-roses-garden-book1-pages1-16.pptx")
+    # Pages 17 to 26: the stick, Myco explains plastic, Rose takes it away (Linnea, 4 Oct 2026).
+    s = new_page(prs, "Page 17. The lollipop stick has come down into the street. The candy has melted away.")
+    scene(s, "stick"); line(s, "It was a stick.", top=False, pt=32); page_no(s, 17)
+
+    s = new_page(prs, "Page 18. Barry tries to eat it.")
+    scene(s, "stick"); put(s, "barry", 1040, 780, 420)
+    line(s, "Barry took a bite.\nNothing happened.", top=False); page_no(s, 18)
+
+    s = new_page(prs, "Page 19. Pip pokes it.")
+    scene(s, "stick"); put(s, "pip", 560, 760, 420)
+    line(s, "Pip gave it a poke.\nNothing happened.", top=False); page_no(s, 19)
+
+    s = new_page(prs, "Page 20. Myco wraps his arms around it, looking for something to trade.")
+    scene(s, "stick"); put(s, "myco", 900, 700, 520)
+    line(s, "Myco wrapped his arms around it.\nThere was nothing to trade.", top=False); page_no(s, 20)
+
+    s = new_page(prs, "Page 21. Myco begins to explain. True science: soil life breaks food down with enzymes that "
+                      "fit things that were once alive.")
+    scene(s, "root-road"); put(s, "myco", 800, 640, 560)
+    line(s, "“We can eat anything that was once alive,” said Myco.", top=False); page_no(s, 21)
+
+    s = new_page(prs, "Page 22. The keys image: each kind of food has a key that unlocks it.")
+    scene(s, "town"); put(s, "myco", 800, 760, 480)
+    line(s, "“Leaves. Apples. Bread. Sugar.\nWe have a key for each of them.”", top=False); page_no(s, 22)
+
+    s = new_page(prs, "Page 23. True science: plastic is long chains the soil's enzymes mostly cannot unlock. It does "
+                      "not rot away; it slowly breaks into tiny bits (microplastics) and lasts hundreds of years.")
+    scene(s, "stick"); put(s, "myco", 1200, 760, 440)
+    line(s, "“But this is plastic.\nNobody down here has a key for it.”", top=False); page_no(s, 23)
+
+    s = new_page(prs, "Page 24. Pip and Ama. Pip's crush: one small step in every book.")
+    scene(s, "town"); put(s, "pip", 660, 800, 340); put(s, "ama", 1000, 820, 360)
+    line(s, "Pip tried to say hello to Ama.\nMaybe tomorrow.", top=False); page_no(s, 24)
+
+    s = new_page(prs, "Page 25. Morning, above ground. Rose finds the stick and pulls it out.")
+    scene(s, "morning"); put(s, "rose-pull", 890, 700, 500)   # her body covers the stick in the scene
+    line(s, "In the morning, Rose found the stick.\nShe put it in the bin."); page_no(s, 25)
+
+    s = new_page(prs, "Page 26. Rose plants an apple core instead: good food for the soil.")
+    scene(s, "apple"); line(s, "Then she planted an apple core.\n“Night night, dirt!”", top=False); page_no(s, 26)
+
+    out = os.path.join(HERE, "under-roses-garden-book1-pages1-26.pptx")
     prs.save(out)
     print("wrote", os.path.relpath(out, ROOT))
     if MISSING: print("MISSING ART:", sorted(set(MISSING)))

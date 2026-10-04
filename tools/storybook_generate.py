@@ -43,6 +43,15 @@ SCENES = {   # 4:3, kept whole
                          "small lit window, a little path in front; calm and cosy, lots of empty space; no characters",
     "scene-root-road": "a long pale tree root running sideways through dark soil like a road, a few soil crumbs and "
                        "small stones around it, soft brown glow; calm, lots of empty space; no characters",
+    "scene-stick-street": "a quiet underground tunnel street inside the soil with round soil-crumb houses; a long plain "
+                          "white plastic stick (a lollipop stick with no candy) has come down through the soil ceiling "
+                          "and stands stuck upright in the middle of the street, a few crumbs drifting down; calm, soft "
+                          "brown glow; no characters",
+    "scene-garden-morning": "the same small back garden on a fresh sunny morning after rain, a damp vegetable bed of "
+                            "dark soil with flowers, and one thin white plastic stick poking up out of the soil; calm, "
+                            "lots of empty sky; no people",
+    "scene-apple-core": "a close-up of soft dark garden soil with one apple core lying half planted in it, a few "
+                        "small leaves, evening light; calm, lots of empty space; no people",
     "scene-bakery": "an underground bakery inside the soil: pale tree roots coming down from the ceiling, and small "
                     "cupcakes and cookies hanging from the root tips and set out on little shelves, warm brown glow; "
                     "no characters",
@@ -58,6 +67,9 @@ CHARACTERS = {  # 1:1, cut out
     "pip-flagellate": "a small nervous oval flagellate protozoan with two long whip tails, two googly eyes, cute",
     "ama-amoeba": "a soft shell-less amoeba, a translucent blob with rounded lobes, shy and pretty, two googly eyes",
     "lollipop": "a red strawberry lollipop on a white plastic stick",
+    "rose-pulling-stick": "the same six-year-old girl Rose in yellow rain boots and a muddy dress, messy brown hair, "
+                          "crouching and pulling a thin white plastic stick out of the ground, curious; simple "
+                          "cut-paper face with small dot eyes",
     "ned-nematode": "Ned, a friendly night-watchman nematode, a smooth tapered worm wearing a tiny peaked cap and holding a small glowing lantern, two googly eyes",
 }
 
