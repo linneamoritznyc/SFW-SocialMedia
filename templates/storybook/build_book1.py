@@ -51,7 +51,7 @@ def prep(rel, cut, maxpx):
     return out, im.size
 
 
-def put(s, key, cx, cy, w, flip=False):
+def put(s, key, cx, cy, w, flip=False, deg=0):
     """Character cut-out centred at (cx, cy), w px wide. Placeholder label if the art does not exist yet."""
     rel = ART[key]
     if not os.path.exists(os.path.join(ROOT, rel)):
@@ -59,6 +59,7 @@ def put(s, key, cx, cy, w, flip=False):
     path, (iw, ih) = prep(rel, True, 900)
     h = w * ih / iw
     pic = s.shapes.add_picture(path, Emu(int((cx - w / 2) * PX)), Emu(int((cy - h / 2) * PX)), Emu(int(w * PX)), Emu(int(h * PX)))
+    pic.rotation = deg
     if flip:
         pic._element.spPr.find("{http://schemas.openxmlformats.org/drawingml/2006/main}xfrm").set("flipH", "1")
 
@@ -120,7 +121,7 @@ def build():
 
     # 2. The lollipop drops, Rose runs in
     s = new_page(prs, "Page 2, above ground. The lollipop sinks into the soft soil; Rose runs in for dinner.")
-    scene(s, "garden"); put(s, "lolly", 470, 930, 190); put(s, "rose-run", 1250, 720, 420)
+    scene(s, "garden"); put(s, "lolly", 520, 900, 110, deg=-62); put(s, "rose-run", 1250, 720, 420)
     words(s, 80, 80, 820, 470, [
         "“Rose! Dinner!”",
         "Rose jumped. The lollipop slipped out of her fingers and landed, plop, in the soft wet soil. "
@@ -141,7 +142,7 @@ def build():
     s = new_page(prs, "Page 4, underground. Sugar rain. Barry tastes it and splits into two Barrys. Barry = critter-bacillus.")
     scene(s, "sugar"); put(s, "barry", 1060, 640, 260); put(s, "barry", 1330, 700, 260, flip=True)
     words(s, 80, 80, 780, 620, [
-        "Drip. Drip. Drip. Something pink and sticky was raining down.",
+        "Drip. Drip. Drip. Something red and sticky was raining down.",
         "Barry the Bacterium had a taste. “Sugar!” he gasped. And because Barry was a bacterium, and that is what "
         "bacteria do when they eat, he split in two.",
         "“Which Barry am I?” said Barry.",
@@ -165,7 +166,7 @@ def build():
 
     # 6. Pip and Ama arrive; Grandma Worm wakes
     s = new_page(prs, "Page 6, underground. Pip and Ama arrive for the party; the town shakes as Grandma Worm wakes.")
-    scene(s, "town"); put(s, "pip", 620, 560, 230); put(s, "ama", 900, 600, 280); put(s, "worm", 1330, 760, 520)
+    scene(s, "town"); put(s, "pip", 300, 560, 250); put(s, "ama", 660, 590, 260); put(s, "worm", 1330, 720, 500)
     words(s, 80, 760, 1440, 360, [
         "Pip the Flagellate came zooming in on his two long tails. Ama the Amoeba came drifting after him, "
         "and Pip forgot how to swim.",
