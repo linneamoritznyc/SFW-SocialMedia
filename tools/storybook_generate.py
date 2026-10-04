@@ -36,6 +36,13 @@ SCENES = {   # 4:3, kept whole
     "scene-lollipop-soil": "a close-up of soft dark wet garden soil after rain, with one small red strawberry "
                            "lollipop on a white stick lying half sunk into the soil, a few small leaves; calm, lots of "
                            "empty space; no people",
+    "scene-sugar-drop": "a quiet tunnel street inside the soil with a few round soil-crumb houses, and one single small "
+                        "pale pink see-through sugar drop hanging from the soil ceiling like a dewdrop, catching the "
+                        "soft brown glow; calm, lots of empty space; no characters",
+    "scene-barry-house": "close-up of one round soil-crumb house inside the soil at night, a tiny round door and a "
+                         "small lit window, a little path in front; calm and cosy, lots of empty space; no characters",
+    "scene-root-road": "a long pale tree root running sideways through dark soil like a road, a few soil crumbs and "
+                       "small stones around it, soft brown glow; calm, lots of empty space; no characters",
     "scene-bakery": "an underground bakery inside the soil: pale tree roots coming down from the ceiling, and small "
                     "cupcakes and cookies hanging from the root tips and set out on little shelves, warm brown glow; "
                     "no characters",

@@ -1,6 +1,6 @@
 """Under Rose's Garden, Book 1: The Lollipop. First draft of pages 1 to 6, as an editable PowerPoint.
 
-python3 templates/storybook/build_book1.py  ->  templates/storybook/under-roses-garden-book1-pages1-6.pptx
+python3 templates/storybook/build_book1.py  ->  templates/storybook/under-roses-garden-book1-pages1-16.pptx
 
 Print spec (picture book, 10 x 8 in landscape trim): each slide is 10.25 x 8.25 in = trim plus 0.125 in bleed on
 every side. Art runs to the bleed edge; text and page numbers stay 0.5 in inside the trim (IngramSpark margin;
@@ -34,7 +34,9 @@ SERIF, HEAD = "EB Garamond", "Montserrat"
 
 ART = {
     "garden": ORIG + "book-scene-garden-1.png", "flowers": ORIG + "book-scene-flowers-1.png",
-    "lolly-soil": ORIG + "book-scene-lollipop-soil-1.png", "town": ORIG + "book-scene-town-1.png",
+    "lolly-soil": ORIG + "book-scene-lollipop-soil-1.png", "drop": ORIG + "book-scene-sugar-drop-1.png",
+    "house": ORIG + "book-scene-barry-house-1.png", "root-road": ORIG + "book-scene-root-road-1.png",
+    "dinner": ORIG + "book-scene-rose-dinner-1.png", "town": ORIG + "book-scene-town-1.png",
     "sugar": ORIG + "book-scene-sugar-rain-1.png", "room": ORIG + "book-scene-worm-room-1.png",
     "rose": CUT + "book-rose-lollipop-1.png", "rose-run": CUT + "book-rose-running-1.png",
     "worm": CUT + "book-grandma-worm-1.png", "pip": CUT + "book-pip-flagellate-1.png",
@@ -42,7 +44,8 @@ ART = {
     "barry": CUT + "critter-bacillus-1.png", "myco": CUT + "critter-mycorrhiza-2.png",
 }
 MISSING = []
-SIGNATURES = {"book-scene-garden-1.png": [(.88, .86, .99, .95)], "book-scene-town-1.png": [(.81, .87, .89, .955)]}
+SIGNATURES = {"book-scene-garden-1.png": [(.88, .86, .99, .95)], "book-scene-town-1.png": [(.81, .87, .89, .955)],
+              "book-scene-sugar-drop-1.png": [(.80, .89, .97, .97)]}
 
 
 def prep(rel, cut, maxpx):
@@ -186,7 +189,44 @@ def build():
     s = new_page(prs, "Page 6. Underground: the town under the garden, quiet. Someone heard her.")
     scene(s, "town"); line(s, "Down below, someone heard her.", top=False); page_no(s, 6)
 
-    out = os.path.join(HERE, "under-roses-garden-book1-pages1-6.pptx")
+    # Pages 7 to 16: the town wakes up, one thing at a time.
+    s = new_page(prs, "Page 7. Barry's crumb house, Barry outside it.")
+    scene(s, "house"); put(s, "barry", 1220, 780, 400); line(s, "This is Barry. He lives in a crumb house."); page_no(s, 7)
+
+    s = new_page(prs, "Page 8. A single pale sugar drop hangs from the ceiling.")
+    scene(s, "drop"); line(s, "Drip.", top=False, pt=32); page_no(s, 8)
+
+    s = new_page(prs, "Page 9. Barry under the drop, tasting it.")
+    scene(s, "drop"); put(s, "barry", 800, 560, 360); line(s, "Barry had a taste.\n“Sugar!”", top=False); page_no(s, 9)
+
+    s = new_page(prs, "Page 10. Barry has split into two Barrys (two copies of the same cut-out).")
+    scene(s, "house"); put(s, "barry", 1060, 780, 360); put(s, "barry", 1360, 780, 360, flip=True)
+    line(s, "And then there were two Barrys."); page_no(s, 10)
+
+    s = new_page(prs, "Page 11. Four Barrys on the street.")
+    scene(s, "town")
+    for i, (x, y) in enumerate([(380, 840), (680, 870), (980, 840), (1280, 870)]):
+        put(s, "barry", x, y, 300, flip=bool(i % 2))
+    line(s, "“Which Barry am I?” asked Barry.", top=False); page_no(s, 11)
+
+    s = new_page(prs, "Page 12. Cut away, above ground: Rose at dinner, looking out at the rainy garden.")
+    scene(s, "dinner"); line(s, "Up above, Rose was having her soup.", top=False); page_no(s, 12)
+
+    s = new_page(prs, "Page 13. Myco the postman on a root road (critter-mycorrhiza v2).")
+    scene(s, "root-road"); put(s, "myco", 800, 640, 620); line(s, "Myco the postman carried the news.", top=False)
+    page_no(s, 13)
+
+    s = new_page(prs, "Page 14. Pip and Ama arrive.")
+    scene(s, "town"); put(s, "pip", 520, 760, 380); put(s, "ama", 1060, 780, 420)
+    line(s, "Pip came zooming. Ama came drifting.", top=False); page_no(s, 14)
+
+    s = new_page(prs, "Page 15. Grandma Worm's empty living room; the teacups rattle.")
+    scene(s, "room"); line(s, "Then the teacups began to rattle.", top=False); page_no(s, 15)
+
+    s = new_page(prs, "Page 16. Grandma Worm, awake.")
+    scene(s, "room"); put(s, "worm", 1180, 700, 600); line(s, "Grandma Worm was awake.", top=False); page_no(s, 16)
+
+    out = os.path.join(HERE, "under-roses-garden-book1-pages1-16.pptx")
     prs.save(out)
     print("wrote", os.path.relpath(out, ROOT))
     if MISSING: print("MISSING ART:", sorted(set(MISSING)))
