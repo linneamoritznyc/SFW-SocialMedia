@@ -65,7 +65,7 @@ def prep(rel, cut, maxpx):
         r = max(3075 / im.width, 2475 / im.height)
         im = im.resize((round(im.width * r), round(im.height * r)), Image.LANCZOS)
         return_path = os.path.join(TMP, os.path.basename(rel).rsplit(".", 1)[0] + ".jpg")
-        im.save(return_path, quality=90)
+        im.save(return_path, quality=84)
         return return_path, im.size
     im.thumbnail((maxpx, maxpx), Image.LANCZOS)
     out = os.path.join(TMP, os.path.basename(rel).rsplit(".", 1)[0] + (".png" if cut else ".jpg"))
@@ -78,7 +78,7 @@ def put(s, key, cx, cy, w, flip=False, deg=0):
     rel = ART[key]
     if not os.path.exists(os.path.join(ROOT, rel)):
         MISSING.append(rel); label(s, cx - w / 2, cy - 40, w, 80, f"[{key}]"); return
-    path, (iw, ih) = prep(rel, True, 2400)
+    path, (iw, ih) = prep(rel, True, 1400)
     cx, cy, w = sx(cx), sy(cy), sx(w)
     h = w * ih / iw
     pic = s.shapes.add_picture(path, Emu(int((cx - w / 2) * PX)), Emu(int((cy - h / 2) * PX)), Emu(int(w * PX)), Emu(int(h * PX)))
