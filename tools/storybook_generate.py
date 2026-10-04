@@ -52,6 +52,7 @@ CHARACTERS = {  # 1:1, cut out
                      "holding a red strawberry lollipop, smiling; simple cut-paper face with small dot eyes",
     "rose-running": "the same six-year-old girl in yellow rain boots and a muddy dress, messy brown hair, running "
                     "away happily, seen from the side; simple cut-paper face with small dot eyes",
+    # Grandma Worm was removed from the cast (Linnea, 4 Oct 2026); kept here only so the old file can be traced.
     "grandma-worm": "a very large old grandmother earthworm with clear segments and a saddle band, small round "
                     "spectacles and a knitted shawl, sleepy and kind, two googly eyes",
     "pip-flagellate": "a small nervous oval flagellate protozoan with two long whip tails, two googly eyes, cute",

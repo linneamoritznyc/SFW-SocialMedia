@@ -39,7 +39,7 @@ ART = {
     "dinner": ORIG + "book-scene-rose-dinner-1.png", "town": ORIG + "book-scene-town-1.png",
     "sugar": ORIG + "book-scene-sugar-rain-1.png", "room": ORIG + "book-scene-worm-room-1.png",
     "rose": CUT + "book-rose-lollipop-1.png", "rose-run": CUT + "book-rose-running-1.png",
-    "worm": CUT + "book-grandma-worm-1.png", "pip": CUT + "book-pip-flagellate-1.png",
+"pip": CUT + "book-pip-flagellate-1.png",
     "ama": CUT + "book-ama-amoeba-1.png", "lolly": CUT + "book-lollipop-1.png",
     "barry": CUT + "critter-bacillus-1.png", "myco": CUT + "critter-mycorrhiza-2.png",
 }
@@ -220,11 +220,16 @@ def build():
     scene(s, "town"); put(s, "pip", 520, 760, 380); put(s, "ama", 1060, 780, 420)
     line(s, "Pip came zooming. Ama came drifting.", top=False); page_no(s, 14)
 
-    s = new_page(prs, "Page 15. Grandma Worm's empty living room; the teacups rattle.")
-    scene(s, "room"); line(s, "Then the teacups began to rattle.", top=False); page_no(s, 15)
+    # Grandma Worm was removed from the cast (Linnea, 4 Oct 2026); pages 15 and 16 no longer use her or her room.
+    s = new_page(prs, "Page 15. Everyone together on the street: four Barrys, Pip, Ama and Myco.")
+    scene(s, "town")
+    for i, (x, y) in enumerate([(300, 870), (520, 890), (1180, 880), (1400, 900)]):
+        put(s, "barry", x, y, 250, flip=bool(i % 2))
+    put(s, "pip", 760, 760, 300); put(s, "ama", 960, 790, 320)
+    line(s, "It turned into a party.", top=False); page_no(s, 15)
 
-    s = new_page(prs, "Page 16. Grandma Worm, awake.")
-    scene(s, "room"); put(s, "worm", 1180, 700, 600); line(s, "Grandma Worm was awake.", top=False); page_no(s, 16)
+    s = new_page(prs, "Page 16. The sugar drop again, quiet. Cliffhanger: the lollipop stick is coming (next pages).")
+    scene(s, "drop"); line(s, "Then something much bigger began to come down.", top=False); page_no(s, 16)
 
     out = os.path.join(HERE, "under-roses-garden-book1-pages1-16.pptx")
     prs.save(out)
