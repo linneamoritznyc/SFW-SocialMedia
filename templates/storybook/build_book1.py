@@ -1,14 +1,18 @@
-"""Under Rose's Garden, Book 1: The Lollipop. First draft of pages 1 to 6, as an editable PowerPoint.
+"""Under Rose's Garden, Book 1: The Lollipop. The whole book as one editable PowerPoint, with an appendix.
 
-python3 templates/storybook/build_book1.py  ->  templates/storybook/under-roses-garden-book1-pages1-29.pptx
+python3 templates/storybook/build_book1.py  ->  templates/storybook/under-roses-garden-book1-complete.pptx
+
+32 book pages (title, dedication, story pages 1 to 29, The End), then an appendix: the characters, the scene
+library, the story notes and the print notes.
 
 Print spec (picture book, 10 x 8 in landscape trim): each slide is 10.25 x 8.25 in = trim plus 0.125 in bleed on
 every side. Art runs to the bleed edge; text and page numbers stay 0.5 in inside the trim (IngramSpark margin;
 KDP's minimum is 0.375 in). Sources: kidillus.com/learn/book-trim-sizes-bleed-margins, neolemon.com (KDP sizes).
-Layout is written on a 1600 x 1200 design grid and mapped onto the page. Each page is one slide: a full-bleed collage scene, the characters as separate cut-out
-pictures on top (so they stay the same from page to page and can be moved), and the story text on a cream paper
-panel. Art: tools/storybook_generate.py (scenes, Rose, Grandma Worm, Pip, Ama, lollipop) and the creature set
-(Barry = critter-bacillus, Myco = critter-mycorrhiza v2). The words are a first draft for Linnea to rewrite.
+Layout is written on a 1600 x 1200 design grid and mapped onto the page. Story pages: a full-bleed collage scene,
+the characters as separate cut-out pictures on top (movable), black text on a soft cream fade.
+The art is kept at its generated size (2048 px wide, about 200 DPI on this page) so the file stays small enough to
+share; upscale the scenes before sending to a printer.
+Art: tools/storybook_generate.py and the creature set (Barry = critter-bacillus, Myco = critter-mycorrhiza v2).
 """
 import os
 from PIL import Image
@@ -63,12 +67,9 @@ def prep(rel, cut, maxpx):
         for fx0, fy0, fx1, fy1 in SIGNATURES.get(os.path.basename(rel), []):
             bx0, by0, bx1, by1 = int(w * fx0), int(h * fy0), int(w * fx1), int(h * fy1)
             im.paste(im.crop((bx0, by0 - (by1 - by0), bx1, by0)), (bx0, by0))   # patch taken from just above
-        # Print: the scene must cover 10.25 x 8.25 in at 300 DPI (3075 x 2475 px). The source art is 2048 px wide
-        # (about 200 DPI at this size), so it is upsampled; a print-grade upscale of the art would be better.
-        r = max(3075 / im.width, 2475 / im.height)
-        im = im.resize((round(im.width * r), round(im.height * r)), Image.LANCZOS)
+        # Kept at the generated size (about 200 DPI on the page) so the deck can be shared; upscale before print.
         return_path = os.path.join(TMP, os.path.basename(rel).rsplit(".", 1)[0] + ".jpg")
-        im.save(return_path, quality=76)
+        im.save(return_path, quality=82)
         return return_path, im.size
     im.thumbnail((maxpx, maxpx), Image.LANCZOS)
     out = os.path.join(TMP, os.path.basename(rel).rsplit(".", 1)[0] + (".png" if cut else ".jpg"))
@@ -81,7 +82,7 @@ def put(s, key, cx, cy, w, flip=False, deg=0):
     rel = ART[key]
     if not os.path.exists(os.path.join(ROOT, rel)):
         MISSING.append(rel); label(s, cx - w / 2, cy - 40, w, 80, f"[{key}]"); return
-    path, (iw, ih) = prep(rel, True, 1200)
+    path, (iw, ih) = prep(rel, True, 1000)
     cx, cy, w = sx(cx), sy(cy), sx(w)
     h = w * ih / iw
     pic = s.shapes.add_picture(path, Emu(int((cx - w / 2) * PX)), Emu(int((cy - h / 2) * PX)), Emu(int(w * PX)), Emu(int(h * PX)))
@@ -168,10 +169,145 @@ def new_page(prs, note):
     return s
 
 
+# ---------------------------------------------------------------- title, plain and appendix pages
+def title(s, t, sub):
+    tb = s.shapes.add_textbox(Emu(int(SAFE * PX)), Emu(int((SAFE + 40) * PX)), Emu(int((W - 2 * SAFE) * PX)), Emu(int(300 * PX)))
+    tf = tb.text_frame; tf.word_wrap = True
+    for i, (txt, pt, italic) in enumerate([(t, 48, False)] + ([(sub, 22, True)] if sub else [])):
+        p = tf.paragraphs[0] if i == 0 else tf.add_paragraph()
+        p.alignment = PP_ALIGN.CENTER; p.space_after = Pt(8)
+        r = p.add_run(); r.text = txt; f = r.font
+        f.size = Pt(pt); f.name = SERIF; f.italic = italic; f.color.rgb = RGBColor.from_string("1A1A1A")
+
+
+def plain(s, color=CREAM):
+    bg = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, 0, Emu(W * PX), Emu(H * PX))
+    bg.fill.solid(); bg.fill.fore_color.rgb = RGBColor.from_string(color); bg.line.fill.background(); bg.shadow.inherit = False
+
+
+def words_plain(s, paras, x=None, y=None, w=None, h=None, pt=16, italic=False, align=PP_ALIGN.CENTER, head=None):
+    x = SAFE if x is None else x; w = (W - 2 * SAFE) if w is None else w
+    y = SAFE if y is None else y; h = (H - SAFE - y) if h is None else h
+    tb = s.shapes.add_textbox(Emu(int(x * PX)), Emu(int(y * PX)), Emu(int(w * PX)), Emu(int(h * PX)))
+    tf = tb.text_frame; tf.word_wrap = True
+    items = ([(head, True)] if head else []) + [(t, False) for t in paras]
+    for i, (t, is_head) in enumerate(items):
+        p = tf.paragraphs[0] if i == 0 else tf.add_paragraph()
+        p.alignment = align; p.space_after = Pt(6); p.line_spacing = 1.15
+        r = p.add_run(); r.text = t; f = r.font
+        f.size = Pt(28 if is_head else pt); f.name = SERIF; f.italic = italic and not is_head
+        f.color.rgb = RGBColor.from_string("1A1A1A")
+
+
+def cast_card(prs, name, about, keys, note):
+    """One character on cream: the cut-out(s), the name and one line about them."""
+    s = new_page(prs, "Appendix, character: " + note)
+    plain(s)
+    words_plain(s, [about], y=SAFE, h=170, pt=16, head=name)
+    n = len(keys); slot = (W - 2 * SAFE) / n
+    for i, key in enumerate(keys):
+        rel = ART.get(key, key)
+        if not os.path.exists(os.path.join(ROOT, rel)): MISSING.append(rel); continue
+        cut = rel.startswith(CUT)
+        path, (iw, ih) = prep(rel, cut, 1000) if cut else prep_small(rel)
+        bw, bh = slot - 40, H - SAFE - 330 - SAFE
+        r = min(bw / iw, bh / ih); w, h = iw * r, ih * r
+        x = SAFE + i * slot + (slot - w) / 2; y = SAFE + 300 + (bh - h) / 2
+        s.shapes.add_picture(path, Emu(int(x * PX)), Emu(int(y * PX)), Emu(int(w * PX)), Emu(int(h * PX)))
+
+
+def prep_small(rel):
+    """Whole picture (not cut out), kept small: for appendix tiles."""
+    os.makedirs(TMP, exist_ok=True)
+    im = Image.open(os.path.join(ROOT, rel)).convert("RGB"); im.thumbnail((1000, 1000), Image.LANCZOS)
+    out = os.path.join(TMP, "small-" + os.path.basename(rel).rsplit(".", 1)[0] + ".jpg"); im.save(out, quality=84)
+    return out, im.size
+
+
+def appendix(prs):
+    s = new_page(prs, "Appendix divider.")
+    plain(s, "E9E3D6")
+    words_plain(s, ["Characters, scenes, story notes and print notes.", "Not part of the printed book."],
+                y=420, pt=18, italic=True, head="Appendix")
+
+    cast_card(prs, "Rose", "About 6. Curious, messy and kind. She talks to the ground (“Night night, dirt!”) and never "
+              "knows anyone hears her.", ["rose", "rose-run", "rose-pull"], "Rose, three poses.")
+    cast_card(prs, "Barry the Bacterium", "Rod-shaped and always hungry. When he eats sugar he splits into two Barrys, "
+              "then four. He never knows which Barry he is.", ["barry"], "Barry = critter-bacillus.")
+    cast_card(prs, "Myco the mycorrhizal fungus", "The town's postman. His long arms reach everywhere and hold hands "
+              "with the tree roots, trading minerals for the sugars the roots make. In Book 1 he explains plastic.",
+              ["myco"], "Myco = critter-mycorrhiza v2.")
+    cast_card(prs, "Pip the Flagellate", "Small, fast and nervous, with two long tails. He has a crush on Ama.",
+              ["pip"], "Pip.")
+    cast_card(prs, "Ama the Amoeba", "Changes shape when she's embarrassed.", ["ama"], "Ama.")
+    cast_card(prs, "For later books", "Ned the Nematode (night watchman), Cilia the Ciliate (arrives when the soil "
+              "runs out of air), and more of the soil food web.",
+              [ORIG + "book-ned-nematode-1.png", CUT + "critter-paramecium-1.png", CUT + "critter-nematode-bacterial-1.png"],
+              "Ned (book-ned-nematode), Cilia (critter-paramecium), a bacterial-feeding nematode.")
+    cast_card(prs, "More creatures", "From the creature set, for future books.",
+              [CUT + "critter-cocci-4.png", CUT + "critter-testate-amoeba-1.png", "lolly"],
+              "Cocci, testate amoeba, the lollipop cut-out.")
+
+    # scene library: every scene used in the book, four per slide
+    keys = ["garden", "flowers", "lolly-soil", "town", "house", "drop", "root-road", "dinner", "stick", "morning",
+            "apple", "night", "bed", "apple-below"]
+    for k in range(0, len(keys), 4):
+        s = new_page(prs, "Appendix: scene library " + ", ".join(ART[x] for x in keys[k:k + 4]))
+        plain(s); words_plain(s, [], y=SAFE, h=80, head="Scene library")
+        gw, gh = (W - 2 * SAFE - 40) / 2, (H - 2 * SAFE - 140) / 2
+        for i, key in enumerate(keys[k:k + 4]):
+            path, (iw, ih) = prep_small(ART[key])
+            r = min(gw / iw, (gh - 30) / ih); w, h = iw * r, ih * r
+            x = SAFE + (i % 2) * (gw + 40) + (gw - w) / 2; y = SAFE + 110 + (i // 2) * (gh + 20)
+            s.shapes.add_picture(path, Emu(int(x * PX)), Emu(int(y * PX)), Emu(int(w * PX)), Emu(int(h * PX)))
+            words_plain(s, [key], x=SAFE + (i % 2) * (gw + 40), y=y + h + 2, w=gw, h=30, pt=11)
+
+    s = new_page(prs, "Appendix: the world.")
+    plain(s)
+    words_plain(s, ["Above ground is Rose's garden. Below it is a whole town in the soil, lit by a soft brown glow, "
+                    "with tunnels for streets and soil crumbs for houses.",
+                    "Every story starts with something Rose does up top, and the town lives with the result.",
+                    "Every book ends with Rose learning one new thing about what the garden likes, without ever "
+                    "knowing who taught her."], align=PP_ALIGN.LEFT, head="The world")
+    s = new_page(prs, "Appendix: running threads and later books.")
+    plain(s)
+    words_plain(s, ["Barry's hunger: how many Barrys there are shows how much food came down.",
+                    "Pip and Ama: Pip gets one small step closer in each book.",
+                    "Cilia's warnings: when she arrives, the soil needs air.",
+                    "Later books: The Apple Core (a happy feast), The Flood (too much water, Cilia arrives), The Spade "
+                    "(Myco's arms are cut and regrow), Spike's Raid (a root-nibbling nematode; Pip is brave), "
+                    "Winter Sleep (the town slows down)."], align=PP_ALIGN.LEFT, head="Running threads and later books")
+    s = new_page(prs, "Appendix: the science behind Book 1.")
+    plain(s)
+    words_plain(s, ["Soil microbes break food down with enzymes that fit things that were once alive: leaves, fruit, "
+                    "bread, sugar. In the book these are the “keys”.",
+                    "Plastic is made of long chains that soil enzymes mostly cannot unlock. It does not rot away; it "
+                    "slowly breaks into tiny pieces (microplastics) and can last hundreds of years.",
+                    "Bacteria multiply by splitting in two when they have food, which is why there are more Barrys.",
+                    "Mycorrhizal fungi trade minerals and water with roots in exchange for sugars."],
+                align=PP_ALIGN.LEFT, head="The science behind Book 1")
+    s = new_page(prs, "Appendix: print notes.")
+    plain(s)
+    words_plain(s, ["Trim size 10 × 8 in landscape. Each slide is 10.25 × 8.25 in: trim plus 0.125 in bleed on "
+                    "every side.",
+                    "Text and page numbers stay at least 0.5 in inside the trim.",
+                    "32 book pages (title, dedication, 29 story pages, The End). Picture books are printed in "
+                    "multiples of 8 pages.",
+                    "The art is about 200 DPI at this size. Upscale the scenes to 300 DPI before sending to a printer.",
+                    "Remove the appendix before exporting the print file."], align=PP_ALIGN.LEFT, head="Print notes")
+
+
 def build():
     """Slow opening: one or two things per page, very few words (Linnea, 4 Oct 2026). The sugar, the Barrys and
     the rest of the town come later in the book."""
     prs = Presentation(); prs.slide_width, prs.slide_height = Emu(W * PX), Emu(H * PX)
+
+    s = new_page(prs, "Title page.")
+    scene(s, "garden"); fade(s, True, 0.5)
+    title(s, "Under Rose's Garden", "Book 1: The Lollipop")
+
+    s = new_page(prs, "Dedication page (left blank for Linnea to fill in).")
+    plain(s); words_plain(s, ["For ..."], y=520, pt=24, italic=True)
 
     s = new_page(prs, "Page 1. The garden after rain, nobody in it yet.")
     scene(s, "garden"); line(s, "It had rained all afternoon."); page_no(s, 1)
@@ -288,7 +424,11 @@ def build():
     s = new_page(prs, "Page 29. Last page, and a hint of Book 2 (The Apple Core): roots and fungal threads reach for it.")
     scene(s, "apple-below"); line(s, "And down in the dark, someone smelled apples.", top=False); page_no(s, 29)
 
-    out = os.path.join(HERE, "under-roses-garden-book1-pages1-29.pptx")
+    s = new_page(prs, "The End.")
+    scene(s, "flowers"); fade(s, True, 0.5); title(s, "The End", None)
+
+    appendix(prs)
+    out = os.path.join(HERE, "under-roses-garden-book1-complete.pptx")
     prs.save(out)
     print("wrote", os.path.relpath(out, ROOT))
     if MISSING: print("MISSING ART:", sorted(set(MISSING)))
