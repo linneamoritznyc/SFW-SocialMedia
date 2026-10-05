@@ -34,6 +34,14 @@ SITE = {
     "Delvin": ("Delvin", "Solkinson", "SFW Permaculture Lead"),
 }
 MENTORS = [SITE[m[0]] + tuple(m[3:]) for m in MENTORS]
+_P = "assets/mentors-teachers-day/"
+MENTORS += [   # added by Linnea, 5 Oct 2026 (Drive folder); roles from the team page
+    ("Elina", "Psara", "SFW Mentor Team Lead", None, None, _P + "elina-psara.jpg", (0.5, 0.4), ()),
+    ("Caterina", "Capri", "SFW Mentor", None, None, _P + "caterina-capri.jpg", (0.5, 0.35), ()),
+    ("Laura", "Campos", "SFW Mentor", None, None, _P + "laura-campos.jpg", (0.5, 0.4), ()),
+    ("Nora", "Levay", "SFW Mentor", None, None, _P + "nora-levay.jpg", (0.5, 0.35), ()),
+]
+DR = {"Carla", "Elina", "Caterina", "Nora"}
 
 GREEN, CREAM, BROWN, TAN, SAGE, GOLD, BLACK = "31662F", "F3F1EA", "4C3634", "C09D7F", "B1BCB1", "D39C48", "333130"
 W, H, M = 1080, 1350, 80
@@ -107,16 +115,20 @@ def party(s, title, sub, foot):
 
 
 def faces(s, y0, color=GREEN, fill_cells=True, people=None):
-    """All fourteen mentors as a regular 4-column grid of same-size square photos, name on a cream strip inside each.
-    The title takes the first two cells of the top row (plain text, no box), so 2 + 4 + 4 + 4 = 14 fills the grid."""
-    n, gap = 4, 8
+    """All mentors as a regular grid of same-size square photos, name on a cream strip inside each. The title takes
+    the first two cells of the top row (plain text, no box). 18 mentors: 5 columns, 2 + 18 = 20 cells, 4 full rows."""
+    people = people or MENTORS
+    n, gap = (5, 8) if len(people) > 14 else (4, 8)
     cell = (W - 2 * 48 - (n - 1) * gap) / n
-    text(s, 48 + 4, y0, 2 * cell + gap - 8, cell, "Happy World Teachers' Day", 40, GREEN, HEAD, True, anchor="m", spacing=1.0)
-    for i, m in enumerate(people or MENTORS):
+    text(s, 48 + 4, y0, 2 * cell + gap - 8, cell, "Happy World Teachers' Day", 34 if n == 5 else 40, GREEN, HEAD, True,
+         anchor="m", spacing=1.0)
+    for i, m in enumerate(people):
         c = i + 2; x = 48 + (c % n) * (cell + gap); y = y0 + (c // n) * (cell + gap)
         portrait(s, m[5], m[6], x, y, cell, cell)
-        rect(s, x, y + cell - 44, cell, 44, CREAM, alpha=88)
-        text(s, x + 6, y + cell - 44, cell - 12, 44, f"{m[0]} {m[1].split()[-1] if m[0] == 'Carla' else m[1]}", 15, GREEN, HEAD, True, align="c", anchor="m")
+        rect(s, x, y + cell - 36, cell, 36, CREAM, alpha=88)
+        last = m[1].split()[-1] if m[0] == "Carla" else m[1]
+        text(s, x + 4, y + cell - 36, cell - 8, 36, f"{m[0]} {last}", 12 if n == 5 else 15, GREEN, HEAD, True,
+             align="c", anchor="m")
 
 
 def option1():
@@ -169,34 +181,34 @@ from build_teachers_day_v2 import para
 
 def mentor_text(s, m, x, y, w, maxh, big=False):
     """Name and role only, from the team page, the same for every mentor (no drafted quotes or fun facts)."""
-    name = f"{'Dr. ' if m[0] == 'Carla' else ''}{m[0]} {m[1]}"
+    name = f"{'Dr. ' if m[0] in DR else ''}{m[0]} {m[1]}"
     yy = para(s, x, y, w, name, (40, 36, 32) if big else (26, 23, 21), GREEN, HEAD, True, sp=1.0) + (12 if big else 2)
     para(s, x, yy, w, m[2], (26,) if big else (16,), BLACK, BODY)
 
 
 def option4():
-    """10 slides, every mentor treated the same: bunting cover, seven slides with two mentors each (same layout, same
-    size, alphabetical by surname so nobody comes first), the grid of all fourteen, and a plain closing slide."""
-    d = Deck(name="05-10-2026-mon-ig-teachers-day-option-4-ten-slides")
+    """9 slides, every mentor treated the same: bunting cover, six slides with three mentors each (same layout, same
+    size, alphabetical by surname so nobody comes first), the grid of all eighteen, and a plain closing slide."""
+    d = Deck(name="05-10-2026-mon-ig-teachers-day-option-4-nine-slides")
     s = d.slide(CREAM, "Slide 1: bunting, balloons and stars (PowerPoint shapes), big logo." + NOTE, counter=False)
-    party(s, "Happy World Teachers' Day", "Meet our fourteen mentors.", "Swipe →")
+    party(s, "Happy World Teachers' Day", "Meet our eighteen mentors.", "Swipe →")
     abc = sorted(MENTORS, key=lambda m: unicodedata.normalize("NFD", m[1].split()[-1] if m[0] == "Carla" else m[1]))
-    for k in range(0, len(abc), 2):
-        group = abc[k:k + 2]
+    for k in range(0, len(abc), 3):
+        group = abc[k:k + 3]
         s = d.slide(CREAM, "Mentors: " + ", ".join(f"{m[0]} {m[1]}" for m in group) + ". About lines: drafts from the "
                     "team notes; confirm with each mentor (05-10-2026-mon-ig-teachers-day-mentors.md)." + NOTE, counter=False)
         bunting(s, y=20, n=11)
-        cell, top, rowh = 520, 180, 565
+        cell, top, rowh = 365, 170, 390
         for i, m in enumerate(group):
             y = top + i * rowh
             portrait(s, m[5], m[6], 60, y, cell, cell)
             mentor_text(s, m, 60 + cell + 36, y + cell / 2 - 90, W - 60 - (60 + cell + 36), y + cell, big=True)
     s = d.slide(CREAM, "All fourteen in a grid, alphabetical." + NOTE, counter=False)
     bunting(s, y=20, n=11)
-    faces(s, 262, people=abc)
+    faces(s, 365, people=abc)
     s = d.slide(CREAM, "Closing: bunting, balloons and a big logo. Line to confirm with Linnea.", counter=False)
     party(s, "Happy World Teachers' Day", "", "soilfoodweb.com")
-    save(d, "05-10-2026-mon-ig-teachers-day-option-4-ten-slides.pptx")
+    save(d, "05-10-2026-mon-ig-teachers-day-option-4-nine-slides.pptx")
 
 
 if __name__ == "__main__":
