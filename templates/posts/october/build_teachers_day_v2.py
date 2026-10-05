@@ -98,32 +98,25 @@ def piece(s, rel, x, y, w, h):
     s.shapes.add_picture(out, Emu(int((x + (w - pw) / 2) * PX)), Emu(int((y + (h - ph) / 2) * PX)), Emu(int(pw * PX)), Emu(int(ph * PX)))
 
 
-def card(d, first, last, role, about, advice, photo, focus, flowers):
+def half(s, y0, first, last, role, about, advice, photo, focus, flowers):
+    """One mentor in a 560 px tall band: photo (or a labelled photo box) left, name, role and about right."""
     name = f"{'Dr. ' if last == 'Portugal' else ''}{first} {last}"
-    s = d.slide(CREAM, f"Mentor card: {name}, {role}. About line: draft from the team notes, confirm with Allison and "
-                       f"{first}. " + (f"Advice line from the mentor bios, 30 Sep 2026: confirm with {first}. " if advice else "")
-                       + (f"Photo: {photo} (written consent needed). " if photo else "No photo yet: flower arrangement.")
-                       + ("" if about else " [ABOUT LINE NEEDED from Allison; the card shows name and role until then]"),
-                counter=False)
-    top, ph = M, (560 if (about or advice or photo) else 820)
+    px_, pw, ph = M, 400, 520
     if photo:
-        s.shapes.add_picture(crop(photo, 920, ph, *focus), Emu(M * PX), Emu(top * PX), Emu(920 * PX), Emu(ph * PX))
-        piece(s, F[flowers[0]], W - M - 150, top + ph - 120, 170, 230)          # a flower tucked on the photo corner
+        s.shapes.add_picture(crop(photo, pw, ph, *focus), Emu(px_ * PX), Emu(y0 * PX), Emu(pw * PX), Emu(ph * PX))
     else:
-        rect(s, M, top, 920, ph, PANEL)
-        n = len(flowers); slot = 920 / n
-        for i, f in enumerate(flowers):
-            piece(s, F[f], M + i * slot + 20, top + 40, slot - 40, ph - 80)
-    y = top + ph + 34
-    y = para(s, M, y, 920, name, (50, 46, 42), GREEN, HEAD, True, sp=1.0) + 6
-    y = para(s, M, y, 920, role, (22,), BLACK, BODY) + 26
-    room = H - 120 - y
+        rect(s, px_, y0, pw, ph, PANEL)
+        piece(s, F[flowers[0]], px_ + 100, y0 + 60, pw - 200, ph - 200)
+        text(s, px_, y0 + ph - 110, pw, 80, f"PHOTO NEEDED\n{name}", 18, "8A8577", HEAD, True, align="c")
+    x, w = M + pw + 40, W - 2 * M - pw - 40
+    y = para(s, x, y0 + 10, w, name, (36, 32, 28), GREEN, HEAD, True, sp=1.0) + 6
+    y = para(s, x, y, w, role.replace("AP ", "Advanced Programs "), (18,), BLACK, BODY) + 18
+    room = y0 + ph - y
     if advice:
-        y = para(s, M, y, 920, f"“{advice}”", (38, 34, 30, 28), BLACK, GARA, italic=True, maxh=room * 0.55) + 20
-        room = H - 120 - y
+        y = para(s, x, y, w, f"“{advice}”", (24, 22, 20), BLACK, GARA, italic=True, maxh=room * 0.6) + 12
+        room = y0 + ph - y
     if about:
-        para(s, M, y, 920, about, (26, 24, 22, 20), GREEN if advice else BLACK, BODY, maxh=room)
-    text(s, W - M - 300, H - 70, 300, 30, "soilfoodweb.com", 18, GREEN, HEAD, True, align="r")
+        para(s, x, y, w, about, (19, 18, 17, 16), GREEN if advice else BLACK, BODY, maxh=room)
 
 
 def build():
@@ -138,8 +131,15 @@ def build():
         piece(s, F[f], M + i * 184, 780, 170, 380)
     logo(s, W - M - 110, H - 70 - 110 * 668 / 743, 110, white=True)
 
-    for m in MENTORS:
-        card(d, *m)
+    for k in range(0, len(MENTORS), 2):                      # two mentors per slide: 7 slides
+        pair = MENTORS[k:k + 2]
+        s = d.slide(CREAM, "Mentors: " + ", ".join(f"{m[0]} {m[1]}" for m in pair) + ". About and advice lines: drafts "
+                    "from the team notes, confirm with each mentor (05-10-2026-mon-ig-teachers-day-mentors.md). Photo "
+                    "boxes marked PHOTO NEEDED: drop the mentor's photo in (written consent).", counter=False)
+        for i, m in enumerate(pair):
+            half(s, M + i * 600, *m)
+        rect(s, M, M + 560, W - 2 * M, 2, SAGE)
+        text(s, W - M - 300, H - 60, 300, 30, "soilfoodweb.com", 18, GREEN, HEAD, True, align="r")
 
     s = d.slide(GREEN, "Closing: every mentor on the roster thanked by name.", counter=False)
     text(s, M, 140, W - 2 * M, 260, "Thank you to every mentor who teaches our students to see soil.", 52, CREAM, HEAD,

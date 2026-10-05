@@ -1,6 +1,6 @@
 # Monday 5 October 2026 · Instagram · World Teachers' Day · Our mentors' best advice
 
-File: 05-10-2026-mon-ig-teachers-day-v2.pptx (16 slides: cover, 14 mentor cards, thank you)
+File: 05-10-2026-mon-ig-teachers-day-v2.pptx (9 slides: cover, 7 slides with two mentors each, thank you)
 Status: confirm each about line, advice line and photo consent with the mentor (see
 05-10-2026-mon-ig-teachers-day-mentors.md). Needs review by Allison.
 
