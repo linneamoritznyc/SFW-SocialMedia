@@ -1,29 +1,34 @@
 # Monday 5 October 2026 · Instagram · World Teachers' Day · Our mentors' best advice
 
-File: 05-10-2026-mon-ig-teachers-day-v2.pptx (6 slides)
-Status: before posting, confirm each mentor's advice line and facts with them, and that we have consent to use
-their photo (assets/mentors-teachers-day/README.md). Needs review by Allison.
+File: 05-10-2026-mon-ig-teachers-day-v2.pptx (16 slides: cover, 14 mentor cards, thank you)
+Status: confirm each about line, advice line and photo consent with the mentor (see
+05-10-2026-mon-ig-teachers-day-mentors.md). Needs review by Allison.
 
 ## Caption
 
-Happy World Teachers' Day 🌱 Today we're celebrating the mentors who teach our students to see soil. We asked for their best advice, in one line each. Swipe through 👉
+Happy World Teachers' Day 🌱 Today we're celebrating the mentors who teach our students to see soil. Swipe to meet them 👉
 
-🔬 Dr. Carla Portugal, Science Lead and Mentor. Carla holds a PhD in Environmental Sciences, brings 20 years of environmental and farm consulting, and has mentored with us since 2019. Her advice: "Bare soil erodes. Living roots and cover hold the aggregates together."
+🌻 Tommy Tepper, Director of Education and Mentor.
+🌻 Loida Vasquez, Advanced Programs Lead and Mentor.
+🌻 Dr. Carla Portugal, Science Lead and Mentor. A PhD in Environmental Sciences and 20 years of environmental and farm consulting. Her advice: "Bare soil erodes. Living roots and cover hold the aggregates together."
+🌻 Wesley Sanders, Advanced Programs Mentor. A farmer and agricultural journalist, then our first lab tech, now running Foothill Biological Soil Health Services in California. His advice: "Compost can look finished and still lack the biology you need. Check it under the microscope before you apply it."
+🌻 Casey Williams, Advanced Programs Mentor. Ten years of farming and gardening, a long-time student who now teaches. Favourite microbe: rotifers.
+🌻 Brian Daubenspeck, Advanced Programs Mentor. Manages orchards in California. Favourite microbes: the small underdogs.
+🌻 Isadora Schmidt, Advanced Programs Mentor. From Florianópolis, Brazil, now in Spain. She loves all her microbes equally, lichens most of all.
+🌻 Aysen Ustunay, Advanced Programs Mentor. Favourite microbe: flagellates, which she loves watching as babies, running around.
+🌻 Dora Tkalec, Advanced Programs Mentor.
+🌻 Gerald Ramirez, Advanced Programs Mentor in Costa Rica. A conventional agronomist who went looking for Dr. Elaine's teaching, and now teaches it. His advice: "Extracts pull organisms off the compost into solution, so you can apply biology across a whole field."
+🌻 Elena Kalli, Advanced Programs Admin.
+🌻 Ib Borup Pederson, Advanced Programs Mentor.
+🌻 Nick Padwick, Advanced Programs Mentor. Manages Ken Hill Estate, home of Wild Ken Hill, in England. His advice: "I make 750 tons of compost a year. Biology works at any scale."
+🌻 Delvin Solkinson, Permaculture Lead Teacher.
 
-🔬 Wesley Sanders, Advanced Programs Mentor, in the Sierra Nevada foothills of California. Wes spent ten years as an agricultural journalist and ten managing a farm, and now runs Foothill Biological Soil Health Services. His advice: "Compost can look finished and still lack the biology you need. Check it under the microscope before you apply it."
-
-🔬 Gerald Ramirez, Advanced Programs Mentor, in Costa Rica. Gerald is an agronomist from the University of Costa Rica and teaches compost extracts and teas. His advice: "Extracts pull organisms off the compost into solution, so you can apply biology across a whole field."
-
-🔬 Nick Padwick, Advanced Programs Mentor, in West Norfolk, England. Nick manages Ken Hill Estate, home of Wild Ken Hill, and was Farmers Weekly Farmer of the Year in 2009. His advice: "I make 750 tons of compost a year. Biology works at any scale."
-
-💚 And thank you to every mentor on our team: Tommy Tepper, Loida Vasquez, Casey Williams, Brian Daubenspeck, Isadora Schmidt, Aysen Ustunay, Dora Tkalec, Elena Kalli, Ib Borup Pederson and Delvin Solkinson.
+💚 Thank you, all of you.
 
 📤 Tag a teacher who helped you see soil differently.
 
 #WorldTeachersDay #SoilFoodWeb #SoilHealth #Mentors #RegenerativeAgriculture #LivingSoil
 
 ## Notes
-- Facts are from the mentor bios collected on 30 Sep 2026. Carla's location is not confirmed, so it is left off.
-- Nick's bio says "Farmers Weekly Farm Manager and Farmer of the Year, 2009". The caption says "Farmer of the Year"; check which title he prefers.
-- Elena Kalli is listed as Advanced Programs Admin, not a mentor; she is thanked with the team. Adjust if needed.
-- Tag the mentors' Instagram handles if they have them.
+- Mentors with only a name and role: add Allison's about lines to the caption and the cards when they arrive.
+- Tag each mentor's Instagram handle if they have one.
