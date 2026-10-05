@@ -107,7 +107,7 @@ def party(s, title, sub, foot):
     text(s, M, 1120, W - 2 * M, 40, foot, 24, BROWN, HEAD, True, align="c")
 
 
-def faces(s, y0, color=GREEN, fill_cells=True, people=None):
+def faces(s, y0, color=GREEN, fill_cells=True, people=None, with_logo=False):
     """All mentors as a regular grid of same-size square photos, name on a cream strip inside each. The title takes
     the first two cells of the top row (plain text, no box). 18 mentors: 5 columns, 2 + 18 = 20 cells, 4 full rows."""
     people = people or MENTORS
@@ -115,6 +115,9 @@ def faces(s, y0, color=GREEN, fill_cells=True, people=None):
     cell = (W - 2 * 48 - (n - 1) * gap) / n
     text(s, 48 + 4, y0, 2 * cell + gap - 8, cell, "Happy World Teachers' Day", 34 if n == 5 else 40, GREEN, HEAD, True,
          anchor="m", spacing=1.0)
+    if with_logo:   # centred under the grid
+        lw = 150; top = y0 + 4 * (cell + gap) + 6
+        logo(s, (W - lw) / 2, top, lw, white=False)
     for i, m in enumerate(people):
         c = i + 2; x = 48 + (c % n) * (cell + gap); y = y0 + (c // n) * (cell + gap)
         portrait(s, m[5], m[6], x, y, cell, cell)
@@ -198,7 +201,7 @@ def option4():
             mentor_text(s, m, 60 + cell + 36, y + cell / 2 - 90, W - 60 - (60 + cell + 36), y + cell, big=True)
     s = d.slide(CREAM, "All fourteen in a grid, alphabetical." + NOTE, counter=False)
     bunting(s, y=20, n=11)
-    faces(s, 262, people=abc)
+    faces(s, 190, people=abc, with_logo=True)
     s = d.slide(CREAM, "Closing: bunting, balloons and a big logo. Line to confirm with Linnea.", counter=False)
     party(s, "Happy World Teachers' Day", "", "soilfoodweb.com")
     save(d, "05-10-2026-mon-ig-teachers-day-option-4-ten-slides.pptx")
