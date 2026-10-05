@@ -85,18 +85,14 @@ def option1():
 
 def option2():
     d = Deck(name="05-10-2026-mon-ig-teachers-day-option-2-bunting")
-    s = d.slide(CREAM, "Option 2, slide 1: drawn bunting and confetti (PowerPoint shapes), five mentor faces." + NOTE, counter=False)
+    s = d.slide(CREAM, "Option 2, slide 1: drawn bunting and confetti (PowerPoint shapes)." + NOTE, counter=False)
     bunting(s)
     confetti(s, 26, (40, 200, W - 60, 300), 3)
     text(s, M, 330, W - 2 * M, 40, "OCTOBER 5", 24, GREEN, HEAD, True, track=4, align="c")
     text(s, M, 380, W - 2 * M, 240, "Happy World Teachers' Day", 76, GREEN, HEAD, True, spacing=1.0, align="c")
     text(s, M, 620, W - 2 * M, 100, "Thank you to the mentors who teach our students to see soil.", 30, BLACK, BODY, spacing=1.15, align="c")
-    pick = [MENTORS[i] for i in (2, 4, 9, 6, 12)]
-    d_ = 170; gap = 20; x0 = (W - (5 * d_ + 4 * gap)) / 2
-    for i, m in enumerate(pick):
-        portrait(s, m[5], m[6], x0 + i * (d_ + gap), 820, d_, d_, round_=True)
+    confetti(s, 30, (40, 780, W - 60, 980), 21)                 # no faces on the cover: nobody is singled out
     text(s, M, 1030, W - 2 * M, 40, "Swipe to meet all fourteen →", 22, BROWN, HEAD, True, align="c")
-    confetti(s, 14, (40, 1090, W - 60, 1180), 9)
     logo(s, (W - 100) / 2, H - 60 - 100 * 668 / 743, 100, white=False)
     s = d.slide(CREAM, "Option 2, slide 2: all fourteen mentors." + NOTE, counter=False)
     bunting(s, y=20, n=11)
@@ -126,41 +122,43 @@ from build_teachers_day_v2 import para
 
 
 def option4():
-    """10 slides: bunting cover, seven slides with two mentors each (square photos, name, role, about), the grid of all
-    fourteen, and a bunting thank-you."""
-    d = Deck(name="05-10-2026-mon-ig-teachers-day-option-4-ten-slides")
-    s = d.slide(CREAM, "Slide 1: bunting cover with five mentor faces." + NOTE, counter=False)
+    """7 slides: bunting cover, four slides with four mentors each (square photos, name, role, one line), the grid of
+    all fourteen, and a bunting thank-you."""
+    d = Deck(name="05-10-2026-mon-ig-teachers-day-option-4-seven-slides")
+    s = d.slide(CREAM, "Slide 1: bunting cover." + NOTE, counter=False)
     bunting(s); confetti(s, 26, (40, 200, W - 60, 300), 3)
     text(s, M, 330, W - 2 * M, 40, "OCTOBER 5", 24, GREEN, HEAD, True, track=4, align="c")
     text(s, M, 380, W - 2 * M, 240, "Happy World Teachers' Day", 76, GREEN, HEAD, True, spacing=1.0, align="c")
     text(s, M, 620, W - 2 * M, 100, "Meet the mentors who teach our students to see soil.", 30, BLACK, BODY, spacing=1.15, align="c")
-    pick = [MENTORS[i] for i in (2, 4, 9, 6, 12)]
-    d_ = 170; gap = 20; x0 = (W - (5 * d_ + 4 * gap)) / 2
-    for i, m in enumerate(pick):
-        portrait(s, m[5], m[6], x0 + i * (d_ + gap), 820, d_, d_)
+    confetti(s, 30, (40, 780, W - 60, 980), 21)                 # no faces on the cover: nobody is singled out
     text(s, M, 1030, W - 2 * M, 40, "Swipe to meet all fourteen →", 22, BROWN, HEAD, True, align="c")
     logo(s, (W - 100) / 2, H - 60 - 100 * 668 / 743, 100, white=False)
-    for k in range(0, len(MENTORS), 2):
-        pair = MENTORS[k:k + 2]
-        s = d.slide(CREAM, "Mentors: " + ", ".join(f"{m[0]} {m[1]}" for m in pair) + ". About lines: drafts from the "
+    for k in range(0, len(MENTORS), 4):                     # four mentors per slide (2 x 2); the last slide's
+        group = MENTORS[k:k + 4]                               # two spare cells hold the thank-you and the logo
+        s = d.slide(CREAM, "Mentors: " + ", ".join(f"{m[0]} {m[1]}" for m in group) + ". About lines: drafts from the "
                     "team notes; confirm with each mentor (05-10-2026-mon-ig-teachers-day-mentors.md)." + NOTE, counter=False)
         bunting(s, y=20, n=11)
-        cell = (W - 2 * 48 - 24) / 2
-        for i, m in enumerate(pair):
-            x = 48 + i * (cell + 24)
-            portrait(s, m[5], m[6], x, 220, cell, cell)
-            y = para(s, x, 220 + cell + 24, cell, f"{'Dr. ' if m[1] == 'Portugal' else ''}{m[0]} {m[1]}", (30, 27, 24),
-                     GREEN, HEAD, True, sp=1.0) + 4
-            y = para(s, x, y, cell, m[2].replace("AP ", "Advanced Programs "), (17,), BLACK, BODY) + 14
-            if m[4]:
-                y = para(s, x, y, cell, f"“{m[4]}”", (20, 18), BLACK, BODY, maxh=220) + 8
-            if m[3]:
-                para(s, x, y, cell, m[3], (16, 15), GREEN, BODY, maxh=H - 70 - y)
-        text(s, W - 48 - 300, H - 55, 300, 30, "soilfoodweb.com", 16, GREEN, HEAD, True, align="r")
-    s = d.slide(CREAM, "Slide 9: all fourteen in a grid." + NOTE, counter=False)
+        cell, gx, top, rowh = 440, 48, 175, 590
+        for i in range(4):
+            x = gx + (i % 2) * (cell + 104); y = top + (i // 2) * rowh
+            if i < len(group):
+                m = group[i]
+                portrait(s, m[5], m[6], x, y, cell, cell)
+                yy = para(s, x, y + cell + 14, cell, f"{'Dr. ' if m[1] == 'Portugal' else ''}{m[0]} {m[1]}", (26, 23, 21),
+                          GREEN, HEAD, True, sp=1.0) + 2
+                yy = para(s, x, yy, cell, m[2].replace("AP ", "Advanced Programs "), (16,), BLACK, BODY) + 6
+                line = f"“{m[4]}”" if m[4] else m[3]
+                if line: para(s, x, yy, cell, line, (15, 14, 13), GREEN, BODY, maxh=y + rowh - 10 - yy)
+            elif i == len(group):
+                rect(s, x, y, cell, cell, GREEN)
+                text(s, x + 30, y, cell - 60, cell, "Thank you, mentors!", 40, CREAM, HEAD, True, align="c", anchor="m", spacing=1.05)
+            else:
+                rect(s, x, y, cell, cell, TAN)
+                logo(s, x + (cell - 220) / 2, y + (cell - 220 * 668 / 743) / 2, 220, white=True)
+    s = d.slide(CREAM, "All fourteen in a grid." + NOTE, counter=False)
     bunting(s, y=20, n=11)
     faces(s, 230)
-    s = d.slide(CREAM, "Slide 10: thank you, with bunting and confetti.", counter=False)
+    s = d.slide(CREAM, "Thank you, with bunting and confetti.", counter=False)
     bunting(s); confetti(s, 30, (40, 200, W - 60, 320), 11)
     text(s, M, 380, W - 2 * M, 260, "Thank you to every mentor who teaches our students to see soil.", 56, GREEN, HEAD,
          True, spacing=1.05, align="c")
@@ -168,7 +166,7 @@ def option4():
          align="c")
     confetti(s, 16, (40, 900, W - 60, 1050), 13)
     logo(s, (W - 140) / 2, H - 80 - 140 * 668 / 743, 140, white=False)
-    save(d, "05-10-2026-mon-ig-teachers-day-option-4-ten-slides.pptx")
+    save(d, "05-10-2026-mon-ig-teachers-day-option-4-seven-slides.pptx")
 
 
 if __name__ == "__main__":
