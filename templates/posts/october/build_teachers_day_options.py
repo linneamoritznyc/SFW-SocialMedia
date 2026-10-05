@@ -86,7 +86,7 @@ def party(s, title, sub, foot):
     text(s, M, 1120, W - 2 * M, 40, foot, 24, BROWN, HEAD, True, align="c")
 
 
-def faces(s, y0, color=GREEN, fill_cells=True):
+def faces(s, y0, color=GREEN, fill_cells=True, people=None):
     """All fourteen mentors as square photos in rows of 4, 3, 4, 3 (the rows of three centred), name on a cream strip
     inside each square. No filler squares."""
     n, gap = 4, 8
@@ -95,7 +95,7 @@ def faces(s, y0, color=GREEN, fill_cells=True):
     for r, k in enumerate((4, 3, 4, 3)):
         x0 = (W - k * cell - (k - 1) * gap) / 2; y = y0 + r * (cell + gap)
         for j in range(k):
-            m = MENTORS[i]; i += 1; x = x0 + j * (cell + gap)
+            m = (people or MENTORS)[i]; i += 1; x = x0 + j * (cell + gap)
             portrait(s, m[5], m[6], x, y, cell, cell)
             rect(s, x, y + cell - 44, cell, 44, CREAM, alpha=88)
             text(s, x + 6, y + cell - 44, cell - 12, 44, f"{m[0]} {m[1]}", 15, GREEN, HEAD, True, align="c", anchor="m")
@@ -158,34 +158,28 @@ def mentor_text(s, m, x, y, w, maxh, big=False):
 
 
 def option4():
-    """7 slides: bunting cover, two slides with four mentors (2 x 2) and two with three (one per row, photo left,
-    text right) so no slide needs filler squares, the grid of all fourteen, and a plain closing slide."""
-    d = Deck(name="05-10-2026-mon-ig-teachers-day-option-4-seven-slides")
+    """10 slides, every mentor treated the same: bunting cover, seven slides with two mentors each (same layout, same
+    size, alphabetical by surname so nobody comes first), the grid of all fourteen, and a plain closing slide."""
+    d = Deck(name="05-10-2026-mon-ig-teachers-day-option-4-ten-slides")
     s = d.slide(CREAM, "Slide 1: bunting, balloons and stars (PowerPoint shapes), big logo." + NOTE, counter=False)
     party(s, "Happy World Teachers' Day", "Meet our fourteen mentors.", "Swipe →")
-    for a, b in ((0, 4), (4, 8), (8, 11), (11, 14)):
-        group = MENTORS[a:b]
+    abc = sorted(MENTORS, key=lambda m: (m[1], m[0]))
+    for k in range(0, len(abc), 2):
+        group = abc[k:k + 2]
         s = d.slide(CREAM, "Mentors: " + ", ".join(f"{m[0]} {m[1]}" for m in group) + ". About lines: drafts from the "
                     "team notes; confirm with each mentor (05-10-2026-mon-ig-teachers-day-mentors.md)." + NOTE, counter=False)
         bunting(s, y=20, n=11)
-        if len(group) == 4:
-            cell, gx, top, rowh = 440, 48, 175, 590
-            for i, m in enumerate(group):
-                x = gx + (i % 2) * (cell + 104); y = top + (i // 2) * rowh
-                portrait(s, m[5], m[6], x, y, cell, cell)
-                mentor_text(s, m, x, y + cell + 14, cell, y + rowh - 10)
-        else:
-            cell, top, rowh = 365, 170, 390
-            for i, m in enumerate(group):
-                y = top + i * rowh
-                portrait(s, m[5], m[6], 60, y, cell, cell)
-                mentor_text(s, m, 60 + cell + 40, y + 20, W - 60 - (60 + cell + 40), y + cell, big=True)
-    s = d.slide(CREAM, "All fourteen in a grid." + NOTE, counter=False)
+        cell, top, rowh = 520, 180, 565
+        for i, m in enumerate(group):
+            y = top + i * rowh
+            portrait(s, m[5], m[6], 60, y, cell, cell)
+            mentor_text(s, m, 60 + cell + 36, y + 20, W - 60 - (60 + cell + 36), y + cell, big=True)
+    s = d.slide(CREAM, "All fourteen in a grid, alphabetical." + NOTE, counter=False)
     bunting(s, y=20, n=11)
-    faces(s, 210)
+    faces(s, 210, people=abc)
     s = d.slide(CREAM, "Closing: bunting, balloons and a big logo. Line to confirm with Linnea.", counter=False)
     party(s, "Happy World Teachers' Day", "", "soilfoodweb.com")
-    save(d, "05-10-2026-mon-ig-teachers-day-option-4-seven-slides.pptx")
+    save(d, "05-10-2026-mon-ig-teachers-day-option-4-ten-slides.pptx")
 
 
 if __name__ == "__main__":
