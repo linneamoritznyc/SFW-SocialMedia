@@ -108,16 +108,26 @@ def party(s, title, sub, foot):
 
 
 def faces(s, y0, color=GREEN, fill_cells=True, people=None, with_logo=False):
-    """All mentors as a regular grid of same-size square photos, name on a cream strip inside each. The title takes
-    the first two cells of the top row (plain text, no box). 18 mentors: 5 columns, 2 + 18 = 20 cells, 4 full rows."""
+    """All mentors as a regular grid of same-size square photos. The title takes the first two cells of the top row
+    (plain text, no box). with_logo: names as plain captions under each photo (no box) and the logo under the title;
+    otherwise names sit on a cream strip inside each photo."""
     people = people or MENTORS
-    n, gap = (5, 8) if len(people) > 14 else (4, 8)
+    n = 5 if len(people) > 14 else 4
+    if with_logo:
+        cell, gap, cap = 225, 12, 36
+        x0 = (W - n * cell - (n - 1) * gap) / 2; rowh = cell + cap + 14
+        text(s, x0, y0 + 4, 2 * cell + gap, 110, "Happy World Teachers' Day", 40, GREEN, HEAD, True, spacing=1.0)
+        lw = 140; logo(s, x0, y0 + cell + cap - lw * 668 / 743, lw, white=False)
+        for i, m in enumerate(people):
+            c = i + 2; x = x0 + (c % n) * (cell + gap); y = y0 + (c // n) * rowh
+            portrait(s, m[5], m[6], x, y, cell, cell)
+            last = m[1].split()[-1] if m[0] == "Carla" else m[1]
+            text(s, x, y + cell + 6, cell, cap - 6, f"{m[0]} {last}", 18, BLACK, BODY)
+        return
+    gap = 8
     cell = (W - 2 * 48 - (n - 1) * gap) / n
     text(s, 48 + 4, y0, 2 * cell + gap - 8, cell, "Happy World Teachers' Day", 34 if n == 5 else 40, GREEN, HEAD, True,
          anchor="m", spacing=1.0)
-    if with_logo:   # centred under the grid
-        lw = 150; top = y0 + 4 * (cell + gap) + 6
-        logo(s, (W - lw) / 2, top, lw, white=False)
     for i, m in enumerate(people):
         c = i + 2; x = 48 + (c % n) * (cell + gap); y = y0 + (c // n) * (cell + gap)
         portrait(s, m[5], m[6], x, y, cell, cell)
@@ -201,7 +211,7 @@ def option4():
             mentor_text(s, m, 60 + cell + 36, y + cell / 2 - 90, W - 60 - (60 + cell + 36), y + cell, big=True)
     s = d.slide(CREAM, "All fourteen in a grid, alphabetical." + NOTE, counter=False)
     bunting(s, y=20, n=11)
-    faces(s, 190, people=abc, with_logo=True)
+    faces(s, 185, people=abc, with_logo=True)
     s = d.slide(CREAM, "Closing: bunting, balloons and a big logo. Line to confirm with Linnea.", counter=False)
     party(s, "Happy World Teachers' Day", "", "soilfoodweb.com")
     save(d, "05-10-2026-mon-ig-teachers-day-option-4-ten-slides.pptx")
