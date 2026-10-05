@@ -19,8 +19,11 @@ ORDERS = {
 }
 
 d = Deck(name="05-10-2026-mon-ig-teachers-day-grid-tests")
+IB_AT = 8   # Linnea, 5 Oct 2026: Ib not in the top row; third photo of the third row (cell 10 = index 8)
 for name, order in ORDERS.items():
     people = [BY[x] if isinstance(x, str) else x for x in order]
+    j = next(k for k, p in enumerate(people) if p[0] == "Ib")
+    people[j], people[IB_AT] = people[IB_AT], people[j]
     assert len(people) == 14 and len({p[0] for p in people}) == 14
     s = d.slide(CREAM, f"Grid test {name}." + NOTE, counter=False)
     bunting(s, y=20, n=11)

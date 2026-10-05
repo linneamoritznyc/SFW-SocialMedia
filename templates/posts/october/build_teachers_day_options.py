@@ -93,14 +93,15 @@ def star(s, cx, cy, d, color):
     sh.fill.solid(); sh.fill.fore_color.rgb = RGBColor.from_string(color); sh.line.fill.background(); sh.shadow.inherit = False
 
 
-def party(s, title, sub, foot):
+def party(s, title, sub, foot, sub_w=None):
     """Cover and closing layout: bunting, stars by the date, title, two balloon bouquets and a big logo between them."""
     bunting(s)
     star(s, 330, 278, 34, TAN); star(s, W - 330, 278, 34, TAN)
     text(s, M, 255, W - 2 * M, 50, "OCTOBER 5", 26, GREEN, HEAD, True, track=4, align="c")
     pt = 76 if len(title) < 30 else 56
     text(s, M, 320, W - 2 * M, 280, title, pt, GREEN, HEAD, True, spacing=1.0, align="c")
-    if sub: text(s, M, 600, W - 2 * M, 100, sub, 30, BLACK, BODY, spacing=1.15, align="c")
+    sw = sub_w or W - 2 * M
+    if sub: text(s, (W - sw) / 2, 600, sw, 100, sub, 30, BLACK, BODY, spacing=1.15, align="c")
     bouquet(s, -1); bouquet(s, 1)
     lw = 300
     logo(s, (W - lw) / 2, 760, lw, white=False)
@@ -197,7 +198,7 @@ def option4():
     size, alphabetical by surname so nobody comes first), the grid of all fourteen, and a plain closing slide."""
     d = Deck(name="05-10-2026-mon-ig-teachers-day-option-4-ten-slides")
     s = d.slide(CREAM, "Slide 1: bunting, balloons and stars (PowerPoint shapes), big logo." + NOTE, counter=False)
-    party(s, "Happy World Teachers' Day", "Meet our fourteen mentors.", "Swipe →")
+    party(s, "Happy World Teachers' Day", "Thank you to everyone who teaches and mentors our students.", "Swipe →", sub_w=620)
     abc = sorted(MENTORS, key=lambda m: unicodedata.normalize("NFD", m[1].split()[-1] if m[0] == "Carla" else m[1]))
     for k in range(0, len(abc), 2):
         group = abc[k:k + 2]
@@ -209,9 +210,12 @@ def option4():
             y = top + i * rowh
             portrait(s, m[5], m[6], 60, y, cell, cell)
             mentor_text(s, m, 60 + cell + 36, y + cell / 2 - 90, W - 60 - (60 + cell + 36), y + cell, big=True)
+        lw = 150; logo(s, W - 40 - lw, H - 40 - lw * 668 / 743, lw, white=False)   # bottom right (Linnea's mockup)
     s = d.slide(CREAM, "All fourteen in a grid, alphabetical." + NOTE, counter=False)
     bunting(s, y=20, n=11)
-    faces(s, 185, people=abc, with_logo=True)
+    grid = list(abc); j = next(k for k, m in enumerate(grid) if m[0] == "Ib")
+    grid[j], grid[8] = grid[8], grid[j]     # Linnea: Ib third photo of the third row, not in the top row
+    faces(s, 185, people=grid, with_logo=True)
     s = d.slide(CREAM, "Closing: bunting, balloons and a big logo. Line to confirm with Linnea.", counter=False)
     party(s, "Happy World Teachers' Day", "", "soilfoodweb.com")
     save(d, "05-10-2026-mon-ig-teachers-day-option-4-ten-slides.pptx")
