@@ -15,7 +15,7 @@ from lib import Deck, rect, poly, text, crop, PX, HEAD, BODY
 from build_oct_01_10 import logo, save
 from build_teachers_day_v2 import MENTORS, portrait, GARA
 
-GREEN, CREAM, BROWN, TAN, SAGE, GOLD, BLACK = "31662F", "F3F1EA", "4C3634", "C09D7F", "B1BCB1", "D39C48", "1A1A1A"
+GREEN, CREAM, BROWN, TAN, SAGE, GOLD, BLACK = "31662F", "F3F1EA", "4C3634", "C09D7F", "B1BCB1", "D39C48", "333130"
 W, H, M = 1080, 1350, 80
 GROUP = "assets/mentors-teachers-day/group-mentors-workshop.jpg"
 NOTE = (" Mentor photos: Linnea's Drive folder (5 Oct 2026) and assets/mentors-teachers-day/; written consent per the "

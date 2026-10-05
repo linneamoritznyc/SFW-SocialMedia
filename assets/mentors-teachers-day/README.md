@@ -10,7 +10,7 @@ Head and shoulders, at least 1000 px on the short side. They are cropped to a ci
 | :-- | :-- | :-- |
 | `carla-portugal.jpg` | Dr. Carla Portugal, Science Leader | Mon slide 2 |
 | `nick-padwick.jpg` | Nick Padwick, farmer, Norfolk | Mon slide 3 |
-| `wes-sander.jpg` | Wes Sander, microscopy | Mon slide 4 |
+| `wes-sander.jpg` | Wesley Sanders, microscopy | Mon slide 4 |
 | `gerald-ramirez.jpg` | Gerald Ramírez, compost extracts and teas | Mon slide 5 |
 | `caterina-capri.jpg` | Dr. Caterina Capri, Advanced Programs | Mon slide 6 |
 
