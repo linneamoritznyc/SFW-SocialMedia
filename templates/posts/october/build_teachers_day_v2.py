@@ -131,14 +131,14 @@ def half(s, y0, first, last, role, about, advice, photo, focus, flowers):
 def build_a():
     d = Deck(name="05-10-2026-mon-ig-teachers-day-v2")
 
-    s = d.slide(GREEN, "Cover. World Teachers' Day, 5 October. Cut-paper flowers from the collage library.", counter=False)
-    text(s, M, 120, W - 2 * M, 40, "WORLD TEACHERS' DAY · 5 OCTOBER", 20, SAGE, HEAD, True, track=3)
-    text(s, M, 180, W - 2 * M, 360, "Happy World Teachers' Day.", 76, CREAM, HEAD, True, spacing=1.0)
-    text(s, M, 540, W - 2 * M, 160, "Meet the mentors who teach our students to see soil.", 36, CREAM, GARA,
+    s = d.slide(CREAM, "Cover. World Teachers' Day, 5 October. Cut-paper flowers from the collage library.", counter=False)
+    text(s, M, 120, W - 2 * M, 40, "WORLD TEACHERS' DAY · 5 OCTOBER", 20, GREEN, HEAD, True, track=3)
+    text(s, M, 180, W - 2 * M, 360, "Happy World Teachers' Day.", 76, GREEN, HEAD, True, spacing=1.0)
+    text(s, M, 540, W - 2 * M, 160, "Meet the mentors who teach our students to see soil.", 36, BLACK, GARA,
          italic=True, spacing=1.15)
     for i, f in enumerate(["tithonia", "dried", "tansy", "sprig", "seedling"]):
         piece(s, F[f], M + i * 184, 780, 170, 380)
-    logo(s, W - M - 110, H - 70 - 110 * 668 / 743, 110, white=True)
+    logo(s, W - M - 110, H - 70 - 110 * 668 / 743, 110, white=False)
 
     for k in range(0, len(MENTORS), 2):                      # two mentors per slide: 7 slides
         pair = MENTORS[k:k + 2]
@@ -150,14 +150,14 @@ def build_a():
         rect(s, M, M + 560, W - 2 * M, 2, SAGE)
         text(s, W - M - 300, H - 60, 300, 30, "soilfoodweb.com", 18, GREEN, HEAD, True, align="r")
 
-    s = d.slide(GREEN, "Closing: every mentor on the roster thanked by name.", counter=False)
-    text(s, M, 140, W - 2 * M, 260, "Thank you to every mentor who teaches our students to see soil.", 52, CREAM, HEAD,
+    s = d.slide(CREAM, "Closing: every mentor on the roster thanked by name.", counter=False)
+    text(s, M, 140, W - 2 * M, 260, "Thank you to every mentor who teaches our students to see soil.", 52, GREEN, HEAD,
          True, spacing=1.08)
     names = " · ".join(f"{m[0]} {m[1]}" for m in MENTORS)
-    text(s, M, 470, W - 2 * M, 380, names, 30, CREAM, GARA, italic=True, spacing=1.35)
+    text(s, M, 470, W - 2 * M, 380, names, 30, BLACK, GARA, italic=True, spacing=1.35)
     for i, f in enumerate(["sprig", "tansy", "tithonia", "dried"]):
         piece(s, F[f], M + i * 190, 930, 170, 300)
-    logo(s, W - M - 110, H - 70 - 110 * 668 / 743, 110, white=True)
+    logo(s, W - M - 110, H - 70 - 110 * 668 / 743, 110, white=False)
     save(d, "05-10-2026-mon-ig-teachers-day-A-pairs.pptx")
 
 
@@ -189,23 +189,23 @@ def portrait(s, photo, focus, x, y, w, h, round_=False):
 
 
 def cover(d, sub):
-    s = d.slide(GREEN, "Cover. World Teachers' Day, 5 October.", counter=False)
-    text(s, M, 120, W - 2 * M, 40, "WORLD TEACHERS' DAY · 5 OCTOBER", 20, SAGE, HEAD, True, track=3)
-    text(s, M, 180, W - 2 * M, 360, "Happy World Teachers' Day.", 76, CREAM, HEAD, True, spacing=1.0)
-    text(s, M, 540, W - 2 * M, 160, sub, 36, CREAM, GARA, italic=True, spacing=1.15)
+    s = d.slide(CREAM, "Cover. World Teachers' Day, 5 October.", counter=False)
+    text(s, M, 120, W - 2 * M, 40, "WORLD TEACHERS' DAY · 5 OCTOBER", 20, GREEN, HEAD, True, track=3)
+    text(s, M, 180, W - 2 * M, 360, "Happy World Teachers' Day.", 76, GREEN, HEAD, True, spacing=1.0)
+    text(s, M, 540, W - 2 * M, 160, sub, 36, BLACK, GARA, italic=True, spacing=1.15)
     for i, f in enumerate(["tithonia", "dried", "tansy", "sprig", "seedling"]):
         piece(s, F[f], M + i * 184, 780, 170, 380)
-    logo(s, W - M - 110, H - 70 - 110 * 668 / 743, 110, white=True)
+    logo(s, W - M - 110, H - 70 - 110 * 668 / 743, 110, white=False)
 
 
 def thanks(d):
-    s = d.slide(GREEN, "Closing: every mentor on the roster thanked by name.", counter=False)
-    text(s, M, 140, W - 2 * M, 260, "Thank you to every mentor who teaches our students to see soil.", 52, CREAM, HEAD,
+    s = d.slide(CREAM, "Closing: every mentor on the roster thanked by name.", counter=False)
+    text(s, M, 140, W - 2 * M, 260, "Thank you to every mentor who teaches our students to see soil.", 52, GREEN, HEAD,
          True, spacing=1.08)
-    text(s, M, 470, W - 2 * M, 380, " · ".join(f"{m[0]} {m[1]}" for m in MENTORS), 30, CREAM, GARA, italic=True, spacing=1.35)
+    text(s, M, 470, W - 2 * M, 380, " · ".join(f"{m[0]} {m[1]}" for m in MENTORS), 30, BLACK, GARA, italic=True, spacing=1.35)
     for i, f in enumerate(["sprig", "tansy", "tithonia", "dried"]):
         piece(s, F[f], M + i * 190, 930, 170, 300)
-    logo(s, W - M - 110, H - 70 - 110 * 668 / 743, 110, white=True)
+    logo(s, W - M - 110, H - 70 - 110 * 668 / 743, 110, white=False)
 
 
 def grid(s, people, y0, cols, cw, ch, gap, labels=True, round_=False, txt=GREEN, sub=BLACK):
@@ -245,17 +245,17 @@ def build_c():
     """Version C, 2 slides (Linnea's simple option): all fourteen mentors in one photo collage, then a celebration
     card. Works without the questionnaire answers."""
     d = Deck(name="05-10-2026-mon-ig-teachers-day-C-collage")
-    s = d.slide(GREEN, "Slide 1: all fourteen mentors, round portraits, names under each.", counter=False)
-    text(s, M, 70, W - 2 * M, 40, "OUR MENTORS", 20, SAGE, HEAD, True, track=3)
+    s = d.slide(CREAM, "Slide 1: all fourteen mentors, round portraits, names under each.", counter=False)
+    text(s, M, 70, W - 2 * M, 40, "OUR MENTORS", 20, GREEN, HEAD, True, track=3)
     cols, cw, gap = 4, 196, 45
     for i, m in enumerate(MENTORS):
         row = i // cols; n_in_row = min(cols, len(MENTORS) - row * cols)
         x0 = (W - (n_in_row * cw + (n_in_row - 1) * gap)) / 2
         x = x0 + (i % cols) * (cw + gap); y = 140 + row * 290
         portrait(s, m[5], m[6], x, y, cw, cw, round_=True)
-        text(s, x - 22, y + cw + 8, cw + 44, 30, m[0] + " " + m[1], 17, CREAM, HEAD, True, align="c")
-    text(s, M, H - 70, 600, 30, "soilfoodweb.com", 18, CREAM, HEAD, True)
-    logo(s, W - M - 90, H - 60 - 90 * 668 / 743, 90, white=True)
+        text(s, x - 22, y + cw + 8, cw + 44, 30, m[0] + " " + m[1], 17, GREEN, HEAD, True, align="c")
+    text(s, M, H - 70, 600, 30, "soilfoodweb.com", 18, GREEN, HEAD, True)
+    logo(s, W - M - 90, H - 60 - 90 * 668 / 743, 90, white=False)
 
     s = d.slide(CREAM, "Slide 2: celebration card. Cut-paper flowers as a bouquet, confetti dots drawn as shapes.", counter=False)
     import random
