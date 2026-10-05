@@ -7,13 +7,33 @@ photos, drawn shapes (bunting, confetti), brand colours on cream.
 
 python3 templates/posts/october/build_teachers_day_options.py
 """
-import math, random
+import math, random, unicodedata
 from pptx.util import Emu
 from pptx.enum.shapes import MSO_SHAPE
 from pptx.dml.color import RGBColor
 from lib import Deck, rect, poly, text, crop, PX, HEAD, BODY
 from build_oct_01_10 import logo, save
 from build_teachers_day_v2 import MENTORS, portrait, GARA
+
+# Names and roles as on the SFW team page (pasted by Linnea, 5 Oct 2026). Wesley Sanders: Linnea's spelling (the team
+# page says Sander). Tepper and Schmidt kept from her mentor list (the team page says Tapper and Shmidt): to confirm.
+SITE = {
+    "Tommy": ("Tommy", "Tepper", "Instructor"),
+    "Loida": ("Loida", "Vasquez", "Advanced Programs Lead"),
+    "Carla": ("Carla", "Ribeiro Machado e Portugal", "SFW Mentor"),
+    "Wesley": ("Wesley", "Sanders", "SFW Consultant & Mentor"),
+    "Casey": ("Casey", "Williams", "SFW Consultant & Mentor"),
+    "Brian": ("Brian", "Daubenspeck", "SFW Consultant & Mentor"),
+    "Isadora": ("Isadora", "Schmidt", "SFW Consultant & Mentor"),
+    "Aysen": ("Ayşen", "Üstünay", "SFW Consultant & Mentor"),
+    "Dora": ("Dora", "Tkalec", "SFW Consultant & Mentor"),
+    "Gerald": ("Gerald", "Ramírez", "SFW Mentor"),
+    "Elena": ("Elena", "Kalli", "School Administration Officer"),
+    "Ib": ("Ib", "Borup Pedersen", "Farmer, SFW Consultant & Mentor"),
+    "Nick": ("Nick", "Padwick", "Farmer, SFW Consultant & Mentor"),
+    "Delvin": ("Delvin", "Solkinson", "SFW Permaculture Lead"),
+}
+MENTORS = [SITE[m[0]] + tuple(m[3:]) for m in MENTORS]
 
 GREEN, CREAM, BROWN, TAN, SAGE, GOLD, BLACK = "31662F", "F3F1EA", "4C3634", "C09D7F", "B1BCB1", "D39C48", "333130"
 W, H, M = 1080, 1350, 80
@@ -96,7 +116,7 @@ def faces(s, y0, color=GREEN, fill_cells=True, people=None):
         c = i + 2; x = 48 + (c % n) * (cell + gap); y = y0 + (c // n) * (cell + gap)
         portrait(s, m[5], m[6], x, y, cell, cell)
         rect(s, x, y + cell - 44, cell, 44, CREAM, alpha=88)
-        text(s, x + 6, y + cell - 44, cell - 12, 44, f"{m[0]} {m[1]}", 15, GREEN, HEAD, True, align="c", anchor="m")
+        text(s, x + 6, y + cell - 44, cell - 12, 44, f"{m[0]} {m[1].split()[-1] if m[0] == 'Carla' else m[1]}", 15, GREEN, HEAD, True, align="c", anchor="m")
 
 
 def option1():
@@ -148,11 +168,10 @@ from build_teachers_day_v2 import para
 
 
 def mentor_text(s, m, x, y, w, maxh, big=False):
-    yy = para(s, x, y, w, f"{'Dr. ' if m[1] == 'Portugal' else ''}{m[0]} {m[1]}", (38, 34, 30) if big else (26, 23, 21),
-              GREEN, HEAD, True, sp=1.0) + (8 if big else 2)
-    yy = para(s, x, yy, w, m[2].replace("AP ", "Advanced Programs "), (24,) if big else (16,), BLACK, BODY) + (14 if big else 6)
-    line = f"“{m[4]}”" if m[4] else m[3]
-    if line: para(s, x, yy, w, line, (22, 20, 18) if big else (15, 14, 13), GREEN, BODY, maxh=maxh - yy)
+    """Name and role only, from the team page, the same for every mentor (no drafted quotes or fun facts)."""
+    name = f"{'Dr. ' if m[0] == 'Carla' else ''}{m[0]} {m[1]}"
+    yy = para(s, x, y, w, name, (40, 36, 32) if big else (26, 23, 21), GREEN, HEAD, True, sp=1.0) + (12 if big else 2)
+    para(s, x, yy, w, m[2], (26,) if big else (16,), BLACK, BODY)
 
 
 def option4():
@@ -161,7 +180,7 @@ def option4():
     d = Deck(name="05-10-2026-mon-ig-teachers-day-option-4-ten-slides")
     s = d.slide(CREAM, "Slide 1: bunting, balloons and stars (PowerPoint shapes), big logo." + NOTE, counter=False)
     party(s, "Happy World Teachers' Day", "Meet our fourteen mentors.", "Swipe →")
-    abc = sorted(MENTORS, key=lambda m: (m[1], m[0]))
+    abc = sorted(MENTORS, key=lambda m: unicodedata.normalize("NFD", m[1].split()[-1] if m[0] == "Carla" else m[1]))
     for k in range(0, len(abc), 2):
         group = abc[k:k + 2]
         s = d.slide(CREAM, "Mentors: " + ", ".join(f"{m[0]} {m[1]}" for m in group) + ". About lines: drafts from the "
@@ -171,7 +190,7 @@ def option4():
         for i, m in enumerate(group):
             y = top + i * rowh
             portrait(s, m[5], m[6], 60, y, cell, cell)
-            mentor_text(s, m, 60 + cell + 36, y + 20, W - 60 - (60 + cell + 36), y + cell, big=True)
+            mentor_text(s, m, 60 + cell + 36, y + cell / 2 - 90, W - 60 - (60 + cell + 36), y + cell, big=True)
     s = d.slide(CREAM, "All fourteen in a grid, alphabetical." + NOTE, counter=False)
     bunting(s, y=20, n=11)
     faces(s, 262, people=abc)
