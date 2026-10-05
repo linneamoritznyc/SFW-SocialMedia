@@ -12,7 +12,6 @@ Head and shoulders, at least 1000 px on the short side. They are cropped to a ci
 | `nick-padwick.jpg` | Nick Padwick, farmer, Norfolk | Mon slide 3 |
 | `wes-sander.jpg` | Wesley Sanders, microscopy | Mon slide 4 |
 | `gerald-ramirez.jpg` | Gerald Ramírez, compost extracts and teas | Mon slide 5 |
-| `caterina-capri.jpg` | Dr. Caterina Capri, Advanced Programs | Mon slide 6 |
 
 ## Other photos (3)
 | File name | What | Used on |
@@ -26,5 +25,3 @@ Head and shoulders, at least 1000 px on the short side. They are cropped to a ci
 - Written consent from the person, and a credit if the photographer needs one (list it in CREDITS.md in this folder).
 - Do not use photos of people who are not on the list above.
 
-## Added 5 Oct 2026 (Linnea's Drive folder)
-`elina-psara.jpg`, `caterina-capri.jpg`, `laura-campos.jpg`, `nora-levay.jpg`: Teachers' Day carousel, option 4.

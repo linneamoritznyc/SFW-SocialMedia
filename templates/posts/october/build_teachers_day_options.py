@@ -15,16 +15,16 @@ from lib import Deck, rect, poly, text, crop, PX, HEAD, BODY
 from build_oct_01_10 import logo, save
 from build_teachers_day_v2 import MENTORS, portrait, GARA
 
-# Names and roles as on the SFW team page (pasted by Linnea, 5 Oct 2026). Wesley Sanders: Linnea's spelling (the team
-# page says Sander). Tepper and Schmidt kept from her mentor list (the team page says Tapper and Shmidt): to confirm.
+# Names and roles exactly as Linnea gave them (team page, 5 Oct 2026). Elina Psara, Caterina Capri, Laura Campos and
+# Nora Levay are not on the team now (Linnea, 5 Oct 2026), so they are not in the post.
 SITE = {
-    "Tommy": ("Tommy", "Tepper", "Instructor"),
+    "Tommy": ("Tommy", "Tapper", "Instructor"),
     "Loida": ("Loida", "Vasquez", "Advanced Programs Lead"),
     "Carla": ("Carla", "Ribeiro Machado e Portugal", "SFW Mentor"),
-    "Wesley": ("Wesley", "Sanders", "SFW Consultant & Mentor"),
+    "Wesley": ("Wesley", "Sander", "SFW Consultant & Mentor"),
     "Casey": ("Casey", "Williams", "SFW Consultant & Mentor"),
     "Brian": ("Brian", "Daubenspeck", "SFW Consultant & Mentor"),
-    "Isadora": ("Isadora", "Schmidt", "SFW Consultant & Mentor"),
+    "Isadora": ("Isadora", "Shmidt", "SFW Consultant & Mentor"),
     "Aysen": ("Ayşen", "Üstünay", "SFW Consultant & Mentor"),
     "Dora": ("Dora", "Tkalec", "SFW Consultant & Mentor"),
     "Gerald": ("Gerald", "Ramírez", "SFW Mentor"),
@@ -34,13 +34,6 @@ SITE = {
     "Delvin": ("Delvin", "Solkinson", "SFW Permaculture Lead"),
 }
 MENTORS = [SITE[m[0]] + tuple(m[3:]) for m in MENTORS]
-_P = "assets/mentors-teachers-day/"
-MENTORS += [   # added by Linnea, 5 Oct 2026 (Drive folder); roles from the team page
-    ("Elina", "Psara", "SFW Mentor Team Lead", None, None, _P + "elina-psara.jpg", (0.5, 0.4), ()),
-    ("Caterina", "Capri", "SFW Mentor", None, None, _P + "caterina-capri.jpg", (0.5, 0.35), ()),
-    ("Laura", "Campos", "SFW Mentor", None, None, _P + "laura-campos.jpg", (0.5, 0.4), ()),
-    ("Nora", "Levay", "SFW Mentor", None, None, _P + "nora-levay.jpg", (0.5, 0.35), ()),
-]
 DR = {"Carla", "Elina", "Caterina", "Nora"}
 
 GREEN, CREAM, BROWN, TAN, SAGE, GOLD, BLACK = "31662F", "F3F1EA", "4C3634", "C09D7F", "B1BCB1", "D39C48", "333130"
@@ -187,28 +180,28 @@ def mentor_text(s, m, x, y, w, maxh, big=False):
 
 
 def option4():
-    """9 slides, every mentor treated the same: bunting cover, six slides with three mentors each (same layout, same
-    size, alphabetical by surname so nobody comes first), the grid of all eighteen, and a plain closing slide."""
-    d = Deck(name="05-10-2026-mon-ig-teachers-day-option-4-nine-slides")
+    """10 slides, every mentor treated the same: bunting cover, seven slides with two mentors each (same layout, same
+    size, alphabetical by surname so nobody comes first), the grid of all fourteen, and a plain closing slide."""
+    d = Deck(name="05-10-2026-mon-ig-teachers-day-option-4-ten-slides")
     s = d.slide(CREAM, "Slide 1: bunting, balloons and stars (PowerPoint shapes), big logo." + NOTE, counter=False)
-    party(s, "Happy World Teachers' Day", "Meet our eighteen mentors.", "Swipe →")
+    party(s, "Happy World Teachers' Day", "Meet our fourteen mentors.", "Swipe →")
     abc = sorted(MENTORS, key=lambda m: unicodedata.normalize("NFD", m[1].split()[-1] if m[0] == "Carla" else m[1]))
-    for k in range(0, len(abc), 3):
-        group = abc[k:k + 3]
+    for k in range(0, len(abc), 2):
+        group = abc[k:k + 2]
         s = d.slide(CREAM, "Mentors: " + ", ".join(f"{m[0]} {m[1]}" for m in group) + ". About lines: drafts from the "
                     "team notes; confirm with each mentor (05-10-2026-mon-ig-teachers-day-mentors.md)." + NOTE, counter=False)
         bunting(s, y=20, n=11)
-        cell, top, rowh = 365, 170, 390
+        cell, top, rowh = 520, 180, 565
         for i, m in enumerate(group):
             y = top + i * rowh
             portrait(s, m[5], m[6], 60, y, cell, cell)
             mentor_text(s, m, 60 + cell + 36, y + cell / 2 - 90, W - 60 - (60 + cell + 36), y + cell, big=True)
     s = d.slide(CREAM, "All fourteen in a grid, alphabetical." + NOTE, counter=False)
     bunting(s, y=20, n=11)
-    faces(s, 365, people=abc)
+    faces(s, 262, people=abc)
     s = d.slide(CREAM, "Closing: bunting, balloons and a big logo. Line to confirm with Linnea.", counter=False)
     party(s, "Happy World Teachers' Day", "", "soilfoodweb.com")
-    save(d, "05-10-2026-mon-ig-teachers-day-option-4-nine-slides.pptx")
+    save(d, "05-10-2026-mon-ig-teachers-day-option-4-ten-slides.pptx")
 
 
 if __name__ == "__main__":
