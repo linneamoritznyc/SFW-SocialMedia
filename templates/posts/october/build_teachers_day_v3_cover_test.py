@@ -20,7 +20,8 @@ text(s, (W - 680) / 2, 545, 680, 90, "Thank you to our instructors and education
 sh = 1080 * 809 / 2048; top = H - sh + 10
 for side in (-1, 1):                       # balloons tied into the soil
     bx = 150 if side < 0 else W - 150
-    for dx, t, w, c in [(-40, 640, 125, GREEN), (45, 590, 135, GOLD), (0, 720, 115, LEAF)]:
+    cols = [GREEN, "654D76", "B1BCB1"] if side < 0 else [GOLD, "4B7FB4", "C09D7F"]   # brand palette
+    for (dx, t, w), c in zip([(-40, 640, 125), (45, 590, 135), (0, 720, 115)], cols):
         balloon(s, bx + side * dx, t, w, c, top + 60)
 logo(s, (W - 260) / 2, 660, 260, white=False)
 text(s, M, 905, W - 2 * M, 40, "Swipe →", 24, BROWN, "Montserrat", True, align="c")

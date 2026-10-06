@@ -73,7 +73,8 @@ def soil(s, left=True, right=True, wa=640, wb=520):
 
 def bouquet(s, side):
     base_x = 210 if side < 0 else W - 210
-    for dx, top, w, c in [(-70, 800, 150, GREEN), (60, 740, 160, GOLD), (0, 910, 140, LEAF)]:
+    cols = [GREEN, "654D76", "B1BCB1"] if side < 0 else [GOLD, "4B7FB4", "C09D7F"]   # brand palette, docs/brand-colors.md
+    for (dx, top, w), c in zip([(-70, 800, 150), (60, 740, 160), (0, 910, 140)], cols):
         balloon(s, base_x + side * dx, top, w, c, H - 120)
 
 
