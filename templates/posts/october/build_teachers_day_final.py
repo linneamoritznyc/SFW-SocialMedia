@@ -110,16 +110,18 @@ def build():
 
     # everyone, sage
     s = d.slide(None, "Everyone in one grid." + NOTE, counter=False); bg_sage(s); bunting(s)
-    text(s, 48, 175, 760, 130, "Happy World Teachers' Day", 48, GREEN, "Montserrat", True, spacing=1.0)
-    logo(s, W - 48 - 150, 165, 150, white=False)
-    n, gap, cap = 5, 16, 40                     # same gap across and down; names centred under each photo
-    cell = (W - 96 - (n - 1) * gap) / n
+    text(s, 28, 160, 760, 130, "Happy World Teachers' Day", 48, GREEN, "Montserrat", True, spacing=1.0)
+    logo(s, W - 28 - 150, 150, 150, white=False)
+    n, gap, cap, mx = 5, 10, 38, 28            # 4:5 portraits fill the space down to the soil; same gap across and down
+    cell = (W - 2 * mx - (n - 1) * gap) / n; ch = round(cell * 1.2)
+    rows = -(-len(ORDER) // n); block = rows * (ch + cap) + (rows - 1) * gap
+    y0 = 345 + (1205 - 345 - block) / 2          # centred between the title and the soil
     for i, m in enumerate(ORDER):
-        x = 48 + (i % n) * (cell + gap); y = 335 + (i // n) * (cell + cap + gap)
-        if m[5]: portrait(s, m[5], m[6], x, y, cell, cell)
-        else: logo_box(s, x, y, cell, cell)
+        x = mx + (i % n) * (cell + gap); y = y0 + (i // n) * (ch + cap + gap)
+        if m[5]: portrait(s, m[5], m[6], x, y, cell, ch)
+        else: logo_box(s, x, y, cell, ch)
         last = m[1].split()[-1] if m[0] == "Carla" else m[1]
-        text(s, x - 6, y + cell + 8, cell + 12, cap - 8, f"{m[0]} {last}", 17, INK, "Source Sans 3", align="c")
+        text(s, x - 6, y + ch + 7, cell + 12, cap - 8, f"{m[0]} {last}", 17, INK, "Source Sans 3", align="c")
     soil(s, 0)
     save(d, "05-10-2026-mon-ig-teachers-day-final.pptx")
 
