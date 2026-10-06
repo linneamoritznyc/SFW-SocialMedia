@@ -22,7 +22,7 @@ COST_FILE = ROOT / "generation-cost.txt"
 REFERENCE = ROOT / "style-reference.png"
 
 MODEL = "black-forest-labs/flux-2-pro"
-STOP_AT = 25.00   # Linnea, 6 Oct 2026: $25 in total ($15 more on top of the first $10)
+STOP_AT = 20.00   # Linnea, 6 Oct 2026: $20 in total ($10 more on top of the first $10)
 # Estimate only: replicate.com pricing page was unreachable. Assumed $0.015 per output MP
 # plus $0.015 per input MP, at 4 MP out and a ~2 MP reference. Verify against Replicate billing.
 EST_PER_IMAGE = 0.09
