@@ -132,7 +132,7 @@ def animal_text(s, x, y, w, name, light, body, name_pt=64, body_pt=34, name_line
     text(s, x, y, w, 1200 - y, body, body_pt, INK, BODY, spacing=1.3)
 
 
-LOGO = "assets/logo/sfw-foundation-wordmark-240.png"   # the only logo file in the repo (240 x 208)
+LOGO = "assets/logo/sfw-foundation-wordmark-240.png"   # new logo (Oct 2026), 240 px
 
 
 def sfw_logo(s, x, y, w=200):

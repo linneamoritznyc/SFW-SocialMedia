@@ -20,7 +20,7 @@ W, H, M = 1080, 1350, 80
 GREEN, GOLD, LEAF, BROWN = "31662F", "D39C48", "6AA46F", "4C3634"     # Stephanie's Canva palette
 CREAM, INK = "F3F1EA", "333130"
 FLAGS = [GREEN, GOLD, LEAF, BROWN]
-GRAIN = "assets/texture/cream-grain.png"
+GRAIN = "assets/texture/scratched-paper.png"   # after Stephanie's Canva texture (Dora and Ayşen slide)
 SOIL_A, SOIL_B = "assets/texture/soil-corner-a.png", "assets/texture/soil-corner-b.png"
 NOTE = (" Mentor photos: Linnea's Drive folder (5 Oct 2026). Soil: cut from assets/photo/hand-of-compost.jpg. "
         "Names and titles: Stephanie McDaniel, 6 Oct 2026.")
@@ -29,16 +29,16 @@ STAFF = {
     "Tommy": ("Tommy", "Tepper", "Education Department Director & Mentor"),
     "Loida": ("Loida", "Vasquez", "Advanced Programs Lead"),
     "Carla": ("Carla", "Ribeiro Machado e Portugal", "Mentor & Science Lead"),
-    "Wesley": ("Wesley", "Sander", "Consultant & Mentor"),
-    "Casey": ("Casey", "Williams", "Consultant & Mentor"),
-    "Brian": ("Brian", "Daubenspeck", "Consultant & Mentor"),
-    "Isadora": ("Isadora", "Schmidt", "Consultant & Mentor"),
-    "Ayşen": ("Ayşen", "Üstünay", "Consultant & Mentor"),
-    "Dora": ("Dora", "Tkalec", "Consultant & Mentor"),
+    "Wesley": ("Wesley", "Sander", "Mentor & Consultant"),
+    "Casey": ("Casey", "Williams", "Mentor & Consultant"),
+    "Brian": ("Brian", "Daubenspeck", "Mentor & Consultant"),
+    "Isadora": ("Isadora", "Schmidt", "Mentor & Consultant"),
+    "Ayşen": ("Ayşen", "Üstünay", "Mentor & Consultant"),
+    "Dora": ("Dora", "Tkalec", "Mentor & Consultant"),
     "Gerald": ("Gerald", "Ramírez", "Mentor"),
     "Elena": ("Elena", "Kalli", "School Administration Officer"),
-    "Ib": ("Ib", "Borup Pedersen", "Farmer, Consultant & Mentor"),
-    "Nick": ("Nick", "Padwick", "Farmer, Consultant & Mentor"),
+    "Ib": ("Ib", "Borup Pedersen", "Farmer, Mentor & Consultant"),
+    "Nick": ("Nick", "Padwick", "Farmer, Mentor & Consultant"),
     "Delvin": ("Delvin", "Solkinson", "Graham Bell Legacy PDC Permaculture Lead Instructor"),
 }
 PEOPLE = [STAFF[m[0]] + tuple(m[3:]) for m in _M]

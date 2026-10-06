@@ -408,7 +408,10 @@ circular files are large, and which captures are worth trusting.
 | `assets/logo/cutout-placeholder.svg` | 320 x 260 | — | 8 KB | A grey placeholder card standing in for a hand-cut moss photograph that was never supplied. It is not a picture of anything. ⚑ Delete once the real cut-outs exist |
 | `assets/logo/icons-sprite.svg` | **unread** | — | 12 KB | SVG sprite, 23 hairline engraved symbols: aggregate, arrow, calendar, carbon, close, compost, cycle, document, download, external, field, flask, menu, microscope, person, plus, practicum, scholarship, shield, web, webinar, weed, workshop |
 | `assets/logo/sfw-amoeba-brand-board.png` | 2400 x 1500 | — | 1.1 MB | Brand board. A brightfield frame of a dividing amoeba, the headline "Life in one drop of soil water", and six named swatches: Slide #B0B5AC, Light #D5DBC3, Living green #A2AE77, Glow #DBE6A7, Membrane violet #9E8FC2, Deep #3C3841. Verified by eye. Note it names Newsreader and Inter as its typefaces, which is not what the site shipped: see the token section below |
-| `assets/logo/sfw-foundation-wordmark-240.png` | 240 x 208 | — | 22 KB | Soil Food Web Foundation wordmark, the only logo file in the repo. 240px wide, PNG, no transparency variant and no SVG. ⚑ **A vector wordmark is missing and will be needed for print and large formats.** |
+| `assets/logo/sfw-foundation-logo-oct-2026.svg` | 1080 x 1350 canvas | — | 115 KB | **The current logo** (with flowers), Final Oct 2026, from Linnea. Canva SVG export: a 596 px raster inside, on a white background. |
+| `assets/logo/foundation-logo-color.png` | 928 x 834 | — | — | Current logo with flowers, colour, transparent, padded to the old 743:668 ratio so every layout keeps its size. Made from the SVG above. |
+| `assets/logo/foundation-logo-white.png` | 928 x 834 | — | — | Current logo, all white, for dark backgrounds. |
+| `assets/logo/sfw-foundation-wordmark-240.png` | 240 x 208 | — | — | Current logo at 240 px, made from the SVG above. |
 
 ## assets/font
 
