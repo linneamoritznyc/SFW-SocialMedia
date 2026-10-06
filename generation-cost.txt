@@ -141,4 +141,7 @@ Estimated cost log (estimate, not billing data). Stop at $9.00.
 2026-10-04 12:06 book-scene-town-night-1 ok est $0.09
 2026-10-04 12:07 book-scene-rose-bed-1 ok est $0.09
 2026-10-04 12:07 book-scene-apple-below-1 ok est $0.09
-TOTAL $9.99
+2026-10-06 13:33 soil-strip-seedlings-1 FAILED est $0.00
+2026-10-06 13:34 soil-strip-seedlings-1 FAILED est $0.00
+2026-10-06 13:35 soil-strip-seedlings-1 ok est $0.09
+TOTAL $10.08
