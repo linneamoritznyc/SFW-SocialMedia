@@ -79,7 +79,7 @@ def build():
     d = Deck(name="05-10-2026-mon-ig-teachers-day-final")
 
     # cover, as approved before (version 4)
-    s = base(d, "Cover." + NOTE)
+    s = d.slide(CREAM, "Cover: plain cream, no texture (Linnea)." + NOTE, counter=False)
     bunting(s, y=40, n=9)
     star(s, 330, 248, 34, GOLD); star(s, W - 330, 248, 34, GOLD)
     text(s, M, 225, W - 2 * M, 50, "OCTOBER 5", 26, GREEN, "Montserrat", True, track=4, align="c")
@@ -112,14 +112,14 @@ def build():
     s = d.slide(None, "Everyone in one grid." + NOTE, counter=False); bg_sage(s); bunting(s)
     text(s, 48, 175, 760, 130, "Happy World Teachers' Day", 48, GREEN, "Montserrat", True, spacing=1.0)
     logo(s, W - 48 - 150, 165, 150, white=False)
-    n, gap, cap = 5, 10, 34
+    n, gap, cap = 5, 16, 40                     # same gap across and down; names centred under each photo
     cell = (W - 96 - (n - 1) * gap) / n
     for i, m in enumerate(ORDER):
-        x = 48 + (i % n) * (cell + gap); y = 340 + (i // n) * (cell + cap + 16)
+        x = 48 + (i % n) * (cell + gap); y = 335 + (i // n) * (cell + cap + gap)
         if m[5]: portrait(s, m[5], m[6], x, y, cell, cell)
         else: logo_box(s, x, y, cell, cell)
         last = m[1].split()[-1] if m[0] == "Carla" else m[1]
-        text(s, x, y + cell + 6, cell, cap - 4, f"{m[0]} {last}", 16, INK, "Source Sans 3")
+        text(s, x - 6, y + cell + 8, cell + 12, cap - 8, f"{m[0]} {last}", 17, INK, "Source Sans 3", align="c")
     soil(s, 0)
     save(d, "05-10-2026-mon-ig-teachers-day-final.pptx")
 

@@ -42,7 +42,7 @@ STAFF = {
     "Delvin": ("Delvin", "Solkinson", "Graham Bell Legacy PDC Permaculture Lead Instructor"),
 }
 PEOPLE = [STAFF[m[0]] + tuple(m[3:]) for m in _M]
-PEOPLE.append(("Kavi", "Reddy", "Permaculture Instructor", None, None, None, None, ()))   # photo still needed
+PEOPLE.append(("Kavi", "Reddy", "Permaculture Instructor", None, None, "assets/mentors-teachers-day/kavi-reddy.jpg", (0.5, 0.3), ()))   # photo: Linnea's Drive folder, 6 Oct 2026
 ORDER = sorted(PEOPLE, key=lambda m: unicodedata.normalize("NFD", m[1].split()[-1] if m[0] == "Carla" else m[1]))
 
 
