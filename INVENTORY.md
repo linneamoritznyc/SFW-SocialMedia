@@ -34,7 +34,7 @@ plus a small number of files whose origin is in question (marked ⚑).
 | Path | Dimensions | Duration | Size | What it depicts |
 | :-- | :-- | :-- | :-- | :-- |
 | `assets/photo/2-dirty-hands.jpg` | 2000 x 2000 | — | 453 KB | Two open palms held out, thickly covered in wet soil |
-| `assets/photo/2-hands-clasped-holding-plant-roots.jpg` | 2000 x 2000 | — | 938 KB | Two hands cupped around a plant's washed root ball |
+| `assets/photo/2-hands-clasped-holding-plant-roots.jpg` | 2000 x 2000 | — | 938 KB | Two hands cupped around a plant's washed root ball. **Do not use: Linnea has rejected this photo.** Do not offer it as an option ⚑ |
 | `assets/photo/2-hands-planting-shrub.jpg` | 2000 x 2000 | — | 1.5 MB | Two hands firming red soil around the base of a newly planted shrub |
 | `assets/photo/carla-nicks-son-nick-eri-wild-soils-event-11-2024.jpg` | 512 x 361 | — | 75 KB | A group laughing as they work outdoors with brushes and rakes. Wild Soils event, November 2024 |
 | `assets/photo/carrot-growing-in-vegitable-bed-community-garden-2025-01-08-04-14-23-utc.jpg` | 1600 x 1066 | — | 679 KB | A carrot growing in a community garden vegetable bed. The filename ends in a stock-library UTC timestamp, so this is almost certainly licensed stock rather than a Foundation photograph. No licence is recorded anywhere in the repo ⚑ |
