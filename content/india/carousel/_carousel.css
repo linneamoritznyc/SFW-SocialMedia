@@ -1,0 +1,107 @@
+/* ==========================================================================
+   India carousel, shared frame and type.
+   1080 x 1350, six slides. All text sits inside the central 1080 x 1080
+   square (y 135 to 1215), so the 1:1 grid crop loses nothing.
+
+   Two fonts: Montserrat 700 for headlines, Source Sans 3 400 for body.
+   Two sizes: headline 88px (110px on the cover), body 46px. Nothing else.
+   Colour values copied from variants/_tokens.css. Nothing here is invented.
+   ========================================================================== */
+:root {
+  --cream:  #F4F1EA;   /* Organic Cream: the page on slides 2 to 5, the text on 1 and 6 */
+  --moss:   #22371F;   /* deep green: slide 6 */
+  --soil:   #4F3433;   /* Soil Brown: headlines on cream */
+  --ink:    #333130;   /* body on cream */
+  --gold:   #C9A227;   /* Harvest Gold: the last line of slide 6 only */
+
+  --display: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --sans:    "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+
+  --safe-top: 135px;   /* the central square starts here */
+  --margin:   90px;
+  --peek:     24px;    /* the strip of the next slide at the right edge */
+}
+
+@font-face { font-family:"Montserrat"; font-style:normal; font-weight:600 700; font-display:block;
+  src:url("../../../assets/font/montserrat-latin-variable.woff2") format("woff2-variations"); }
+@font-face { font-family:"Source Sans 3"; font-style:normal; font-weight:400; font-display:block;
+  src:url("../../../assets/font/source-sans-3-latin-400-normal.woff2") format("woff2"); }
+
+* { box-sizing:border-box; margin:0; padding:0; }
+html, body { background:#E9E7E2; }
+body { display:flex; align-items:flex-start; justify-content:flex-start; }
+
+.frame {
+  width:1080px; height:1350px; position:relative; overflow:hidden;
+  background:var(--cream); font-family:var(--sans); color:var(--ink);
+}
+
+/* --- Type. Two sizes, the same on every slide. -------------------------- */
+h1 {
+  font-family:var(--display); font-weight:700; font-size:88px; line-height:1.06;
+  letter-spacing:-.02em; color:var(--soil);
+}
+p {
+  font-family:var(--sans); font-weight:400; font-size:46px; line-height:1.32;
+  color:var(--ink); margin-top:34px;
+}
+
+/* --- Slides 2 to 5: cream page, one idea, left aligned, 90px margins ---- */
+.frame--cream .text {
+  position:absolute; left:var(--margin); right:calc(var(--margin) + var(--peek));
+  top:var(--safe-top); height:1080px;
+  display:flex; flex-direction:column; justify-content:center;
+}
+/* Slide 4: the photo takes the top half, the text sits in the lower half of the square. */
+.frame--photo-top .photo { position:absolute; left:0; top:0; width:1080px; height:675px; overflow:hidden; }
+.frame--photo-top .photo img { width:100%; height:100%; object-fit:cover; display:block; }
+.frame--photo-top .text { top:675px; height:540px; }
+
+/* --- The peek. The next slide's own left edge, 24px wide, at the right. --
+   Cream next to cream cannot be seen; that is the spec as written.        */
+.peek { position:absolute; top:0; right:0; width:var(--peek); height:1350px; overflow:hidden; }
+.peek--cream { background:var(--cream); }
+.peek--moss  { background:var(--moss); }
+.peek--photo-top { background:var(--cream); }
+.peek--photo-top img { display:block; width:1080px; height:675px; object-fit:cover; }
+
+/* --- Slide 1: the cover ------------------------------------------------- */
+.frame--cover { background:var(--moss); }
+.frame--cover .photo { position:absolute; inset:0; }
+.frame--cover .photo img { width:100%; height:100%; object-fit:cover; display:block; }
+.logo {
+  position:absolute; left:var(--margin); top:calc(var(--safe-top) + var(--margin));
+  width:110px; height:95px;                       /* 240 x 208 source, at 110 wide */
+  background:var(--cream);
+  -webkit-mask:url("../../../assets/logo/sfw-foundation-wordmark-240.png") center / contain no-repeat;
+          mask:url("../../../assets/logo/sfw-foundation-wordmark-240.png") center / contain no-repeat;
+}
+.frame--cover .headline {
+  position:absolute; left:var(--margin); right:200px;
+  bottom:calc(1350px - var(--safe-top) - 1080px + var(--margin));   /* 90px above the square's bottom edge */
+}
+/* The soft dark gradient sits only behind the headline: it is drawn on the
+   headline's own box with a generous bleed, and fades out on every side. */
+.frame--cover .headline::before {
+  content:""; position:absolute; z-index:0;
+  left:-160px; right:-260px; top:-200px; bottom:-220px;
+  background:radial-gradient(ellipse at 40% 60%, rgba(20,16,12,.72) 0%, rgba(20,16,12,.5) 38%, rgba(20,16,12,0) 72%);
+}
+.frame--cover h1 { position:relative; z-index:1; font-size:110px; line-height:1.04; color:var(--cream); }
+
+/* The swipe cue. Slide 1 only. */
+.arrow {
+  position:absolute; right:44px; top:675px; transform:translateY(-50%);
+  width:64px; height:44px; color:var(--cream);
+}
+.arrow svg { width:100%; height:100%; display:block; }
+
+/* --- Slide 6: the ask ---------------------------------------------------- */
+.frame--moss { background:var(--moss); }
+.frame--moss .text { position:absolute; left:var(--margin); right:var(--margin); top:var(--safe-top); height:1080px;
+  display:flex; flex-direction:column; justify-content:center; }
+.frame--moss h1, .frame--moss p { color:var(--cream); }
+.frame--moss .cta {
+  font-family:var(--display); font-weight:700; font-size:54px; line-height:1.2;
+  color:var(--gold); margin-top:110px;
+}
