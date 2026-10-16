@@ -1,0 +1,26 @@
+/* India first-day stories. 1080 x 1920. Three colours, two fonts, no effects.
+   Text never sits in the top 250px or bottom 270px (Instagram interface). */
+:root {
+  --deep:  #22371F;  /* deep green */
+  --green: #156826;  /* Food Web Green */
+  --cream: #F4F1EA;  /* Organic Cream */
+  --head: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --body: "EB Garamond", Georgia, serif;
+}
+@font-face { font-family:"Montserrat"; font-style:normal; font-weight:100 900; font-display:block;
+  src:url("../../../assets/font/montserrat-latin-variable.woff2") format("woff2-variations"); }
+@font-face { font-family:"EB Garamond"; font-style:normal; font-weight:400; font-display:block;
+  src:url("../../../assets/font/eb-garamond-latin-400-normal.woff2") format("woff2"); }
+
+* { box-sizing:border-box; margin:0; padding:0; }
+html, body { background:var(--cream); }
+.frame { width:1080px; height:1920px; position:relative; overflow:hidden;
+  background:var(--cream); color:var(--deep); }
+.photo { position:absolute; left:0; display:block; }
+
+.label { font:700 30px/1.2 var(--head); letter-spacing:.2em; text-transform:uppercase;
+  color:var(--green); }
+h1 { font:800 112px/1.02 var(--head); letter-spacing:-.02em; color:var(--deep); }
+h1 .g { color:var(--green); }
+.body { font:400 50px/1.32 var(--body); color:var(--deep); }
+.card { position:absolute; background:var(--cream); border-radius:32px; }
