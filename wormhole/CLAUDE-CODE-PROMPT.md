@@ -1,17 +1,22 @@
 # Build Wormhole: the SFW social media preview, editor and agent pipeline
 
-You are working for Linnea, who runs social media for the Soil Food Web Foundation (SFW). Work on your own to the goal below. Do not ask me about branches, commits or merges: make a branch, commit as you go, open a PR at the end, and give me the live URL.
+You are working for Linnea, who runs social media for the Soil Food Web Foundation (SFW). Work on your own to the goal below. Do not ask me about branches, commits or merges: commit as you go on the new repo, and give me the live URL.
 
 ## Goal
 A password-protected website called **Wormhole** (password: `Wormhole`) where the SFW team sees every planned post the way it will look on Instagram and LinkedIn, can edit the text live, and where a background agent pipeline drafts new posts and visuals by itself. Linnea is dyslexic and cannot work from long Google Docs; this site replaces reading the doc. Nobody chats with the agents. They run on a schedule and their output appears in Wormhole as drafts.
 
-## Where things are
-- Base app: `github.com/linneamoritznyc/SFWassetlibrarycontentautomation` (Content Studio). Next.js 14 + Tailwind in `apps/web`, Supabase Postgres, R2 storage, job queue in `packages/queue`, Claude wrapper in `packages/ai/src/claude.ts`, posts schema in `supabase/migrations/0005_production.sql`, post preview component `apps/web/components/PhoneFrame.tsx`, Scout news scraper in `workers/light/src/jobs/scout_fetch.ts` + `scout_rank.ts`, clip jobs in `workers/media`, Remotion reels in `packages/remotion`. Build Wormhole inside this app.
-- Seed data and rules: `github.com/linneamoritznyc/SFW-SocialMedia`, branch `wormhole`, folder `wormhole/`:
-  - `posts.json`: 27 planned posts, 16 Oct to 13 Nov 2026 (date, iso, topic, platform, cta, words = slide text, link, sources, visual note, caption, status). Mentor posts have empty captions on purpose: Linnea pastes those.
-  - `voice.md`: the house voice, banned patterns, doc format and visual look. Every writing and design agent must load it into its system prompt.
-- Assets: `SFW-SocialMedia/assets/photo`, `assets/microscopy/cutout-*.png`, `assets/logo/sfw-foundation-wordmark-240.png`.
-- Clipping: `github.com/linneamoritznyc/SFW-Clipping` (Python: yt-dlp, faster-whisper, Claude clip selection in `clipper/selection.py`, vertical cut in `clipper/engines/local.py`).
+## Step 0: create one new repo that combines everything
+Create a new private GitHub repo `linneamoritznyc/wormhole`. Pull these repos into it with `git subtree add` (keep their history), each in its own folder, then make it one pnpm + Turborepo monorepo:
+
+| Folder | Source repo | What it brings |
+|---|---|---|
+| `apps/web`, `packages/*`, `workers/*`, `supabase/` | `linneamoritznyc/SFWassetlibrarycontentautomation` (Content Studio) | Next.js 14 app, Supabase schema (`posts`, `post_versions`, `assets`, `news_items`), job queue, Claude wrapper `packages/ai/src/claude.ts`, Scout news scraper, clip and caption workers, Remotion reels, `PhoneFrame.tsx` post preview. This is the base. |
+| `workers/clipper` | `linneamoritznyc/SFW-Clipping` | Python clipper: yt-dlp, faster-whisper, Claude clip selection (`clipper/selection.py`), vertical cut (`clipper/engines/local.py`). Run it as a queue worker that writes Reel drafts. |
+| `content/` | `linneamoritznyc/SFW-SocialMedia` (branch `wormhole`) | `wormhole/posts.json` (27 planned posts), `wormhole/voice.md` (house voice and look), `assets/` photos, microscopy cutouts, logo, `drafts/*.md`, `variants/*.html` post layouts, `sop/`. |
+| `packages/video-kit` | `linneamoritznyc/contentautomationyoutubeshorts` | only `src/video/components/KenBurnsImage.tsx` and `src/youtube.ts` (Remotion slideshow, YouTube Shorts upload). |
+| `content/stories` | `linneamoritznyc/sfw-testimonials` | graduate and impact stories for Soil Regenerators in the wild. |
+
+Delete duplicate configs, unify TypeScript and lint settings, one `.env.example` listing every key. Write a short `README.md` and a `CLAUDE.md` that tells future Claude sessions how the repo works and that every writing or design agent must load `content/wormhole/voice.md`.
 
 ## Phase 1, ship tonight: the Wormhole site
 1. Route `/wormhole` in `apps/web`. Gate it with a shared password page. Store the password in env `WORMHOLE_PASSWORD=Wormhole`, set an httpOnly cookie for 30 days. Keep the existing magic-link login for the rest of Content Studio.
