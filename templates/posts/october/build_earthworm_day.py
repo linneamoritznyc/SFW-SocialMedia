@@ -48,16 +48,16 @@ def build():
     text(s, M + 40, 920, W - 2 * M - 80, 40, "WORLD EARTHWORM DAY · OCTOBER 21", 20, GREY, "Montserrat", True, track=3)
     text(s, M + 40, 975, W - 2 * M - 80, 220, "How do worms work their magic?", 64, INK, "Montserrat", True, spacing=1.05)
     text(s, M, H - 44, W - 2 * M, 24, "Photo: Julian Zwengel on Unsplash", 13, WHITE, "Source Sans 3")
+    pic(s, "assets/collage/cutouts/earthworm-paper-1-trim.png", W - M - 230, 680, 230)                   # cute worm peeking over the card
 
     # 2 the anecic earthworm, cut out on white with a small serif label
     s = d.slide(WHITE, "Slide 2: earthworm cut out on white." + NOTE, counter=False)
     wordmark(s)
-    pic(s, U + "worm-cutout.png", 60, 200, 960)
-    text(s, M, 640, W - 2 * M, 30, "Anecic earthworm", 28, GREY, "EB Garamond")
+    pic(s, "assets/collage/cutouts/earthworm-paper-1-trim.png", (W - 420) / 2, 150, 420)               # the cute cut-paper earthworm (Linnea)
+    text(s, M, 610, W - 2 * M, 30, "Anecic earthworm", 28, GREY, "EB Garamond")
     rect(s, M, 690, 80, 3, GREEN)
     text(s, M, 730, W - 2 * M, 420, "Anecic earthworms dig vertical burrows that can reach 1 to 2 meters deep to break up compaction.",
          44, INK, "Montserrat", True, spacing=1.15)
-    credit(s, "Photo: Julian Zwengel on Unsplash")
 
     photo_slide(d, U + "hands-soil-worms.jpg", "They spread microbes around as they move by lining the walls with mucus and casts, rich in nutrients and microbes.",
                 "Photo: sippakorn yamkasikorn on Unsplash", 3, 0.5, 0.45, ph=720)
@@ -68,8 +68,7 @@ def build():
     s = d.slide(WHITE, "Slide 5: question tile." + NOTE, counter=False)
     wordmark(s)
     text(s, M, 470, W - 2 * M, 300, "How to care for them?", 88, GREEN, "Montserrat", True, spacing=1.0)
-    pic(s, U + "worm-cutout.png", 300, 860, 700)
-    credit(s, "Photo: Julian Zwengel on Unsplash")
+    pic(s, "assets/collage/cutouts/earthworm-paper-1-trim.png", (W - 440) / 2, 790, 440)
 
     photo_slide(d, "assets/photo/garden-vegetable-beds.jpg", "Digging cuts the burrows. No‑dig keeps the plumbing intact.",
                 "Photo: SFW library", 6, 0.5, 0.5)
