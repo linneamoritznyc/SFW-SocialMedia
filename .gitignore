@@ -31,3 +31,4 @@ package*
 
 # Generated asset bundles (the GIFs themselves live in exports/gifs/)
 exports/*.zip
+renders/.tmp/

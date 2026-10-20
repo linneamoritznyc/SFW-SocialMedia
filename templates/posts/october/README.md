@@ -11,3 +11,34 @@ Decisions made while building (change them in `lib.py`):
 - Reel caption cards (6B) have no page background. Cream text is invisible on a white page: remove the page background in Canva or export PNG with transparent background.
 - Numbers on big-number slides carry a "Source: [COPY: Allison]" line.
 - Card texture uses PowerPoint's diagonal pattern fill, not exact 2 px / 18 px lines.
+
+## Brand fonts (the three starred fonts in Canva)
+- **Montserrat**: headings, labels, names, series and date pills, the soilfoodweb.com line.
+- **Source Sans 3**: body text and descriptive lines ("How he feeds his soil: living groundcover, ...").
+- **EB Garamond, italic**: the human voice. Quotes from graduates and mentors (Soil Regenerators in the wild), Field Notes observations, pull quotes.
+- No other fonts. Emoji show in the system emoji font.
+
+## Logo and website
+- Logo on the first and last slide of a carousel.
+- soilfoodweb.com, small and centred at the bottom, on every other slide (Stephanie, 30 Sep 2026).
+- No slide numbers.
+
+## Seamless carousel (also called panoramic or split carousel)
+One extra-wide background cut into equal 1080 x 1350 slices, so the design flows across the edges when you swipe.
+- Background: `python3 tools/make_hyphae_panorama.py <out-dir> gold green brown ...` (one colour per slide). Hyphae cross every
+  seam; each slide keeps its own colour in the middle and blends into the next one at the edge.
+- Layout: one fixed grid on every slide (same photo area, same text card size and position, same footer), so only the
+  content changes as you swipe (Stephanie, 30 Sep 2026).
+- Example: `build_boubacar_panorama.py`.
+
+## Never use (Linnea, 1 Oct 2026)
+- The soil cross-section look: cream top half, flat brown soil bottom half with a cartoon grass fringe and the text in the dark band.
+  Rejected outright; the files were removed.
+- The "Bridges" look: flat cream with big colour circles on the seams, half-photos split across seams, a wavy brown line.
+  Rejected outright; the files were removed.
+- Gold, yellow or orange backgrounds with a hyphae pattern on them (the old orange coffee blog banner).
+  Stephanie, 1 Oct 2026: "This orange with a hyphae background is ugly... let's not repeat it." No gold or orange
+  hyphae panoramas or backgrounds, in any format.
+- Scrapbook / bulletin-board styling (tape, cartoon stickers, tilted paper notes) for articles, studies and news.
+  Those posts use the clean marketing style instead: full-bleed photos, Deep Green, big type (example:
+  `build_farms_panorama.py`).
