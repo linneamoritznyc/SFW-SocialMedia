@@ -5,6 +5,7 @@ import os, subprocess
 from PIL import Image, ImageOps
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, "../../.."))
 P = lambda f: os.path.join(HERE, "photos", f)
+S = lambda f: os.path.join(HERE, "stickers", f)
 def crop(src, box, out):  # box as fractions (l, t, r, b) of the original
     im = ImageOps.exif_transpose(Image.open(P(src))); w, h = im.size
     im.crop((int(box[0]*w), int(box[1]*h), int(box[2]*w), int(box[3]*h))).save(P(out), quality=94)
@@ -21,8 +22,11 @@ h1{{position:absolute;left:72px;top:1262px;font:700 92px/100px M;color:#156826;l
 p{{position:absolute;left:74px;top:1480px;font:400 46px/58px S;color:#333130}}
 </style><div class=s>
 <img src="file://{P('_hero.jpg')}" style="left:0;top:0;width:1080px;height:1180px;object-position:50% 40%">
+<div style="position:absolute;left:712px;top:1100px;width:368px;height:716px;background:#156826"></div>
 <img src="file://{P('_hands.jpg')}" style="left:680px;top:1060px;width:328px;height:400px">
 <img src="file://{P('_shed.jpg')}" style="left:680px;top:1476px;width:328px;height:300px">
+<img src="file://{S('violets.png')}" style="left:850px;top:-70px;width:270px;object-fit:contain">
+<img src="file://{S('coneflower.png')}" style="left:880px;top:1560px;width:260px;object-fit:contain">
 <h1>Costa Rica<br>info session</h1><p>Tomorrow, 12pm Pacific<br>on Zoom. Free.</p></div>"""
 open(os.path.join(HERE, "previews", "_s.html"), "w").write(html)
 js = """const {chromium}=require('playwright');(async()=>{const b=await chromium.launch();const p=await b.newPage({viewport:{width:1080,height:1920}});
