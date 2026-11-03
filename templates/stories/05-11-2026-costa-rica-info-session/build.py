@@ -35,3 +35,52 @@ await p.locator('.s').screenshot({path:process.argv[3]});await b.close();})();""
 jp = os.path.join(HERE, "previews", "_r.js"); open(jp, "w").write(js)
 subprocess.run(["node", jp, os.path.join(HERE, "previews", "_s.html"), os.path.join(HERE, "previews", "story.png")], check=True)
 for f in ("_r.js", "_s.html"): os.remove(os.path.join(HERE, "previews", f))
+
+
+# ------------------------------------------------------------------ editable PPTX (same layout as the PNG)
+from pptx import Presentation
+from pptx.util import Emu, Pt
+from pptx.dml.color import RGBColor
+from pptx.enum.shapes import MSO_SHAPE
+from pptx.enum.text import MSO_ANCHOR, MSO_AUTO_SIZE
+
+PX = 9525
+def cover(src, w, h, fy=0.5):
+    im = Image.open(P(src)).convert("RGB"); s = max(w / im.width, h / im.height)
+    cw, ch = round(w / s), round(h / s); x = (im.width - cw) // 2; y = round((im.height - ch) * fy)
+    out = P(src.replace(".jpg", "_frame.jpg")); im.crop((x, y, x + cw, y + ch)).save(out, quality=93); return out
+
+prs = Presentation(); prs.slide_width = Emu(1080 * PX); prs.slide_height = Emu(1920 * PX)
+sl = prs.slides.add_slide(prs.slide_layouts[6])
+def box(name, x, y, w, h, color):
+    s = sl.shapes.add_shape(MSO_SHAPE.RECTANGLE, Emu(x * PX), Emu(y * PX), Emu(w * PX), Emu(h * PX))
+    s.fill.solid(); s.fill.fore_color.rgb = RGBColor.from_string(color); s.line.fill.background(); s.shadow.inherit = False; s.name = name
+def pic(name, path, x, y, w, h):
+    s = sl.shapes.add_picture(path, Emu(x * PX), Emu(y * PX), Emu(w * PX), Emu(h * PX)); s.name = name
+def text(name, x, y, w, h, lines, font, size, lh, bold, color):
+    s = sl.shapes.add_textbox(Emu(x * PX), Emu(y * PX), Emu(w * PX), Emu(h * PX)); s.name = name
+    tf = s.text_frame; tf.word_wrap = False; tf.auto_size = MSO_AUTO_SIZE.NONE; tf.vertical_anchor = MSO_ANCHOR.TOP
+    tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0
+    for i, t in enumerate(lines):
+        para = tf.paragraphs[0] if i == 0 else tf.add_paragraph(); para.line_spacing = Pt(lh * 0.75)
+        r = para.add_run(); r.text = t; f = r.font
+        f.name = font; f.size = Pt(size * 0.75); f.bold = bold; f.italic = False; f.color.rgb = RGBColor.from_string(color)
+
+def sticker(name, f, x, y, w):
+    im = Image.open(S(f)); pic(name, S(f), x, y, w, round(w * im.height / im.width))
+
+box("Background", 0, 0, 1080, 1920, "F4F1EA")
+pic("Hero photo (garden class, Oct 2025)", cover("_hero.jpg", 1080, 1180, 0.4), 0, 0, 1080, 1180)
+box("Green block", 712, 1100, 368, 716, "156826")
+pic("Photo: hands in compost (Jul 2024)", cover("_hands.jpg", 328, 400), 680, 1060, 328, 400)
+pic("Photo: class in the shed (Oct 2025)", cover("_shed.jpg", 328, 300), 680, 1476, 328, 300)
+sticker("Flower: violets", "violets.png", 850, -70, 270)
+sticker("Flower: coneflower", "coneflower.png", 880, 1560, 260)
+text("Headline", 72, 1262, 600, 200, ["Costa Rica", "info session"], "Montserrat", 92, 100, True, "156826")
+text("Details", 74, 1480, 560, 116, ["Tomorrow, 12pm Pacific", "on Zoom. Free."], "Source Sans 3", 46, 58, False, "333130")
+sl.notes_slide.notes_text_frame.text = ("Thu 5 Nov 2026 Instagram Story. Add the link sticker in Instagram under the details: "
+    "https://www.addevent.com/event/r4wt0g3yjd4h. Keep the top 250 px and bottom 250 px free of text (Instagram UI).")
+out = os.path.join(HERE, "..", "05-11-2026-costa-rica-info-session-story.pptx")
+prs.save(out); print("wrote", out)
+import glob
+for f in glob.glob(P("_*.jpg")): os.remove(f)
