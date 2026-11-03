@@ -1,0 +1,224 @@
+[
+ {
+  "k": "rect",
+  "name": "Background",
+  "x": 0,
+  "y": 0,
+  "w": 1080,
+  "h": 1350,
+  "fill": "#F7F3EB"
+ },
+ {
+  "k": "img",
+  "name": "Illustration",
+  "src": "slide-1-illustration.png",
+  "x": 0,
+  "y": 0,
+  "w": 1080,
+  "h": 1350
+ },
+ {
+  "k": "rect",
+  "name": "Green box",
+  "x": 0,
+  "y": 0,
+  "w": 656,
+  "h": 913,
+  "fill": "#156826"
+ },
+ {
+  "k": "text",
+  "name": "Headline",
+  "x": 72,
+  "y": 66,
+  "w": 544,
+  "h": 458,
+  "lines": [
+   [
+    "Foundation",
+    0
+   ],
+   [
+    "Courses +",
+    0
+   ],
+   [
+    "Compost",
+    0
+   ],
+   [
+    "Intensive",
+    0
+   ],
+   [
+    "Course",
+    0
+   ]
+  ],
+  "size": 86,
+  "lh": 90,
+  "font": "Montserrat",
+  "bold": true,
+  "color": "#F4F1EA"
+ },
+ {
+  "k": "text",
+  "name": "Details",
+  "x": 72,
+  "y": 564,
+  "w": 354,
+  "h": 250,
+  "lines": [
+   [
+    "Fall 2026 Bundle,",
+    0
+   ],
+   [
+    "until 30 November",
+    0
+   ],
+   [
+    "Link in bio",
+    58
+   ]
+  ],
+  "size": 52,
+  "lh": 64,
+  "font": "Montserrat",
+  "bold": false,
+  "color": "#F4F1EA"
+ },
+ {
+  "k": "img",
+  "name": "SFW logo",
+  "src": "sfw-logo-white.png",
+  "x": 442,
+  "y": 717,
+  "w": 150,
+  "h": 130
+ },
+ {
+  "k": "img",
+  "name": "Flower (continues on slide 2)",
+  "src": "flower-coneflower.png",
+  "x": 875,
+  "y": 870,
+  "w": 360,
+  "h": 547
+ },
+ {
+  "k": "rect",
+  "name": "Background",
+  "x": 0,
+  "y": 0,
+  "w": 1080,
+  "h": 1350,
+  "fill": "#F7F3EB"
+ },
+ {
+  "k": "img",
+  "name": "Illustration",
+  "src": "slide-2-illustration.png",
+  "x": 0,
+  "y": 0,
+  "w": 1080,
+  "h": 1350
+ },
+ {
+  "k": "rect",
+  "name": "Brown box",
+  "x": 182,
+  "y": 402,
+  "w": 898,
+  "h": 948,
+  "fill": "#4F3433"
+ },
+ {
+  "k": "text",
+  "name": "Headline",
+  "x": 244,
+  "y": 460,
+  "w": 770,
+  "h": 82,
+  "lines": [
+   [
+    "What\u2019s in the bundle",
+    0
+   ]
+  ],
+  "size": 68,
+  "lh": 76,
+  "font": "Montserrat",
+  "bold": true,
+  "color": "#F4F1EA"
+ },
+ {
+  "k": "text",
+  "name": "Details",
+  "x": 244,
+  "y": 572,
+  "w": 770,
+  "h": 684,
+  "lines": [
+   [
+    "4 Foundation Courses,",
+    0
+   ],
+   [
+    "start today",
+    0
+   ],
+   [
+    "Compost Intensive: 10 weeks,",
+    26
+   ],
+   [
+    "live with a mentor",
+    0
+   ],
+   [
+    "Pick your cohort:",
+    26
+   ],
+   [
+    "January, May or August 2027",
+    0
+   ],
+   [
+    "2 batches of compost to keep",
+    26
+   ],
+   [
+    "Dr. Elaine\u2019s webinar archive",
+    26
+   ],
+   [
+    "Link in bio",
+    58
+   ]
+  ],
+  "size": 52,
+  "lh": 58,
+  "font": "Montserrat",
+  "bold": false,
+  "color": "#F4F1EA"
+ },
+ {
+  "k": "img",
+  "name": "SFW logo",
+  "src": "sfw-logo-white.png",
+  "x": 864,
+  "y": 1162,
+  "w": 150,
+  "h": 130
+ },
+ {
+  "k": "img",
+  "name": "Flower (continues from slide 1)",
+  "src": "flower-coneflower.png",
+  "x": -205,
+  "y": 870,
+  "w": 360,
+  "h": 547
+ }
+]
