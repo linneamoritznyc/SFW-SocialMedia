@@ -46,7 +46,9 @@ def font(name):
     os.makedirs(CACHE, exist_ok=True)
     out = os.path.join(CACHE, name + ".ttf")
     if not os.path.exists(out):
-        if name.startswith("montserrat"):
+        if name == "garamond-400":
+            f = TTFont(os.path.join(FONT_DIR, "eb-garamond-latin-400-normal.woff2"))
+        elif name.startswith("montserrat"):
             f = TTFont(os.path.join(FONT_DIR, "montserrat-latin-variable.woff2"))
             f = instancer.instantiateVariableFont(f, {"wght": int(name.split("-")[1])})
         else:
