@@ -44,3 +44,18 @@ Generation stopped with `402 Insufficient credit` on the Replicate account. Befo
    exact: every part has one fill color, chosen per garment).
 3. Every feature thinner than 0.5 pt (2.08 px at 300 dpi) thickened to 0.5 pt; thicker lines are untouched.
 4. Traced back to vector (potrace) so the source SVGs contain no raster.
+
+## Design 1, POWERED BY PROTOZOA: Colpoda drawn in code
+
+Replicate still returned `402 Insufficient credit`, so the Colpoda was drawn in code
+(`tools/design1_powered_by_protozoa.py`), not generated. Anatomy drawn: kidney-shaped cell, oral vestibulum as a
+cross-hatched pocket on the concave side lined with oral cilia, 360 somatic cilia with a metachronal wave,
+17 kineties as dotted rows of basal bodies, stippled macronucleus with micronucleus, double-ruled contractile vacuole
+at the posterior end, 9 hatched food vacuoles (3 holding a bacterium being digested), engraver's hatching and
+cross-hatching on the shaded side. Four rod bacteria trail into the mouth. No flagella on the ciliate.
+Not yet checked against a Wikimedia Commons reference photo.
+
+Revisions after looking at the preview: cilia cut from 520 to 360 and lengthened (they read as fur); oral groove
+changed from a hard triangle to a rounded pocket; bacteria moved from a far corner to a trail into the mouth.
+Checks: finest line 2.9 px (0.5 pt = 2.08 px); ciliate 9.0 x 7.9 in; text block 9.0 in wide; logo space
+1.4 x 1.4 in kept clear under the slide label (coordinates in the SVG comment).
