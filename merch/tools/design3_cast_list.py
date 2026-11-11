@@ -6,16 +6,16 @@ Back (5 x 13 in column): film-credit cast list. Each line = 0.6 in organism icon
 The tail steps down in size (size steps, never a gradient) and the final ellipsis dots
 shrink one by one. Slide label at the bottom: "The soil food web · cast list".
 
-Usage: python3 design3_cast_list.py CANDIDATE_DIR
+Usage: python3 design3_cast_list.py
 Chosen candidates are listed in chosen.json. Organisms with no accepted art yet get a
 dashed empty slot, and the file is written as a proof to previews/ only, never to print-files/.
 """
 import json, os, sys
-import sfw
+import sfw, organisms
 from sfw import DPI, PT
 
 M = sfw.ROOT
-CAND = sys.argv[1]
+CAND = sys.argv[1] if len(sys.argv) > 1 else None
 CHOSEN = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "chosen.json")))
 
 # organism key, italic connector, NAME, size step
@@ -44,13 +44,10 @@ TRACK = 40
 
 
 def icon(key, size, color, x, cy):
-    """Returns (svg, thickened share or None if missing)."""
-    if key not in CHOSEN:
-        r = 0.12 * size
-        return (f'<rect x="{x + 6:.1f}" y="{cy - size / 2 + 6:.1f}" width="{size - 12:.1f}" height="{size - 12:.1f}" '
-                f'rx="{r:.1f}" fill="none" stroke="#c0392b" stroke-width="5" stroke-dasharray="18 12"/>'), None
-    p = sfw.part(os.path.join(CAND, f"{key}-c{CHOSEN[key]}.svg"), size, size, drop_blobs=key in DROP_BLOBS)
-    return sfw.g(p["d"], color, x + (size - p["w"]) / 2, cy - p["h"] / 2), p["thickened_share"]
+    """Code-drawn organism (organisms.icon) in a size x size slot. Returns (svg, None-if-missing flag)."""
+    import numpy as np
+    import zlib; rng = np.random.default_rng(zlib.crc32(key.encode()))
+    return organisms.icon(key, x + size / 2, cy, size, color, rng), 0.0
 
 
 def build_back(scheme):
@@ -105,7 +102,7 @@ def build_front(scheme):
     d, _, _ = sfw.text("bacteria", "source-sans-400-italic", fs, x=W / 2, y=top + asc, anchor="middle")
     body = [f'<path fill="{line}" d="{d}"/>']
     y = top + asc + 0.14 * DPI
-    p = sfw.part(os.path.join(CAND, f"bacteria-rods-c{CHOSEN['bacteria-rods']}.svg"), 1.7 * DPI, W - y - 0.42 * DPI)
+    p = sfw.part(os.path.join(M, "parts", "bacteria-rods.svg"), 1.7 * DPI, W - y - 0.42 * DPI)
     body.append(sfw.g(p["d"], accent, (W - p["w"]) / 2, y))
     y += p["h"] + 0.14 * DPI
     sz = 7 * PT

@@ -6,7 +6,7 @@
   every line thinner than 0.5 pt is thickened, and the result is traced back to one
   single-color vector path (so each part is exactly one allowed ink).
 """
-import io, os, re, functools
+import io, os, re, math, functools
 import numpy as np
 import cairosvg, uharfbuzz as hb, potrace
 from PIL import Image
@@ -235,3 +235,38 @@ def thin_line_check(im, min_px=MIN_LINE_PX):
     m = np.asarray(im)[..., 3] > 127
     opened = ndimage.binary_opening(m, structure=_disk((min_px - 0.5) / 2))
     return float((m & ~opened).sum() / max(m.sum(), 1))
+
+
+def text_arc(s, fontname, size, cx, cy, radius, center_deg, tracking=0, bottom=False):
+    """Outlined text along a circle. center_deg: 0 = top, clockwise. Top text sits outside its baseline
+    (reads clockwise); bottom text reads left to right with letters standing toward the center.
+    radius = baseline radius."""
+    tt, hbf = font(fontname)
+    upem = tt["head"].unitsPerEm
+    buf = hb.Buffer(); buf.add_str(s); buf.guess_segment_properties()
+    hb.shape(hbf, buf, {"kern": True})
+    gs = tt.getGlyphSet(); order = tt.getGlyphOrder()
+    sc = size / upem; track = tracking / 1000 * upem
+    glyphs, x = [], 0
+    infos = list(zip(buf.glyph_infos, buf.glyph_positions))
+    for i, (info, p) in enumerate(infos):
+        adv = p.x_advance + (track if i < len(infos) - 1 else 0)
+        glyphs.append((order[info.codepoint], x, p.x_advance))
+        x += adv
+    total = x * sc
+    span = math.degrees(total / radius)
+    out = []
+    for gname, gx, adv in glyphs:
+        mid = (gx + adv / 2) * sc
+        if not bottom:
+            ang = center_deg - span / 2 + math.degrees(mid / radius)
+            rot = ang
+        else:
+            ang = center_deg + span / 2 - math.degrees(mid / radius)
+            rot = ang - 180
+        a = math.radians(ang)
+        px, py = cx + radius * math.sin(a), cy - radius * math.cos(a)
+        sp = SVGPathPen(gs)
+        gs[gname].draw(TransformPen(sp, (sc, 0, 0, -sc, -adv / 2 * sc, 0)))
+        out.append(f'<path transform="translate({px:.2f},{py:.2f}) rotate({rot:.3f})" d="{sp.getCommands()}"/>')
+    return "".join(out), span

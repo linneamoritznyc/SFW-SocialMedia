@@ -59,3 +59,11 @@ Revisions after looking at the preview: cilia cut from 520 to 360 and lengthened
 changed from a hard triangle to a rounded pocket; bacteria moved from a far corner to a trail into the mouth.
 Checks: finest line 2.9 px (0.5 pt = 2.08 px); ciliate 9.0 x 7.9 in; text block 9.0 in wide; logo space
 1.4 x 1.4 in kept clear under the slide label (coordinates in the SVG comment).
+
+## All organisms now drawn in code (user's choice, Replicate out of credit)
+
+`tools/organisms.py` draws every organism as engraved vector line art: Colpoda, Bodo flagellate, Actinophrys
+heliozoan, lobose amoeba, Arcella, Rhabditid nematode (no stylet), earthworm with clitellum, oribatid mite,
+mite leg, septate hyphae, aseptate AM hyphae with spores, arbuscule, Streptomyces with spore spirals, root tip,
+rod bacteria, cocci colonies, stipple soil crumbs. Every line is at least 2.5 px at 300 dpi (0.5 pt = 2.08 px).
+Typography is the priority in every layout; organisms support the words.
