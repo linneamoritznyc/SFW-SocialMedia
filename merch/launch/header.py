@@ -29,9 +29,14 @@ def film(im, seed=0, fade=.10, grain=9):
     return out.filter(ImageFilter.GaussianBlur(.6))
 
 
-def background(seed):
+GROUND = ("Close-up wide photo of the ground: rich dark crumbly soil and wet mud, pieces of tree bark and wood chips, "
+          "dark finished compost with small twigs and decaying leaves, a little moss at the edges, damp after rain, "
+          "overcast soft light. Shot on vintage 35mm film, faded, slightly muted. No people, no hands, no tools, no text.")
+
+
+def background(seed, prompt=None):
     from launch_scenes import run
-    p = ("Wide landscape photo of a wet green meadow with tall grass in the foreground, dark fir-covered hills behind "
+    p = prompt or ("Wide landscape photo of a wet green meadow with tall grass in the foreground, dark fir-covered hills behind "
          "with low mist and low clouds, overcast grey sky, after rain. Shot on vintage 35mm film, faded, slightly muted. "
          "No people, no buildings, no text.")
     return run("black-forest-labs/flux-1.1-pro", {"prompt": p, "aspect_ratio": "custom", "width": 1440, "height": 640, "output_format": "png", "seed": seed, "safety_tolerance": 2})
@@ -65,6 +70,23 @@ def header(bg, product, word, name):
     return film(can.convert("RGB"), seed=len(name))
 
 
+def main_ground():
+    os.makedirs(OUT, exist_ok=True); bgs = []
+    for s_ in (11, 12, 13):
+        p = os.path.join(OUT, f"ground-{s_}.png")
+        if not os.path.exists(p): background(s_, GROUND).save(p)
+        bgs.append(Image.open(p).convert("RGB"))
+    src = os.path.join(HERE, "source")
+    looks = [(0, "logo-cap-oyster", "shop"), (1, "mycelium-tote", "shop"), (2, "logo-tee-green", "goods"), (0, "logo-mug", "shop")]
+    ims = []
+    for i, (b, prod, word) in enumerate(looks):
+        im = header(bgs[b], os.path.join(src, prod + ".jpg"), word, f"g{prod}{word}")
+        im.save(os.path.join(OUT, f"ground-header-{i + 1}-{prod}-{word}.jpg"), quality=93); ims.append(im)
+    s = Image.new("RGB", (2 * 1450 + 10, 2 * 650 + 10), "white")
+    for i, im in enumerate(ims): s.paste(im.resize((1440, 640)), (10 + (i % 2) * 1450, 10 + (i // 2) * 650))
+    s.save(os.path.join(OUT, "contact-ground.jpg"), quality=90)
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     bgs = []
@@ -89,4 +111,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main_ground() if "ground" in sys.argv else main()
